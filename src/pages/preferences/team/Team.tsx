@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ITeam, TeamService } from "../../../api/services/teamService";
-import "../../../pages/example/realgrid/style/realgrid-style.css";
+import "../../../assets/realgrid/style/realgrid-style.css";
 
 const columns = [
   {
