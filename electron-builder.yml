@@ -1,0 +1,43 @@
+appId: "kr.co.bonjin.electron"
+artifactName: "${productName}-${version}.${ext}"
+directories:
+  output: "dist"
+files:
+  - "!**/*"
+  - "build/**/*"
+  - "node_modules/**/*"
+  - "package.json"
+
+# Mac OS configuration
+# mac:
+# icon: "./public/assets/icons/icon.png"
+
+# Config for OSX dmg
+# dmg:
+#   title: "Electron"
+
+# Windows configuration
+win:
+  target: "nsis"
+  verifyUpdateCodeSignature: false
+  icon: "./src/assets/icons/icon.ico"
+
+# Config for the windows installer
+nsis:
+  # 원클릭 설치 여부
+  oneClick: false
+  # 모든 사용자용 설치 여부
+  perMachine: true
+  # 실치 경로 변경 여부
+  allowToChangeInstallationDirectory: true
+  # 바탕화면 바로가기 아이콘 생성
+  createDesktopShortcut: true
+  # 바탕화면 바로가기 아이콘 이름
+  shortcutName: "리테일금융시스템"
+  # 인스톨러 언어
+  language: 1042
+
+publish:
+  provider: "generic"
+  url: https://gitlab.com/api/v4/projects/55138560/jobs/artifacts/develop/raw/dist?job=build_to_development
+  channel: "latest"
