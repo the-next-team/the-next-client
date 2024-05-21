@@ -14,14 +14,13 @@ function useTabMenu() {
   const [activeTab, setActiveTab] =
     useRecoilState<activeTabType>(activeTabTypeState);
 
-  // href로 element 찾기
   const findElement = (link: string) => {
     let element = null;
-    menuItems.map((item) => {
+    menuItems.forEach((item) => {
       if (item.child) {
-        item.child.map((i) => {
+        item.child.forEach((i) => {
           if (i.multi_menu) {
-            i.multi_menu.map((m) => {
+            i.multi_menu.forEach((m) => {
               if (m.multiLink === link) {
                 element = m.multiElement;
               }
