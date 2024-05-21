@@ -1,4 +1,4 @@
-import { Get } from "..";
+import { Post } from "..";
 import { ApiResponse } from "../models/common/apiError";
 
 export interface IMessageModel {
@@ -16,6 +16,6 @@ export interface IMessageModel {
 
 export const MessageService = {
   getMessages: async (): Promise<ApiResponse<IMessageModel[]>> => {
-    return Get("/api/common/message/history/list");
+    return Post("/api/common/message/history/list");
   },
 };
