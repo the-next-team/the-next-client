@@ -37,7 +37,7 @@ function Layout() {
   return (
     <Fragment>
       <Header />
-      <div className="flex w-full h-full">
+      <div className="flex w-full h-[calc(100vh-32px)]">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
         <main className="w-full h-full">
           <div className="overflow-x-auto bg-white">
@@ -55,7 +55,8 @@ function Layout() {
                     {tab.href !== "home/dashboard" && (
                       <div
                         className="p-0.5 rounded-full"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           handleTabClose(tabMenu, setTabMenu, tab.href);
                         }}
                       >

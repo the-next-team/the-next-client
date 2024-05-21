@@ -9,7 +9,7 @@ type Props = {
 
 function Sidebar({ tabMenu, setTabMenu }: Props) {
   return (
-    <div className="w-[215px] h-full">
+    <div className="w-[215px] h-full bg-white overflow-y-auto">
       {/* 즐겨찾기 기능 추가 예정 */}
       <NavMenu menus={menuItems} tabMenu={tabMenu} setTabMenu={setTabMenu} />
     </div>

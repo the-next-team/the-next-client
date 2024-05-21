@@ -6,6 +6,9 @@
   html {
     font-family: "Pretendard";
   }
+  body {
+    background: #f0f4f9;
+  }
 }
 
 /* Font */
