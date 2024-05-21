@@ -1,9 +1,10 @@
 import Dashboard from "../pages/dashboard/Dashboard";
+import MenuManagement from "../pages/menumanagement/MenuManagement";
 import CommonCodePage from "../pages/preferences/code/common/CommonCodePage";
 import Team from "../pages/preferences/team/Team";
-import MenuManagement from "../pages/menumanagement/MenuManagement";
-import ScreenManagement from "../pages/screenmanagement/ScreenManagement";
 import User from "../pages/preferences/user/User";
+import ScreenManagement from "../pages/screenmanagement/ScreenManagement";
+import MessageListPage from "../pages/system/message/MessageListPage";
 
 export type MenuItemType = {
   isHeadr?: boolean;
@@ -906,9 +907,9 @@ export const menuItems: MenuItemType[] = [
         childtitle: "전문관리",
         multi_menu: [
           {
-            multiTitle: "",
-            multiLink: "",
-            multiElement: null,
+            multiTitle: "전문처리이력",
+            multiLink: "system/message",
+            multiElement: MessageListPage,
           },
         ],
       },
