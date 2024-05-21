@@ -38,8 +38,8 @@ function Layout() {
     <Fragment>
       <Header />
       <div className="flex w-full h-full">
-        <Sidebar />
-        <main className="bg-black-100 w-full h-full">
+        <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
+        <main className="w-full h-full">
           <div className="overflow-x-auto bg-white">
             <div className="flex border-r divide-x w-fit border-slate-200">
               {tabMenu.map((tab, index) => (

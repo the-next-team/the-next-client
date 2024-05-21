@@ -1,8 +1,19 @@
+import NavMenu from "../../components/sidebar/NavMenu";
+import { menuItems } from "../../constants/data";
+import { TabMenuListType } from "../../states/layout/layoutAtom";
 
-function Sidebar() {
+type Props = {
+  tabMenu: TabMenuListType;
+  setTabMenu: (tabMenu: TabMenuListType) => void;
+};
+
+function Sidebar({ tabMenu, setTabMenu }: Props) {
   return (
-    <div>Sidebar</div>
-  )
+    <div className="w-[215px] h-full">
+      {/* 즐겨찾기 기능 추가 예정 */}
+      <NavMenu menus={menuItems} tabMenu={tabMenu} setTabMenu={setTabMenu} />
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
