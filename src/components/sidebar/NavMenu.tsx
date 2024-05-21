@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
-import { MenuItemType } from "../../constants/data";
+import { menuItems } from "../../constants/data";
 import { Icon } from "@iconify/react";
 import SubMenu from "./SubMenu";
 import { TabMenuListType } from "../../states/layout/layoutAtom";
 import useTabMenu from "../../hooks/useTabMenu";
 
 type Props = {
-  menus: MenuItemType[];
   tabMenu: TabMenuListType;
   setTabMenu: (tabMenu: TabMenuListType) => void;
 };
 
-function NavMenu({ menus, tabMenu, setTabMenu }: Props) {
+function NavMenu({ tabMenu, setTabMenu }: Props) {
   const { activeTab, handleTabOpen } = useTabMenu();
-  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
+  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null); // 현재 선택된 Submenu
+  const [activeMultiMenu, setMultiMenu] = useState<number | null>(null); // 현재 선택된 MultiMenu
+
+  useEffect(() => {
+    // 현재 탭이 변경 될때마다 해당하는 메뉴 열림
+    findIndex(activeTab);
+  }, [activeTab]);
 
   const toggleSubmenu = (index: number) => {
     if (activeSubmenu === index) {
@@ -23,8 +28,6 @@ function NavMenu({ menus, tabMenu, setTabMenu }: Props) {
     }
   };
 
-  const [activeMultiMenu, setMultiMenu] = useState<number | null>(null);
-
   const toggleMultiMenu = (index: number) => {
     if (activeMultiMenu === index) {
       setMultiMenu(null);
@@ -33,59 +36,37 @@ function NavMenu({ menus, tabMenu, setTabMenu }: Props) {
     }
   };
 
-  const isLocationMatch = (targetLocation: string | undefined) => {
-    if (targetLocation) {
-      return (
-        activeTab === targetLocation ||
-        activeTab.startsWith(`${targetLocation}/`)
-      );
-    }
-
-    return false;
-  };
-
-  useEffect(() => {
+  const findIndex = (link: string) => {
     let submenuIndex = null;
     let multiMenuIndex = null;
-    menus.forEach((item, i) => {
-      if (isLocationMatch(item.link)) {
-        submenuIndex = i;
-      }
-
-      if (item.child) {
-        item.child.forEach((childItem, j) => {
-          if (isLocationMatch(childItem.childlink)) {
-            submenuIndex = i;
-          }
-
-          if (childItem.multi_menu) {
-            childItem.multi_menu.forEach((nestedItem) => {
-              if (isLocationMatch(nestedItem.multiLink)) {
-                submenuIndex = i;
-                multiMenuIndex = j;
-              }
-            });
-          }
-        });
-      }
-    });
-    document.title = `리테일금융시스템 | ${activeTab}`;
-
+    if (link) {
+      menuItems.forEach((item, i) => {
+        if (item.child) {
+          item.child.forEach((childItem, j) => {
+            if (childItem.multi_menu) {
+              childItem.multi_menu.forEach((nestedItem) => {
+                if (nestedItem.multiLink === link) {
+                  submenuIndex = i;
+                  multiMenuIndex = j;
+                }
+              });
+            } else if (childItem.childlink === link) {
+              submenuIndex = i;
+            }
+          });
+        } else if (item.link === link) {
+          submenuIndex = i;
+        }
+      });
+    }
     setActiveSubmenu(submenuIndex);
     setMultiMenu(multiMenuIndex);
-    // dispatch(toggleActiveChat(false));
-  }, [activeTab]);
+  };
 
   return (
     <ul>
-      {menus.map((item, i) => (
-        <li
-          key={i}
-          className={` 
-        ${item.child ? "item-has-children" : ""}
-        ${activeSubmenu === i ? "open" : ""}
-        ${activeTab === item.link ? "menu-item-active" : ""}`}
-        >
+      {menuItems.map((item, i) => (
+        <li key={i} className="">
           {/* single menu with no childred */}
           {!item.child && !item.isHeadr && (
             <div
@@ -115,31 +96,24 @@ function NavMenu({ menus, tabMenu, setTabMenu }: Props) {
               {item.title}
             </div>
           )}
-          {/*    !!sub menu parent   */}
+          {/* !!sub menu parent */}
           {item.child && (
             <div
-              className={`flex text-slate-600 font-medium text-sm capitalize px-[10px] py-1 rounded-[4px] cursor-pointer ${
-                activeSubmenu === i
-                  ? "bg-secondary-500 bg-opacity-20"
-                  : "collapsed"
+              className={`flex items-center justify-between px-4 py-2 ${
+                activeSubmenu === i ? "bg-[#f47213] bg-opacity-[0.07]" : ""
               }`}
               onClick={() => toggleSubmenu(i)}
             >
-              <div className="flex items-start flex-1">
-                <span className="menu-icon">
-                  <Icon icon={item.icon ?? ""} />
-                </span>
-                <div className="text-box">{item.title}</div>
+              <div className="flex items-center gap-2">
+                <Icon icon={item.icon ?? ""} width={16} height={16} />
+                <div className="text-sm font-medium">{item.title}</div>
               </div>
-              <div className="flex-0">
-                <div
-                  className={`menu-arrow transform transition-all duration-300 ${
-                    activeSubmenu === i ? " rotate-90" : ""
-                  }`}
-                >
-                  <Icon icon="heroicons-outline:chevron-right" />
-                </div>
-              </div>
+              <Icon
+                icon="heroicons-outline:chevron-right"
+                className={`duration-300 ${
+                  activeSubmenu === i ? "rotate-90" : ""
+                }`}
+              />
             </div>
           )}
           <SubMenu
