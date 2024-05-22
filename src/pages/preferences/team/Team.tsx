@@ -75,10 +75,11 @@ const bottomRows = bottomTableData.slice(0, 7);
 function Team() {
   const [teamList, setTeamList] = useState<ITeam[]>([]);
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  const dp = new LocalDataProvider(true);
+  var dp = new LocalDataProvider(true);
 
   useEffect(() => {
     const container = realgridElement.current;
+    dp = new LocalDataProvider(true);
     const gv = new GridView(container as any);
     gv.setEditOptions({
       editable: false,
