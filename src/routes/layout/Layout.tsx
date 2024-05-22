@@ -30,17 +30,16 @@ function Layout() {
   }, [tabMenu]);
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="w-full h-screen">
       <Header />
-      <main className="flex w-full grow">
+      <main className="flex w-full h-[calc(100vh-32px)] grow">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
-        <div className="flex ml-[248px] flex-col w-full h-full">
+        <div className="w-full h-full">
           <TabMenu tabMenu={tabMenu} setTabMenu={setTabMenu} />
-          <div className="flex flex-col grow">
+          <div className="max-h-[calc(100vh-64px)] overflow-y-auto">
             {tabMenu.map((tab) => (
               <div
                 key={tab.href}
-                className="h-full"
                 style={{
                   display: activeTab === tab.href ? "block" : "none",
                 }}
