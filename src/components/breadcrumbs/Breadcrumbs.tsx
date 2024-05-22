@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import useTabMenu from "../../hooks/useTabMenu";
 import { FavMenuType, favMenuTypeState } from "../../states/layout/layoutAtom";
@@ -19,36 +18,38 @@ function Breadcrumbs({ activeTab }: { activeTab: string }) {
   return (
     <>
       {title.length && !isHide ? (
-        <div className="flex space-x-3">
-          <ul className="flex items-center space-x-2 text-sm">
-            <li className="flex gap-1 text-primary-500">
-              <NavLink to="/home/dashboard" className="text-lg">
-                <Icon icon="heroicons-outline:home" />
-              </NavLink>
-              <span className="text-lg text-secondary-500">
-                <Icon icon="heroicons:chevron-right" />
-              </span>
-            </li>
+        <div className="flex px-4 py-1 m-2 bg-white rounded-[6px]">
+          <ul className="flex items-center space-x-1 text-sm">
             {title.map((item, i) => (
               <li
                 key={i}
                 className={`flex gap-1 ${
-                  title.length - 1 !== i ? "text-slate-400" : "text-primary-500"
+                  title.length - 1 !== i
+                    ? "text-custom-gray-200 font-medium"
+                    : "text-custom-black font-bold"
                 }
                 `}
               >
-                <button type="button" className="capitalize">
-                  {item}
-                </button>
+                <p className="text-xs">{item}</p>
                 {title.length - 1 !== i && (
-                  <span className="text-lg text-secondary-500">
-                    <Icon icon="heroicons:chevron-right" />
-                  </span>
+                  <Icon
+                    icon="heroicons:chevron-right"
+                    width={16}
+                    color="#8a8a8a"
+                  />
                 )}
               </li>
             ))}
-            <span
-              className="relative text-slate-400 cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center"
+            {/* 즐겨찾기 */}
+            <Icon
+              icon="heroicons:star-20-solid"
+              width={16}
+              className="cursor-pointer"
+              color={`${
+                favMenu.find((item) => item.href === activeTab)
+                  ? "#FFCE30"
+                  : "#e2e2e2"
+              }`}
               onClick={() => {
                 if (favMenu.every((f) => f.href !== activeTab)) {
                   // 즐겨찾기 추가
@@ -62,19 +63,7 @@ function Breadcrumbs({ activeTab }: { activeTab: string }) {
                   setFavMenu(newFavs);
                 }
               }}
-            >
-              {favMenu.find((item) => item.href === activeTab) ? (
-                <Icon
-                  icon="heroicons:star-20-solid"
-                  className="text-xl leading-[1] cursor-pointer text-[#FFCE30]"
-                />
-              ) : (
-                <Icon
-                  icon="heroicons:star"
-                  className="text-xl leading-[1] cursor-pointer opacity-40 dark:text-white"
-                />
-              )}
-            </span>
+            />
           </ul>
         </div>
       ) : null}

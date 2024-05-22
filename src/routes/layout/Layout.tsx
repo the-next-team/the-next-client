@@ -47,9 +47,7 @@ function Layout() {
               >
                 {tab.component ? (
                   <section>
-                    <div className="p-2 m-3 bg-white rounded">
-                      <Breadcrumbs activeTab={activeTab} />
-                    </div>
+                    <Breadcrumbs activeTab={activeTab} />
                     <tab.component />
                   </section>
                 ) : (
