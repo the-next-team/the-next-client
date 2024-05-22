@@ -1,10 +1,10 @@
+import { FiChevronDown } from "react-icons/fi";
 import Logo from "../../assets/images/logo/logo.png";
 import TextLogo from "../../assets/images/logo/textLogo.png";
-import { FiChevronDown } from "react-icons/fi";
 
 function Header() {
   return (
-    <div className="bg-[#111625] h-8 flex items-center px-[10px] justify-between">
+    <header className="bg-[#111625] h-8 flex items-center px-[10px] justify-between">
       <div className="flex items-center gap-[10px]">
         <img className="w-6 h-6 rounded" src={Logo} alt="" />
         <img className="w-[87px] h-[19px]" src={TextLogo} alt="" />
@@ -20,7 +20,7 @@ function Header() {
           <FiChevronDown size={16} />
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 

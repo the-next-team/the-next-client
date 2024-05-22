@@ -104,5 +104,17 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".drag": {
+          "-webkit-app-region": "drag",
+        },
+        ".no-drag": {
+          "-webkit-app-region": "no-drag",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };

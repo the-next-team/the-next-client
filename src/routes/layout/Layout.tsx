@@ -1,11 +1,11 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import TabMenu from "../../components/tabMenu/TabMenu";
 import useTabMenu from "../../hooks/useTabMenu";
 import Error404Page from "../../pages/error/Error404Page";
 import { TabMenuListType } from "../../states/layout/layoutAtom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import TabMenu from "../../components/tabMenu/tabMenu";
 
 function Layout() {
   const [tabMenu, setTabMenu] = useState<TabMenuListType>([]);
@@ -30,9 +30,9 @@ function Layout() {
   }, [tabMenu]);
 
   return (
-    <Fragment>
+    <div className="flex flex-col h-full">
       <Header />
-      <main className="flex w-full h-[calc(100vh-32px)]">
+      <main className="flex w-full grow">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
         <div className="flex flex-col w-full h-full">
           <TabMenu tabMenu={tabMenu} setTabMenu={setTabMenu} />
@@ -60,7 +60,7 @@ function Layout() {
           </div>
         </div>
       </main>
-    </Fragment>
+    </div>
   );
 }
 
