@@ -40,7 +40,7 @@ function Layout() {
       <Header />
       <main className="flex w-full h-[calc(100vh-32px)]">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
-        <div className="w-full h-full">
+        <div className="flex flex-col w-full h-full">
           <div className="overflow-x-auto bg-black-200">
             <div className="flex border-r divide-x w-fit">
               {tabMenu.map((tab, index) => (
@@ -67,10 +67,11 @@ function Layout() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col grow">
             {tabMenu.map((tab) => (
               <div
                 key={tab.href}
+                className="h-full"
                 style={{
                   display: activeTab === tab.href ? "block" : "none",
                 }}
