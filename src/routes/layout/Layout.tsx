@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { Fragment, useEffect, useState } from "react";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import useTabMenu from "../../hooks/useTabMenu";
+import Error404Page from "../../pages/error/Error404Page";
 import { TabMenuListType } from "../../states/layout/layoutAtom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -80,7 +81,7 @@ function Layout() {
                     display: activeTab === tab.href ? "block" : "none",
                   }}
                 >
-                  {tab.component ? <tab.component /> : <>none</>}
+                  {tab.component ? <tab.component /> : <Error404Page/>}
                 </div>
               ))}
             </section>
