@@ -1,6 +1,11 @@
 import { useEffect, useRef } from "react";
 import TitleBarButton from "./components/TitleBarButton";
 
+const isElectron = (): boolean => {
+  if (typeof navigator === 'undefined') return false;
+  return navigator.userAgent.toLowerCase().includes('electron');
+};
+
 function TitleBar() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,6 +35,10 @@ function TitleBar() {
       window.removeEventListener("resize", setVHVariable);
     };
   }, []); // 빈 의존성 배열을 전달하여 마운트 시에만 useEffect 내의 로직이 실행되도록 함
+
+  if(!isElectron()) {
+    return <></>
+  }
 
   return (
     <div
