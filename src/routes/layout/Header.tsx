@@ -1,13 +1,13 @@
 import { FiChevronDown } from "react-icons/fi";
-import Logo from "../../assets/images/logo/logo.png";
-import TextLogo from "../../assets/images/logo/textLogo.png";
+import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
+import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
 
 function Header() {
   return (
     <header className="bg-[#111625] h-8 flex items-center px-[10px] justify-between">
       <div className="flex items-center gap-[10px]">
-        <img className="w-6 h-6 rounded" src={Logo} alt="" />
-        <img className="w-[87px] h-[19px]" src={TextLogo} alt="" />
+        <img className="w-6 h-6" src={Logo1} alt="" />
+        <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
       </div>
       <div className="flex items-center gap-3">
         <input
