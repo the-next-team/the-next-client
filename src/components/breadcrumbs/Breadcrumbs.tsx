@@ -18,7 +18,7 @@ function Breadcrumbs({ activeTab }: { activeTab: string }) {
   return (
     <>
       {title.length && !isHide ? (
-        <div className="flex px-4 py-1 m-2 bg-white rounded-[6px]">
+        <div className="flex px-4 py-1 mb-2 bg-white rounded-[6px]">
           <ul className="flex items-center space-x-1 text-sm">
             {title.map((item, i) => (
               <li

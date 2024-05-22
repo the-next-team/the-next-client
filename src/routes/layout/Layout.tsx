@@ -46,9 +46,11 @@ function Layout() {
                 }}
               >
                 {tab.component ? (
-                  <section>
+                  <section className="p-3">
                     <Breadcrumbs activeTab={activeTab} />
-                    <tab.component />
+                    <div className="bg-white rounded-[10px] p-3">
+                      <tab.component />
+                    </div>
                   </section>
                 ) : (
                   <Error404Page />
