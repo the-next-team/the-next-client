@@ -45,13 +45,13 @@ function Layout() {
               {tabMenu.map((tab, index) => (
                 <button key={index} onClick={() => setActiveTab(tab.href)}>
                   <div
-                    className={`flex items-center h-full gap-2 px-4 ${
+                    className={`flex items-center h-full gap-2 px-4 py-1 ${
                       tab.href === activeTab
                         ? "bg-slate-100 border-b-0"
                         : "bg-transparent hover:bg-slate-100border-b border-slate-200"
                     }`}
                   >
-                    <p className="whitespace-nowrap">{tab.name}</p>
+                    <p className="text-xs whitespace-nowrap">{tab.name}</p>
                     {tab.href !== "home/dashboard" && (
                       <div
                         className="p-0.5 rounded-full"
