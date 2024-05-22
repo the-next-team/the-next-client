@@ -1,9 +1,9 @@
+import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { menuItems } from "../../constants/data";
-import { Icon } from "@iconify/react";
-import SubMenu from "./SubMenu";
-import { TabMenuListType } from "../../states/layout/layoutAtom";
 import useTabMenu from "../../hooks/useTabMenu";
+import { TabMenuListType } from "../../states/layout/layoutAtom";
+import SubMenu from "./SubMenu";
 
 type Props = {
   tabMenu: TabMenuListType;
@@ -70,7 +70,7 @@ function NavMenu({ tabMenu, setTabMenu }: Props) {
           {/* single menu with no childred */}
           {!item.child && !item.isHeadr && (
             <div
-              className="menu-link"
+              className="cursor-pointer menu-link bg-black-500"
               onClick={() => {
                 handleTabOpen(tabMenu, setTabMenu, {
                   name: item.title ?? "",
@@ -92,14 +92,14 @@ function NavMenu({ tabMenu, setTabMenu }: Props) {
           )}
           {/* only for menulabel */}
           {item.isHeadr && !item.child && (
-            <div className="mt-4 mb-4 text-xs font-semibold uppercase text-slate-800">
+            <div className="mt-4 mb-4 text-xs font-semibold uppercase text-slate-800 ">
               {item.title}
             </div>
           )}
           {/* !!sub menu parent */}
           {item.child && (
             <div
-              className={`flex items-center justify-between px-4 py-2 ${
+              className={`cursor-pointer flex items-center justify-between px-4 py-2 ${
                 activeSubmenu === i ? "bg-[#f47213] bg-opacity-[0.07]" : ""
               }`}
               onClick={() => toggleSubmenu(i)}
