@@ -34,7 +34,7 @@ function Layout() {
       <Header />
       <main className="flex w-full grow">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
-        <div className="flex flex-col w-full h-full">
+        <div className="flex ml-[248px] flex-col w-full h-full">
           <TabMenu tabMenu={tabMenu} setTabMenu={setTabMenu} />
           <div className="flex flex-col grow">
             {tabMenu.map((tab) => (

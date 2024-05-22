@@ -15,7 +15,7 @@ export interface IMessageModel {
 }
 
 export const MessageService = {
-  getMessages: async (): Promise<ApiResponse<IMessageModel[]>> => {
-    return Post("/api/common/message/history/list");
+  getMessages: async (data: any): Promise<ApiResponse<IMessageModel[]>> => {
+    return Post("/api/common/message/history/list", data);
   },
 };
