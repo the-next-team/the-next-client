@@ -47,9 +47,7 @@ function Layout() {
                 <button key={index} onClick={() => setActiveTab(tab.href)}>
                   <div
                     className={`flex items-center h-full gap-2 px-4 py-1  ${
-                      tab.href === activeTab
-                        ? "bg-white"
-                        : "bg-black-200"
+                      tab.href === activeTab ? "bg-white" : "bg-black-200"
                     }`}
                   >
                     <p className="text-xs whitespace-nowrap">{tab.name}</p>
@@ -70,21 +68,25 @@ function Layout() {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="p-2 m-3 bg-white rounded">
-              <Breadcrumbs activeTab={activeTab} />
-            </div>
-            <section className="p-2 m-3 mt-0 bg-white rounded grow">
-              {tabMenu.map((tab) => (
-                <div
-                  key={tab.href}
-                  style={{
-                    display: activeTab === tab.href ? "block" : "none",
-                  }}
-                >
-                  {tab.component ? <tab.component /> : <Error404Page/>}
-                </div>
-              ))}
-            </section>
+            {tabMenu.map((tab) => (
+              <div
+                key={tab.href}
+                style={{
+                  display: activeTab === tab.href ? "block" : "none",
+                }}
+              >
+                {tab.component ? (
+                  <section>
+                    <div className="p-2 m-3 bg-white rounded">
+                      <Breadcrumbs activeTab={activeTab} />
+                    </div>
+                    <tab.component />
+                  </section>
+                ) : (
+                  <Error404Page />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </main>
