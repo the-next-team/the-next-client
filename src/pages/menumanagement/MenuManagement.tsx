@@ -47,7 +47,7 @@ function MenuManagement() {
   return (
     <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
       {/* <Card title="시스템 메뉴" noborder> */}
-      <div className="-mx-6 overflow-x-auto">
+      <div className="overflow-x-auto">
         <div className="min-w-full align-middle">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-slate-100 dark:divide-slate-700">
@@ -83,7 +83,7 @@ function MenuManagement() {
       </div>
       {/* </Card>
       <Card title="서브메뉴" noborder> */}
-      <div className="-mx-6">
+      <div className="">
         <div className="min-w-full align-middle">
           <div className="overflow-hidden">
             <table className="min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700">

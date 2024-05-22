@@ -260,7 +260,7 @@ function Team() {
       {/* RealGrid */}
 
       {/* <Card> */}
-      <div className="-mx-6 overflow-x-auto">
+      <div className="verflow-x-auto ">
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-hidden ">
             <div
@@ -274,7 +274,7 @@ function Team() {
 
       {/* 하단 table */}
       {/* <Card className="mt-4 bg-white"> */}
-      <div className="-mx-6 overflow-x-auto ">
+      <div className="overflow-x-auto ">
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-hidden ">
             <table className="min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700">

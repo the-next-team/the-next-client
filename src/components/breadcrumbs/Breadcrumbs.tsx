@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import useTabMenu from "../../hooks/useTabMenu";
@@ -19,9 +19,9 @@ function Breadcrumbs({ activeTab }: { activeTab: string }) {
   return (
     <>
       {title.length && !isHide ? (
-        <div className="flex mb-2 space-x-3">
+        <div className="flex space-x-3">
           <ul className="flex items-center space-x-2 text-sm">
-            <li className="text-primary-500 flex gap-1">
+            <li className="flex gap-1 text-primary-500">
               <NavLink to="/home/dashboard" className="text-lg">
                 <Icon icon="heroicons-outline:home" />
               </NavLink>

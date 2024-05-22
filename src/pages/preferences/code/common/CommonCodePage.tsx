@@ -105,7 +105,7 @@ function CommonCodePage() {
   return (
     <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
       {/* <Card title="대분류 코드" noborder> */}
-      <div className="-mx-6">
+      <div className="">
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-slate-100 dark:divide-slate-700">
@@ -149,7 +149,7 @@ function CommonCodePage() {
       </div>
       {/* </Card>
       <Card title="소분류 코드" noborder> */}
-      <div className="-mx-6">
+      <div className="">
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-hidden ">
             <table className="min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700">

@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
+import { Fragment, useEffect, useState } from "react";
+import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import useTabMenu from "../../hooks/useTabMenu";
+import { TabMenuListType } from "../../states/layout/layoutAtom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import { TabMenuListType } from "../../states/layout/layoutAtom";
-import useTabMenu from "../../hooks/useTabMenu";
-import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 
 function Layout() {
   const [tabMenu, setTabMenu] = useState<TabMenuListType>([]);
@@ -37,9 +37,9 @@ function Layout() {
   return (
     <Fragment>
       <Header />
-      <div className="flex w-full h-[calc(100vh-32px)]">
+      <main className="flex w-full h-[calc(100vh-32px)]">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
-        <main className="w-full h-full">
+        <div className="w-full h-full">
           <div className="overflow-x-auto bg-white">
             <div className="flex border-r divide-x w-fit border-slate-200">
               {tabMenu.map((tab, index) => (
@@ -68,21 +68,25 @@ function Layout() {
               ))}
             </div>
           </div>
-          <div className="p-6">
-            <Breadcrumbs activeTab={activeTab} />
-            {tabMenu.map((tab) => (
-              <div
-                key={tab.href}
-                style={{
-                  display: activeTab === tab.href ? "block" : "none",
-                }}
-              >
-                {tab.component ? <tab.component /> : <>none</>}
-              </div>
-            ))}
+          <div className="flex flex-col">
+            <div className="p-2 m-3 bg-white rounded">
+              <Breadcrumbs activeTab={activeTab} />
+            </div>
+            <section className="p-2 m-3 mt-0 bg-white rounded grow">
+              {tabMenu.map((tab) => (
+                <div
+                  key={tab.href}
+                  style={{
+                    display: activeTab === tab.href ? "block" : "none",
+                  }}
+                >
+                  {tab.component ? <tab.component /> : <>none</>}
+                </div>
+              ))}
+            </section>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </Fragment>
   );
 }

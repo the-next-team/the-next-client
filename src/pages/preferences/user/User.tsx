@@ -21,7 +21,7 @@ function User() {
   return (
     <div>
       {/* <Card> */}
-      <div className="-mx-6 overflow-x-auto">
+      <div className="overflow-x-auto">
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-hidden ">
             <table className="min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700">
@@ -46,7 +46,7 @@ function User() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700 text-center">
+              <tbody className="text-center bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                 {userList.map((user, i) => (
                   <tr
                     key={i}
