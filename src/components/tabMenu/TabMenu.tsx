@@ -12,25 +12,38 @@ const TabMenu = ({
   const { activeTab, setActiveTab, handleTabClose } = useTabMenu();
 
   return (
-    <div className="overflow-x-auto bg-black-200">
-      <div className="flex border-r divide-x w-fit">
+    <div className="overflow-x-auto bg-custom-gray-100">
+      <div className="flex w-fit">
         {tabMenu.map((tab, index) => (
-          <button className="h-8 cursor-pointer" key={index} onClick={() => setActiveTab(tab.href)}>
+          <button
+            className="h-8 cursor-pointer"
+            key={index}
+            onClick={() => setActiveTab(tab.href)}
+          >
             <div
               className={`flex items-center h-full gap-2 px-4 ${
-                tab.href === activeTab ? "bg-white" : "bg-black-200"
+                tab.href === activeTab
+                  ? "bg-primary rounded-tr-[10px] divide-none"
+                  : "border-r border-primary"
               }`}
             >
-              <p className="text-xs whitespace-nowrap">{tab.name}</p>
+              <p className="text-xs whitespace-nowrap text-custom-black">
+                {tab.name}
+              </p>
+              {/* 메뉴 닫기 (단, 대시보드는 고정)*/}
               {tab.href !== "home/dashboard" && (
                 <div
-                  className="rounded-full cursor-pointer"
+                  className="rounded-full p-0.5"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleTabClose(tabMenu, setTabMenu, tab.href);
                   }}
                 >
-                  <Icon icon="heroicons:x-mark-16-solid" width="20px" />
+                  <Icon
+                    icon="heroicons:x-mark-16-solid"
+                    width="16"
+                    color="#111625"
+                  />
                 </div>
               )}
             </div>
