@@ -24,9 +24,8 @@ function Toolbar({ selected, setSelected }: Props) {
   return (
     <div className="flex flex-col items-center h-full gap-2 px-2 py-3 w-11">
       {ToolMenus.map((menu, i) => (
-        <>
+        <div key={i}>
           <div
-            key={i}
             className={`cursor-pointer rounded-[6px] p-[6px] ${
               selected == i
                 ? "bg-gradient-to-br from-[#f47112] via-[#f35916] to-[#e22f55] text-white shadow-md"
@@ -37,7 +36,7 @@ function Toolbar({ selected, setSelected }: Props) {
             <Icon icon={menu.icon} width="16" />
           </div>
           {i === 2 && <div className="w-full bg-primary h-[1px]" />}
-        </>
+        </div>
       ))}
     </div>
   );
