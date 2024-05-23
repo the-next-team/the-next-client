@@ -1,4 +1,3 @@
-import { FiChevronDown } from "react-icons/fi";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
 import { Icon } from "@iconify/react";
@@ -26,11 +25,25 @@ function Header() {
             className="w-full text-xs text-white bg-transparent outline-none"
           />
         </div>
+        {/* 알림 */}
+        <div className="cursor-pointer rounded-[6px] p-1 bg-custom-gray-100 bg-opacity-20 relative">
+          <Icon icon="heroicons:bell" width="16" color="white" />
+          <p className="absolute -right-1 -top-1 text-[11px] font-medium text-white">
+            12
+          </p>
+        </div>
+        {/* 설정 */}
+        <div className="cursor-pointer rounded-[6px] p-1 bg-custom-gray-100 bg-opacity-20">
+          <Icon icon="heroicons:cog-6-tooth" width="16" color="white" />
+        </div>
         {/* 프로필 */}
-        <div className="flex items-center gap-1 text-white">
-          <p className="font-bold">홍길동</p>
-          <p className="text-sm">님</p>
-          <FiChevronDown size={16} />
+        <div
+          className="flex items-center gap-1 text-white cursor-pointer"
+          onClick={() => {}}
+        >
+          <p className="font-semibold">홍길동</p>
+          <p className="text-sm font-light">님</p>
+          <Icon icon="heroicons:chevron-down" width="16" color="white" />
         </div>
       </div>
     </header>
