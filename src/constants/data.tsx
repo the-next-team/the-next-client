@@ -702,13 +702,8 @@ export const menuItems: MenuItemType[] = [
     child: [
       {
         childtitle: "홈",
-        multi_menu: [
-          {
-            multiTitle: "",
-            multiLink: "",
-            multiElement: null,
-          },
-        ],
+        childlink: "",
+        childElement: null,
       },
       {
         childtitle: "고객관리",
@@ -895,13 +890,8 @@ export const menuItems: MenuItemType[] = [
       },
       {
         childtitle: "이력조회",
-        multi_menu: [
-          {
-            multiTitle: "",
-            multiLink: "",
-            multiElement: null,
-          },
-        ],
+        childlink: "",
+        childElement: null,
       },
       {
         childtitle: "전문관리",
@@ -915,33 +905,18 @@ export const menuItems: MenuItemType[] = [
       },
       {
         childtitle: "배치관리",
-        multi_menu: [
-          {
-            multiTitle: "",
-            multiLink: "",
-            multiElement: null,
-          },
-        ],
+        childlink: "",
+        childElement: null,
       },
       {
         childtitle: "개인정보파기관리",
-        multi_menu: [
-          {
-            multiTitle: "",
-            multiLink: "",
-            multiElement: null,
-          },
-        ],
+        childlink: "",
+        childElement: null,
       },
       {
         childtitle: "공공마이데이터",
-        multi_menu: [
-          {
-            multiTitle: "",
-            multiLink: "",
-            multiElement: null,
-          },
-        ],
+        childlink: "",
+        childElement: null,
       },
     ],
   },

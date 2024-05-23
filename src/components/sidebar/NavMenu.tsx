@@ -22,19 +22,16 @@ function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
     findIndex(activeTab);
   }, [activeTab]);
 
+  useEffect(() => {
+    // 서브메뉴가 변경될 때마다 멀티메뉴 초기화
+    setMultiMenu(null);
+  }, [activeSubmenu]);
+
   const toggleSubmenu = (index: number) => {
     if (activeSubmenu === index) {
       setActiveSubmenu(null);
     } else {
       setActiveSubmenu(index);
-    }
-  };
-
-  const toggleMultiMenu = (index: number) => {
-    if (activeMultiMenu === index) {
-      setMultiMenu(null);
-    } else {
-      setMultiMenu(index);
     }
   };
 
@@ -76,7 +73,13 @@ function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
       <ul>
         {menuItems.map((item, i) => (
           <li key={i} className="">
-            {/* single menu with no childred */}
+            {/* 라벨일 경우 */}
+            {item.isHeadr && !item.child && (
+              <div className="mt-4 mb-4 text-xs font-semibold uppercase text-slate-800 ">
+                {item.title}
+              </div>
+            )}
+            {/* 하위메뉴가 없는 싱글메뉴일 경우 */}
             {!item.child && !item.isHeadr && (
               <div
                 className="cursor-pointer menu-link bg-black-500"
@@ -99,41 +102,42 @@ function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
                 )}
               </div>
             )}
-            {/* only for menulabel */}
-            {item.isHeadr && !item.child && (
-              <div className="mt-4 mb-4 text-xs font-semibold uppercase text-slate-800 ">
-                {item.title}
-              </div>
-            )}
-            {/* !!sub menu parent */}
+            {/* 하위메뉴가 존재할 경우 */}
             {item.child && (
-              <div
-                className={`cursor-pointer flex items-center justify-between px-4 py-2 ${
-                  activeSubmenu === i ? "bg-[#f47213] bg-opacity-[0.07]" : ""
-                }`}
-                onClick={() => toggleSubmenu(i)}
-              >
-                <div className="flex items-center gap-2">
-                  <Icon icon={item.icon ?? ""} width={16} height={16} />
-                  <div className="text-sm font-medium">{item.title}</div>
-                </div>
-                <Icon
-                  icon="heroicons-outline:chevron-right"
-                  className={`duration-300 ${
-                    activeSubmenu === i ? "rotate-90" : ""
+              <div>
+                <div
+                  className={`cursor-pointer flex items-center justify-between px-4 py-2 ${
+                    activeSubmenu === i ? "bg-[#f47213] bg-opacity-[0.07]" : ""
                   }`}
+                  onClick={() => toggleSubmenu(i)}
+                >
+                  <div className="flex items-center gap-2">
+                    <Icon icon={item.icon ?? ""} width={16} color="#111625" />
+                    <div className="text-sm font-medium">{item.title}</div>
+                  </div>
+                  <div
+                    className={`duration-300 ${
+                      activeSubmenu === i ? "rotate-90" : ""
+                    }`}
+                  >
+                    <Icon
+                      icon="heroicons-outline:chevron-right"
+                      width={16}
+                      color="#111625"
+                    />
+                  </div>
+                </div>
+                <SubMenu
+                  index={i}
+                  item={item}
+                  setMultiMenu={setMultiMenu}
+                  activeSubmenu={activeSubmenu}
+                  activeMultiMenu={activeMultiMenu}
+                  tabMenu={tabMenu}
+                  setTabMenu={setTabMenu}
                 />
               </div>
             )}
-            <SubMenu
-              activeSubmenu={activeSubmenu}
-              item={item}
-              index={i}
-              toggleMultiMenu={toggleMultiMenu}
-              activeMultiMenu={activeMultiMenu}
-              tabMenu={tabMenu}
-              setTabMenu={setTabMenu}
-            />
           </li>
         ))}
       </ul>

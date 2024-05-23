@@ -2,13 +2,12 @@ import { MenuItemType } from "../../constants/data";
 import useTabMenu from "../../hooks/useTabMenu";
 import { TabMenuListType } from "../../states/layout/layoutAtom";
 import Multilevel from "./Multilevel";
-import { Icon } from "@iconify/react";
 
 type Props = {
   activeSubmenu: number | null;
   item: MenuItemType;
   index: number;
-  toggleMultiMenu: (index: number) => void;
+  setMultiMenu: (index: number | null) => void;
   activeMultiMenu: number | null;
   tabMenu: TabMenuListType;
   setTabMenu: (tabMenu: TabMenuListType) => void;
@@ -18,45 +17,44 @@ function SubMenu({
   activeSubmenu,
   item,
   index,
-  toggleMultiMenu,
+  setMultiMenu,
   activeMultiMenu,
   tabMenu,
   setTabMenu,
 }: Props) {
   const { activeTab, handleTabOpen } = useTabMenu();
 
+  const toggleMultiMenu = (index: number) => {
+    if (activeMultiMenu === index) {
+      setMultiMenu(null);
+    } else {
+      setMultiMenu(index);
+    }
+  };
+
   return (
     <div className={`${activeSubmenu === index ? "block" : "hidden"}`}>
-      <ul className="space-y-2">
+      <ul className="flex flex-col gap-3 py-2">
         {item.child?.map((subItem, j) => (
-          <li key={j} className="block pl-4 pr-1 first:pt-2 last:pb-2">
+          <li key={j}>
             {subItem?.multi_menu ? (
               <div>
                 <div
+                  className="relative px-4 cursor-pointer"
                   onClick={() => toggleMultiMenu(j)}
-                  className={`${
-                    activeMultiMenu
-                      ? "text-black font-medium"
-                      : "text-slate-600"
-                  } text-sm flex space-x-3 items-center transition-all duration-150 cursor-pointer`}
                 >
-                  <span
-                    className={`${
-                      activeMultiMenu === j
-                        ? "bg-slate-900 ring-4 ring-opacity-[15%] ring-black-500"
-                        : ""
-                    } h-2 w-2 rounded-full border border-slate-600 inline-block flex-none`}
-                  ></span>
-                  <span className="flex-1">{subItem.childtitle}</span>
-                  <span className="flex-none">
-                    <span
-                      className={`menu-arrow transform transition-all duration-300 ${
-                        activeMultiMenu === j ? "rotate-90" : ""
-                      }`}
+                  <div className="relative w-fit">
+                    <p
+                      className={`${
+                        activeMultiMenu === j ? "font-medium" : "font-normal"
+                      } text-sm text-custom-black`}
                     >
-                      <Icon icon="ph:caret-right" />
-                    </span>
-                  </span>
+                      {`- ${subItem.childtitle}`}
+                    </p>
+                    {activeMultiMenu === j && (
+                      <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-secondary" />
+                    )}
+                  </div>
                 </div>
                 <Multilevel
                   activeMultiMenu={activeMultiMenu}
@@ -68,6 +66,7 @@ function SubMenu({
               </div>
             ) : (
               <div
+                className="px-4 cursor-pointer"
                 onClick={() => {
                   handleTabOpen(tabMenu, setTabMenu, {
                     name: subItem.childtitle ?? "",
@@ -76,22 +75,18 @@ function SubMenu({
                   });
                 }}
               >
-                <span
-                  className={`${
-                    subItem.childlink === activeTab
-                      ? "text-black font-medium"
-                      : "text-slate-600"
-                  } text-sm flex space-x-3 items-center transition-all duration-150 cursor-pointer`}
-                >
-                  <span
+                <div className="relative w-fit">
+                  <p
                     className={`${
-                      subItem.childlink === activeTab
-                        ? "bg-slate-900 ring-4 ring-opacity-[15%] ring-black-500"
-                        : ""
-                    } h-2 w-2 rounded-full border border-slate-600 inline-block flex-none`}
-                  ></span>
-                  <span className="flex-1">{subItem.childtitle}</span>
-                </span>
+                      subItem.childlink && subItem.childlink === activeTab
+                        ? "font-medium"
+                        : "font-normal"
+                    } text-sm text-custom-black`}
+                  >{`- ${subItem.childtitle}`}</p>
+                  {subItem.childlink && subItem.childlink === activeTab && (
+                    <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-secondary" />
+                  )}
+                </div>
               </div>
             )}
           </li>
