@@ -8,9 +8,11 @@ import SubMenu from "./SubMenu";
 type Props = {
   tabMenu: TabMenuListType;
   setTabMenu: (tabMenu: TabMenuListType) => void;
+  selected: number;
+  setSelected: (index: number) => void;
 };
 
-function NavMenu({ tabMenu, setTabMenu }: Props) {
+function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
   const { activeTab, handleTabOpen } = useTabMenu();
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null); // 현재 선택된 Submenu
   const [activeMultiMenu, setMultiMenu] = useState<number | null>(null); // 현재 선택된 MultiMenu
@@ -64,7 +66,13 @@ function NavMenu({ tabMenu, setTabMenu }: Props) {
   };
 
   return (
-    <div className="w-full h-full overflow-y-auto shadow-md">
+    <div
+      className={`duration-100 ${
+        selected === 3
+          ? "w-[215px] h-full overflow-y-auto shadow-md opacity-100"
+          : "w-0 opacity-0 pointer-events-none"
+      }`}
+    >
       <ul>
         {menuItems.map((item, i) => (
           <li key={i} className="">
