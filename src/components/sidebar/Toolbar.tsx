@@ -29,7 +29,7 @@ function Toolbar({ selected, setSelected }: Props) {
             key={i}
             className={`cursor-pointer rounded-[6px] p-[6px] ${
               selected == i
-                ? "bg-gradient-to-r from-[#f47112] via-[#f35916] to-[#e22f55] text-white"
+                ? "bg-gradient-to-br from-[#f47112] via-[#f35916] to-[#e22f55] text-white shadow-md"
                 : "border border-primary text-custom-black"
             }`}
             onClick={() => setSelected(i)}
