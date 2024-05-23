@@ -198,7 +198,7 @@ function MessageListTable({ items }: Props) {
         name: "caller",
         fieldName: "caller",
         type: "data",
-        width: "50",
+        width: "200",
         styles: {
           textAlignment: "center",
         },
