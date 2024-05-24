@@ -10,7 +10,35 @@
     font-family: "Pretendard";
   }
   body {
-    background: #f0f4f9;
+    @apply bg-primary
+  }
+}
+
+@layer components {
+  ::selection {
+    @apply text-white bg-primary;
+  }
+
+  /* ScrollBar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-primary/30;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-primary;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
   }
 }
 
