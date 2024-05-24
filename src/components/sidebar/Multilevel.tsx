@@ -36,7 +36,7 @@ const Multilevel = ({
             <p
               className={`${
                 item.multiLink && item.multiLink === activeTab
-                  ? "text-secondary"
+                  ? "text-primary"
                   : "text-custom-gray-200"
               } text-sm text-custom-black`}
             >

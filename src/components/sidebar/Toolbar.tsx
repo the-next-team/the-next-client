@@ -29,13 +29,15 @@ function Toolbar({ selected, setSelected }: Props) {
             className={`cursor-pointer rounded-[6px] p-[6px] ${
               selected == i
                 ? "bg-gradient-to-br from-[#f47112] via-[#f35916] to-[#e22f55] text-white shadow-md"
-                : "border border-primary text-custom-black"
+                : "border border-custom-blue-100 text-custom-black"
             }`}
             onClick={() => setSelected(i)}
           >
             <Icon icon={menu.icon} width="16" />
           </div>
-          {i === 2 && <div className="w-full bg-primary h-[1px]" />}
+          {i === 2 && (
+            <div className="w-full bg-primacustom-blue-100ry h-[1px]" />
+          )}
         </div>
       ))}
     </div>

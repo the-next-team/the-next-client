@@ -52,7 +52,7 @@ function SubMenu({
                       {`- ${subItem.childtitle}`}
                     </p>
                     {activeMultiMenu === j && (
-                      <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-secondary" />
+                      <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-primary" />
                     )}
                   </div>
                 </div>
@@ -84,7 +84,7 @@ function SubMenu({
                     } text-sm text-custom-black`}
                   >{`- ${subItem.childtitle}`}</p>
                   {subItem.childlink && subItem.childlink === activeTab && (
-                    <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-secondary" />
+                    <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-primary" />
                   )}
                 </div>
               </div>

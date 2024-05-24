@@ -23,8 +23,8 @@ const TabMenu = ({
             <div
               className={`flex items-center h-full gap-2 px-4 ${
                 tab.href === activeTab
-                  ? "bg-primary rounded-tr-[10px] divide-none"
-                  : "border-r border-primary"
+                  ? "bg-custom-blue-100 rounded-tr-[10px] divide-none"
+                  : "border-r border-custom-blue-100"
               }`}
             >
               <p className="text-xs whitespace-nowrap text-custom-black">

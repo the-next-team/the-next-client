@@ -114,16 +114,16 @@ function MenuManagement() {
       </div>
       {/* </Card> */}
       <div className="flex justify-end">
-        <button className="px-2 mr-2 text-white bg-primary-400">초기화</button>
-        <button className="px-2 mr-2 text-white bg-primary-400">등록</button>
-        <button className="px-2 mr-2 text-white bg-primary-400">수정</button>
-        <button className="px-2 text-white bg-primary-400">삭제</button>
+        <button className="px-2 mr-2 bg-custom-blue-100">초기화</button>
+        <button className="px-2 mr-2 bg-custom-blue-100">등록</button>
+        <button className="px-2 mr-2 bg-custom-blue-100">수정</button>
+        <button className="px-2 bg-custom-blue-100">삭제</button>
       </div>
       <div className="flex justify-end">
-        <button className="px-2 mr-2 text-white bg-primary-400">초기화</button>
-        <button className="px-2 mr-2 text-white bg-primary-400">등록</button>
-        <button className="px-2 mr-2 text-white bg-primary-400">수정</button>
-        <button className="px-2 text-white bg-primary-400">삭제</button>
+        <button className="px-2 mr-2 bg-custom-blue-100">초기화</button>
+        <button className="px-2 mr-2 bg-custom-blue-100">등록</button>
+        <button className="px-2 mr-2 bg-custom-blue-100">수정</button>
+        <button className="px-2 bg-custom-blue-100">삭제</button>
       </div>
     </div>
   );
