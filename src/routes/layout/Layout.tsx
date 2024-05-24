@@ -39,7 +39,7 @@ function Layout() {
         <div className="flex flex-col flex-grow overflow-hidden bg-gray-100">
           <TabMenu tabMenu={tabMenu} setTabMenu={setTabMenu} />
           <div className="flex flex-col flex-grow overflow-y-auto bg-gray-100">
-          {tabMenu.map((tab) => (
+            {tabMenu.map((tab) => (
               <div
                 key={tab.href}
                 className="flex flex-col h-full"
@@ -50,7 +50,7 @@ function Layout() {
                 {tab.component ? (
                   <section className="flex flex-col h-full p-3 grow">
                     <Breadcrumbs activeTab={activeTab} />
-                    <div className="bg-white rounded-[10px] p-3 overflow-y-auto grow">
+                    <div className="bg-white rounded-[10px] p-3 ">
                       <tab.component />
                     </div>
                   </section>
