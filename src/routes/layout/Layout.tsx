@@ -4,6 +4,7 @@ import TabMenu from "../../components/tabMenu/TabMenu";
 import useTabMenu from "../../hooks/useTabMenu";
 import Error404Page from "../../pages/error/Error404Page";
 import { TabMenuListType } from "../../states/layout/layoutAtom";
+import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
@@ -30,24 +31,26 @@ function Layout() {
   }, [tabMenu]);
 
   return (
-    <div className="w-full h-screen">
+    <div className="flex flex-col w-full h-full bg-red-300">
       <Header />
-      <main className="flex w-full h-[calc(100vh-32px)] grow">
+
+      <main className="flex flex-grow overflow-hidden bg-gray-100">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
-        <div className="w-full h-full">
+        <div className="flex flex-col flex-grow overflow-hidden bg-gray-100">
           <TabMenu tabMenu={tabMenu} setTabMenu={setTabMenu} />
-          <div className="max-h-[calc(100vh-64px)] overflow-y-auto">
-            {tabMenu.map((tab) => (
+          <div className="flex flex-col flex-grow overflow-y-auto bg-gray-100">
+          {tabMenu.map((tab) => (
               <div
                 key={tab.href}
+                className="flex flex-col h-full"
                 style={{
                   display: activeTab === tab.href ? "block" : "none",
                 }}
               >
                 {tab.component ? (
-                  <section className="p-3">
+                  <section className="flex flex-col h-full p-3 grow">
                     <Breadcrumbs activeTab={activeTab} />
-                    <div className="bg-white rounded-[10px] p-3">
+                    <div className="bg-white rounded-[10px] p-3 overflow-y-auto grow">
                       <tab.component />
                     </div>
                   </section>
@@ -57,6 +60,36 @@ function Layout() {
               </div>
             ))}
           </div>
+          <Footer />
+        </div>
+      </main>
+      <main className="flex flex-grow hidden w-full">
+        <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
+        <div className="flex flex-col w-full h-full">
+          <TabMenu tabMenu={tabMenu} setTabMenu={setTabMenu} />
+          <div className="flex flex-col grow">
+            {tabMenu.map((tab) => (
+              <div
+                key={tab.href}
+                className="flex flex-col h-full"
+                style={{
+                  display: activeTab === tab.href ? "block" : "none",
+                }}
+              >
+                {tab.component ? (
+                  <section className="flex flex-col h-full p-3 grow">
+                    <Breadcrumbs activeTab={activeTab} />
+                    <div className="bg-white rounded-[10px] p-3 overflow-y-auto grow">
+                      <tab.component />
+                    </div>
+                  </section>
+                ) : (
+                  <Error404Page />
+                )}
+              </div>
+            ))}
+          </div>
+          <Footer />
         </div>
       </main>
     </div>

@@ -12,7 +12,7 @@ const TabMenu = ({
   const { activeTab, setActiveTab, handleTabClose } = useTabMenu();
 
   return (
-    <div className="overflow-x-auto bg-custom-gray-100">
+    <div className="flex-none overflow-x-auto bg-custom-gray-100">
       <div className="flex w-fit">
         {tabMenu.map((tab, index) => (
           <button

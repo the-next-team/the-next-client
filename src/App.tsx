@@ -10,12 +10,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         <div className="flex flex-col h-full">
-          {/* <TitleBar /> */}
-          <div className="grow">
-            <HashRouter>
-              <AppRouter />
-            </HashRouter>
-          </div>
+          <HashRouter>
+            <AppRouter />
+          </HashRouter>
         </div>
       </RecoilRoot>
     </QueryClientProvider>

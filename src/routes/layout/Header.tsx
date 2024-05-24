@@ -1,11 +1,11 @@
+import { Icon } from "@iconify/react";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
-import { Icon } from "@iconify/react";
 import Toolbar from "../../components/header/Toolbar";
 
 function Header() {
   return (
-    <header className="bg-[#111625] h-8 flex items-center px-[10px] justify-between">
+    <header className="bg-[#111625] h-8 flex flex-none items-center px-[10px] justify-between">
       <div className="flex items-center gap-[10px]">
         <img className="w-6 h-6" src={Logo1} alt="" />
         <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
