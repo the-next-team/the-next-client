@@ -1,24 +1,33 @@
 import { Icon } from "@iconify/react";
+import useTabMenu from "../../hooks/useTabMenu";
+import { TabMenuListType } from "../../states/layout/layoutAtom";
 
 type Props = {
   selected: number;
   setSelected: (index: number) => void;
+  tabMenu: TabMenuListType;
+  setTabMenu: (tabMenu: TabMenuListType) => void;
 };
 
-function Toolbar({ selected, setSelected }: Props) {
+function Toolbar({ selected, setSelected, tabMenu, setTabMenu }: Props) {
+  const { handleTabOpen, findElement } = useTabMenu();
+
   const ToolMenus = [
-    { icon: "heroicons:home" },
-    { icon: "heroicons:star" },
+    { name: "home", icon: "heroicons:home" },
+    { name: "bookmark", icon: "heroicons:star" },
     {
+      name: "search",
       icon: "heroicons:magnifying-glass-solid",
     },
     {
+      name: "menu",
       icon: "heroicons:building-library",
     },
     {
+      name: "todo",
       icon: "heroicons:clipboard-document-list",
     },
-    { icon: "heroicons:book-open" },
+    { name: "", icon: "heroicons:book-open" },
   ];
 
   return (
@@ -31,7 +40,16 @@ function Toolbar({ selected, setSelected }: Props) {
                 ? "bg-gradient-to-br from-[#f47112] via-[#f35916] to-[#e22f55] text-white shadow-md"
                 : "border border-custom-blue-100 text-custom-black"
             }`}
-            onClick={() => setSelected(i)}
+            onClick={() => {
+              setSelected(i);
+              if (menu.name === "home") {
+                handleTabOpen(tabMenu, setTabMenu, {
+                  name: "대시보드",
+                  href: "home/dashboard",
+                  component: findElement("home/dashboard"),
+                });
+              }
+            }}
           >
             <Icon icon={menu.icon} width="16" />
           </div>

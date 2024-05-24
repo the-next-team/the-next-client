@@ -13,7 +13,12 @@ function Sidebar({ tabMenu, setTabMenu }: Props) {
 
   return (
     <div className="flex h-full bg-white">
-      <Toolbar selected={selected} setSelected={setSelected} />
+      <Toolbar
+        tabMenu={tabMenu}
+        setTabMenu={setTabMenu}
+        selected={selected}
+        setSelected={setSelected}
+      />
       <NavMenu
         tabMenu={tabMenu}
         setTabMenu={setTabMenu}
