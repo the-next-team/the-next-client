@@ -8,8 +8,7 @@ import SubMenu from "./SubMenu";
 type Props = {
   tabMenu: TabMenuListType;
   setTabMenu: (tabMenu: TabMenuListType) => void;
-  selected: number;
-  setSelected: (index: number) => void;
+  selected: string;
 };
 
 function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
@@ -64,10 +63,8 @@ function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
 
   return (
     <div
-      className={`duration-100 ${
-        selected === 3
-          ? "w-[215px] h-full overflow-y-auto shadow-md opacity-100"
-          : "w-0 opacity-0 pointer-events-none"
+      className={`w-[215px] h-full overflow-y-auto shadow-md ${
+        selected === "menu" ? "block" : "hidden pointer-events-none"
       }`}
     >
       <ul>
@@ -107,7 +104,7 @@ function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
               <div>
                 <div
                   className={`cursor-pointer flex items-center justify-between px-4 py-2 ${
-                    activeSubmenu === i ? "bg-[#f47213] bg-opacity-[0.07]" : ""
+                    activeSubmenu === i ? "bg-primary bg-opacity-[0.07]" : ""
                   }`}
                   onClick={() => toggleSubmenu(i)}
                 >
