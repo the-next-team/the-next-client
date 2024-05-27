@@ -1,9 +1,91 @@
-import React, { useEffect, useState } from "react";
-// import Card from "../../../components/card/Card";
-import { IUser, UserService } from "../../../api/services/userService";
+import { useEffect, useRef } from "react";
+import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import { UserService } from "../../../api/services/userService";
 
 function User() {
-  const [userList, setUserList] = useState<IUser[]>([]);
+  const realgridElement = useRef<HTMLDivElement | null>(null);
+  var dp = new LocalDataProvider(true);
+
+  useEffect(() => {
+    const container = realgridElement.current;
+    dp = new LocalDataProvider(true);
+    const gv = new GridView(container as any);
+    gv.setEditOptions({
+      editable: false,
+    });
+
+    gv.setDataSource(dp);
+    dp.setFields([
+      {
+        fieldName: "id",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "username",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "employeeNumber",
+        dataType: ValueType.TEXT,
+      },
+    ]);
+    gv.setColumns([
+      {
+        name: "id",
+        fieldName: "id",
+        type: "data",
+        width: "80",
+        styles: {
+          textAlignment: "center",
+        },
+        header: {
+          text: "사용자ID",
+          showTooltip: false,
+        },
+        renderer: {
+          type: "text",
+          showTooltip: true,
+        },
+      },
+      {
+        name: "username",
+        fieldName: "username",
+        type: "data",
+        width: "150",
+        styles: {
+          textAlignment: "center",
+        },
+        header: {
+          text: "사용자명",
+          showTooltip: false,
+        },
+      },
+      {
+        name: "employeeNumber",
+        fieldName: "employeeNumber",
+        type: "data",
+        width: "220",
+        styles: {
+          textAlignment: "center",
+        },
+        header: "사원번호",
+      },
+    ]);
+
+    gv.onCellClicked = () => {
+      console.log("onCellClicked");
+    };
+
+    gv.onCellDblClicked = () => {
+      console.log("onCellDblClicked");
+    };
+
+    return () => {
+      dp.clearRows();
+      gv.destroy();
+      dp.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     findAll();
@@ -13,7 +95,7 @@ function User() {
     try {
       const response = await UserService.getUser();
       if (response.status === "OK") {
-        setUserList(response.data);
+        dp.setRows(response.data);
       }
     } catch (error) {}
   };
@@ -21,51 +103,13 @@ function User() {
   return (
     <div>
       {/* <Card> */}
-      <div className="overflow-x-auto">
+      <div className="verflow-x-auto ">
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-hidden ">
-            <table className="min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700">
-              <thead className="bg-slate-200 dark:bg-slate-700">
-                <tr>
-                  <th className="text-center table-th text-[14px]">순번</th>
-                  <th className="text-center table-th text-[14px]">사용자ID</th>
-                  <th className="text-center table-th text-[14px]">사용자명</th>
-                  {/* <th>시스템사번</th> */}
-                  <th className="text-center table-th text-[14px]">직급</th>
-                  <th className="text-center table-th text-[14px]">사원번호</th>
-                  <th className="text-center table-th text-[14px]">
-                    사용자상태
-                  </th>
-                  <th className="text-center table-th text-[14px]">팀/파트</th>
-                  <th className="text-center table-th text-[14px]">이기종ID</th>
-                  <th className="text-center table-th text-[14px]">
-                    로그인상태
-                  </th>
-                  <th className="text-center table-th text-[14px]">
-                    로그인제한사유
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="text-center bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                {userList.map((user, i) => (
-                  <tr
-                    key={i}
-                    className="hover:bg-slate-200 dark:hover:bg-slate-700"
-                  >
-                    <td className="table-td">-</td>
-                    <td className="table-td">{user.id}</td>
-                    <td className="table-td">{user.username}</td>
-                    <td className="table-td">-</td>
-                    <td className="table-td">{user.employeeNumber}</td>
-                    <td className="table-td">-</td>
-                    <td className="table-td">-</td>
-                    <td className="table-td">-</td>
-                    <td className="table-td">-</td>
-                    <td className="table-td">-</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div
+              className="h-[500px] min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
+              ref={realgridElement}
+            ></div>
           </div>
         </div>
       </div>
