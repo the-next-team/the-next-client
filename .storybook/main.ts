@@ -12,7 +12,15 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: "@storybook/react-webpack5",
-    options: {},
+	options: {
+		builder: {
+		  useSWC: true,
+		},
+	  },
+  },
+  docs: {
+    autodocs: "tag",
+    defaultName: "Docs",
   },
   staticDirs: ["../public"],
 };
