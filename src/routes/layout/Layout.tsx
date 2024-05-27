@@ -49,7 +49,7 @@ function Layout() {
               >
                 {tab.component ? (
                   <section className="flex flex-col h-full p-3 grow">
-                    <Breadcrumbs activeTab={activeTab} />
+                    <Breadcrumbs />
                     <div className="bg-white rounded-[10px] p-3 ">
                       <tab.component />
                     </div>
@@ -63,7 +63,7 @@ function Layout() {
           <Footer />
         </div>
       </main>
-      <main className="flex flex-grow hidden w-full">
+      {/* <main className="flex flex-grow hidden w-full">
         <Sidebar tabMenu={tabMenu} setTabMenu={setTabMenu} />
         <div className="flex flex-col w-full h-full">
           <TabMenu tabMenu={tabMenu} setTabMenu={setTabMenu} />
@@ -91,7 +91,7 @@ function Layout() {
           </div>
           <Footer />
         </div>
-      </main>
+      </main> */}
     </div>
   );
 }

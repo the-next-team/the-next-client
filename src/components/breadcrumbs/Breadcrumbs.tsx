@@ -4,9 +4,9 @@ import { useRecoilState } from "recoil";
 import useTabMenu from "../../hooks/useTabMenu";
 import { FavMenuType, favMenuTypeState } from "../../states/layout/layoutAtom";
 
-function Breadcrumbs({ activeTab }: { activeTab: string }) {
+function Breadcrumbs() {
   const [favMenu, setFavMenu] = useRecoilState<FavMenuType>(favMenuTypeState);
-  const { findTitle } = useTabMenu();
+  const { activeTab, findTitle } = useTabMenu();
 
   const [isHide, setIsHide] = useState<boolean | undefined>(false);
   const [title, setTitle] = useState<Array<string>>([]);
