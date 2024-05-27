@@ -1,6 +1,8 @@
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import {
   FavMenuType,
+  SideMenuType,
+  SideMenuTypeState,
   TabMenuListType,
   favMenuTypeState,
 } from "../../states/layout/layoutAtom";
@@ -9,12 +11,12 @@ import useTabMenu from "../../hooks/useTabMenu";
 type Props = {
   tabMenu: TabMenuListType;
   setTabMenu: (tabMenu: TabMenuListType) => void;
-  selected: string;
 };
 
-function Bookmark({ tabMenu, setTabMenu, selected }: Props) {
-  const [favMenu, setFavMenu] = useRecoilState<FavMenuType>(favMenuTypeState);
+function Bookmark({ tabMenu, setTabMenu }: Props) {
   const { activeTab, handleTabOpen, findElement } = useTabMenu();
+  const favMenu = useRecoilValue<FavMenuType>(favMenuTypeState);
+  const selected = useRecoilValue<SideMenuType>(SideMenuTypeState);
 
   return (
     <div

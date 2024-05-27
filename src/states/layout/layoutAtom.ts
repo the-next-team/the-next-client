@@ -36,3 +36,11 @@ export const favMenuTypeState = atom<FavMenuType>({
   default: [],
   effects_UNSTABLE: [persistAtom],
 });
+
+// 현재 선택된 사이드메뉴
+export type SideMenuType = string;
+export const SideMenuTypeState = atom<SideMenuType>({
+  key: "SideMenuTypeState",
+  default: "menu",
+  effects_UNSTABLE: [persistAtom],
+});

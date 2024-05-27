@@ -1,16 +1,53 @@
 import { Icon } from "@iconify/react";
+import useTabMenu from "../../hooks/useTabMenu";
+import { useRecoilState } from "recoil";
+import {
+  SideMenuType,
+  SideMenuTypeState,
+  TabMenuListType,
+} from "../../states/layout/layoutAtom";
 
 type Props = {
-  selected: string;
-  setSelected: (name: string) => void;
-  toolMenus: Array<{
-    name: string;
-    icon: string;
-    onClick?: () => void;
-  }>;
+  tabMenu: TabMenuListType;
+  setTabMenu: (tabMenu: TabMenuListType) => void;
 };
 
-function Toolbar({ selected, setSelected, toolMenus }: Props) {
+function Toolbar({ tabMenu, setTabMenu }: Props) {
+  const { handleTabOpen, findElement } = useTabMenu();
+  const [selected, setSelected] =
+    useRecoilState<SideMenuType>(SideMenuTypeState);
+
+  const toolMenus = [
+    {
+      name: "home",
+      icon: "heroicons:home",
+      onClick: () => {
+        handleTabOpen(tabMenu, setTabMenu, {
+          name: "대시보드",
+          href: "home/dashboard",
+          component: findElement("home/dashboard"),
+        });
+      },
+    },
+    {
+      name: "bookmark",
+      icon: "heroicons:star",
+    },
+    {
+      name: "search",
+      icon: "heroicons:magnifying-glass-solid",
+    },
+    {
+      name: "menu",
+      icon: "heroicons:building-library",
+    },
+    {
+      name: "todo",
+      icon: "heroicons:clipboard-document-list",
+    },
+    { name: "", icon: "heroicons:book-open" },
+  ];
+
   return (
     <div className="flex flex-col items-center h-full gap-2 px-2 py-3 w-11">
       {toolMenus.map((menu, i) => (

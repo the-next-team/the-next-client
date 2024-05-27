@@ -2,17 +2,22 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { menuItems } from "../../constants/data";
 import useTabMenu from "../../hooks/useTabMenu";
-import { TabMenuListType } from "../../states/layout/layoutAtom";
+import {
+  SideMenuType,
+  SideMenuTypeState,
+  TabMenuListType,
+} from "../../states/layout/layoutAtom";
 import SubMenu from "./SubMenu";
+import { useRecoilValue } from "recoil";
 
 type Props = {
   tabMenu: TabMenuListType;
   setTabMenu: (tabMenu: TabMenuListType) => void;
-  selected: string;
 };
 
-function NavMenu({ tabMenu, setTabMenu, selected }: Props) {
+function NavMenu({ tabMenu, setTabMenu }: Props) {
   const { activeTab, handleTabOpen } = useTabMenu();
+  const selected = useRecoilValue<SideMenuType>(SideMenuTypeState);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null); // 현재 선택된 Submenu
   const [activeMultiMenu, setMultiMenu] = useState<number | null>(null); // 현재 선택된 MultiMenu
 
