@@ -5,9 +5,9 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from "axios";
+import { storageKey } from "../constants";
 import Logger from "../utils/logger";
 import { ApiResponse } from "./models/common/apiError";
-import { storageKey } from "../constants";
 
 const httpInstance: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -66,16 +66,10 @@ const onResponse = (response: AxiosResponse): AxiosResponse => {
   Logger.debug("interceptors response.data", response.data);
 
   if (response.headers["access-token"]) {
-    localStorage.setItem(
-      storageKey.accessToken,
-      response.headers["access-token"]
-    );
+    localStorage.setItem(storageKey.accessToken, response.headers["access-token"]);
   }
   if (response.headers["refresh-token"]) {
-    localStorage.setItem(
-      storageKey.refreshToken,
-      response.headers["refresh-token"]
-    );
+    localStorage.setItem(storageKey.refreshToken, response.headers["refresh-token"]);
   }
   return response;
 };
