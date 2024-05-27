@@ -136,8 +136,8 @@ function Team() {
         },
       },
       {
-        name: "-",
-        fieldName: "-",
+        name: "branchCode",
+        fieldName: "branchCode",
         type: "data",
         width: "150",
         styles: {
