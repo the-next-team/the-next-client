@@ -11,7 +11,6 @@ function CommonCodePage() {
       <div>
         <CodeTable
           onClick={(item) => {
-            console.log('CodeTable',item);
             setSelected(item);
           }}
         />
@@ -24,7 +23,6 @@ function CommonCodePage() {
           }}
         />
       </div>
-      {/* </Card> */}
     </div>
   );
 }

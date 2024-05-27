@@ -8,12 +8,11 @@ type Props = {
 
 function CodeTable({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  var dp = new LocalDataProvider(true);
   const [items, setItems] = useState<ICode[]>([]); // 대분류
 
   useEffect(() => {
     const container = realgridElement.current;
-    dp = new LocalDataProvider(true);
+    const dp = new LocalDataProvider(true);
     const gv = new GridView(container as any);
     gv.setEditOptions({
       editable: false,
@@ -121,12 +120,14 @@ function CodeTable({ onClick }: Props) {
       console.log("onCellDblClicked");
     };
 
+    dp.setRows(items)
+
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
-  }, []);
+  }, [items]);
 
   useEffect(() => {
     findAll();
@@ -136,7 +137,6 @@ function CodeTable({ onClick }: Props) {
     try {
       const response = await CodeService.getCode();
       if (response.status === "OK") {
-        dp.setRows(items);
         setItems(response.data);
       }
     } catch (errer) {}

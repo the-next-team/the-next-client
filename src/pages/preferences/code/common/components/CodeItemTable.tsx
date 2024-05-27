@@ -23,7 +23,7 @@ function CodeItemTable({ item, onClick }: Props) {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "kind",
+        fieldName: "code",
         dataType: ValueType.TEXT,
       },
       {
