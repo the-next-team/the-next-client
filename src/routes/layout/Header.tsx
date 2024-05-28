@@ -2,8 +2,24 @@ import { Icon } from "@iconify/react";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
 import Toolbar from "../../components/header/Toolbar";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const dropdown = [
+    {
+      name: "Logout",
+      icon: "heroicons:arrow-left-on-rectangle-20-solid",
+      onClick: () => {
+        // 로그아웃
+        navigate("/");
+      },
+    },
+  ];
+
   return (
     <header className="bg-[#111625] h-8 flex flex-none items-center px-[10px] justify-between">
       <div className="flex items-center gap-[10px]">
@@ -38,12 +54,29 @@ function Header() {
         </div>
         {/* 프로필 */}
         <div
-          className="flex items-center gap-1 text-white cursor-pointer"
-          onClick={() => {}}
+          className="relative flex items-center gap-1 text-white cursor-pointer"
+          onClick={() => setVisible((prev) => !prev)}
         >
           <p className="font-semibold">홍길동</p>
           <p className="text-sm font-light">님</p>
           <Icon icon="heroicons:chevron-down" width="16" color="white" />
+          {visible && (
+            <div className="absolute right-0 w-32 py-1 bg-white rounded shadow-md top-8">
+              {dropdown.map((menu, i) => (
+                <div
+                  key={i}
+                  className="flex items-center w-full gap-2 px-4 py-0.5 hover:bg-custom-blue-100"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    menu.onClick && menu.onClick();
+                  }}
+                >
+                  <Icon icon={menu.icon} width="16" color="#111625" />
+                  <p className="text-sm text-custom-black">{menu.name}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </header>
