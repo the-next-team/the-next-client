@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE_NAME = 'thenext/the-next-server'
+        CONTAINER_NAME = 'the-next-server'
+        GITHUB_CREDENTIALS_ID = 'bonjin-github'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checkout Start'
+                git branch: 'develop',
+                    url: 'https://github.com/the-next-team/the-next-client',
+                    credentialsId: GITHUB_CREDENTIALS_ID
+            }
+        }
+
+        stage('Dockerizing'){
+            steps{
+                sh "echo  Image Bulid Start"
+                sh "docker build . -t ${DOCKER_IMAGE_NAME}"
+            }
+            post {
+                success {
+                    sh 'echo "Bulid Docker Image Success"'
+                }
+
+                failure {
+                    sh 'echo "Bulid Docker Image Fail"'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploy Start'
+        //             sh "docker compose -p the-next-server -f docker/docker-compose.yml up -d"
+                sh "docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true"
+                sh "docker run -d --name ${CONTAINER_NAME} -p 9080:9080 ${DOCKER_IMAGE_NAME} -e PORT=9080"
+            }
+        }
+    }
+
+
+}
