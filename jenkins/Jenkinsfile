@@ -37,7 +37,7 @@ pipeline {
             steps {
                 echo 'Deploy Start'
                 sh "docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true"
-                sh "docker run -d --name ${CONTAINER_NAME} -p 9080:9080 ${DOCKER_IMAGE_NAME} -e PORT=9080"
+                sh "docker run -d --name ${CONTAINER_NAME} -p 3080:80 ${DOCKER_IMAGE_NAME} -e PORT=3080"
             }
         }
     }
