@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = 'thenext/the-next-server'
-        CONTAINER_NAME = 'the-next-server'
+        DOCKER_IMAGE_NAME = 'thenext/the-next-client'
+        CONTAINER_NAME = 'the-next-client'
         GITHUB_CREDENTIALS_ID = 'bonjin-github'
     }
 
@@ -36,7 +36,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy Start'
-        //             sh "docker compose -p the-next-server -f docker/docker-compose.yml up -d"
                 sh "docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true"
                 sh "docker run -d --name ${CONTAINER_NAME} -p 9080:9080 ${DOCKER_IMAGE_NAME} -e PORT=9080"
             }
