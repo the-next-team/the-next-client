@@ -9,27 +9,31 @@ function LoginPage() {
   const setUserState = useSetRecoilState(userState);
   // const { showLoading, hideLoading } = useLoading();
 
-  const onSubmit =async () => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     try {
       // showLoading();
       const response = await UserService.login({
         // username: data.username,
         // password: data.password,
-        username: 'nTree',
-        password: '1',
+        username: "nTree",
+        password: "1",
       });
       // hideLoading();
 
-      if(response.status === 'OK') {
+      if (response.status === "OK") {
         localStorage.setItem(storageKey.user, JSON.stringify(response.data));
         localStorage.setItem(storageKey.accessToken, response.data.accessToken);
-        localStorage.setItem(storageKey.refreshToken, response.data.refreshToken);
+        localStorage.setItem(
+          storageKey.refreshToken,
+          response.data.refreshToken
+        );
 
         setUserState(response.data);
 
         navigate("/main/");
       }
-
     } catch (error) {
       // hideLoading();
       // setError("fail", {
@@ -37,19 +41,37 @@ function LoginPage() {
       //   message: "아이디 또는 비밀번호가 올바르지 않아요.",
       // });
     }
-  }
+  };
 
   return (
-    <div>
-      LoginPage
-      <button
-        className="p-4 bg-black-200"
-        onClick={() => {
-          onSubmit();
-        }}
+    <div className="flex items-center justify-center w-full h-screen">
+      <form
+        onSubmit={onSubmit}
+        className="w-[520px] p-10 bg-white rounded-lg flex flex-col gap-6 text-custom-black shadow-md"
       >
-        로그인
-      </button>
+        <p className="text-2xl font-semibold text-center">Sign In</p>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <p className="text-sm">username</p>
+            <input
+              className="p-2 border rounded outline-primary border-custom-gray-100"
+              placeholder="username"
+              value={"nTree"}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <p className="text-sm">password</p>
+            <input
+              className="p-2 border rounded outline-primary border-custom-gray-100"
+              placeholder="password"
+              value={"1"}
+            />
+          </div>
+        </div>
+        <button type="submit" className="w-full py-4 rounded bg-custom-black">
+          <p className="text-white">로그인</p>
+        </button>
+      </form>
     </div>
   );
 }
