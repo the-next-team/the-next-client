@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Layout from "./layout/Layout";
-import AuthLayout from "./layout/AuthLayout";
+import Layout from "../layout/Layout";
+import AuthLayout from "../layout/AuthLayout";
 
 const Login = lazy(() => import("../pages/login/LoginPage"));
 const Error404 = lazy(() => import("../pages/error/Error404Page"));

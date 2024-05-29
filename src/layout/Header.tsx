@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
-import Toolbar from "../../components/header/Toolbar";
+import Toolbar from "../components/header/Toolbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

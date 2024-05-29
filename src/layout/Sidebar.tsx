@@ -1,7 +1,7 @@
-import NavMenu from "../../components/sidebar/NavMenu";
-import Toolbar from "../../components/sidebar/Toolbar";
-import { TabMenuListType } from "../../states/layout/layoutAtom";
-import Bookmark from "../../components/sidebar/Bookmark";
+import NavMenu from "../components/sidebar/NavMenu";
+import Toolbar from "../components/sidebar/Toolbar";
+import { TabMenuListType } from "../states/layout/layoutAtom";
+import Bookmark from "../components/sidebar/Bookmark";
 
 type Props = {
   tabMenu: TabMenuListType;

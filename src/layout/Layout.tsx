@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
-import TabMenu from "../../components/tabMenu/TabMenu";
-import useTabMenu from "../../hooks/useTabMenu";
-import Error404Page from "../../pages/error/Error404Page";
-import { TabMenuListType } from "../../states/layout/layoutAtom";
+import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
+import TabMenu from "../components/tabMenu/TabMenu";
+import useTabMenu from "../hooks/useTabMenu";
+import Error404Page from "../pages/error/Error404Page";
+import { TabMenuListType } from "../states/layout/layoutAtom";
 import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
