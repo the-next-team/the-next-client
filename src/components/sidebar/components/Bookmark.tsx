@@ -5,8 +5,8 @@ import {
   SideMenuTypeState,
   TabMenuListType,
   favMenuTypeState,
-} from "../../states/layout/layoutAtom";
-import useTabMenu from "../../hooks/useTabMenu";
+} from "../../../states/layout/layoutAtom";
+import useTabMenu from "../../../hooks/useTabMenu";
 
 type Props = {
   tabMenu: TabMenuListType;

@@ -4,9 +4,9 @@ import TabMenu from "../components/tabMenu/TabMenu";
 import useTabMenu from "../hooks/useTabMenu";
 import Error404Page from "../pages/error/Error404Page";
 import { TabMenuListType } from "../states/layout/layoutAtom";
-import Footer from "./Footer";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import Footer from "../components/footer/Footer";
+import Header from "../components/header/Header";
+import Sidebar from "../components/sidebar/Sidebar";
 
 function Layout() {
   const [tabMenu, setTabMenu] = useState<TabMenuListType>([]);

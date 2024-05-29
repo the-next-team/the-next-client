@@ -1,11 +1,11 @@
 import { Icon } from "@iconify/react";
-import useTabMenu from "../../hooks/useTabMenu";
+import useTabMenu from "../../../hooks/useTabMenu";
 import { useRecoilState } from "recoil";
 import {
   SideMenuType,
   SideMenuTypeState,
   TabMenuListType,
-} from "../../states/layout/layoutAtom";
+} from "../../../states/layout/layoutAtom";
 
 type Props = {
   tabMenu: TabMenuListType;

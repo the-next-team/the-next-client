@@ -1,12 +1,12 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
-import { menuItems } from "../../constants/data";
-import useTabMenu from "../../hooks/useTabMenu";
+import { menuItems } from "../../../constants/data";
+import useTabMenu from "../../../hooks/useTabMenu";
 import {
   SideMenuType,
   SideMenuTypeState,
   TabMenuListType,
-} from "../../states/layout/layoutAtom";
+} from "../../../states/layout/layoutAtom";
 import SubMenu from "./SubMenu";
 import { useRecoilValue } from "recoil";
 
