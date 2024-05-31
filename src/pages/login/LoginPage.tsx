@@ -3,6 +3,7 @@ import { useSetRecoilState } from "recoil";
 import { UserService } from "../../api/services/userService";
 import { storageKey } from "../../constants";
 import { userState } from "../../states/user/userAtom";
+import CustomInput from "../../components/form/CustomInput";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -51,22 +52,12 @@ function LoginPage() {
       >
         <p className="text-2xl font-semibold text-center">Sign In</p>
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <p className="text-sm">username</p>
-            <input
-              className="p-2 border rounded outline-primary border-custom-gray-100"
-              placeholder="username"
-              value={"nTree"}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-sm">password</p>
-            <input
-              className="p-2 border rounded outline-primary border-custom-gray-100"
-              placeholder="password"
-              value={"1"}
-            />
-          </div>
+          <CustomInput
+            label="username"
+            placeholder="username"
+            value={"nTree"}
+          />
+          <CustomInput label="password" placeholder="password" value={"1"} />
         </div>
         <button type="submit" className="w-full py-4 rounded bg-custom-black">
           <p className="text-white">로그인</p>
