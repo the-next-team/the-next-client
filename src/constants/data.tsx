@@ -3,7 +3,7 @@ import MenuManagement from "../pages/menumanagement/MenuManagement";
 import CommonCodePage from "../pages/preferences/code/common/CommonCodePage";
 import Team from "../pages/preferences/team/Team";
 import User from "../pages/preferences/user/User";
-import ScreenManagement from "../pages/screenmanagement/ScreenManagement";
+import ScreenManagement from "../pages/screen/ScreenManagement";
 import MessageListPage from "../pages/system/message/MessageListPage";
 
 export type MenuItemType = {
