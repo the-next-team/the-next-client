@@ -3,6 +3,9 @@ const { autoUpdater } = require("electron-updater");
 const log = require("electron-log");
 const path = require("path");
 
+
+const loadUrl = "http://localhost:3000";
+
 // Local Update TEST
 Object.defineProperty(app, "isPackaged", {
   get() {
@@ -75,7 +78,7 @@ const createWindow = () => {
   });
 
   if (process.env.mode === "dev") {
-    win?.loadURL("http://localhost:3000");
+    win?.loadURL(loadUrl);
     win?.webContents.openDevTools({ mode: "detach" });
   } else {
     // win.loadURL(`file://${path.join(__dirname, '../build/index.html')}`)
@@ -140,6 +143,22 @@ autoUpdater.on("update-downloaded", () => {
 ipcMain.on("restart_app", () => {
   sendStatusToWindow("In onRestart_App");
   autoUpdater.quitAndInstall();
+});
+
+ipcMain.on("open-new-window", (event, args) => {
+  const { route, width, height } = args;
+  log.info("open-new-window...", args);
+
+  let newWindow = new BrowserWindow({
+    width: width || 800,
+    height: height || 800,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: true,
+    },
+  });
+
+  newWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
 });
 
 // 업데이트가 시작되었는지 확인할 때 발생합니다.
