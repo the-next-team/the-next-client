@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // import Card from "../../components/card/Card";
 import {
   IMenu1Depth,
   IMenu2Depth,
   MenuService,
-} from "../../api/services/menuService";
+} from "../../../api/services/menuService";
 
 function MenuManagement() {
   const [selectedCode, setSelectedCode] = useState<string>(""); // 선택된 코드

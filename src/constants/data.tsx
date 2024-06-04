@@ -1,9 +1,9 @@
+import ScreenManagement from "../pages/screen/ScreenManagement";
 import Dashboard from "../pages/dashboard/Dashboard";
-import MenuManagement from "../pages/menumanagement/MenuManagement";
 import CommonCodePage from "../pages/preferences/code/common/CommonCodePage";
+import MenuManagement from "../pages/preferences/menu/MenuManagement";
 import Team from "../pages/preferences/team/Team";
 import User from "../pages/preferences/user/User";
-import ScreenManagement from "../pages/screen/ScreenManagement";
 import MessageListPage from "../pages/system/message/MessageListPage";
 
 export type MenuItemType = {
