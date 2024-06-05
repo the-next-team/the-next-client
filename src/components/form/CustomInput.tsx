@@ -33,8 +33,8 @@ function CustomInput({
             id={label}
             disabled={disabled}
             className={`${className} ${disabled ? "bg-custom-blue-100" : "bg-transparent"} 
-			${validate ? "focus:ring-green-400" : error ? "focus:ring-red-400" : "focus:ring-custom-gray-300"} 
-		  w-full h-full text-custom-black rounded-[2px] outline-none px-3 duration-100 ring-1 ring-custom-gray-100`}
+			${validate ? "ring-green-400 focus:ring-[1.5px]" : error ? " ring-red-400 focus:ring-[1.5px]" : "ring-custom-gray-100 focus:ring-custom-gray-300"} 
+		  w-full h-full text-custom-black rounded-[2px] outline-none px-3 duration-100 ring-1`}
             {...props}
           />
         </div>
