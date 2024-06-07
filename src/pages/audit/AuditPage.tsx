@@ -77,24 +77,350 @@ function AuditPage() {
         {/* contents */}
         <div className="flex w-full gap-2 p-2">
           {/* main */}
-          <div className="flex flex-col w-2/3 h-full gap-2 p-2 overflow-y-auto bg-white rounded">
-            {/* 신청정보 */}
-            <div className="h-20 p-2 border border-custom-gray-100 rounded-xl">
-              <div className="flex items-center gap-1">
-                <p className="text-[10px] text-blue-400">●</p>
-                <p className="text-sm font-medium">{"신청정보"}</p>
+          <div className="flex flex-col w-3/4 h-full gap-2 p-2 overflow-y-auto bg-white rounded">
+            <div className="flex gap-2">
+              <div className="w-3/5 border border-t-2 rounded-b border-t-custom-gray-200 border-custom-gray-100"></div>
+              <div className="w-2/5 p-2 border border-t-2 rounded-b border-t-custom-gray-200 border-custom-gray-100">
+                <div className="flex text-xs border border-custom-gray-100">
+                  <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                    <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                      접수경로
+                    </div>
+                    <div className="w-3/5 px-1 py-[1px] bg-gray-100">-</div>
+                  </div>
+                  <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                    <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                      중개사
+                    </div>
+                    <div className="w-3/5 px-1 py-[1px] bg-gray-100">MW001</div>
+                  </div>
+                </div>
               </div>
             </div>
+            {/* 신청정보 */}
+            <div className="p-2 border border-custom-gray-100 rounded-xl">
+              <div className="flex items-center gap-1 bg-white">
+                <p className="text-[10px] text-blue-400">●</p>
+                <p className="text-xs font-medium">{"신청정보"}</p>
+              </div>
+              <div className="flex gap-2 mt-2">
+                <div className="w-3/5">
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        자금용도
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option></option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        상환방법
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>원금균등분할</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        신청금액
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100 text-right">
+                        0
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        CSS한도
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100 text-right">
+                        0
+                      </div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        CSS금리
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100 text-right">
+                        0
+                      </div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        대출/거치기간
+                      </div>
+                      <div className="flex gap-1 w-3/5 px-1 py-[1px] bg-gray-100 text-right">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option></option>
+                        </select>
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>0개월</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        승인금액
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">0</div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        승인금리
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">0</div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        약정일
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100 text-right">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>05 일</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        예외한도
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">0</div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        예외금리
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">0</div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        중도상환수수료
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100 text-right">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>N</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        금융취약계층
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>대상아님 (금융취약)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        공적지원대상자
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>N - 대상아님</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="flex w-1/3 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        <button className="w-full px-1 text-white bg-blue-200 rounded">
+                          IVR일반안내
+                        </button>
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100"></div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/3 min-h-[18px] divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50"></div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100"></div>
+                    </div>
+                    <div className="flex w-1/3 min-h-[18px] divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50"></div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100"></div>
+                    </div>
+                    <div className="flex w-1/3 min-h-[18px] divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        <button className="w-full px-1 text-white bg-blue-200 rounded">
+                          IVR공적지원안내
+                        </button>
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-2/5">
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        심사진행상태
+                      </div>
+                      <div className="flex gap-1 w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>본인인증완료</option>
+                        </select>
+                        <button className="px-1 bg-gray-300 rounded break-keep">
+                          저장
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        접수일시
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">
+                        2024-05-17 17:43
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        상담상태
+                      </div>
+                      <div className="flex gap-1 w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>1차상담</option>
+                        </select>
+                        <button className="px-1 bg-gray-300 rounded break-keep">
+                          저장
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        심사
+                      </div>
+                      <div className="flex justify-between w-3/5 px-1 py-[1px] bg-gray-100">
+                        시스템
+                        <button className="px-1 bg-gray-300 rounded break-keep">
+                          저장
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        신청상태
+                      </div>
+                      <div className="flex gap-1 w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option>접수중</option>
+                        </select>
+                        <button className="px-1 bg-gray-300 rounded break-keep">
+                          저장
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        승인1
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">-</div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        자동대출여부
+                      </div>
+                      <div className="flex gap-1 w-3/5 px-1 py-[1px] bg-gray-100">
+                        <select className="w-full h-full bg-white outline-none">
+                          <option></option>
+                        </select>
+                        <button className="px-1 bg-gray-300 rounded break-keep">
+                          저장
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        기표/회계
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">-</div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        추천인
+                      </div>
+                      <div className="flex gap-1 w-3/5 px-1 py-[1px] bg-gray-100">
+                        -
+                      </div>
+                    </div>
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        현재담당자
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">
+                        시스템
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex text-xs border border-custom-gray-100">
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        상담사명
+                      </div>
+                      <div className="flex justify-between w-3/5 px-1 py-[1px] bg-gray-100">
+                        <p></p>
+                        <button className="px-1 bg-gray-300 rounded break-keep">
+                          저장
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex w-1/2 divide-x divide-custom-gray-100">
+                      <div className="w-2/5 px-1 py-[1px] text-right bg-green-50">
+                        스크래핑
+                      </div>
+                      <div className="w-3/5 px-1 py-[1px] bg-gray-100">N</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-end gap-1 mt-2">
+                <button className="px-1 py-[1px] text-xs text-white bg-indigo-300 rounded">
+                  신용정보변경
+                </button>
+                <button className="px-1 py-[1px] text-xs text-white bg-indigo-300 rounded">
+                  사전거절제외
+                </button>
+                <button className="px-1 py-[1px] text-xs text-white bg-indigo-300 rounded">
+                  강제심사전환
+                </button>
+                <button className="px-1 py-[1px] text-xs text-white bg-indigo-300 rounded">
+                  강제적격
+                </button>
+              </div>
+            </div>
+            {/* tab */}
             <div className="flex gap-1 border-b-2 border-b-gray-400">
               {tab.map((item, i) => (
                 <div
-                  className={`${select === i ? "bg-gray-400 text-white" : "border-gray-400 border-2 bg-gray-50"} px-1 rounded-t border-b-0 cursor-pointer`}
+                  className={`${select === i ? "bg-gray-400 text-white" : "border-gray-400 border-2 bg-gray-50 px-1"} px-1 py-[1px] rounded-t border-b-0 cursor-pointer`}
                   onClick={() => setSelect(i)}
                 >
-                  <p className="text-sm">{item.name}</p>
+                  <p className="text-xs">{item.name}</p>
                 </div>
               ))}
             </div>
+            {/* tab content */}
             {select == 0 ? (
               <div className="flex flex-col gap-2">
                 {/* 고객정보 */}
@@ -134,13 +460,23 @@ function AuditPage() {
             )}
           </div>
           {/* sub */}
-          <div className="w-1/3 h-full overflow-y-auto rounded">
+          <div className="flex flex-col w-1/4 h-full gap-4 overflow-y-auto rounded">
+            {/* 진행메모 */}
             <div>
               <div className="p-1 bg-blue-400 rounded-t w-fit">
                 <p className="text-xs text-white">진행메모</p>
               </div>
               <div className="bg-white border-t-2 border-blue-400 h-[400px]">
                 {/* 여기에 진행메모 */}
+              </div>
+            </div>
+            {/* 심사배정 */}
+            <div>
+              <div className="p-1 bg-blue-400 rounded-t w-fit">
+                <p className="text-xs text-white">심사배정 List</p>
+              </div>
+              <div className="bg-white border-t-2 border-blue-400 h-[400px]">
+                {/* 여기에 심사배정 */}
               </div>
             </div>
           </div>
