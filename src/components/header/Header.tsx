@@ -15,7 +15,9 @@ function Header() {
       icon: "heroicons:arrow-left-on-rectangle-20-solid",
       onClick: () => {
         // 로그아웃
-        navigate("/");
+        navigate("/", {
+          replace: true,
+        });
       },
     },
   ];

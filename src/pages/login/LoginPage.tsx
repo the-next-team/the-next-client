@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { UserService } from "../../api/services/userService";
+import CustomInput from "../../components/form/CustomInput";
 import { storageKey } from "../../constants";
 import { userState } from "../../states/user/userAtom";
-import CustomInput from "../../components/form/CustomInput";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -33,7 +33,9 @@ function LoginPage() {
 
         setUserState(response.data);
 
-        navigate("/main/");
+        navigate("/main", {
+          replace: true,
+        });
       }
     } catch (error) {
       // hideLoading();
