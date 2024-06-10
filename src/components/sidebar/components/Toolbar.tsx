@@ -1,12 +1,12 @@
 import { Icon } from "@iconify/react";
-import useTabMenu from "../../../hooks/useTabLayout";
+import useTabMenu from "../../../hooks/useTabMenu";
 import { useRecoilState } from "recoil";
 import {
   SideMenuType,
   SideMenuTypeState,
   TabMenuListType,
 } from "../../../states/layout/layoutAtom";
-import tabLayoutUtil from "../../../utils/tabLayoutUtil";
+import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 type Props = {
   tabMenu: TabMenuListType;
@@ -26,7 +26,7 @@ function Toolbar({ tabMenu, setTabMenu }: Props) {
         handleTabOpen(tabMenu, setTabMenu, {
           name: "대시보드",
           href: "home/dashboard",
-          component: tabLayoutUtil.findElement("home/dashboard"),
+          component: TabMenuUtil.findElement("home/dashboard"),
         });
       },
     },

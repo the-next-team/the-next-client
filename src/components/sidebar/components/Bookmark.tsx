@@ -6,8 +6,8 @@ import {
   TabMenuListType,
   favMenuTypeState,
 } from "../../../states/layout/layoutAtom";
-import useTabMenu from "../../../hooks/useTabLayout";
-import tabLayoutUtil from "../../../utils/tabLayoutUtil";
+import useTabMenu from "../../../hooks/useTabMenu";
+import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 type Props = {
   tabMenu: TabMenuListType;
@@ -36,7 +36,7 @@ function Bookmark({ tabMenu, setTabMenu }: Props) {
               handleTabOpen(tabMenu, setTabMenu, {
                 name: fav.name ?? "",
                 href: fav.href ?? "",
-                component: tabLayoutUtil.findElement(fav.href),
+                component: TabMenuUtil.findElement(fav.href),
               });
             }}
           >

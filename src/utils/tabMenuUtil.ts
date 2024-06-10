@@ -1,6 +1,6 @@
 import { menuItems } from "../constants/data";
 
-const tabLayoutUtil = {
+const TabMenuUtil = {
   findElement: (link: string) => {
     let element = null;
     menuItems.forEach((item) => {
@@ -50,4 +50,4 @@ const tabLayoutUtil = {
   },
 };
 
-export default tabLayoutUtil;
+export default TabMenuUtil;

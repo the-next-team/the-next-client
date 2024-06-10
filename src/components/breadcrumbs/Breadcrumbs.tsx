@@ -1,9 +1,9 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import useTabMenu from "../../hooks/useTabLayout";
+import useTabMenu from "../../hooks/useTabMenu";
 import { FavMenuType, favMenuTypeState } from "../../states/layout/layoutAtom";
-import tabLayoutUtil from "../../utils/tabLayoutUtil";
+import TabMenuUtil from "../../utils/tabMenuUtil";
 
 function Breadcrumbs() {
   const [favMenu, setFavMenu] = useRecoilState<FavMenuType>(favMenuTypeState);
@@ -13,7 +13,7 @@ function Breadcrumbs() {
   const [title, setTitle] = useState<Array<string>>([]);
 
   useEffect(() => {
-    setTitle(tabLayoutUtil.findTitle(activeTab));
+    setTitle(TabMenuUtil.findTitle(activeTab));
   }, [activeTab]);
 
   return (

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import TabMenu from "../components/tabMenu/TabMenu";
-import useTabMenu from "../hooks/useTabLayout";
+import useTabMenu from "../hooks/useTabMenu";
 import Error404Page from "../pages/error/Error404Page";
 import { TabMenuListType, tabMenuTypeState } from "../states/layout/layoutAtom";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
-import tabLayoutUtil from "../utils/tabLayoutUtil";
 import { useRecoilState } from "recoil";
+import TabMenuUtil from "../utils/tabMenuUtil";
 
 function Layout() {
   const [tabMenu, setTabMenu] = useState<TabMenuListType>([]);
@@ -21,7 +21,7 @@ function Layout() {
       tabMenuState.map(({ name, href }) => ({
         name,
         href,
-        component: tabLayoutUtil.findElement(href),
+        component: TabMenuUtil.findElement(href),
       }))
     );
   }, []);

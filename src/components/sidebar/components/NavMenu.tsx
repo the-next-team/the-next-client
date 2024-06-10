@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { menuItems } from "../../../constants/data";
-import useTabMenu from "../../../hooks/useTabLayout";
+import useTabMenu from "../../../hooks/useTabMenu";
 import {
   SideMenuType,
   SideMenuTypeState,
