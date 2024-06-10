@@ -1,7 +1,14 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function AuditPage() {
+  const location = useLocation();
+
+  // URLSearchParams를 사용하여 파라미터 읽기
+  const searchParams = new URLSearchParams(location.search);
+  const inspNo = searchParams.get('inspNo');
+
   const [select, setSelect] = useState<number>(0);
   const tab = [
     { name: "고객기본정보" },
