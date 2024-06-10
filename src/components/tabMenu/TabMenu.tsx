@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import useTabMenu from "../../hooks/useTabMenu";
+import useTabMenu from "../../hooks/useTabLayout";
 import { TabMenuListType } from "../../states/layout/layoutAtom";
 
 const TabMenu = ({
@@ -9,7 +9,7 @@ const TabMenu = ({
   tabMenu: TabMenuListType;
   setTabMenu: (tabMenu: TabMenuListType) => void;
 }) => {
-  const { activeTab, setActiveTab, handleTabClose } = useTabMenu();
+  const { activeTab, handleTabOpen, handleTabClose } = useTabMenu();
 
   return (
     <div className="flex-none overflow-x-auto bg-custom-gray-100">
@@ -18,7 +18,7 @@ const TabMenu = ({
           <button
             className="h-8 cursor-pointer"
             key={index}
-            onClick={() => setActiveTab(tab.href)}
+            onClick={() => handleTabOpen(tabMenu, setTabMenu, tab)}
           >
             <div
               className={`flex items-center h-full gap-2 px-4 ${

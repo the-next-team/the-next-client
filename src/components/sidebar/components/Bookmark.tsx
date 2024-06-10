@@ -6,7 +6,8 @@ import {
   TabMenuListType,
   favMenuTypeState,
 } from "../../../states/layout/layoutAtom";
-import useTabMenu from "../../../hooks/useTabMenu";
+import useTabMenu from "../../../hooks/useTabLayout";
+import tabLayoutUtil from "../../../utils/tabLayoutUtil";
 
 type Props = {
   tabMenu: TabMenuListType;
@@ -14,7 +15,7 @@ type Props = {
 };
 
 function Bookmark({ tabMenu, setTabMenu }: Props) {
-  const { activeTab, handleTabOpen, findElement } = useTabMenu();
+  const { activeTab, handleTabOpen } = useTabMenu();
   const favMenu = useRecoilValue<FavMenuType>(favMenuTypeState);
   const selected = useRecoilValue<SideMenuType>(SideMenuTypeState);
 
@@ -35,7 +36,7 @@ function Bookmark({ tabMenu, setTabMenu }: Props) {
               handleTabOpen(tabMenu, setTabMenu, {
                 name: fav.name ?? "",
                 href: fav.href ?? "",
-                component: findElement(fav.href),
+                component: tabLayoutUtil.findElement(fav.href),
               });
             }}
           >
