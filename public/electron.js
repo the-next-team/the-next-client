@@ -5,6 +5,7 @@ const path = require("path");
 
 
 const loadUrl = "http://localhost:3000";
+let windowCount = 0;
 
 // Local Update TEST
 Object.defineProperty(app, "isPackaged", {
@@ -149,9 +150,17 @@ ipcMain.on("open-new-window", (event, args) => {
   const { route, width, height } = args;
   log.info("open-new-window...", args);
 
+  // 부모 창의 위치 가져오기
+  const parentWindow = BrowserWindow.getFocusedWindow();
+  const [parentX, parentY] = parentWindow.getPosition();
+
+  windowCount++;
+  let offset = windowCount * 20;
   let newWindow = new BrowserWindow({
     width: width || 800,
     height: height || 800,
+    x: parentX + offset, // x 위치
+    y: parentY + offset, // y 위치
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
@@ -159,6 +168,10 @@ ipcMain.on("open-new-window", (event, args) => {
   });
 
   newWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
+
+  newWindow.on('closed', () => {
+    windowCount--;
+  });
 });
 
 // 업데이트가 시작되었는지 확인할 때 발생합니다.
