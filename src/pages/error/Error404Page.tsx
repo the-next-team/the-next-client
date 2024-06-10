@@ -14,14 +14,14 @@ function Error404Page() {
           요청하신 페이지를 찾을 수 없어요
         </div>
       </div>
-      <div className="max-w-[300px] mx-auto w-full">
+      {/* <div className="max-w-[300px] mx-auto w-full">
         <button
           onClick={() => navigate(-1)}
           className="w-full text-center font-semibold text-sm leading-6 md:px-6 md:py-3 px-4 py-[10px] rounded capitalize  transition-all duration-150 md:whitespace-nowrap whitespace-normal relative dark:bg-slate-800"
         >
           이전 화면으로
         </button>
-      </div>
+      </div> */}
     </div>
     </div>
   )
