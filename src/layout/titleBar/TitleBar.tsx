@@ -1,13 +1,10 @@
 import { useEffect, useRef } from "react";
+import useIsElectron from "../../hooks/useIsElectron";
 import TitleBarButton from "./components/TitleBarButton";
-
-const isElectron = (): boolean => {
-  if (typeof navigator === 'undefined') return false;
-  return navigator.userAgent.toLowerCase().includes('electron');
-};
 
 function TitleBar() {
   const ref = useRef<HTMLDivElement>(null);
+  const isElectron = useIsElectron();
 
   // --vh 변수를 설정하는 함수
   const setVHVariable = () => {
@@ -36,7 +33,7 @@ function TitleBar() {
     };
   }, []); // 빈 의존성 배열을 전달하여 마운트 시에만 useEffect 내의 로직이 실행되도록 함
 
-  if(!isElectron()) {
+  if(!isElectron) {
     return <></>
   }
 
