@@ -7,7 +7,6 @@ function AuditPage() {
 
   // URLSearchParams를 사용하여 파라미터 읽기
   const inspNo = params.get('inspNo');
-  alert(inspNo)
 
   const [select, setSelect] = useState<number>(0);
   const tab = [
