@@ -4,16 +4,10 @@ import { useRecoilState } from "recoil";
 import {
   SideMenuType,
   SideMenuTypeState,
-  TabMenuList,
 } from "../../../states/layout/layoutAtom";
 import TabMenuUtil from "../../../utils/tabMenuUtil";
 
-type Props = {
-  tabMenu: TabMenuList;
-  setTabMenu: (tabMenu: TabMenuList) => void;
-};
-
-function Toolbar({ tabMenu, setTabMenu }: Props) {
+function Toolbar() {
   const { handleTabOpen } = useTabMenu();
   const [selected, setSelected] =
     useRecoilState<SideMenuType>(SideMenuTypeState);
@@ -23,7 +17,7 @@ function Toolbar({ tabMenu, setTabMenu }: Props) {
       name: "home",
       icon: "heroicons:home",
       onClick: () => {
-        handleTabOpen(tabMenu, setTabMenu, {
+        handleTabOpen({
           name: "대시보드",
           href: "home/dashboard",
           component: TabMenuUtil.findElement("home/dashboard"),

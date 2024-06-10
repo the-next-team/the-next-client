@@ -1,6 +1,5 @@
 import { MenuItemType } from "../../../constants/data";
 import useTabMenu from "../../../hooks/useTabMenu";
-import { TabMenuList } from "../../../states/layout/layoutAtom";
 import Multilevel from "./Multilevel";
 
 type Props = {
@@ -9,8 +8,6 @@ type Props = {
   index: number;
   setMultiMenu: (index: number | null) => void;
   activeMultiMenu: number | null;
-  tabMenu: TabMenuList;
-  setTabMenu: (tabMenu: TabMenuList) => void;
 };
 
 function SubMenu({
@@ -19,8 +16,6 @@ function SubMenu({
   index,
   setMultiMenu,
   activeMultiMenu,
-  tabMenu,
-  setTabMenu,
 }: Props) {
   const { activeTab, handleTabOpen } = useTabMenu();
 
@@ -60,15 +55,13 @@ function SubMenu({
                   activeMultiMenu={activeMultiMenu}
                   j={j}
                   subItem={subItem}
-                  tabMenu={tabMenu}
-                  setTabMenu={setTabMenu}
                 />
               </div>
             ) : (
               <div
                 className="px-4 cursor-pointer"
                 onClick={() => {
-                  handleTabOpen(tabMenu, setTabMenu, {
+                  handleTabOpen({
                     name: subItem.childtitle ?? "",
                     href: subItem.childlink ?? "",
                     component: subItem.childElement ?? null,

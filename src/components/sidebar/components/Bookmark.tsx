@@ -3,18 +3,12 @@ import {
   FavMenuType,
   SideMenuType,
   SideMenuTypeState,
-  TabMenuList,
   favMenuTypeState,
 } from "../../../states/layout/layoutAtom";
 import useTabMenu from "../../../hooks/useTabMenu";
 import TabMenuUtil from "../../../utils/tabMenuUtil";
 
-type Props = {
-  tabMenu: TabMenuList;
-  setTabMenu: (tabMenu: TabMenuList) => void;
-};
-
-function Bookmark({ tabMenu, setTabMenu }: Props) {
+function Bookmark() {
   const { activeTab, handleTabOpen } = useTabMenu();
   const favMenu = useRecoilValue<FavMenuType>(favMenuTypeState);
   const selected = useRecoilValue<SideMenuType>(SideMenuTypeState);
@@ -33,7 +27,7 @@ function Bookmark({ tabMenu, setTabMenu }: Props) {
               activeTab === fav.href ? "bg-primary bg-opacity-[0.07]" : ""
             }`}
             onClick={() => {
-              handleTabOpen(tabMenu, setTabMenu, {
+              handleTabOpen({
                 name: fav.name ?? "",
                 href: fav.href ?? "",
                 component: TabMenuUtil.findElement(fav.href),

@@ -5,17 +5,11 @@ import useTabMenu from "../../../hooks/useTabMenu";
 import {
   SideMenuType,
   SideMenuTypeState,
-  TabMenuList,
 } from "../../../states/layout/layoutAtom";
 import SubMenu from "./SubMenu";
 import { useRecoilValue } from "recoil";
 
-type Props = {
-  tabMenu: TabMenuList;
-  setTabMenu: (tabMenu: TabMenuList) => void;
-};
-
-function NavMenu({ tabMenu, setTabMenu }: Props) {
+function NavMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
   const selected = useRecoilValue<SideMenuType>(SideMenuTypeState);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null); // 현재 선택된 Submenu
@@ -86,7 +80,7 @@ function NavMenu({ tabMenu, setTabMenu }: Props) {
               <div
                 className="cursor-pointer menu-link bg-black-500"
                 onClick={() => {
-                  handleTabOpen(tabMenu, setTabMenu, {
+                  handleTabOpen({
                     name: item.title ?? "",
                     href: item.link ?? "",
                     component: item.element ?? null,
@@ -135,8 +129,6 @@ function NavMenu({ tabMenu, setTabMenu }: Props) {
                   setMultiMenu={setMultiMenu}
                   activeSubmenu={activeSubmenu}
                   activeMultiMenu={activeMultiMenu}
-                  tabMenu={tabMenu}
-                  setTabMenu={setTabMenu}
                 />
               </div>
             )}

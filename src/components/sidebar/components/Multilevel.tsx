@@ -1,19 +1,14 @@
 import { MenuItemChildType } from "../../../constants/data";
 import useTabMenu from "../../../hooks/useTabMenu";
-import { TabMenuList } from "../../../states/layout/layoutAtom";
 
 const Multilevel = ({
   activeMultiMenu,
   j,
   subItem,
-  tabMenu,
-  setTabMenu,
 }: {
   subItem: MenuItemChildType;
   j: number;
   activeMultiMenu: number | null;
-  tabMenu: TabMenuList;
-  setTabMenu: (tabMenu: TabMenuList) => void;
 }) => {
   const { activeTab } = useTabMenu();
   const { handleTabOpen } = useTabMenu();
@@ -26,7 +21,7 @@ const Multilevel = ({
             key={i}
             className="pl-8 pr-4 cursor-pointer"
             onClick={() => {
-              handleTabOpen(tabMenu, setTabMenu, {
+              handleTabOpen({
                 name: item.multiTitle,
                 href: item.multiLink,
                 component: item.multiElement ?? null,

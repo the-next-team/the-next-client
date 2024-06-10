@@ -17,28 +17,16 @@ export const activeTabTypeState = atom<activeTabType>({
   effects_UNSTABLE: [persistAtom],
 });
 
-// 현재 탭 리스트 (컴포넌트 포함)
+// 현재 탭 리스트
 export type TabMenuList = Array<TabMenu>;
 export type TabMenu = {
   name: string;
   href: string;
-  component: React.ComponentType | null;
+  component?: React.ComponentType | null;
 };
 export const tabMenuState = atom<TabMenuList>({
   key: "tabMenuState",
   default: [{ name: "대시보드", href: "home/dashboard", component: Dashboard }],
-  effects_UNSTABLE: [persistAtom],
-});
-
-// 현재 탭 리스트 (새로고침시 유지, 컴포넌트 제외)
-export type PersistedTabMenuList = Array<PersistedTabMenu>;
-export type PersistedTabMenu = {
-  name: string;
-  href: string;
-};
-export const persistedTabMenuState = atom<PersistedTabMenuList>({
-  key: "persistedTabMenuState",
-  default: [{ name: "대시보드", href: "home/dashboard" }],
   effects_UNSTABLE: [persistAtom],
 });
 

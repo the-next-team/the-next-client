@@ -4,18 +4,16 @@ import {
   TabMenuList,
   activeTabType,
   activeTabTypeState,
+  tabMenuState,
 } from "../states/layout/layoutAtom";
 
 function useTabMenu() {
   const [activeTab, setActiveTab] =
     useRecoilState<activeTabType>(activeTabTypeState);
+  const [tabMenu, setTabMenu] = useRecoilState<TabMenuList>(tabMenuState);
 
   // 탭 열기
-  const handleTabOpen = (
-    tabMenu: TabMenuList,
-    setTabMenu: (tabMenu: TabMenuList) => void,
-    tab: TabMenu
-  ) => {
+  const handleTabOpen = (tab: TabMenu) => {
     if (tabMenu.every((t: { href: string }) => t.href !== tab.href)) {
       // 탭메뉴에 없는 새로운 메뉴라면
       if (tabMenu.length >= 10) {
@@ -32,11 +30,7 @@ function useTabMenu() {
   };
 
   // 탭 닫기
-  const handleTabClose = (
-    tabMenu: TabMenuList,
-    setTabMenu: (tabMenu: TabMenuList) => void,
-    href: string
-  ) => {
+  const handleTabClose = (href: string) => {
     let updatedTabs = [...tabMenu];
     if (href === activeTab) {
       const currentIndex = updatedTabs.findIndex((t) => t.href === href);
@@ -51,6 +45,8 @@ function useTabMenu() {
   };
 
   return {
+    tabMenu,
+    setTabMenu,
     activeTab,
     handleTabOpen,
     handleTabClose,
