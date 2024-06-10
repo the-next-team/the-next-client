@@ -54,6 +54,7 @@ const useStompClient = () => {
   }, []);
 
   return {
+    client,
     connect,
     disconnect,
     isConnected,
