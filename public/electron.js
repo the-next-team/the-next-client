@@ -157,6 +157,8 @@ ipcMain.on("open-new-window", (event, args) => {
   windowCount++;
   let offset = windowCount * 20;
   let newWindow = new BrowserWindow({
+    minWidth: 1200,
+    minHeight: 800,
     width: width || 800,
     height: height || 800,
     x: parentX + offset, // x 위치
