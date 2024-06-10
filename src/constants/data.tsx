@@ -1,4 +1,4 @@
-import ScreenManagement from "../pages/screen/ScreenManagement";
+import ScreenManagement from "../pages/screen/ScreenManagement";
 import Dashboard from "../pages/dashboard/Dashboard";
 import CommonCodePage from "../pages/preferences/code/common/CommonCodePage";
 import MenuManagement from "../pages/preferences/menu/MenuManagement";
