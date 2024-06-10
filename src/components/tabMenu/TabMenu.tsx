@@ -1,13 +1,13 @@
 import { Icon } from "@iconify/react";
 import useTabMenu from "../../hooks/useTabMenu";
-import { TabMenuListType } from "../../states/layout/layoutAtom";
+import { TabMenuList } from "../../states/layout/layoutAtom";
 
 const TabMenu = ({
   tabMenu,
   setTabMenu,
 }: {
-  tabMenu: TabMenuListType;
-  setTabMenu: (tabMenu: TabMenuListType) => void;
+  tabMenu: TabMenuList;
+  setTabMenu: (tabMenu: TabMenuList) => void;
 }) => {
   const { activeTab, handleTabOpen, handleTabClose } = useTabMenu();
 

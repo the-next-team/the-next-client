@@ -3,15 +3,15 @@ import {
   FavMenuType,
   SideMenuType,
   SideMenuTypeState,
-  TabMenuListType,
+  TabMenuList,
   favMenuTypeState,
 } from "../../../states/layout/layoutAtom";
 import useTabMenu from "../../../hooks/useTabMenu";
 import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 type Props = {
-  tabMenu: TabMenuListType;
-  setTabMenu: (tabMenu: TabMenuListType) => void;
+  tabMenu: TabMenuList;
+  setTabMenu: (tabMenu: TabMenuList) => void;
 };
 
 function Bookmark({ tabMenu, setTabMenu }: Props) {

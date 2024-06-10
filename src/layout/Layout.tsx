@@ -3,22 +3,26 @@ import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import TabMenu from "../components/tabMenu/TabMenu";
 import useTabMenu from "../hooks/useTabMenu";
 import Error404Page from "../pages/error/Error404Page";
-import { TabMenuListType, tabMenuTypeState } from "../states/layout/layoutAtom";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
 import { useRecoilState } from "recoil";
 import TabMenuUtil from "../utils/tabMenuUtil";
+import {
+  PersistedTabMenuList,
+  TabMenuList,
+  persistedTabMenuState,
+} from "../states/layout/layoutAtom";
 
 function Layout() {
-  const [tabMenu, setTabMenu] = useState<TabMenuListType>([]);
-  const [tabMenuState, setTabMenuState] =
-    useRecoilState<TabMenuListType>(tabMenuTypeState);
+  const [tabMenu, setTabMenu] = useState<TabMenuList>([]);
+  const [persistedTabMenu, setPersistedTabMenu] =
+    useRecoilState<PersistedTabMenuList>(persistedTabMenuState);
   const { activeTab } = useTabMenu();
 
   useEffect(() => {
     setTabMenu(
-      tabMenuState.map(({ name, href }) => ({
+      persistedTabMenu.map(({ name, href }) => ({
         name,
         href,
         component: TabMenuUtil.findElement(href),
@@ -28,7 +32,7 @@ function Layout() {
 
   useEffect(() => {
     if (tabMenu.length) {
-      setTabMenuState(tabMenu.map(({ name, href }) => ({ name, href })));
+      setPersistedTabMenu(tabMenu.map(({ name, href }) => ({ name, href })));
     }
   }, [tabMenu]);
 

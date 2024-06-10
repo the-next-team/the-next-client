@@ -5,14 +5,14 @@ import useTabMenu from "../../../hooks/useTabMenu";
 import {
   SideMenuType,
   SideMenuTypeState,
-  TabMenuListType,
+  TabMenuList,
 } from "../../../states/layout/layoutAtom";
 import SubMenu from "./SubMenu";
 import { useRecoilValue } from "recoil";
 
 type Props = {
-  tabMenu: TabMenuListType;
-  setTabMenu: (tabMenu: TabMenuListType) => void;
+  tabMenu: TabMenuList;
+  setTabMenu: (tabMenu: TabMenuList) => void;
 };
 
 function NavMenu({ tabMenu, setTabMenu }: Props) {

@@ -4,13 +4,13 @@ import { useRecoilState } from "recoil";
 import {
   SideMenuType,
   SideMenuTypeState,
-  TabMenuListType,
+  TabMenuList,
 } from "../../../states/layout/layoutAtom";
 import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 type Props = {
-  tabMenu: TabMenuListType;
-  setTabMenu: (tabMenu: TabMenuListType) => void;
+  tabMenu: TabMenuList;
+  setTabMenu: (tabMenu: TabMenuList) => void;
 };
 
 function Toolbar({ tabMenu, setTabMenu }: Props) {

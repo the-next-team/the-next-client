@@ -1,11 +1,11 @@
 import NavMenu from "./components/NavMenu";
 import Toolbar from "./components/Toolbar";
-import { TabMenuListType } from "../../states/layout/layoutAtom";
 import Bookmark from "./components/Bookmark";
+import { TabMenuList } from "../../states/layout/layoutAtom";
 
 type Props = {
-  tabMenu: TabMenuListType;
-  setTabMenu: (tabMenu: TabMenuListType) => void;
+  tabMenu: TabMenuList;
+  setTabMenu: (tabMenu: TabMenuList) => void;
 };
 
 function Sidebar({ tabMenu, setTabMenu }: Props) {

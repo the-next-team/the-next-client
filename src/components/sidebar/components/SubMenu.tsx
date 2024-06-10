@@ -1,6 +1,6 @@
 import { MenuItemType } from "../../../constants/data";
 import useTabMenu from "../../../hooks/useTabMenu";
-import { TabMenuListType } from "../../../states/layout/layoutAtom";
+import { TabMenuList } from "../../../states/layout/layoutAtom";
 import Multilevel from "./Multilevel";
 
 type Props = {
@@ -9,8 +9,8 @@ type Props = {
   index: number;
   setMultiMenu: (index: number | null) => void;
   activeMultiMenu: number | null;
-  tabMenu: TabMenuListType;
-  setTabMenu: (tabMenu: TabMenuListType) => void;
+  tabMenu: TabMenuList;
+  setTabMenu: (tabMenu: TabMenuList) => void;
 };
 
 function SubMenu({
