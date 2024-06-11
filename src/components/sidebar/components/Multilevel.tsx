@@ -10,8 +10,7 @@ const Multilevel = ({
   j: number;
   activeMultiMenu: number | null;
 }) => {
-  const { activeTab } = useTabMenu();
-  const { handleTabOpen } = useTabMenu();
+  const { activeTab, handleTabOpen } = useTabMenu();
 
   return (
     <div className={`${activeMultiMenu === j ? "block" : "hidden"}`}>
