@@ -6,7 +6,7 @@ function AuditPage() {
   const params = useQueryParams();
 
   // URLSearchParams를 사용하여 파라미터 읽기
-  const inspNo = params.get('inspNo');
+  const inspNo = params.get("inspNo");
 
   const [select, setSelect] = useState<number>(0);
   const tab = [
@@ -419,7 +419,11 @@ function AuditPage() {
             <div className="flex gap-1 border-b-2 border-b-gray-400">
               {tab.map((item, i) => (
                 <div
-                  className={`${select === i ? "bg-gray-400 text-white" : "border-gray-400 border-2 bg-gray-50 px-1"} px-1 py-[1px] rounded-t border-b-0 cursor-pointer`}
+                  className={`${
+                    select === i
+                      ? "bg-gray-400 text-white"
+                      : "border-gray-400 border-2 bg-gray-50 px-1"
+                  } px-1 py-[1px] rounded-t border-b-0 cursor-pointer`}
                   onClick={() => setSelect(i)}
                 >
                   <p className="text-xs">{item.name}</p>
@@ -472,8 +476,99 @@ function AuditPage() {
               <div className="p-1 bg-blue-400 rounded-t w-fit">
                 <p className="text-xs text-white">진행메모</p>
               </div>
-              <div className="bg-white border-t-2 border-blue-400 h-[400px]">
+              <div className="px-1 pb-1 text-xs bg-white border-t-2 border-blue-400">
                 {/* 여기에 진행메모 */}
+                <div className="flex justify-around py-2">
+                  <div className="flex items-center gap-1">
+                    <input
+                      type="radio"
+                      id="radio1"
+                      name="radio"
+                      defaultChecked
+                    />
+                    <label htmlFor="radio1">전체</label>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <input type="radio" id="radio2" name="radio" />
+                    <label htmlFor="radio2">진행메모</label>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <input type="radio" id="radio3" name="radio" />
+                    <label htmlFor="radio3">SMS</label>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <input type="radio" id="radio4" name="radio" />
+                    <label htmlFor="radio4">중개사메모</label>
+                  </div>
+                </div>
+                <div className="overflow-y-auto border divide-y rounded max-h-80">
+                  <div className="flex divide-x">
+                    <p className="px-1">1</p>
+                    <p className="w-1/2 px-1 bg-red-200">
+                      스크래핑(안내) 06-05 10:50
+                    </p>
+                    <p className="w-1/4 px-1">모바일WE</p>
+                    <p className="w-1/4 px-1">발송완료</p>
+                  </div>
+                  <div className="px-2 py-4">
+                    <p>[모바일웹] 신분증 진위 확인 및 저장 완료 (4100)</p>
+                  </div>
+                  <div className="flex divide-x">
+                    <p className="px-1">2</p>
+                    <p className="w-1/2 px-1 bg-red-200">
+                      스크래핑(안내) 06-05 10:50
+                    </p>
+                    <p className="w-1/4 px-1">모바일WE</p>
+                    <p className="w-1/4 px-1">발송전</p>
+                  </div>
+                  <div className="px-2 py-4">
+                    <p>신분증 스크래핑 완료</p>
+                  </div>
+                  <div className="flex divide-x">
+                    <p className="px-1">3</p>
+                    <p className="w-1/2 px-1 bg-red-200">
+                      스크래핑(안내) 06-05 09:44
+                    </p>
+                    <p className="w-1/4 px-1">모바일WE</p>
+                    <p className="w-1/4 px-1">발송전</p>
+                  </div>
+                  <div className="px-2 py-4">
+                    <p>신분증 스크래핑 완료</p>
+                  </div>
+                  <div className="flex divide-x">
+                    <p className="px-1">4</p>
+                    <p className="w-1/2 px-1 bg-red-200">
+                      스크래핑(안내) 06-05 09:44
+                    </p>
+                    <p className="w-1/4 px-1">모바일WE</p>
+                    <p className="w-1/4 px-1">발송완료</p>
+                  </div>
+                  <div className="px-2 py-4">
+                    <p>[모바일웹] 신분증 진위 확인 및 저장 완료 (4100)</p>
+                  </div>
+                  <div className="flex divide-x">
+                    <p className="px-1">5</p>
+                    <p className="w-1/2 px-1 bg-red-200">
+                      스크래핑(안내) 06-05 09:42
+                    </p>
+                    <p className="w-1/4 px-1">모바일WE</p>
+                    <p className="w-1/4 px-1">발송전</p>
+                  </div>
+                  <div className="px-2 py-4">
+                    <p>[모바일웹] 신분증 진위 확인 및 저장 완료 (4100)</p>
+                  </div>
+                  <div className="flex divide-x">
+                    <p className="px-1">6</p>
+                    <p className="w-1/2 px-1 bg-red-200">
+                      스크래핑(안내) 06-04 14:03
+                    </p>
+                    <p className="w-1/4 px-1">모바일WE</p>
+                    <p className="w-1/4 px-1">발송전</p>
+                  </div>
+                  <div className="px-2 py-4">
+                    <p>신분증 스크래핑 완료</p>
+                  </div>
+                </div>
               </div>
             </div>
             {/* 심사배정 */}
