@@ -1,22 +1,22 @@
 import { useRecoilValue } from "recoil";
 import {
-  FavMenuType,
-  SideMenuType,
-  SideMenuTypeState,
-  favMenuTypeState,
-} from "../../../states/layout/layoutAtom";
+  CurrentSideMenu,
+  FavMenu,
+  currentSideMenuState,
+  favMenuState,
+} from "../../../states/sidebar/sidebarAtom";
 import useTabMenu from "../../../hooks/useTabMenu";
 import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 function Bookmark() {
   const { activeTab, handleTabOpen } = useTabMenu();
-  const favMenu = useRecoilValue<FavMenuType>(favMenuTypeState);
-  const selected = useRecoilValue<SideMenuType>(SideMenuTypeState);
+  const favMenu = useRecoilValue<FavMenu>(favMenuState);
+  const currentSideMenu = useRecoilValue<CurrentSideMenu>(currentSideMenuState);
 
   return (
     <div
       className={`w-[215px] h-full overflow-y-auto shadow-md ${
-        selected === "bookmark" ? "block" : "hidden pointer-events-none"
+        currentSideMenu === "bookmark" ? "block" : "hidden pointer-events-none"
       }`}
     >
       <ul>

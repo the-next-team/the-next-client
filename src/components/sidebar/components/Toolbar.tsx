@@ -2,15 +2,15 @@ import { Icon } from "@iconify/react";
 import useTabMenu from "../../../hooks/useTabMenu";
 import { useRecoilState } from "recoil";
 import {
-  SideMenuType,
-  SideMenuTypeState,
-} from "../../../states/layout/layoutAtom";
+  CurrentSideMenu,
+  currentSideMenuState,
+} from "../../../states/sidebar/sidebarAtom";
 import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 function Toolbar() {
   const { handleTabOpen } = useTabMenu();
-  const [selected, setSelected] =
-    useRecoilState<SideMenuType>(SideMenuTypeState);
+  const [currentSideMenu, setCurrentSideMenu] =
+    useRecoilState<CurrentSideMenu>(currentSideMenuState);
 
   const toolMenus = [
     {
@@ -49,12 +49,12 @@ function Toolbar() {
         <div key={i}>
           <div
             className={`cursor-pointer rounded-[6px] p-[6px] ${
-              selected == menu.name
+              currentSideMenu == menu.name
                 ? "bg-gradient-to-br from-[#f47112] via-[#f35916] to-[#e22f55] text-white shadow-md"
                 : "border border-custom-blue-100 text-custom-black"
             }`}
             onClick={() => {
-              setSelected(menu.name);
+              setCurrentSideMenu(menu.name);
               menu.onClick && menu.onClick();
             }}
           >

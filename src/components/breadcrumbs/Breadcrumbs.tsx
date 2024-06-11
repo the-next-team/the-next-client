@@ -2,12 +2,12 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import useTabMenu from "../../hooks/useTabMenu";
-import { FavMenuType, favMenuTypeState } from "../../states/layout/layoutAtom";
+import { FavMenu, favMenuState } from "../../states/sidebar/sidebarAtom";
 import TabMenuUtil from "../../utils/tabMenuUtil";
 
 function Breadcrumbs() {
-  const [favMenu, setFavMenu] = useRecoilState<FavMenuType>(favMenuTypeState);
   const { activeTab } = useTabMenu();
+  const [favMenu, setFavMenu] = useRecoilState<FavMenu>(favMenuState);
 
   const [isHide, setIsHide] = useState<boolean | undefined>(false);
   const [title, setTitle] = useState<Array<string>>([]);

@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import { menuItems } from "../../../constants/data";
 import useTabMenu from "../../../hooks/useTabMenu";
 import {
-  SideMenuType,
-  SideMenuTypeState,
-} from "../../../states/layout/layoutAtom";
+  CurrentSideMenu,
+  currentSideMenuState,
+} from "../../../states/sidebar/sidebarAtom";
 import SubMenu from "./SubMenu";
 import { useRecoilValue } from "recoil";
 
 function NavMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
-  const selected = useRecoilValue<SideMenuType>(SideMenuTypeState);
+  const currentSideMenu = useRecoilValue<CurrentSideMenu>(currentSideMenuState);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null); // 현재 선택된 Submenu
   const [activeMultiMenu, setMultiMenu] = useState<number | null>(null); // 현재 선택된 MultiMenu
 
@@ -63,7 +63,7 @@ function NavMenu() {
   return (
     <div
       className={`w-[215px] h-full overflow-y-auto shadow-md ${
-        selected === "menu" ? "block" : "hidden pointer-events-none"
+        currentSideMenu === "menu" ? "block" : "hidden pointer-events-none"
       }`}
     >
       <ul>

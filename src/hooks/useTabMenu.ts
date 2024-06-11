@@ -5,7 +5,7 @@ import {
   activeTabType,
   activeTabTypeState,
   tabMenuState,
-} from "../states/layout/layoutAtom";
+} from "../states/tabMenu/tabMenuAtom";
 
 function useTabMenu() {
   const [activeTab, setActiveTab] =
