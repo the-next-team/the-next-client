@@ -1,7 +1,7 @@
-import { Client } from "@stomp/stompjs";
+import { Client, Stomp } from "@stomp/stompjs";
 import { useCallback, useEffect, useState } from "react";
+import { storageKey } from "../constants";
 
-// 함수 바깥에 변수를 정의하면 전역 변수 처럼 활용 가능
 let client: Client | null = null;
 
 const useStompClient = () => {
@@ -15,18 +15,32 @@ const useStompClient = () => {
   }, []);
 
   const connect = useCallback(() => {
-    // 웹소켓이 서버와 한번만 연결이 되어야 하는데 2번, 3번 연결되어 버리면 X
+    const accessToken = localStorage.getItem(
+      storageKey.accessToken
+    );
+
     if (!client) {
+      client = Stomp.over(() => {
+
+      })
       client = new Client({
-        brokerURL: process.env.REACT_APP_API_URL,
+        // webSocketFactory: () => new SockJS(`${process.env.REACT_APP_API_URL!}/ws-stomp`),
+        brokerURL: `${process.env.REACT_APP_SOCKET_URL!}/ws-stomp`,
         debug: (str) => console.log(str),
         reconnectDelay: 5000,
         heartbeatIncoming: 4000,
         heartbeatOutgoing: 4000,
+        connectHeaders: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       });
 
       client.onConnect = onConnect;
       client.onStompError = onError;
+      client.onDisconnect = () => {
+        console.log("Disconnected from STOMP");
+        setIsConnected(false);
+      };
     }
 
     if (!isConnected) {
@@ -44,14 +58,13 @@ const useStompClient = () => {
     console.log("Additional details: " + frame.body);
   };
 
-  // 서버와 연결을 하고 연결을 끊고 싶을 때 활용하는 함수 disconnet
   const disconnect = useCallback(() => {
     if (client && isConnected) {
-      client.deactivate(); // 연결 끊어짐
+      client.deactivate();
       client = null;
       setIsConnected(false);
     }
-  }, []);
+  }, [isConnected]);
 
   return {
     client,
@@ -61,4 +74,4 @@ const useStompClient = () => {
   };
 };
 
-export default useStompClient();
+export default useStompClient;

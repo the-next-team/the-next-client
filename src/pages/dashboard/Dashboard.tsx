@@ -1,3 +1,4 @@
+import { NotificationService } from "../../api/services/notification/notificationService";
 import PopupButton from "../../components/button/PopupButton";
 import useNotification from "../../hooks/useNotification";
 
@@ -25,6 +26,14 @@ function Dashboard() {
         }}
       >
         Show Nitification
+      </button>
+
+      <button
+        onClick={() => {
+          NotificationService.send();
+        }}
+      >
+        Show Local Nitification
       </button>
     </div>
   );

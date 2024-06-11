@@ -1,12 +1,12 @@
 
-type ShowNotificationType = {
+type NotificationType = {
   title: string;
   body: string;
   icon?: string;
 };
 
 const useNotification = () => {
-  const show = (notification: ShowNotificationType) => {
+  const show = (notification: NotificationType) => {
     if (window.electron?.ipcRenderer) {
       window.electron?.ipcRenderer.sendMessage("show-notification", {
         title: notification.title,

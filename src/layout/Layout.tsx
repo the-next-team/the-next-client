@@ -1,15 +1,45 @@
-import { useEffect } from "react";
+import { IMessage } from "@stomp/stompjs";
+import { useCallback, useEffect } from "react";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
-import TabMenu from "../components/tabMenu/TabMenu";
-import useTabMenu from "../hooks/useTabMenu";
-import Error404Page from "../pages/error/Error404Page";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
+import LocalNotification from "../components/notification/LocalNotification";
 import Sidebar from "../components/sidebar/Sidebar";
+import TabMenu from "../components/tabMenu/TabMenu";
+import useLocalNotification from "../hooks/useLocalNotification";
+import useStompClient from "../hooks/useStompClient";
+import useTabMenu from "../hooks/useTabMenu";
+import Error404Page from "../pages/error/Error404Page";
 import TabMenuUtil from "../utils/tabMenuUtil";
 
 function Layout() {
   const { tabMenu, setTabMenu, activeTab } = useTabMenu();
+  const { client, isConnected } = useStompClient();
+  const { notifications, showNotification } = useLocalNotification();
+
+  const handleMessage = useCallback(
+    (message: IMessage) => {
+      console.log(message);
+      const {
+        type,
+        data: { title, body },
+      } = JSON.parse(message.body);
+      showNotification({ title, body: body });
+    },
+    [showNotification]
+  );
+
+  useEffect(() => {
+    if (isConnected && client) {
+      const subscription = client.subscribe(
+        "/topic/notification",
+        handleMessage
+      );
+      return () => {
+        subscription.unsubscribe();
+      };
+    }
+  }, [isConnected, client, handleMessage]);
 
   useEffect(() => {
     setTabMenu(
@@ -54,6 +84,8 @@ function Layout() {
           <Footer />
         </div>
       </main>
+
+      <LocalNotification notifications={notifications} />
     </div>
   );
 }

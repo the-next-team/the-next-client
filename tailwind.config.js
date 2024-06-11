@@ -18,6 +18,21 @@ module.exports = {
           },
         },
       },
+
+      keyframes: {
+        "slide-in": {
+          "0%": { transform: "translateX(100%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        "fade-out": {
+          "0%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { transform: "translateX(100%)", opacity: "0" },
+        },
+      },
+      animation: {
+        "slide-in": "slide-in 0.3s ease-out",
+        "fade-out": "fade-out 0.5s ease-in 3s forwards",
+      },
     },
   },
   plugins: [
