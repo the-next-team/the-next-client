@@ -1,8 +1,13 @@
-const { app, BrowserWindow, dialog, ipcMain } = require("electron");
+const {
+  Notification,
+  app,
+  BrowserWindow,
+  dialog,
+  ipcMain,
+} = require("electron");
 const { autoUpdater } = require("electron-updater");
 const log = require("electron-log");
 const path = require("path");
-
 
 const loadUrl = "http://localhost:3000";
 let windowCount = 0;
@@ -92,6 +97,18 @@ const createWindow = () => {
   });
 };
 
+//////////////////
+// Notification //
+//////////////////
+ipcMain.on("show-notification", (event, arg) => {
+  const notification = new Notification({
+    title: arg.title,
+    body: arg.body,
+    // icon: path.join(__dirname, "../build/favicon.ico"), // 아이콘 경로 설정
+  });
+  notification.show();
+});
+
 ///////////////////
 // Auto upadater //
 ///////////////////
@@ -171,7 +188,7 @@ ipcMain.on("open-new-window", (event, args) => {
 
   newWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
 
-  newWindow.on('closed', () => {
+  newWindow.on("closed", () => {
     windowCount--;
   });
 });

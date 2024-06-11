@@ -1,6 +1,8 @@
 import PopupButton from "../../components/button/PopupButton";
+import useNotification from "../../hooks/useNotification";
 
 function Dashboard() {
+  const { show } = useNotification();
   return (
     <div className="flex items-start gap-5">
       <PopupButton
@@ -13,6 +15,17 @@ function Dashboard() {
           </div>
         }
       />
+
+      <button
+        onClick={() => {
+          show({
+            title: "알림",
+            body: "내용",
+          });
+        }}
+      >
+        Show Nitification
+      </button>
     </div>
   );
 }
