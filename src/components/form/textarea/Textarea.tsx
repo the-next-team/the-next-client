@@ -1,17 +1,15 @@
 import { ChangeEvent, ForwardedRef, forwardRef } from "react";
 
 type Props = {
-  cols?: number | undefined;
-  rows?: number | undefined;
-  label?: string | undefined;
-  classLabel?: string | undefined;
+  cols?: number;
+  rows?: number;
+  label?: string;
+  classLabel?: string;
   disabled?: boolean;
-  register?: any | undefined;
-  className?: string | undefined;
-  name?: string | undefined;
-  error?: any | undefined;
-  validate?: string | undefined;
-  description?: string | undefined;
+  className?: string;
+  error?: any;
+  validate?: string;
+  description?: string;
   onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
@@ -23,9 +21,7 @@ export const Textarea = forwardRef(
       label,
       classLabel,
       disabled,
-      register,
-      className = "",
-      name,
+      className,
       error,
       validate,
       description,
@@ -37,7 +33,7 @@ export const Textarea = forwardRef(
     return (
       <div>
         {label && (
-          <label htmlFor={label} className="cursor-pointer">
+          <label htmlFor={label} className={`${classLabel} cursor-pointer`}>
             <p className="mb-1.5 text-sm font-medium text-custom-gray-300">
               {label}
             </p>
@@ -48,6 +44,7 @@ export const Textarea = forwardRef(
           id={label}
           rows={rows}
           cols={cols}
+          disabled={disabled}
           className={`${className} ${
             disabled ? "bg-custom-blue-100" : "bg-transparent"
           } ${
@@ -56,7 +53,7 @@ export const Textarea = forwardRef(
               : error
               ? " ring-red-400 focus:ring-[1.5px]"
               : "ring-custom-gray-100 focus:ring-custom-gray-300"
-          } w-full h-full text-custom-black rounded-[2px] outline-none px-2 py-1 duration-100 ring-1`}
+          } block w-full h-full text-custom-black rounded-[2px] outline-none px-2 py-1 duration-100 ring-1`}
           {...rest}
         />
         {validate ? (
