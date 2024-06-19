@@ -17,7 +17,6 @@ const AppRouter = () => {
         <Route path="/main/*" element={<Layout />} />
         <Route path="/audit" element={<AuditPage />} />
         <Route path="*" element={<Navigate replace={true} to="/404" />} />
-        {/* <Route path="popup" element={<Popup />} /> */}
       </Routes>
     </Suspense>
   );
