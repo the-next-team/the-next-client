@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { UserService } from "../../api/services/userService";
-import CustomInput from "../../components/form/CustomInput";
+import CustomInput from "../../components/form/input/CustomInput";
 import { storageKey } from "../../constants";
 import { userState } from "../../states/user/userAtom";
 
