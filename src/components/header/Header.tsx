@@ -3,21 +3,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
+import useUser from "../../hooks/useUser";
 import Toolbar from "./components/Toolbar";
 
 function Header() {
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useUser();
 
   const dropdown = [
     {
       name: "Logout",
       icon: "heroicons:arrow-left-on-rectangle-20-solid",
       onClick: () => {
-        // 로그아웃
-        navigate("/", {
-          replace: true,
-        });
+        logout();
       },
     },
   ];

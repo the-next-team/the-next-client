@@ -33,7 +33,7 @@ function LoginPage() {
 
         setUserState(response.data);
 
-        navigate("/main", {
+        navigate("/", {
           replace: true,
         });
       }

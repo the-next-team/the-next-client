@@ -1,4 +1,5 @@
 import { Get, Post } from "..";
+import { UserState } from "../../states/user/userAtom";
 import { ApiResponse } from "../models/common/apiError";
 
 export interface IUser {
@@ -21,7 +22,7 @@ export interface ILoginHistory {
 
 export interface IInfoHistory {}
 
-export interface IUserLoggedIn {
+export interface IUserInfo {
   id: string;
   username: string;
   employeeNumber: string | null;
@@ -32,6 +33,10 @@ export const UserService = {
   login: async (data: object): Promise<ApiResponse<any>> => {
     return Post("/api/auth/login", data);
   },
+  // 사용자 정보 조회
+  fetchInfo: async (): Promise<ApiResponse<UserState>> => {
+    return Get("/api/user/me");
+  },
   getUser: async (): Promise<ApiResponse<IUser[]>> => {
     return Get(`/api/user`);
   },
@@ -41,7 +46,7 @@ export const UserService = {
   fetchUserInfoHistory: async (): Promise<ApiResponse<IInfoHistory[]>> => {
     return Get(`/api/user/history/info`);
   },
-  fetchUserLoggedIn: async (): Promise<ApiResponse<IUserLoggedIn[]>> => {
+  fetchUserLoggedIn: async (): Promise<ApiResponse<IUserInfo>> => {
     return Get(`/api/user/me`);
   },
 };

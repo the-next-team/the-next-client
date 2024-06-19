@@ -1,6 +1,16 @@
 import { Get } from "..";
 import { ApiResponse } from "../models/common/apiError";
 
+export interface IMenu {
+  id: string;
+  url?: string;
+  name: string;
+  listOrder: number;
+  depth: number;
+  subMenu: IMenu[];
+  children: IMenu[];
+}
+
 export interface IMenu1Depth {
   code: string;
   name: string;
@@ -25,6 +35,9 @@ export interface IMenu3Depth {
 }
 
 export const MenuService = {
+  findAll: async (): Promise<ApiResponse<IMenu[]>> => {
+    return Get("/api/common/menu");
+  },
   getMenu: async (): Promise<ApiResponse<IMenu1Depth[]>> => {
     return Get("/api/common/menu");
   },
