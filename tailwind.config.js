@@ -33,6 +33,9 @@ module.exports = {
         "slide-in": "slide-in 0.3s ease-out",
         "fade-out": "fade-out 0.5s ease-in 3s forwards",
       },
+      backgroundImage: {
+        "ck-white": "url('./assets/icons/ck-white.svg')",
+      },
     },
   },
   plugins: [
