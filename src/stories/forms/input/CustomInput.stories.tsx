@@ -6,16 +6,16 @@ const meta = {
   component: CustomInput,
   parameters: {
     layout: "centered",
-    componentSubtitle: "인풋",
+    componentSubtitle: "",
     docs: {
       description: {
-        component: "사용자로부터 텍스트를 입력받을 때 사용합니다.",
+        component: "",
       },
     },
   },
   tags: ["autodocs"],
   decorators: [
-    (Story: any) => (
+    (Story) => (
       <div className="w-52">
         <Story />
       </div>
@@ -54,13 +54,12 @@ export const States: Story = () => (
     <CustomInput
       label="Valid State"
       placeholder="Valid"
-      validate="This is valid state.
-"
+      validate="This is valid state."
     />
     <CustomInput
       label="Invalid State"
       placeholder="Invalid"
-      error="This is invalid state"
+      error="This is invalid state."
     />
   </div>
 );
