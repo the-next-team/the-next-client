@@ -4,7 +4,6 @@ type Props = {
   disabled?: boolean;
   className?: string;
   options: Array<{ label: string; value: string }>;
-  onChange?: () => void;
 } & React.SelectHTMLAttributes<HTMLSelectElement>;
 
 const Select = ({
@@ -13,8 +12,7 @@ const Select = ({
   placeholder = "",
   className,
   options,
-  onChange,
-  ...rest
+  ...props
 }: Props) => {
   return (
     <div className="flex flex-col gap-1">
@@ -34,7 +32,7 @@ const Select = ({
         className={`${className} ${
           disabled ? "cursor-default" : "cursor-pointer"
         } select-none bg-transparent ring-1 outline-none duration-100 rounded-[2px] text-sm ring-custom-gray-100 focus:ring-custom-black`}
-        {...rest}
+        {...props}
       >
         {placeholder && (
           <option value="" disabled hidden selected>

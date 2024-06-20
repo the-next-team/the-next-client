@@ -14,7 +14,7 @@ function CustomInput({
   error,
   className,
   description,
-  ...rest
+  ...props
 }: Props) {
   return (
     <div>
@@ -42,7 +42,7 @@ function CustomInput({
           : "ring-custom-gray-100 focus:ring-custom-gray-300"
       } 
 		  w-full h-full text-custom-black rounded-[2px] outline-none px-3 duration-100 ring-1`}
-            {...rest}
+            {...props}
           />
         </div>
       </div>

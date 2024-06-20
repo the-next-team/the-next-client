@@ -10,7 +10,7 @@ const Checkbox = ({
   disabled = false,
   className,
   onChange,
-  ...rest
+  ...props
 }: Props) => {
   return (
     <div className="flex items-center justify-center gap-2">
@@ -23,7 +23,7 @@ const Checkbox = ({
             ? "cursor-default bg-gray-100 checked:bg-gray-400"
             : "cursor-pointer bg-custom-gray-100 checked:bg-custom-black"
         } select-none duration-100 peer appearance-none w-4 h-4 checked:bg-ck-white rounded-sm bg-no-repeat bg-center`}
-        {...rest}
+        {...props}
       />
       {label && (
         <label

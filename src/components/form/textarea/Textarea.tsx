@@ -26,7 +26,7 @@ export const Textarea = forwardRef(
       validate,
       description,
       onChange,
-      ...rest
+      ...props
     }: Props,
     ref: ForwardedRef<HTMLTextAreaElement>
   ) => {
@@ -54,7 +54,7 @@ export const Textarea = forwardRef(
               ? " ring-red-400 focus:ring-[1.5px]"
               : "ring-custom-gray-100 focus:ring-custom-gray-300"
           } block w-full h-full text-custom-black rounded-[2px] outline-none px-2 py-1 duration-100 ring-1`}
-          {...rest}
+          {...props}
         />
         {validate ? (
           <p className="mt-1.5 text-sm text-green-400">{validate}</p>
