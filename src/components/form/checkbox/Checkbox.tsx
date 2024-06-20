@@ -18,13 +18,21 @@ const Checkbox = ({
         id={label}
         type="checkbox"
         disabled={disabled}
-        className={`${className} disabled:cursor-default cursor-pointer select-none duration-100 peer appearance-none w-4 h-4 checked:bg-ck-white checked:bg-custom-black rounded-sm bg-no-repeat bg-center bg-custom-gray-100`}
+        className={`${className} ${
+          disabled
+            ? "cursor-default bg-gray-100 checked:bg-gray-400"
+            : "cursor-pointer bg-custom-gray-100 checked:bg-custom-black"
+        } select-none duration-100 peer appearance-none w-4 h-4 checked:bg-ck-white rounded-sm bg-no-repeat bg-center`}
         {...rest}
       />
       {label && (
         <label
           htmlFor={label}
-          className="duration-100 cursor-pointer peer-disabled:cursor-default peer-checked:text-custom-black text-custom-gray-200"
+          className={`${
+            disabled
+              ? "cursor-default peer-checked:text-gray-400 text-gray-300"
+              : "cursor-pointer peer-checked:text-custom-black text-custom-gray-200"
+          } duration-100`}
         >
           <p className="text-sm select-none">{label}</p>
         </label>
