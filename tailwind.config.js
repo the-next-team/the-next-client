@@ -28,10 +28,17 @@ module.exports = {
           "0%": { transform: "translateX(0)", opacity: "1" },
           "100%": { transform: "translateX(100%)", opacity: "0" },
         },
+        "gradient-primary": {
+          "0%": { background: "#000" },
+          "100%": {
+            background: "linear-gradient(to right, #f47112, #f35916, #e22f55)",
+          },
+        },
       },
       animation: {
         "slide-in": "slide-in 0.3s ease-out",
         "fade-out": "fade-out 0.5s ease-in 3s forwards",
+        "gradient-primary": "gradient-primary 0.5s ease forwards",
       },
       backgroundImage: {
         "ck-white": "url('./assets/icons/ck-white.svg')",

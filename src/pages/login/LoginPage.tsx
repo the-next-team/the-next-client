@@ -4,6 +4,7 @@ import { UserService } from "../../api/services/userService";
 import Input from "../../components/form/input/Input";
 import { storageKey } from "../../constants";
 import { userState } from "../../states/user/userAtom";
+import Logo from "../../assets/images/logo/logo-smartsb-02.png";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -47,18 +48,22 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-screen">
-      <form
-        onSubmit={onSubmit}
-        className="w-[520px] p-10 bg-white rounded-lg flex flex-col gap-6 text-custom-black shadow-md"
-      >
-        <p className="text-2xl font-semibold text-center">Sign In</p>
-        <div className="flex flex-col gap-4">
+    <div className="flex items-center justify-center w-full h-screen bg-white">
+      <form onSubmit={onSubmit}>
+        <div className="mb-6">
+          <p className="text-2xl font-semibold text-center text-custom-black">
+            Sign In
+          </p>
+        </div>
+        <div className="flex flex-col gap-2">
           <Input label="username" placeholder="username" value={"nTree"} />
           <Input label="password" placeholder="password" value={"1"} />
         </div>
-        <button type="submit" className="w-full py-4 rounded bg-custom-black">
-          <p className="text-white">로그인</p>
+        <button
+          type="submit"
+          className="w-full py-1 rounded-[2px] hover:animate-gradient-primary mt-4 bg-custom-black"
+        >
+          <p className="text-sm text-white">로그인</p>
         </button>
       </form>
     </div>
