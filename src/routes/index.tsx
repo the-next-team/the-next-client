@@ -5,15 +5,14 @@ import AuditPage from "../pages/audit/AuditPage";
 import PrivateRoute from "./PrivateRoute";
 
 const Login = lazy(() => import("../pages/login/LoginPage"));
-const Error404 = lazy(() => import("../pages/error/Error404Page"));
 
 const AppRouter = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route element={<PrivateRoute />}>
-          <Route path="/*" element={<Layout />}/>
           <Route path="/audit" element={<AuditPage />} />
+          <Route path="/*" element={<Layout />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate replace={true} to="/404" />} />
