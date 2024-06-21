@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { UserService } from "../../api/services/userService";
-import CustomInput from "../../components/form/input/CustomInput";
+import Input from "../../components/form/input/Input";
 import { storageKey } from "../../constants";
 import { userState } from "../../states/user/userAtom";
 
@@ -54,12 +54,8 @@ function LoginPage() {
       >
         <p className="text-2xl font-semibold text-center">Sign In</p>
         <div className="flex flex-col gap-4">
-          <CustomInput
-            label="username"
-            placeholder="username"
-            value={"nTree"}
-          />
-          <CustomInput label="password" placeholder="password" value={"1"} />
+          <Input label="username" placeholder="username" value={"nTree"} />
+          <Input label="password" placeholder="password" value={"1"} />
         </div>
         <button type="submit" className="w-full py-4 rounded bg-custom-black">
           <p className="text-white">로그인</p>

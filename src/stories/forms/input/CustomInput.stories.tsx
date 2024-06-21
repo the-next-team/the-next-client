@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CustomInput from "../../../components/form/input/CustomInput";
+import Input from "../../../components/form/input/Input";
 
 const meta = {
   title: "Forms/Input",
-  component: CustomInput,
+  component: Input,
   parameters: {
     layout: "centered",
     componentSubtitle: "",
@@ -14,20 +14,12 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-  decorators: [
-    (Story) => (
-      <div className="w-52">
-        <Story />
-      </div>
-    ),
-  ],
-} satisfies Meta<typeof CustomInput>;
+} satisfies Meta<typeof Input>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
   argTypes: {
     validate: { control: "text" },
   },
@@ -36,12 +28,12 @@ export const Default: Story = {
 // Basic
 export const Basic: Story = () => (
   <div className="flex flex-col gap-4">
-    <CustomInput
+    <Input
       label="Basic Input"
       placeholder="placeholder"
       description="description"
     />
-    <CustomInput label="Disabled Input" disabled placeholder="Disabled Input" />
+    <Input label="Disabled Input" disabled placeholder="Disabled Input" />
   </div>
 );
 Basic.args = {
@@ -51,12 +43,12 @@ Basic.args = {
 // States
 export const States: Story = () => (
   <div className="flex flex-col gap-4">
-    <CustomInput
+    <Input
       label="Valid State"
       placeholder="Valid"
       validate="This is valid state."
     />
-    <CustomInput
+    <Input
       label="Invalid State"
       placeholder="Invalid"
       error="This is invalid state."
