@@ -27,12 +27,9 @@ export const Default: Story = {
 
 // Basic
 export const Basic: Story = () => (
-  <div className="flex flex-col items-start gap-2">
+  <div className="flex flex-col items-center gap-2">
     <Button text="Basic Button" />
-    <Button
-      text="Rounded Button"
-      className="text-white rounded-full bg-custom-black"
-    />
+    <Button text="Button With Icon" icon="heroicons:star-20-solid" />
   </div>
 );
 Basic.args = {
