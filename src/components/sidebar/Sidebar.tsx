@@ -1,6 +1,6 @@
-import NavMenu from "./components/NavMenu";
 import Toolbar from "./components/Toolbar";
 import Bookmark from "./components/Bookmark";
+import MainMenu from "./components/MainMenu";
 
 function Sidebar() {
   return (
@@ -11,7 +11,7 @@ function Sidebar() {
       <Bookmark />
 
       {/* 메뉴 */}
-      <NavMenu />
+      <MainMenu />
     </div>
   );
 }

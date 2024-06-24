@@ -1,89 +1,114 @@
-import { MenuItemType } from "../../../constants/data";
+import { Icon } from "@iconify/react";
+import { MenuItemChildType, MenuItemType } from "../../../constants/data";
 import useTabMenu from "../../../hooks/useTabMenu";
-import Multilevel from "./Multilevel";
+import NestedMenu from "./NestedMenu";
 
 type Props = {
-  activeSubmenu: number | null;
-  item: MenuItemType;
   index: number;
-  setMultiMenu: (index: number | null) => void;
+  item: MenuItemType;
+  activeSubmenu: number | null;
   activeMultiMenu: number | null;
+  setActiveMultiMenu: (index: number | null) => void;
+  findIndex: (link: string) => {
+    submenuIndex: null | number;
+    multiMenuIndex: null | number;
+  };
 };
 
 function SubMenu({
-  activeSubmenu,
-  item,
   index,
-  setMultiMenu,
+  item,
+  activeSubmenu,
   activeMultiMenu,
+  setActiveMultiMenu,
+  findIndex,
 }: Props) {
   const { activeTab, handleTabOpen } = useTabMenu();
 
-  const toggleMultiMenu = (index: number) => {
-    if (activeMultiMenu === index) {
-      setMultiMenu(null);
-    } else {
-      setMultiMenu(index);
-    }
+  const renderSubItem = (subItem: MenuItemChildType, j: number) => {
+    return (
+      <li key={j}>
+        {subItem?.multi_menu ? (
+          <div>
+            <div
+              className="relative flex items-center justify-between px-4 cursor-pointer"
+              onClick={() => {
+                if (activeMultiMenu === j) {
+                  setActiveMultiMenu(null);
+                } else {
+                  setActiveMultiMenu(j);
+                }
+              }}
+            >
+              <div className="relative w-fit">
+                <p
+                  className={`${
+                    (findIndex(activeTab).submenuIndex === index &&
+                      findIndex(activeTab).multiMenuIndex === j) ||
+                    activeMultiMenu === j
+                      ? "font-medium"
+                      : "font-normal"
+                  } text-sm text-custom-black`}
+                >
+                  {subItem.childtitle}
+                </p>
+                {(findIndex(activeTab).submenuIndex === index &&
+                  findIndex(activeTab).multiMenuIndex === j) ||
+                activeMultiMenu === j ? (
+                  <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-primary" />
+                ) : (
+                  <></>
+                )}
+              </div>
+              <div
+                className={`duration-300 ${
+                  activeMultiMenu === j ? "rotate-90" : ""
+                }`}
+              >
+                <Icon
+                  icon="heroicons-outline:chevron-right"
+                  width={16}
+                  color="#111625"
+                />
+              </div>
+            </div>
+            <NestedMenu
+              j={j}
+              subItem={subItem}
+              activeMultiMenu={activeMultiMenu}
+            />
+          </div>
+        ) : (
+          <div
+            className="px-4 cursor-pointer"
+            onClick={() => {
+              setActiveMultiMenu(j);
+              handleTabOpen({
+                name: subItem.childtitle ?? "",
+                href: subItem.childlink ?? "",
+                component: subItem.childElement ?? null,
+              });
+            }}
+          >
+            <p
+              className={`${
+                subItem.childlink && activeTab === subItem.childlink
+                  ? "text-primary"
+                  : "text-custom-black"
+              } text-sm`}
+            >
+              {subItem.childtitle}
+            </p>
+          </div>
+        )}
+      </li>
+    );
   };
 
   return (
     <div className={`${activeSubmenu === index ? "block" : "hidden"}`}>
       <ul className="flex flex-col gap-3 py-2">
-        {item.child?.map((subItem, j) => (
-          <li key={j}>
-            {subItem?.multi_menu ? (
-              <div>
-                <div
-                  className="relative px-4 cursor-pointer"
-                  onClick={() => toggleMultiMenu(j)}
-                >
-                  <div className="relative w-fit">
-                    <p
-                      className={`${
-                        activeMultiMenu === j ? "font-medium" : "font-normal"
-                      } text-sm text-custom-black`}
-                    >
-                      {`- ${subItem.childtitle}`}
-                    </p>
-                    {activeMultiMenu === j && (
-                      <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-primary" />
-                    )}
-                  </div>
-                </div>
-                <Multilevel
-                  activeMultiMenu={activeMultiMenu}
-                  j={j}
-                  subItem={subItem}
-                />
-              </div>
-            ) : (
-              <div
-                className="px-4 cursor-pointer"
-                onClick={() => {
-                  handleTabOpen({
-                    name: subItem.childtitle ?? "",
-                    href: subItem.childlink ?? "",
-                    component: subItem.childElement ?? null,
-                  });
-                }}
-              >
-                <div className="relative w-fit">
-                  <p
-                    className={`${
-                      subItem.childlink && subItem.childlink === activeTab
-                        ? "font-medium"
-                        : "font-normal"
-                    } text-sm text-custom-black`}
-                  >{`- ${subItem.childtitle}`}</p>
-                  {subItem.childlink && subItem.childlink === activeTab && (
-                    <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-primary" />
-                  )}
-                </div>
-              </div>
-            )}
-          </li>
-        ))}
+        {item.child?.map((subItem, j) => renderSubItem(subItem, j))}
       </ul>
     </div>
   );
