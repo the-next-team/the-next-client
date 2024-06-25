@@ -3,7 +3,6 @@ import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ITeam, TeamService } from "../../../api/services/teamService";
 import "../../../components/table/style/realgrid-style.css";
 
-
 const bottomTableData = [
   {
     부서지점: "디지털신사업본부",
@@ -240,54 +239,6 @@ function Team() {
       {/* </Card> */}
 
       {/* 하단 table */}
-      {/* <Card className="mt-4 bg-white"> */}
-      <div className="overflow-x-auto ">
-        <div className="inline-block min-w-full align-middle">
-          <div className="overflow-hidden ">
-            <table className="min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700">
-              <thead>
-                <tr>
-                  {firstColumns.map((column, i) => (
-                    <th
-                      key={i}
-                      className="bg-slate-200 dark:bg-slate-700 text-center table-th text-[14px] w-[130px]"
-                    >
-                      {column.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-
-              <thead>
-                <tr>
-                  {first2Columns.map((column, i) => (
-                    <th
-                      key={i}
-                      className="bg-slate-200 dark:bg-slate-700 text-center table-th text-[14px]"
-                    >
-                      {column.label}
-                    </th>
-                  ))}
-                  {bottomRows.map((row, i) => (
-                    <tr key={i}>
-                      <td className="w-[150px] pl-2">{row.대표번호}</td>
-                      {second2Columns.map((column, i) => (
-                        <th
-                          key="i"
-                          className="bg-slate-200 dark:bg-slate-700 text-center table-th text-[14px] w-[130px]"
-                        >
-                          {column.label}
-                        </th>
-                      ))}
-                    </tr>
-                  ))}
-                </tr>
-              </thead>
-            </table>
-          </div>
-        </div>
-      </div>
-      {/* </Card> */}
     </div>
   );
 }
