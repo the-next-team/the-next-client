@@ -68,7 +68,7 @@ function MainMenu() {
             className={`cursor-pointer flex items-center justify-between px-4 py-2 ${
               item.link && item.link === activeTab
                 ? "bg-primary bg-opacity-[0.07]"
-                : ""
+                : "hover:bg-gray-100"
             }`}
             onClick={() => {
               setActiveSubmenu(i);
@@ -90,10 +90,12 @@ function MainMenu() {
         {item.child && (
           <div>
             <div
-              className={`cursor-pointer flex items-center justify-between px-4 py-2 ${
-                findIndex(activeTab).submenuIndex === i || activeSubmenu === i
+              className={`cursor-pointer flex items-center duration-100 justify-between px-4 py-2 ${
+                findIndex(activeTab).submenuIndex === i
                   ? "bg-primary bg-opacity-[0.07]"
-                  : ""
+                  : activeSubmenu === i
+                  ? "bg-gray-100"
+                  : "hover:bg-gray-100"
               }`}
               onClick={() => {
                 if (activeSubmenu === i) {
@@ -116,7 +118,7 @@ function MainMenu() {
                 <Icon
                   icon="heroicons-outline:chevron-right"
                   width={16}
-                  color="#111625"
+                  color={activeSubmenu === i ? "#111625" : "#8a8a8a"}
                 />
               </div>
             </div>

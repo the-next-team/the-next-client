@@ -31,7 +31,11 @@ function SubMenu({
         {subItem?.multi_menu ? (
           <div>
             <div
-              className="relative flex items-center justify-between px-4 cursor-pointer"
+              className={`relative flex items-center justify-between px-4 py-1.5 cursor-pointer ${
+                activeMultiMenu === j
+                  ? "bg-gray-50"
+                  : "duration-100 hover:bg-gray-50"
+              }`}
               onClick={() => {
                 if (activeMultiMenu === j) {
                   setActiveMultiMenu(null);
@@ -52,9 +56,8 @@ function SubMenu({
                 >
                   {subItem.childtitle}
                 </p>
-                {(findIndex(activeTab).submenuIndex === index &&
-                  findIndex(activeTab).multiMenuIndex === j) ||
-                activeMultiMenu === j ? (
+                {findIndex(activeTab).submenuIndex === index &&
+                findIndex(activeTab).multiMenuIndex === j ? (
                   <div className="absolute top-0.5 w-1 h-1 rounded-full -right-1.5 bg-primary" />
                 ) : (
                   <></>
@@ -68,7 +71,7 @@ function SubMenu({
                 <Icon
                   icon="heroicons-outline:chevron-right"
                   width={16}
-                  color="#111625"
+                  color={activeMultiMenu === j ? "#111625" : "#8a8a8a"}
                 />
               </div>
             </div>
@@ -80,7 +83,7 @@ function SubMenu({
           </div>
         ) : (
           <div
-            className="px-4 cursor-pointer"
+            className="px-4 cursor-pointer py-1.5 duration-100 hover:bg-gray-50"
             onClick={() => {
               setActiveMultiMenu(j);
               handleTabOpen({
@@ -107,7 +110,7 @@ function SubMenu({
 
   return (
     <div className={`${activeSubmenu === index ? "block" : "hidden"}`}>
-      <ul className="flex flex-col gap-3 py-2">
+      <ul className="flex flex-col py-1">
         {item.child?.map((subItem, j) => renderSubItem(subItem, j))}
       </ul>
     </div>
