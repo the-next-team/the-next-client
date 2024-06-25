@@ -21,3 +21,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+### Custom Ignore
+# electron
+out
+dist
+
+# storybook
+build-storybook.log
+storybook-static
+
+# firebase
+.firebase
+*storybook.log

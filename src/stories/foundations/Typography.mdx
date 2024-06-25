@@ -1,0 +1,244 @@
+import { Meta, Typeset, Title, Subtitle } from "@storybook/blocks";
+
+<Meta title="Foundations/Typography" />
+
+<Title>Typography</Title>
+<Subtitle>타이포그래피</Subtitle>
+
+export const typography = {
+  type: {
+    primary: "sans-serif",
+  },
+  weight: {
+    thin: "100",
+    extralight: "200",
+    light: "300",
+    regular: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
+    extrabold: "800",
+    black: "900",
+  },
+  size: {
+    s1: 12,
+    s2: 14,
+    s3: 16,
+    m1: 20,
+    m2: 24,
+    m3: 28,
+    l1: 32,
+    l2: 40,
+    l3: 48,
+  },
+};
+
+export const SampleText = "테스트 문장입니다.";
+
+**Font:** sans-serif\
+**Weights:** 100(thin), 200(extralight), 300(light), 400(regular), 500(medium), 600(semibold), 700(bold), 800(extrabold), 900(black)
+
+<br />
+
+<div className="flex gap-6">
+    <div className="w-1/2">
+    	# 100(Thin)
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.thin}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+
+    </div>
+    <div className="w-1/2">
+    	# 200(Extralight)
+
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.extralight}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+    </div>
+
+</div>
+
+<br />
+
+<div className="flex gap-6">
+    <div className="w-1/2">
+    	# 300(Light)
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.light}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+
+    </div>
+    <div className="w-1/2">
+    	# 400(Regular)
+
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.regular}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+    </div>
+
+</div>
+
+<br />
+
+<div className="flex gap-6">
+    <div className="w-1/2">
+    	# 500(Medium)
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.medium}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+
+    </div>
+    <div className="w-1/2">
+    	# 600(Semibold)
+
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.semibold}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+    </div>
+
+</div>
+<br />
+
+<div className="flex gap-6">
+    <div className="w-1/2">
+    	# 700(Bold)
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.bold}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+
+    </div>
+    <div className="w-1/2">
+    	# 800(Extrabold)
+
+    	<Typeset
+    	fontSizes={[
+    		Number(typography.size.s1),
+    		Number(typography.size.s2),
+    		Number(typography.size.s3),
+    		Number(typography.size.m1),
+    		Number(typography.size.m2),
+    		Number(typography.size.m3),
+    		Number(typography.size.l1),
+    		Number(typography.size.l2),
+    		Number(typography.size.l3),
+    	]}
+    	fontWeight={typography.weight.extrabold}
+    	sampleText={SampleText}
+    	fontFamily={typography.type.primary}
+    	/>
+    </div>
+
+</div>
+
+<div className="w-1/2">
+	# 900(Black)
+
+    <Typeset
+    fontSizes={[
+    	Number(typography.size.s1),
+    	Number(typography.size.s2),
+    	Number(typography.size.s3),
+    	Number(typography.size.m1),
+    	Number(typography.size.m2),
+    	Number(typography.size.m3),
+    	Number(typography.size.l1),
+    	Number(typography.size.l2),
+    	Number(typography.size.l3),
+    ]}
+    fontWeight={typography.weight.black}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+    />
+
+</div>

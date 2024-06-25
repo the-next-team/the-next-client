@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE_NAME = 'thenext/the-next-client'
+        CONTAINER_NAME = 'the-next-client'
+        GITHUB_CREDENTIALS_ID = 'bonjin-github'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checkout Start'
+                git branch: 'develop',
+                    url: 'https://github.com/the-next-team/the-next-client',
+                    credentialsId: GITHUB_CREDENTIALS_ID
+            }
+        }
+
+        stage('Dockerizing') {
+            steps {
+                sh "echo Image Build Start"
+                sh "docker build . -t ${DOCKER_IMAGE_NAME}"
+            }
+            post {
+                success {
+                    sh 'echo "Build Docker Image Success"'
+                }
+
+                failure {
+                    sh 'echo "Build Docker Image Fail"'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploy Start'
+                sh "docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true"
+                sh "docker run -d --name ${CONTAINER_NAME} -p 3080:80 ${DOCKER_IMAGE_NAME}"
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+        success {
+            echo 'Pipeline succeeded.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}

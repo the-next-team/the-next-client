@@ -1,13 +1,100 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  html {
+    font-family: "Pretendard";
+  }
+  body {
+    @apply bg-custom-blue-100;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  ::selection {
+    @apply text-white bg-primary;
+  }
+
+  /* ScrollBar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-primary/30;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-primary;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+/* Font */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 100;
+  src: url("assets/fonts/Pretendard-Thin.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 200;
+  src: url("assets/fonts/Pretendard-ExtraLight.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300;
+  src: url("assets/fonts/Pretendard-Light.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  src: url("assets/fonts/Pretendard-Regular.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  src: url("assets/fonts/Pretendard-Medium.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  src: url("assets/fonts/Pretendard-SemiBold.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  src: url("assets/fonts/Pretendard-Bold.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 800;
+  src: url("assets/fonts/Pretendard-ExtraBold.woff");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 900;
+  src: url("assets/fonts/Pretendard-Black.woff");
 }
