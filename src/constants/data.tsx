@@ -1,9 +1,10 @@
-import ScreenManagement from "../pages/screen/ScreenManagement";
 import Dashboard from "../pages/dashboard/Dashboard";
 import CommonCodePage from "../pages/preferences/code/common/CommonCodePage";
+import JobCodePage from "../pages/preferences/code/job/JobCodePage";
 import MenuManagement from "../pages/preferences/menu/MenuManagement";
 import Team from "../pages/preferences/team/Team";
 import User from "../pages/preferences/user/User";
+import ScreenManagement from "../pages/screen/ScreenManagement";
 import MessageListPage from "../pages/system/message/MessageListPage";
 
 export type MenuItemType = {
@@ -855,6 +856,11 @@ export const menuItems: MenuItemType[] = [
             multiTitle: "공통코드",
             multiLink: "system/commoncode",
             multiElement: CommonCodePage,
+          },
+          {
+            multiTitle: "직업/직군",
+            multiLink: "system/jobcode",
+            multiElement: JobCodePage,
           },
         ],
       },

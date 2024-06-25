@@ -12,6 +12,25 @@ export interface ICode {
   updatedDate: string; //수정일자
 }
 
+export interface IJobCode {
+  code: string;
+  jobCode: string;
+  jobName: string;
+  jobLevel1: string;
+  jobLevel2: string;
+  jobLevel3: string;
+  jobLevel4: string;
+  acctJobCode: string;
+  taxCode: string;
+  taxRate: string;
+  grupGrd1: number;
+  grupGrd2: number;
+  egLoanJobCode: string;
+  depth: number;
+  lastYn: string;
+  createdDate: string;
+}
+
 export interface ICodeItem {
   code: string;
   name: string;
@@ -32,6 +51,9 @@ export interface ICodeInputValues {
 export const CodeService = {
   getCode: async (): Promise<ApiResponse<ICode[]>> => {
     return Get(`/api/common/code`);
+  },
+  getJobCode: async (): Promise<ApiResponse<IJobCode[]>> => {
+    return Get(`/api/common/code/job`);
   },
   getCodeByKind: async (kind: string): Promise<ApiResponse<ICodeItem[]>> => {
     return Get(`/api/common/code/${kind}`);
