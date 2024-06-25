@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = 'thenext/the-next-client'
-        DOCKER_STORYBOOK_IMAGE_NAME = 'thenext/the-next-client-storybook'
-        CONTAINER_NAME = 'the-next-client'
+        WEB_IMAGE_NAME = 'thenext/the-next-client'
+        STORYBOOK_IMAGE_NAME = 'thenext/the-next-client-storybook'
+        WEB_CONTAINER_NAME = 'the-next-client'
         STORYBOOK_CONTAINER_NAME = 'the-next-client-storybook'
         GITHUB_CREDENTIALS_ID = 'bonjin-github'
     }
@@ -19,33 +19,31 @@ pipeline {
             }
         }
 
-        stage('Dockerizing') {
+        stage('Build Docker Images') {
             parallel {
-                stage('Build Client Image') {
+                stage('Build Web Image') {
                     steps {
-                        sh "echo Image Build Start"
-                        sh "docker build --target app . -t ${DOCKER_IMAGE_NAME}"
+                        sh "echo Web Image Build Start"
+                        sh "docker build -f Dockerfile.web . -t ${WEB_IMAGE_NAME}"
                     }
                     post {
                         success {
-                            sh 'echo "Build Docker Image Success"'
+                            sh 'echo "Build Web Docker Image Success"'
                         }
-
                         failure {
-                            sh 'echo "Build Docker Image Fail"'
+                            sh 'echo "Build Web Docker Image Fail"'
                         }
                     }
                 }
                 stage('Build Storybook Image') {
                     steps {
                         sh "echo Storybook Image Build Start"
-                        sh "docker build --target storybook . -t ${DOCKER_STORYBOOK_IMAGE_NAME}"
+                        sh "docker build -f Dockerfile.storybook . -t ${STORYBOOK_IMAGE_NAME}"
                     }
                     post {
                         success {
                             sh 'echo "Build Storybook Docker Image Success"'
                         }
-
                         failure {
                             sh 'echo "Build Storybook Docker Image Fail"'
                         }
@@ -56,18 +54,18 @@ pipeline {
 
         stage('Deploy') {
             parallel {
-                stage('Deploy Client') {
+                stage('Deploy Web') {
                     steps {
-                        echo 'Deploy Start'
-                        sh "docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true"
-                        sh "docker run -d --name ${CONTAINER_NAME} -p 3080:80 ${DOCKER_IMAGE_NAME}"
+                        echo 'Deploy Web Start'
+                        sh "docker stop ${WEB_CONTAINER_NAME} || true && docker rm ${WEB_CONTAINER_NAME} || true"
+                        sh "docker run -d --name ${WEB_CONTAINER_NAME} -p 3080:80 ${WEB_IMAGE_NAME}"
                     }
                 }
                 stage('Deploy Storybook') {
                     steps {
                         echo 'Deploy Storybook Start'
                         sh "docker stop ${STORYBOOK_CONTAINER_NAME} || true && docker rm ${STORYBOOK_CONTAINER_NAME} || true"
-                        sh "docker run -d --name ${STORYBOOK_CONTAINER_NAME} -p 6006:6006 ${DOCKER_STORYBOOK_IMAGE_NAME}"
+                        sh "docker run -d --name ${STORYBOOK_CONTAINER_NAME} -p 6006:6006 ${STORYBOOK_IMAGE_NAME}"
                     }
                 }
             }
