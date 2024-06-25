@@ -24,7 +24,7 @@ pipeline {
                 stage('Build Web Image') {
                     steps {
                         sh "echo Web Image Build Start"
-                        sh "docker build -f Dockerfile.web . -t ${WEB_IMAGE_NAME}"
+                        sh "docker build -f Dockerfile . -t ${WEB_IMAGE_NAME}"
                     }
                     post {
                         success {
