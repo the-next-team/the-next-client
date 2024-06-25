@@ -65,7 +65,7 @@ pipeline {
                     steps {
                         echo 'Deploy Storybook Start'
                         sh "docker stop ${STORYBOOK_CONTAINER_NAME} || true && docker rm ${STORYBOOK_CONTAINER_NAME} || true"
-                        sh "docker run -d --name ${STORYBOOK_CONTAINER_NAME} -p 6006:6006 ${STORYBOOK_IMAGE_NAME}"
+                        sh "docker run -d --name ${STORYBOOK_CONTAINER_NAME} -p 6006:80 ${STORYBOOK_IMAGE_NAME}"
                     }
                 }
             }
