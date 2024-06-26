@@ -22,7 +22,7 @@ function AuditPage() {
   ];
 
   return (
-    <div className="w-full h-screen text-custom-black">
+    <div className="w-full h-full text-custom-black">
       {/* header */}
       <div className="flex items-center h-12 gap-1 px-4 overflow-x-auto text-sm bg-white break-keep">
         <div className="flex gap-1">

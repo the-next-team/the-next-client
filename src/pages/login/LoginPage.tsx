@@ -46,7 +46,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-screen bg-white">
+    <div className="flex items-center justify-center w-full h-full bg-white">
       <form onSubmit={onSubmit}>
         <div className="mb-6">
           <p className="text-2xl font-semibold text-center text-custom-black">
