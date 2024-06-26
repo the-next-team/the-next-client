@@ -1,27 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
 import { UserService } from "../../api/services/userService";
 import Input from "../../components/form/input/Input";
 import { storageKey } from "../../constants";
-import { userState } from "../../states/user/userAtom";
+import useLoading from "../../hooks/useLoading";
+import useUser from "../../hooks/useUser";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const setUserState = useSetRecoilState(userState);
-  // const { showLoading, hideLoading } = useLoading();
+  const {fetchUser} = useUser();
+  const { showLoading, hideLoading } = useLoading();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      // showLoading();
+      showLoading();
       const response = await UserService.login({
         // username: data.username,
         // password: data.password,
         username: "nTree",
         password: "1",
       });
-      // hideLoading();
+      hideLoading();
 
       if (response.status === "OK") {
         localStorage.setItem(storageKey.user, JSON.stringify(response.data));
@@ -30,15 +30,14 @@ function LoginPage() {
           storageKey.refreshToken,
           response.data.refreshToken
         );
-
-        setUserState(response.data);
+        await fetchUser();
 
         navigate("/", {
           replace: true,
         });
       }
     } catch (error) {
-      // hideLoading();
+      hideLoading();
       // setError("fail", {
       //   type: "custom",
       //   message: "아이디 또는 비밀번호가 올바르지 않아요.",

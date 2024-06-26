@@ -10,7 +10,7 @@ import Toolbar from "./components/Toolbar";
 function Header() {
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
-  const { logout } = useUser();
+  const { user, logout } = useUser();
   const { menus, setSelectedMenu } = useMenu();
 
   const dropdown = [
@@ -73,7 +73,7 @@ function Header() {
           className="relative flex items-center gap-1 text-white cursor-pointer"
           onClick={() => setVisible((prev) => !prev)}
         >
-          <p className="font-semibold">홍길동</p>
+          <p className="font-semibold">{user?.username}</p>
           <p className="text-sm font-light">님</p>
           <Icon icon="heroicons:chevron-down" width="16" color="white" />
           {visible && (

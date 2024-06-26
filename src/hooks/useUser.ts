@@ -31,7 +31,7 @@ function useUser() {
   return {
     user,
     setUser,
-    fetch,
+    fetchUser: fetch,
     logout,
   };
 }
