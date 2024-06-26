@@ -23,7 +23,7 @@ function Loader() {
     return (
       <Modal open={loadingValue.open}>
         <div className="flex items-center justify-center w-full h-full">
-          <LoadingLottie className="w-[250px]" />
+          <LoadingLottie className="w-[160px]" />
         </div>
       </Modal>
     );

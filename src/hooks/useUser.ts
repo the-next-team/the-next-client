@@ -25,7 +25,9 @@ function useUser() {
     localStorage.removeItem(storageKey.accessToken);
     localStorage.removeItem(storageKey.refreshToken);
     _setUser(null);
-    navigate("/login");
+    navigate("/login", {
+      replace: true,
+    });
   };
 
   return {
