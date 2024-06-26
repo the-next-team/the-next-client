@@ -7,6 +7,7 @@ import LocalNotification from "../components/notification/LocalNotification";
 import Sidebar from "../components/sidebar/Sidebar";
 import TabMenu from "../components/tabMenu/TabMenu";
 import useLocalNotification from "../hooks/useLocalNotification";
+import useMenu from "../hooks/useMenu";
 import useStompClient from "../hooks/useStompClient";
 import useTabMenu from "../hooks/useTabMenu";
 import Error404Page from "../pages/error/Error404Page";
@@ -14,6 +15,7 @@ import TabMenuUtil from "../utils/tabMenuUtil";
 
 function Layout() {
   const { tabMenu, setTabMenu, activeTab } = useTabMenu();
+  const { fetchMenu } = useMenu();
   const { client, isConnected } = useStompClient();
   const { notifications, showNotification } = useLocalNotification();
 
@@ -42,6 +44,8 @@ function Layout() {
   }, [isConnected, client, handleMessage]);
 
   useEffect(() => {
+    fetchMenu();
+
     setTabMenu(
       tabMenu.map(({ name, href }) => ({
         name,

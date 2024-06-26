@@ -4,7 +4,6 @@ import { UserService } from "../../api/services/userService";
 import Input from "../../components/form/input/Input";
 import { storageKey } from "../../constants";
 import { userState } from "../../states/user/userAtom";
-import Logo from "../../assets/images/logo/logo-smartsb-02.png";
 
 function LoginPage() {
   const navigate = useNavigate();

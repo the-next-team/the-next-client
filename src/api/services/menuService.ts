@@ -2,13 +2,13 @@ import { Get } from "..";
 import { ApiResponse } from "../models/common/apiError";
 
 export interface IMenu {
-  id: string;
-  url?: string;
+  code?: string;
   name: string;
-  listOrder: number;
-  depth: number;
-  subMenu: IMenu[];
-  children: IMenu[];
+  priority: number;
+  description?: string;
+  programId?: string;
+  url?: string;
+  items: IMenu[];
 }
 
 export interface IMenu1Depth {

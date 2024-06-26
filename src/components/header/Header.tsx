@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
+import useMenu from "../../hooks/useMenu";
 import useUser from "../../hooks/useUser";
 import Toolbar from "./components/Toolbar";
 
@@ -10,6 +11,7 @@ function Header() {
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
   const { logout } = useUser();
+  const {menus} = useMenu();
 
   const dropdown = [
     {
@@ -22,10 +24,15 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] h-8 flex flex-none items-center px-[10px] justify-between">
-      <div className="flex items-center gap-[10px]">
+    <header className="bg-[#111625] h-8 flex flex-none items-center px-[10px] gap-10">
+      <div className="flex items-center gap-[10px] w-[215px]">
         <img className="w-6 h-6" src={Logo1} alt="" />
         <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
+      </div>
+      <div className="flex justify-start flex-grow gap-6">
+        {menus.map(menu => (
+           <p className="text-white text-[16px]">{menu.name}</p>
+        ))}
       </div>
       <div className="flex items-center gap-3">
         {/* 툴바 */}
