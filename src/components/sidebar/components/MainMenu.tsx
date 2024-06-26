@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { MenuItemType, menuItems } from "../../../constants/data";
 import useMenu from "../../../hooks/useMenu";
 import useTabMenu from "../../../hooks/useTabMenu";
 import {
@@ -9,6 +8,8 @@ import {
   currentSideMenuState,
 } from "../../../states/sidebar/sidebarAtom";
 import SubMenu from "./SubMenu";
+import { IMenu } from "../../../api/services/menuService";
+import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 function MainMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
@@ -16,122 +17,96 @@ function MainMenu() {
   const currentSideMenu = useRecoilValue<CurrentSideMenu>(currentSideMenuState);
 
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
-  const [activeMultiMenu, setActiveMultiMenu] = useState<number | null>(null);
 
   useEffect(() => {
-    let menuIndex = findIndex(activeTab);
-    setActiveSubmenu(menuIndex.submenuIndex);
-    setActiveMultiMenu(menuIndex.multiMenuIndex);
-  }, [activeTab]);
+    if (selectedMenu && activeTab) {
+      setActiveSubmenu(findIndex(activeTab));
+    }
+  }, [activeTab, selectedMenu]);
 
   const findIndex = (link: string) => {
-    let menuIndex: {
-      submenuIndex: null | number;
-      multiMenuIndex: null | number;
-    } = {
-      submenuIndex: null,
-      multiMenuIndex: null,
-    };
-    if (link) {
-      menuItems.forEach((item, i) => {
-        if (item.child) {
-          item.child.forEach((childItem, j) => {
-            if (childItem.multi_menu) {
-              childItem.multi_menu.forEach((nestedItem) => {
-                if (nestedItem.multiLink === link) {
-                  menuIndex.submenuIndex = i;
-                  menuIndex.multiMenuIndex = j;
-                }
-              });
-            } else if (childItem.childlink === link) {
-              menuIndex.submenuIndex = i;
-            }
-          });
-        } else if (item.link === link) {
-          menuIndex.submenuIndex = i;
-        }
-      });
-    }
+    let menuIndex = null;
+    selectedMenu?.items.forEach((item, i) => {
+      if (item.items) {
+        item.items.forEach((subItem) => {
+          if (
+            TabMenuUtil.findURLByProgramId(subItem.programId ?? "") &&
+            TabMenuUtil.findURLByProgramId(subItem.programId ?? "") === link
+          ) {
+            menuIndex = i;
+          }
+        });
+      } else if (
+        TabMenuUtil.findURLByProgramId(item.programId ?? "") &&
+        TabMenuUtil.findURLByProgramId(item.programId ?? "") === link
+      ) {
+        menuIndex = i;
+      }
+    });
     return menuIndex;
   };
 
-  const renderMenuItem = (item: MenuItemType, i: number) => {
+  const renderMenuItem = (item: IMenu, i: number) => {
+    const isActive = activeSubmenu === i;
+
     return (
-      <li key={i} className="">
-        {/* 라벨 */}
-        {item.isHeadr && !item.child && (
-          <div className="mt-4 mb-4 text-xs font-semibold uppercase text-custom-black">
-            {item.title}
+      <li key={i}>
+        {item.items.length ? (
+          <div>
+            <div
+              className={`cursor-pointer flex items-center transition-colors duration-100 justify-between px-4 py-2 ${
+                findIndex(activeTab) === i
+                  ? "bg-primary bg-opacity-[0.07]"
+                  : isActive
+                  ? "bg-gray-100"
+                  : "hover:bg-gray-100"
+              }`}
+              onClick={() => {
+                if (isActive) {
+                  setActiveSubmenu(null);
+                } else {
+                  setActiveSubmenu(i);
+                }
+              }}
+            >
+              <div className="flex items-center gap-2">
+                {/* <Icon icon={item.icon ?? ""} width={16} color="#111625" /> */}
+                <div className="text-sm font-medium">{item.name}</div>
+              </div>
+              <div className={`duration-300 ${isActive ? "rotate-90" : ""}`}>
+                <Icon
+                  icon="heroicons-outline:chevron-right"
+                  width={16}
+                  color={isActive ? "#111625" : "#8a8a8a"}
+                />
+              </div>
+            </div>
+            <SubMenu index={i} item={item} activeSubmenu={activeSubmenu} />
           </div>
-        )}
-        {/* 하위메뉴 X */}
-        {!item.child && !item.isHeadr && (
+        ) : (
           <div
-            className={`cursor-pointer flex items-center justify-between px-4 py-2 ${
-              item.link && item.link === activeTab
+            className={`cursor-pointer flex items-center transition-colors duration-100 justify-between px-4 py-2 ${
+              TabMenuUtil.findURLByProgramId(item.programId ?? "") &&
+              TabMenuUtil.findURLByProgramId(item.programId ?? "") === activeTab
                 ? "bg-primary bg-opacity-[0.07]"
                 : "hover:bg-gray-100"
             }`}
             onClick={() => {
               setActiveSubmenu(i);
-              setActiveMultiMenu(null); // 멀티메뉴 초기화
+
+              let href =
+                TabMenuUtil.findURLByProgramId(item.programId ?? "") ?? "";
               handleTabOpen({
-                name: item.title ?? "",
-                href: item.link ?? "",
-                component: item.element ?? null,
+                name: item.name ?? "",
+                href: href,
+                component: TabMenuUtil.findElement(href) ?? null,
               });
             }}
           >
             <div className="flex items-center gap-2">
-              <Icon icon={item.icon ?? ""} width={16} color="#111625" />
-              <div className="text-sm font-medium">{item.title}</div>
+              {/* <Icon icon={item.icon ?? ""} width={16} color="#111625" /> */}
+              <div className="text-sm font-medium">{item.name}</div>
             </div>
-          </div>
-        )}
-        {/* 하위메뉴 O */}
-        {item.child && (
-          <div>
-            <div
-              className={`cursor-pointer flex items-center duration-100 justify-between px-4 py-2 ${
-                findIndex(activeTab).submenuIndex === i
-                  ? "bg-primary bg-opacity-[0.07]"
-                  : activeSubmenu === i
-                  ? "bg-gray-100"
-                  : "hover:bg-gray-100"
-              }`}
-              onClick={() => {
-                if (activeSubmenu === i) {
-                  setActiveSubmenu(null);
-                } else {
-                  setActiveSubmenu(i);
-                }
-                setActiveMultiMenu(null); // 멀티메뉴 초기화
-              }}
-            >
-              <div className="flex items-center gap-2">
-                <Icon icon={item.icon ?? ""} width={16} color="#111625" />
-                <div className="text-sm font-medium">{item.title}</div>
-              </div>
-              <div
-                className={`duration-300 ${
-                  activeSubmenu === i ? "rotate-90" : ""
-                }`}
-              >
-                <Icon
-                  icon="heroicons-outline:chevron-right"
-                  width={16}
-                  color={activeSubmenu === i ? "#111625" : "#8a8a8a"}
-                />
-              </div>
-            </div>
-            <SubMenu
-              index={i}
-              item={item}
-              activeSubmenu={activeSubmenu}
-              activeMultiMenu={activeMultiMenu}
-              setActiveMultiMenu={setActiveMultiMenu}
-              findIndex={findIndex}
-            />
           </div>
         )}
       </li>
@@ -144,81 +119,7 @@ function MainMenu() {
         currentSideMenu === "menu" ? "block" : "hidden pointer-events-none"
       }`}
     >
-      <ul>
-        {selectedMenu?.items.map((item, index) => {
-          return (
-            <li key={index}>
-              <div>
-                <div
-                  className={`cursor-pointer flex items-center duration-100 justify-between px-4 py-2 ${
-                    findIndex(activeTab).submenuIndex === index
-                      ? "bg-primary bg-opacity-[0.07]"
-                      : activeSubmenu === index
-                      ? "bg-gray-100"
-                      : "hover:bg-gray-100"
-                  }`}
-                  onClick={() => {
-                    if (activeSubmenu === index) {
-                      setActiveSubmenu(null);
-                    } else {
-                      setActiveSubmenu(index);
-                    }
-                    setActiveMultiMenu(null); // 멀티메뉴 초기화
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <Icon icon={""} width={16} color="#111625" />
-                    <div className="text-sm font-medium">{item.name}</div>
-                  </div>
-                  <div
-                    className={`duration-300 ${
-                      activeSubmenu === index ? "rotate-90" : ""
-                    }`}
-                  >
-                    <Icon
-                      icon="heroicons-outline:chevron-right"
-                      width={16}
-                      color={activeSubmenu === index ? "#111625" : "#8a8a8a"}
-                    />
-                  </div>
-                </div>
-                <div
-                  className={`${activeSubmenu === index ? "block" : "hidden"}`}
-                >
-                  <ul className="flex flex-col py-1">
-                    {item.items?.map((subItem, j) => {
-                      return (
-                        <div
-                          key={j}
-                          className="px-4 cursor-pointer py-1.5 duration-100 hover:bg-gray-50"
-                          onClick={() => {
-                            setActiveMultiMenu(j);
-                            handleTabOpen({
-                              name: subItem.name ?? "",
-                              href: subItem.url ?? "",
-                              component: null,
-                            });
-                          }}
-                        >
-                          <p
-                            className={`${
-                              subItem.url && activeTab === subItem.url
-                                ? "text-primary"
-                                : "text-custom-black"
-                            } text-sm`}
-                          >
-                            {subItem.name}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <ul>{selectedMenu?.items.map((item, i) => renderMenuItem(item, i))}</ul>
     </div>
   );
 }

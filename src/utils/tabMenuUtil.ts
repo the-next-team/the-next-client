@@ -4,19 +4,19 @@ const TabMenuUtil = {
   findElement: (link: string) => {
     let element = null;
     menuItems.forEach((item) => {
-      if (item.child) {
-        item.child.forEach((i) => {
-          if (i.multi_menu) {
-            i.multi_menu.forEach((m) => {
-              if (m.multiLink === link) {
-                element = m.multiElement;
+      if (item.items) {
+        item.items.forEach((i) => {
+          if (i.items) {
+            i.items.forEach((m) => {
+              if (m.url === link) {
+                element = m.element;
               }
             });
-          } else if (i.childlink === link) {
-            element = i.childElement;
+          } else if (i.url === link) {
+            element = i.element;
           }
         });
-      } else if (item.link === link) {
+      } else if (item.url === link) {
         element = item.element;
       }
     });
@@ -26,27 +26,49 @@ const TabMenuUtil = {
     let title: Array<string> = [];
     if (link) {
       menuItems.forEach((item) => {
-        if (item.child) {
-          item.child.forEach((i) => {
-            if (i.multi_menu) {
-              i.multi_menu.forEach((m) => {
-                if (m.multiLink === link) {
-                  title.push(item.title);
-                  title.push(i.childtitle ?? "");
-                  title.push(m.multiTitle);
+        if (item.items) {
+          item.items.forEach((i) => {
+            if (i.items) {
+              i.items.forEach((m) => {
+                if (m.url === link) {
+                  title.push(item.name);
+                  title.push(i.name ?? "");
+                  title.push(m.name);
                 }
               });
-            } else if (i.childlink === link) {
-              title.push(item.title);
-              title.push(i.childtitle ?? "");
+            } else if (i.url === link) {
+              title.push(item.name);
+              title.push(i.name ?? "");
             }
           });
-        } else if (item.link === link) {
-          title.push(item.title);
+        } else if (item.url === link) {
+          title.push(item.name);
         }
       });
     }
     return title;
+  },
+  // programId로 url 찾기
+  findURLByProgramId: (programId: string) => {
+    let url = null;
+    menuItems.forEach((item) => {
+      if (item.items) {
+        item.items.forEach((i) => {
+          if (i.items) {
+            i.items.forEach((m) => {
+              if (m.programId === programId) {
+                url = m.url;
+              }
+            });
+          } else if (i.programId === programId) {
+            url = i.url;
+          }
+        });
+      } else if (item.programId === programId) {
+        url = item.url;
+      }
+    });
+    return url;
   },
 };
 
