@@ -22,8 +22,8 @@ function MessageListPage() {
   if (isError) return <>{error.message}</>;
 
   return (
-    <div className="w-full h-full min-w-full p-2 pt-0">
-      <div className="p-2 overflow-x-auto bg-white rounded ">
+    <div className="w-full h-full min-w-full">
+      <div className="overflow-x-auto bg-white rounded ">
         <MessageListTable items={data?.data ?? []} />
       </div>
     </div>
