@@ -6,11 +6,13 @@ import {
   activeTabTypeState,
   tabMenuState,
 } from "../states/tabMenu/tabMenuAtom";
+import useAlert from "./useAlert";
 
 function useTabMenu() {
   const [activeTab, setActiveTab] =
     useRecoilState<activeTabType>(activeTabTypeState);
   const [tabMenu, setTabMenu] = useRecoilState<TabMenuList>(tabMenuState);
+  const {showAlert} = useAlert()
 
   // 탭 열기
   const handleTabOpen = (tab: TabMenu) => {
@@ -18,7 +20,9 @@ function useTabMenu() {
       // 탭메뉴에 없는 새로운 메뉴라면
       if (tabMenu.length >= 10) {
         // 10개 넘으면 추가 X
-        alert("탭은 최대 10개까지 추가 가능합니다.");
+        showAlert({
+          content: "탭은 최대 10개까지 추가 가능합니다."
+        });
       } else {
         // 10개 안넘으면 추가 O
         setActiveTab(tab.href);
