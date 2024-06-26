@@ -11,7 +11,7 @@ function Header() {
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
   const { logout } = useUser();
-  const {menus} = useMenu();
+  const { menus, setSelectedMenu } = useMenu();
 
   const dropdown = [
     {
@@ -30,8 +30,16 @@ function Header() {
         <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
       </div>
       <div className="flex justify-start flex-grow gap-10">
-        {menus.map(menu => (
-           <button className="text-white text-[16px]">{menu.name}</button>
+        {menus.map((menu, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setSelectedMenu(menu);
+            }}
+            className="text-white text-[16px]"
+          >
+            {menu.name}
+          </button>
         ))}
       </div>
       <div className="flex items-center gap-3">
