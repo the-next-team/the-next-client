@@ -31,7 +31,7 @@ function Header() {
       </div>
       <div className="flex justify-start flex-grow gap-6">
         {menus.map(menu => (
-           <p className="text-white text-[16px]">{menu.name}</p>
+           <button className="text-white text-[16px]">{menu.name}</button>
         ))}
       </div>
       <div className="flex items-center gap-3">
