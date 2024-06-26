@@ -29,7 +29,7 @@ function Header() {
         <img className="w-6 h-6" src={Logo1} alt="" />
         <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
       </div>
-      <div className="flex justify-start flex-grow gap-6">
+      <div className="flex justify-start flex-grow gap-10">
         {menus.map(menu => (
            <button className="text-white text-[16px]">{menu.name}</button>
         ))}
