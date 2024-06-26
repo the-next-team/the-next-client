@@ -189,6 +189,7 @@ function MainMenu() {
                     {item.items?.map((subItem, j) => {
                       return (
                         <div
+                          key={j}
                           className="px-4 cursor-pointer py-1.5 duration-100 hover:bg-gray-50"
                           onClick={() => {
                             setActiveMultiMenu(j);
@@ -201,8 +202,7 @@ function MainMenu() {
                         >
                           <p
                             className={`${
-                              subItem.url &&
-                              activeTab === subItem.url
+                              subItem.url && activeTab === subItem.url
                                 ? "text-primary"
                                 : "text-custom-black"
                             } text-sm`}
