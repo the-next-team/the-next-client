@@ -71,16 +71,20 @@ function Layout() {
                   display: activeTab === tab.href ? "block" : "none",
                 }}
               >
-                {tab.href ? (
-                  <section className="flex flex-col h-full p-3 grow">
-                    <Breadcrumbs />
-                    <div className="bg-white rounded-[10px] p-3 ">
-                      <DynamicComponent componentPath={tab.href} />
+                <section className="flex flex-col h-full p-3 grow">
+                  {tab.href ? (
+                    <>
+                      <Breadcrumbs />
+                      <div className="bg-white rounded-[10px] p-3">
+                        <DynamicComponent componentPath={tab.href} />
+                      </div>
+                    </>
+                  ) : (
+                    <div className="bg-white rounded-[10px] p-3">
+                      <Error404Page />
                     </div>
-                  </section>
-                ) : (
-                  <Error404Page />
-                )}
+                  )}
+                </section>
               </div>
             ))}
           </div>
