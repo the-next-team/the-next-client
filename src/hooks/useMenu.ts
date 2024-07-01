@@ -1,11 +1,19 @@
-import { useRecoilState } from "recoil";
+import { useRecoilState, useResetRecoilState } from "recoil";
 import { IMenu, MenuService } from "../api/services/menuService";
 import { storageKey } from "../constants";
 import { menuSelectedState, menuState } from "../states/menu/menuAtom";
+import { activeSubmenuState } from "../states/sidebar/sidebarAtom";
+import {
+  activeTabTypeState,
+  tabMenuState,
+} from "../states/tabMenu/tabMenuAtom";
 
 function useMenu() {
   const [menus, _setMenu] = useRecoilState(menuState);
   const [selectedMenu, setSelectedMenu] = useRecoilState(menuSelectedState);
+  const activeSubmenuReset = useResetRecoilState(activeSubmenuState);
+  const activeTabReset = useResetRecoilState(activeTabTypeState);
+  const tabMenuReset = useResetRecoilState(tabMenuState);
 
   const fetchMenu = async () => {
     try {
@@ -46,6 +54,10 @@ function useMenu() {
         });
       });
       setMenu(data);
+      // 초기화
+      activeSubmenuReset();
+      activeTabReset();
+      tabMenuReset();
       if (data.length > 0) {
         setSelectedMenu(data[0]);
       }

@@ -14,4 +14,5 @@ export const menuState = atom<IMenu[]>({
 export const menuSelectedState = atom<IMenu | null>({
   key: "menuSelectedState",
   default: null,
+  effects_UNSTABLE: [persistAtom],
 });

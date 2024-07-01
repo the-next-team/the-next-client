@@ -15,7 +15,7 @@ import DynamicComponent from "./components/DynamicComponent";
 
 function Layout() {
   const { tabMenu, setTabMenu, activeTab } = useTabMenu();
-  const { fetchMenu } = useMenu();
+  const { menus, fetchMenu } = useMenu();
   const { client, isConnected } = useStompClient();
   const { notifications, showNotification } = useLocalNotification();
 
@@ -44,7 +44,9 @@ function Layout() {
   }, [isConnected, client, handleMessage]);
 
   useEffect(() => {
-    fetchMenu();
+    if (!menus.length) {
+      fetchMenu();
+    }
 
     setTabMenu(
       tabMenu.map(({ name, href }) => ({

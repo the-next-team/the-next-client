@@ -1,10 +1,12 @@
 import { Icon } from "@iconify/react";
-import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
 import useMenu from "../../../hooks/useMenu";
 import useTabMenu from "../../../hooks/useTabMenu";
 import {
   CurrentSideMenu,
+  activeSubmenu,
+  activeSubmenuState,
   currentSideMenuState,
 } from "../../../states/sidebar/sidebarAtom";
 import SubMenu from "./SubMenu";
@@ -12,55 +14,44 @@ import { IMenu } from "../../../api/services/menuService";
 
 function MainMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
-  const { menus, selectedMenu } = useMenu();
+  const { menus, selectedMenu, setSelectedMenu } = useMenu();
   const currentSideMenu = useRecoilValue<CurrentSideMenu>(currentSideMenuState);
-
-  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
+  const [activeSubmenu, setActiveSubmenu] =
+    useRecoilState<activeSubmenu>(activeSubmenuState); // 열린 메뉴
 
   useEffect(() => {
-    if (selectedMenu && activeTab) {
-      setActiveSubmenu(findIndex(activeTab));
+    if (selectedMenu?.code) {
+      let menuIndex = findMenuIndex(selectedMenu?.items, activeTab);
+      if (activeSubmenu !== menuIndex) {
+        setActiveSubmenu(menuIndex);
+      }
     }
   }, [activeTab, selectedMenu]);
 
-  const findURLByProgramId = (programId: string) => {
-    let url = null;
-    menus.forEach((item) => {
-      if (item.items) {
-        item.items.forEach((i) => {
-          if (i.items) {
-            i.items.forEach((m) => {
-              if (m.programId === programId) {
-                url = m.url;
-              }
-            });
-          } else if (i.programId === programId) {
-            url = i.url;
-          }
-        });
-      } else if (item.programId === programId) {
-        url = item.url;
-      }
-    });
-    return url;
-  };
+  useEffect(() => {
+    let menuIndex = findMenuIndex(menus, activeTab);
+    if (menuIndex != null && selectedMenu?.code !== menus[menuIndex].code) {
+      console.log(menus[menuIndex].code);
+      setSelectedMenu(menus[menuIndex]);
+    }
+  }, [activeTab]);
 
-  const findIndex = (link: string) => {
+  const findMenuIndex = (menu: IMenu[] | undefined, link: string) => {
     let menuIndex = null;
-    selectedMenu?.items.forEach((item, i) => {
+    menu?.forEach((item, i) => {
       if (item.items) {
         item.items.forEach((subItem) => {
-          if (
-            findURLByProgramId(subItem.programId ?? "") &&
-            findURLByProgramId(subItem.programId ?? "") === link
-          ) {
+          if (subItem.items) {
+            subItem.items.forEach((nestedItem) => {
+              if (nestedItem.url === link) {
+                menuIndex = i;
+              }
+            });
+          } else if (subItem.url === link) {
             menuIndex = i;
           }
         });
-      } else if (
-        findURLByProgramId(item.programId ?? "") &&
-        findURLByProgramId(item.programId ?? "") === link
-      ) {
+      } else if (item.url === link) {
         menuIndex = i;
       }
     });
@@ -76,7 +67,7 @@ function MainMenu() {
           <div>
             <div
               className={`cursor-pointer flex items-center transition-colors duration-100 justify-between px-4 py-2 ${
-                findIndex(activeTab) === i
+                findMenuIndex(selectedMenu?.items, activeTab) === i
                   ? "bg-primary bg-opacity-[0.07]"
                   : isActive
                   ? "bg-gray-100"
@@ -107,18 +98,15 @@ function MainMenu() {
         ) : (
           <div
             className={`cursor-pointer flex items-center transition-colors duration-100 justify-between px-4 py-2 ${
-              findURLByProgramId(item.programId ?? "") &&
-              findURLByProgramId(item.programId ?? "") === activeTab
+              item.url && item.url === activeTab
                 ? "bg-primary bg-opacity-[0.07]"
                 : "hover:bg-gray-100"
             }`}
             onClick={() => {
               setActiveSubmenu(i);
-
-              let href = findURLByProgramId(item.programId ?? "") ?? "";
               handleTabOpen({
                 name: item.name ?? "",
-                href: href,
+                href: item.url ?? "",
               });
             }}
           >
