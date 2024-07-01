@@ -24,7 +24,7 @@ const TabMenu = () => {
                 {tab.name}
               </p>
               {/* 메뉴 닫기 (단, 대시보드는 고정)*/}
-              {tab.href !== "home/dashboard" && (
+              {tab.href !== "dashboard/Dashboard" && (
                 <div
                   className="rounded-full p-0.5"
                   onClick={(e) => {

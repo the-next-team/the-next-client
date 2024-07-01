@@ -11,7 +11,7 @@ import useMenu from "../hooks/useMenu";
 import useStompClient from "../hooks/useStompClient";
 import useTabMenu from "../hooks/useTabMenu";
 import Error404Page from "../pages/error/Error404Page";
-import TabMenuUtil from "../utils/tabMenuUtil";
+import DynamicComponent from "./components/DynamicComponent";
 
 function Layout() {
   const { tabMenu, setTabMenu, activeTab } = useTabMenu();
@@ -50,7 +50,6 @@ function Layout() {
       tabMenu.map(({ name, href }) => ({
         name,
         href,
-        component: TabMenuUtil.findElement(href),
       }))
     );
   }, []);
@@ -72,11 +71,11 @@ function Layout() {
                   display: activeTab === tab.href ? "block" : "none",
                 }}
               >
-                {tab?.component ? (
+                {tab.href ? (
                   <section className="flex flex-col h-full p-3 grow">
                     <Breadcrumbs />
                     <div className="bg-white rounded-[10px] p-3 ">
-                      <tab.component />
+                      <DynamicComponent componentPath={tab.href} />
                     </div>
                   </section>
                 ) : (

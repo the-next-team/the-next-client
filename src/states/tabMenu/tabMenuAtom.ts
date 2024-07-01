@@ -1,6 +1,5 @@
 import { atom } from "recoil";
 import { recoilPersist } from "../persist";
-import Dashboard from "../../pages/dashboard/Dashboard";
 
 const { persistAtom } = recoilPersist();
 
@@ -8,7 +7,7 @@ const { persistAtom } = recoilPersist();
 export type activeTabType = string;
 export const activeTabTypeState = atom<activeTabType>({
   key: "activeTabTypeState",
-  default: "home/dashboard",
+  default: "dashboard/Dashboard",
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -17,10 +16,9 @@ export type TabMenuList = Array<TabMenu>;
 export type TabMenu = {
   name: string;
   href: string;
-  component?: React.ComponentType | null;
 };
 export const tabMenuState = atom<TabMenuList>({
   key: "tabMenuState",
-  default: [{ name: "대시보드", href: "home/dashboard", component: Dashboard }],
+  default: [{ name: "대시보드", href: "dashboard/Dashboard" }],
   effects_UNSTABLE: [persistAtom],
 });

@@ -24,7 +24,6 @@ const NestedMenu = ({
           handleTabOpen({
             name: item.multiTitle,
             href: item.multiLink,
-            component: item.multiElement ?? null,
           });
         }}
       >

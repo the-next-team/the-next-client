@@ -5,7 +5,6 @@ import {
   CurrentSideMenu,
   currentSideMenuState,
 } from "../../../states/sidebar/sidebarAtom";
-import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 function Toolbar() {
   const { handleTabOpen } = useTabMenu();
@@ -19,8 +18,7 @@ function Toolbar() {
       onClick: () => {
         handleTabOpen({
           name: "대시보드",
-          href: "home/dashboard",
-          component: TabMenuUtil.findElement("home/dashboard"),
+          href: "dashboard/Dashboard",
         });
       },
     },

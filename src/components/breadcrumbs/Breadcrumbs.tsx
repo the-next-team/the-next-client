@@ -3,22 +3,49 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import useTabMenu from "../../hooks/useTabMenu";
 import { FavMenu, favMenuState } from "../../states/sidebar/sidebarAtom";
-import TabMenuUtil from "../../utils/tabMenuUtil";
+import useMenu from "../../hooks/useMenu";
 
 function Breadcrumbs() {
   const { activeTab } = useTabMenu();
+  const { menus } = useMenu();
   const [favMenu, setFavMenu] = useRecoilState<FavMenu>(favMenuState);
 
-  const [isHide, setIsHide] = useState<boolean | undefined>(false);
   const [title, setTitle] = useState<Array<string>>([]);
 
   useEffect(() => {
-    setTitle(TabMenuUtil.findTitle(activeTab));
+    setTitle(findTitle(activeTab));
   }, [activeTab]);
+
+  const findTitle = (link: string) => {
+    let title: Array<string> = [];
+    if (link) {
+      menus?.forEach((item) => {
+        if (item.items) {
+          item.items.forEach((i) => {
+            if (i.items) {
+              i.items.forEach((m) => {
+                if (m.url === link) {
+                  title.push(item.name);
+                  title.push(i.name ?? "");
+                  title.push(m.name);
+                }
+              });
+            } else if (i.url === link) {
+              title.push(item.name);
+              title.push(i.name ?? "");
+            }
+          });
+        } else if (item.url === link) {
+          title.push(item.name);
+        }
+      });
+    }
+    return title;
+  };
 
   return (
     <>
-      {title.length && !isHide ? (
+      {title.length ? (
         <div className="flex px-4 py-1 mb-2 bg-white rounded-[6px]">
           <ul className="flex items-center space-x-1 text-sm">
             {title.map((item, i) => (

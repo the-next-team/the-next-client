@@ -9,11 +9,10 @@ import {
 } from "../../../states/sidebar/sidebarAtom";
 import SubMenu from "./SubMenu";
 import { IMenu } from "../../../api/services/menuService";
-import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 function MainMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
-  const { selectedMenu } = useMenu();
+  const { menus, selectedMenu } = useMenu();
   const currentSideMenu = useRecoilValue<CurrentSideMenu>(currentSideMenuState);
 
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
@@ -24,21 +23,43 @@ function MainMenu() {
     }
   }, [activeTab, selectedMenu]);
 
+  const findURLByProgramId = (programId: string) => {
+    let url = null;
+    menus.forEach((item) => {
+      if (item.items) {
+        item.items.forEach((i) => {
+          if (i.items) {
+            i.items.forEach((m) => {
+              if (m.programId === programId) {
+                url = m.url;
+              }
+            });
+          } else if (i.programId === programId) {
+            url = i.url;
+          }
+        });
+      } else if (item.programId === programId) {
+        url = item.url;
+      }
+    });
+    return url;
+  };
+
   const findIndex = (link: string) => {
     let menuIndex = null;
     selectedMenu?.items.forEach((item, i) => {
       if (item.items) {
         item.items.forEach((subItem) => {
           if (
-            TabMenuUtil.findURLByProgramId(subItem.programId ?? "") &&
-            TabMenuUtil.findURLByProgramId(subItem.programId ?? "") === link
+            findURLByProgramId(subItem.programId ?? "") &&
+            findURLByProgramId(subItem.programId ?? "") === link
           ) {
             menuIndex = i;
           }
         });
       } else if (
-        TabMenuUtil.findURLByProgramId(item.programId ?? "") &&
-        TabMenuUtil.findURLByProgramId(item.programId ?? "") === link
+        findURLByProgramId(item.programId ?? "") &&
+        findURLByProgramId(item.programId ?? "") === link
       ) {
         menuIndex = i;
       }
@@ -86,20 +107,18 @@ function MainMenu() {
         ) : (
           <div
             className={`cursor-pointer flex items-center transition-colors duration-100 justify-between px-4 py-2 ${
-              TabMenuUtil.findURLByProgramId(item.programId ?? "") &&
-              TabMenuUtil.findURLByProgramId(item.programId ?? "") === activeTab
+              findURLByProgramId(item.programId ?? "") &&
+              findURLByProgramId(item.programId ?? "") === activeTab
                 ? "bg-primary bg-opacity-[0.07]"
                 : "hover:bg-gray-100"
             }`}
             onClick={() => {
               setActiveSubmenu(i);
 
-              let href =
-                TabMenuUtil.findURLByProgramId(item.programId ?? "") ?? "";
+              let href = findURLByProgramId(item.programId ?? "") ?? "";
               handleTabOpen({
                 name: item.name ?? "",
                 href: href,
-                component: TabMenuUtil.findElement(href) ?? null,
               });
             }}
           >

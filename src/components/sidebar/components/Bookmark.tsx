@@ -6,7 +6,6 @@ import {
   favMenuState,
 } from "../../../states/sidebar/sidebarAtom";
 import useTabMenu from "../../../hooks/useTabMenu";
-import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 function Bookmark() {
   const { activeTab, handleTabOpen } = useTabMenu();
@@ -30,7 +29,6 @@ function Bookmark() {
               handleTabOpen({
                 name: fav.name ?? "",
                 href: fav.href ?? "",
-                component: TabMenuUtil.findElement(fav.href),
               });
             }}
           >
