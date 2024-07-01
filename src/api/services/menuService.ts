@@ -36,7 +36,7 @@ export interface IMenu3Depth {
 
 export const MenuService = {
   findAll: async (): Promise<ApiResponse<IMenu[]>> => {
-    return Get("/api/common/menu");
+    return Get("/api/common/menu/inqury/nTree");
   },
   getMenu: async (): Promise<ApiResponse<IMenu1Depth[]>> => {
     return Get("/api/common/menu");
