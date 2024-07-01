@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
 import useMenu from "../../hooks/useMenu";
@@ -9,9 +8,8 @@ import Toolbar from "./components/Toolbar";
 
 function Header() {
   const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
   const { user, logout } = useUser();
-  const { menus, setSelectedMenu } = useMenu();
+  const { menus, selectedMenu, setSelectedMenu } = useMenu();
 
   const dropdown = [
     {
@@ -29,16 +27,18 @@ function Header() {
         <img className="w-6 h-6" src={Logo1} alt="" />
         <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
       </div>
-      <div className="flex justify-start flex-grow gap-10">
+      <div className="flex justify-start flex-grow gap-6">
         {menus?.map((menu, index) => (
           <button
             key={index}
-            onClick={() => {
-              setSelectedMenu(menu);
-            }}
-            className="text-white text-[16px]"
+            className={`${
+              selectedMenu?.name === menu.name
+                ? "text-primary border-b border-primary"
+                : "text-white"
+            } text-sm`}
+            onClick={() => setSelectedMenu(menu)}
           >
-            {menu.name}
+            <p>{menu.name}</p>
           </button>
         ))}
       </div>
