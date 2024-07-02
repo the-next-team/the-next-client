@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
-import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
 import useMenu from "../../hooks/useMenu";
 import useUser from "../../hooks/useUser";
 import Toolbar from "./components/Toolbar";
@@ -22,10 +21,10 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] h-8 flex flex-none items-center px-[10px] gap-10">
+    <header className="bg-[#111625] flex flex-none items-center p-[10px] gap-10">
       <div className="flex items-center gap-[10px] w-[215px]">
         <img className="w-6 h-6" src={Logo1} alt="" />
-        <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
+        <p className="text-white text-md">리테일금융시스템</p>
       </div>
       <div className="flex justify-start flex-grow gap-6">
         {menus.map((menu, index) => (
