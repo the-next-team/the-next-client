@@ -70,7 +70,7 @@ function useMenu() {
   };
 
   const findMenu = (data: IMenu): IMenu | undefined => {
-    return menus?.find((f) => f.code === data.code);
+    return menus.find((f) => f.code === data.code);
   };
 
   // 주어진 메뉴 데이터를 priority 별로 정렬하는 함수

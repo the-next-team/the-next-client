@@ -28,7 +28,7 @@ function Header() {
         <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
       </div>
       <div className="flex justify-start flex-grow gap-6">
-        {menus?.map((menu, index) => (
+        {menus.map((menu, index) => (
           <button
             key={index}
             className={`${

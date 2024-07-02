@@ -19,7 +19,7 @@ function Breadcrumbs() {
   const findTitle = (link: string) => {
     let title: Array<string> = [];
     if (link) {
-      menus?.forEach((item) => {
+      menus.forEach((item) => {
         if (item.items) {
           item.items.forEach((i) => {
             if (i.items) {

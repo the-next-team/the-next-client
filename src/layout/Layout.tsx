@@ -44,7 +44,7 @@ function Layout() {
   }, [isConnected, client, handleMessage]);
 
   useEffect(() => {
-    if (!menus?.length) {
+    if (!menus.length) {
       fetchMenu();
     }
 
