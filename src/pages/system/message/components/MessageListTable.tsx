@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { IMessageModel } from "../../../../api/services/messageService";
-import "../../../../components/table/style/realgrid-style.css";
 
 type Props = {
   items: IMessageModel[];

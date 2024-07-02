@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import "./style/realgrid-style.css";
 
 function RealGridPage() {
   const realgridElement = useRef<HTMLDivElement| null>(null);
