@@ -49,6 +49,9 @@ function useMenu() {
             } else if (m.programId === "CMN003L") {
               // 전문관리 -> 전문처리이력
               m.url = "system/message/MessageListPage";
+            } else if (m.programId === "CMC021U") {
+              // 코드관리 -> nTree기본코드
+              m.url = "preferences/code/NTreeDefaultCodePage";
             }
           });
         });
