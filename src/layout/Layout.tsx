@@ -64,29 +64,27 @@ function Layout() {
         <Sidebar />
         <div className="flex flex-col flex-grow overflow-hidden bg-gray-100">
           <TabMenu />
-          <div className="flex flex-col flex-grow overflow-y-auto bg-gray-100">
+          <div className="flex flex-col flex-grow p-3 overflow-y-auto bg-gray-100">
             {tabMenu.map((tab) => (
               <div
                 key={tab.href}
-                className="flex flex-col h-full"
+                className="flex-1"
                 style={{
                   display: activeTab === tab.href ? "block" : "none",
                 }}
               >
-                <section className="flex flex-col h-full p-3 grow">
-                  {tab.href ? (
-                    <>
-                      <Breadcrumbs />
-                      <div className="bg-white rounded-[10px] p-3">
-                        <DynamicComponent componentPath={tab.href} />
-                      </div>
-                    </>
-                  ) : (
+                {tab.href ? (
+                  <>
+                    <Breadcrumbs />
                     <div className="bg-white rounded-[10px] p-3">
-                      <Error404Page />
+                      <DynamicComponent componentPath={tab.href} />
                     </div>
-                  )}
-                </section>
+                  </>
+                ) : (
+                  <div className="h-full bg-white rounded-[10px] p-3">
+                    <Error404Page />
+                  </div>
+                )}
               </div>
             ))}
           </div>
