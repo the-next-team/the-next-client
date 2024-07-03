@@ -4,8 +4,15 @@ import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
 import useUser from "../../hooks/useUser";
 import Toolbar from "./components/Toolbar";
 import TopMenu from "./components/TopMenu";
+import { useSetRecoilState } from "recoil";
+import {
+  CurrentSideMenu,
+  currentSideMenuState,
+} from "../../states/sidebar/sidebarAtom";
 
 function Header() {
+  const setCurrentSideMenu =
+    useSetRecoilState<CurrentSideMenu>(currentSideMenuState);
   const [visible, setVisible] = useState(false);
   const { user, logout } = useUser();
 
@@ -35,7 +42,10 @@ function Header() {
         </div>
         {/* 검색바 */}
         <div className="hidden xl:block">
-          <div className="w-[230px] flex items-center gap-2 rounded bg-custom-gray-100 bg-opacity-20 px-[6px] py-1">
+          <div
+            className="w-[230px] flex items-center gap-2 rounded cursor-pointer bg-custom-gray-100 bg-opacity-20 px-[6px] py-1"
+            onClick={() => setCurrentSideMenu("search")}
+          >
             <Icon
               icon="heroicons:magnifying-glass-solid"
               width="16"
@@ -43,7 +53,8 @@ function Header() {
             />
             <input
               placeholder="통합 검색"
-              className="w-full text-xs text-white bg-transparent outline-none"
+              className="w-full text-xs text-white bg-transparent outline-none cursor-pointer"
+              readOnly
             />
           </div>
         </div>

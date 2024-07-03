@@ -1,6 +1,7 @@
 import Toolbar from "./components/Toolbar";
 import Bookmark from "./components/Bookmark";
 import MainMenu from "./components/MainMenu";
+import SearchBar from "./components/SearchBar";
 
 function Sidebar() {
   return (
@@ -12,6 +13,9 @@ function Sidebar() {
 
       {/* 메뉴 */}
       <MainMenu />
+
+      {/* 검색창 */}
+      <SearchBar />
     </div>
   );
 }

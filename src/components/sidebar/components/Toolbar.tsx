@@ -38,7 +38,7 @@ function Toolbar() {
       name: "todo",
       icon: "heroicons:clipboard-document-list",
     },
-    { name: "", icon: "heroicons:book-open" },
+    { name: "book", icon: "heroicons:book-open" },
   ];
 
   return (
@@ -58,9 +58,6 @@ function Toolbar() {
           >
             <Icon icon={menu.icon} width="16" />
           </div>
-          {i === 2 && (
-            <div className="w-full bg-primacustom-blue-100ry h-[1px]" />
-          )}
         </div>
       ))}
     </div>
