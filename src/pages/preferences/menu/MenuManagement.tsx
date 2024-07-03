@@ -4,7 +4,7 @@ import {
   IMenu1Depth
 } from "../../../api/services/menuService";
 import ItemTable from "./components/ItemTable";
-import Table from "./components/Table";
+// import Table from "./components/Table";
 
 function MenuManagement() {
   const [selected, setSelected] = useState<IMenu1Depth | null>(null); // 선택된 코드
@@ -12,11 +12,11 @@ function MenuManagement() {
   return (
     <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
       <div>
-        <Table
+        {/* <Table
           onClick={(item) => {
             setSelected(item);
           }}
-        />
+        /> */}
       </div>
       <div className="">
         <ItemTable
