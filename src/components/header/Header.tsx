@@ -1,14 +1,13 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
-import useMenu from "../../hooks/useMenu";
 import useUser from "../../hooks/useUser";
 import Toolbar from "./components/Toolbar";
+import TopMenu from "./components/TopMenu";
 
 function Header() {
   const [visible, setVisible] = useState(false);
   const { user, logout } = useUser();
-  const { menus, selectedMenu, setSelectedMenu } = useMenu();
 
   const dropdown = [
     {
@@ -21,40 +20,32 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] flex flex-none items-center p-[10px] gap-10">
-      <div className="flex items-center gap-[10px] w-[215px]">
-        <img className="w-6 h-6" src={Logo1} alt="" />
-        <p className="text-white text-md">리테일금융시스템</p>
-      </div>
-      <div className="flex justify-start flex-grow gap-6">
-        {menus.map((menu, index) => (
-          <button
-            key={index}
-            className={`${
-              selectedMenu?.name === menu.name
-                ? "text-primary border-b border-primary"
-                : "text-white"
-            } text-sm`}
-            onClick={() => setSelectedMenu(menu)}
-          >
-            <p>{menu.name}</p>
-          </button>
-        ))}
+    <header className="bg-[#111625] flex items-center justify-between p-[10px] gap-10">
+      <div className="flex items-center gap-10">
+        <div className="flex items-center gap-[10px]">
+          <img className="w-6 h-6" src={Logo1} alt="" />
+          <p className="text-white text-md break-keep">리테일금융시스템</p>
+        </div>
+        <TopMenu />
       </div>
       <div className="flex items-center gap-3">
         {/* 툴바 */}
-        <Toolbar />
+        <div className="hidden lg:block">
+          <Toolbar />
+        </div>
         {/* 검색바 */}
-        <div className="w-[230px] flex items-center gap-2 rounded bg-custom-gray-100 bg-opacity-20 px-[6px] py-1">
-          <Icon
-            icon="heroicons:magnifying-glass-solid"
-            width="16"
-            color="white"
-          />
-          <input
-            placeholder="통합 검색"
-            className="w-full text-xs text-white bg-transparent outline-none"
-          />
+        <div className="hidden xl:block">
+          <div className="w-[230px] flex items-center gap-2 rounded bg-custom-gray-100 bg-opacity-20 px-[6px] py-1">
+            <Icon
+              icon="heroicons:magnifying-glass-solid"
+              width="16"
+              color="white"
+            />
+            <input
+              placeholder="통합 검색"
+              className="w-full text-xs text-white bg-transparent outline-none"
+            />
+          </div>
         </div>
         {/* 알림 */}
         <div className="cursor-pointer rounded-[6px] p-1 bg-custom-gray-100 bg-opacity-20 relative">
@@ -69,7 +60,7 @@ function Header() {
         </div>
         {/* 프로필 */}
         <div
-          className="relative flex items-center gap-1 text-white cursor-pointer"
+          className="relative flex items-center gap-1 text-white cursor-pointer break-keep"
           onClick={() => setVisible((prev) => !prev)}
         >
           <p className="font-semibold">{user?.username}</p>
