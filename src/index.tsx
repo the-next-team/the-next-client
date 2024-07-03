@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+// RealGrid Style
+import "./components/table/style/realgrid-style.css";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

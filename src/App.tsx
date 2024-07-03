@@ -5,8 +5,7 @@ import Alert from "./components/alert/Alert";
 import Loader from "./components/loader/Loader";
 import AppRouter from "./routes";
 
-// RealGrid Style
-import "./components/table/style/realgrid-style.css";
+
 
 const queryClient = new QueryClient();
 
