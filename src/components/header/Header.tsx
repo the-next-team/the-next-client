@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
+import Logo from "../../assets/images/logo/smart-next@c4.png";
 import useUser from "../../hooks/useUser";
 import Toolbar from "./components/Toolbar";
 import TopMenu from "./components/TopMenu";
@@ -27,12 +27,9 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] flex items-center justify-between p-[10px] gap-10">
+    <header className="bg-[#111625] flex items-center justify-between px-4 py-[10px] gap-10">
       <div className="flex items-center gap-10">
-        <div className="flex items-center gap-[10px]">
-          <img className="w-6 h-6" src={Logo1} alt="" />
-          <p className="text-white text-md break-keep">리테일금융시스템</p>
-        </div>
+        <img className="h-4" src={Logo} alt="" />
         <TopMenu />
       </div>
       <div className="flex items-center gap-3">
