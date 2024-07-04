@@ -29,7 +29,7 @@ function SubMenu({ index, item, activeSubmenu }: Props) {
                 : "text-custom-black"
             } text-sm`}
           >
-            {subItem.name}
+            {`∙ ${subItem.name}`}
           </p>
         </div>
       </li>
