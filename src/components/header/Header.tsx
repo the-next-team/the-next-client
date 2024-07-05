@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Logo from "../../assets/images/logo/smart-next@c4.png";
+import NextLoge from "../../assets/images/logo/the-next.png";
 import useUser from "../../hooks/useUser";
 import Toolbar from "./components/Toolbar";
 import TopMenu from "./components/TopMenu";
@@ -27,8 +28,12 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] flex items-center justify-between px-4 py-[10px] gap-10">
-      <div className="flex items-center w-[215px]">
+    <header className="bg-[#111625] flex items-center justify-between px-2 py-[10px] gap-5">
+      {/* NEXT 로고 */}
+      <div>
+        <img className="h-[30px]" src={NextLoge} alt="" />
+      </div>
+      <div className="flex items-center w-[195px]">
         <img className="h-4" src={Logo} alt="" />
       </div>
       <TopMenu />
