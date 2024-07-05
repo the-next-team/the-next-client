@@ -28,10 +28,10 @@ function Header() {
 
   return (
     <header className="bg-[#111625] flex items-center justify-between px-4 py-[10px] gap-10">
-      <div className="flex items-center gap-10">
+      <div className="flex items-center w-[215px]">
         <img className="h-4" src={Logo} alt="" />
-        <TopMenu />
       </div>
+      <TopMenu />
       <div className="flex items-center gap-3">
         {/* 툴바 */}
         <div className="hidden lg:block">
