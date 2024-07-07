@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserService } from "../../api/services/userService";
 import Input from "../../components/form/input/Input";
@@ -9,18 +10,28 @@ function LoginPage() {
   const navigate = useNavigate();
   const {fetchUser} = useUser();
   const { showLoading, hideLoading } = useLoading();
+  const [inputUsername, setInputUsername] = useState("nTree");
+  const [inputPassword, setInputPassword] = useState("1");
+  
+  const handleChange = (e:React.SyntheticEvent<HTMLInputElement>) => {
+    var obj = e.currentTarget;
+    if( obj.id == "username" )
+      setInputUsername(obj.value);
+    else if( obj.id == "password" )
+      setInputPassword(obj.value);
+  };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       showLoading();
-      const response = await UserService.login({
-        // username: data.username,
-        // password: data.password,
-        username: "nTree",
-        password: "1",
-      });
+      const req_data = {
+        username: inputUsername,
+        password: inputPassword,
+      };
+      console.log(req_data);
+      const response = await UserService.login(req_data);
       hideLoading();
 
       if (response.status === "OK") {
@@ -36,12 +47,17 @@ function LoginPage() {
           replace: true,
         });
       }
+      else {
+        console.log(response.error);
+        alert("[" + response.error.code + "] " + response.error.message);
+      }
     } catch (error) {
       hideLoading();
-      // setError("fail", {
-      //   type: "custom",
-      //   message: "아이디 또는 비밀번호가 올바르지 않아요.",
-      // });
+      console.log(error);
+//      setError("fail", {
+//        type: "custom",
+//        message: "아이디 또는 비밀번호가 올바르지 않아요.",
+//      });
     }
   };
 
@@ -50,12 +66,12 @@ function LoginPage() {
       <form onSubmit={onSubmit}>
         <div className="mb-6">
           <p className="text-2xl font-semibold text-center text-custom-black">
-            Sign In
+            nTree.next Login
           </p>
         </div>
         <div className="flex flex-col gap-2">
-          <Input label="username" placeholder="username" value={"nTree"} />
-          <Input label="password" placeholder="password" value={"1"} />
+          <Input type="text" id="username" placeholder="username" onChange={handleChange} value={inputUsername} />
+          <Input type="password" id="password" placeholder="password" onChange={handleChange} value={inputPassword} />
         </div>
         <button
           type="submit"

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { CodeService, ICode } from "../../../../../api/services/codeService";
+import useLoading from "../../../../../hooks/useLoading";
 
 type Props = {
   onClick: (item: ICode) => void;
@@ -8,6 +9,7 @@ type Props = {
 
 function CodeTable({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
+  const { showLoading, hideLoading } = useLoading();
   const [items, setItems] = useState<ICode[]>([]); // 대분류
 
   useEffect(() => {
@@ -135,7 +137,9 @@ function CodeTable({ onClick }: Props) {
 
   const findAll = async () => {
     try {
+      showLoading();
       const response = await CodeService.getCode();
+      hideLoading();
       if (response.status === "OK") {
         setItems(response.data);
       }
