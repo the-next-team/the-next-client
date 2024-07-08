@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserService } from "../../api/services/userService";
+import NextLoge from "../../assets/images/logo/the-next.png";
 import Input from "../../components/form/input/Input";
 import { storageKey } from "../../constants";
 import useLoading from "../../hooks/useLoading";
@@ -69,9 +70,9 @@ function LoginPage() {
     <div className="flex items-center justify-center w-full h-full bg-white">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
-          <p className="text-2xl font-semibold text-center text-custom-black">
-            nTree.next Login
-          </p>
+          <div>
+            <img className="" src={NextLoge} alt="" />
+          </div>
         </div>
         <div className="flex flex-col gap-2">
           <Input
