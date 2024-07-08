@@ -49,7 +49,7 @@ function LoginPage() {
         );
         await fetchUser();
 
-        navigate("/", {
+        navigate("/dashboard/Dashboard", {
           replace: true,
         });
       } else {

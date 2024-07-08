@@ -2,17 +2,17 @@ import { useRecoilState } from "recoil";
 import {
   TabMenu,
   TabMenuList,
-  activeTabType,
-  activeTabTypeState,
   tabMenuState,
 } from "../states/tabMenu/tabMenuAtom";
 import useAlert from "./useAlert";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function useTabMenu() {
-  const [activeTab, setActiveTab] =
-    useRecoilState<activeTabType>(activeTabTypeState);
+  const navigate = useNavigate();
+  const location = useLocation(); // 현재 경로
+  const activeTab = location.pathname.replace("/", "");
   const [tabMenu, setTabMenu] = useRecoilState<TabMenuList>(tabMenuState);
-  const {showAlert} = useAlert()
+  const { showAlert } = useAlert();
 
   // 탭 열기
   const handleTabOpen = (tab: TabMenu) => {
@@ -21,27 +21,27 @@ function useTabMenu() {
       if (tabMenu.length >= 10) {
         // 10개 넘으면 추가 X
         showAlert({
-          content: "탭은 최대 10개까지 추가 가능합니다."
+          content: "탭은 최대 10개까지 추가 가능합니다.",
         });
       } else {
         // 10개 안넘으면 추가 O
-        setActiveTab(tab.href);
+        navigate("/" + tab.href);
         setTabMenu([...tabMenu, tab]);
       }
     } else {
-      setActiveTab(tab.href);
+      navigate("/" + tab.href);
     }
   };
 
   // 탭 닫기
   const handleTabClose = (href: string) => {
     let updatedTabs = [...tabMenu];
-    if (href === activeTab) {
+    if (href === location.pathname) {
       const currentIndex = updatedTabs.findIndex((t) => t.href === href);
       if (updatedTabs[currentIndex + 1]) {
-        setActiveTab(updatedTabs[currentIndex + 1].href);
+        navigate("/" + updatedTabs[currentIndex + 1].href);
       } else if (updatedTabs[updatedTabs.length - 2]) {
-        setActiveTab(updatedTabs[updatedTabs.length - 2].href);
+        navigate("/" + updatedTabs[updatedTabs.length - 2].href);
       }
     }
     updatedTabs = updatedTabs.filter((t) => t.href !== href);
