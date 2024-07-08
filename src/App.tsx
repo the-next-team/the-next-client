@@ -1,31 +1,33 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ErrorBoundary } from "react-error-boundary";
 import { HashRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Alert from "./components/alert/Alert";
 import Loader from "./components/loader/Loader";
+import Error500Page from "./pages/error/Error500Page";
 import AppRouter from "./routes";
-
-
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RecoilRoot>
-        <div className="flex flex-col h-full">
-          {/* <TitleBar /> */}
-          <div className="flex flex-col flex-grow overflow-hidden">
-            <HashRouter>
-              <AppRouter />
-            </HashRouter>
+    <ErrorBoundary FallbackComponent={Error500Page}>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
+          <div className="flex flex-col h-full">
+            {/* <TitleBar /> */}
+            <div className="flex flex-col flex-grow overflow-hidden">
+              <HashRouter>
+                <AppRouter />
+              </HashRouter>
 
-            <Loader />
-            <Alert/>
+              <Loader />
+              <Alert />
+            </div>
           </div>
-        </div>
-      </RecoilRoot>
-    </QueryClientProvider>
+        </RecoilRoot>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

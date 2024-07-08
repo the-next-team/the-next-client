@@ -35,6 +35,8 @@ function Dashboard() {
       >
         Show Local Nitification
       </button>
+
+      {/* <ThrowErrorComponent/> */}
     </div>
   );
 }
