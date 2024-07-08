@@ -24,8 +24,8 @@ function LoginPage() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      username: "",
-      password: "",
+      username: "nTree",
+      password: "1",
     },
   });
 
@@ -33,7 +33,7 @@ function LoginPage() {
     try {
       showLoading();
       const data = {
-        username: values.password,
+        username: values.username,
         password: values.password,
       };
       const response = await UserService.login(data);
