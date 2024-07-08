@@ -1,6 +1,6 @@
 import { Get, Post } from "..";
 import { UserState } from "../../states/user/userAtom";
-import { ApiResponse } from "../models/common/apiError";
+import { ApiResponse } from "../models/common/apiResponse";
 
 export interface IUser {
   id: string;

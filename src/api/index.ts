@@ -7,7 +7,7 @@ import axios, {
 } from "axios";
 import { storageKey } from "../constants";
 import Logger from "../utils/logger";
-import { ApiResponse } from "./models/common/apiError";
+import { ApiResponse } from "./models/common/apiResponse";
 
 const httpInstance: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,

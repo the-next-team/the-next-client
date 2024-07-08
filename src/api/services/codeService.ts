@@ -1,5 +1,5 @@
 import { Get, Post } from "..";
-import { ApiResponse } from "../models/common/apiError";
+import { ApiResponse } from "../models/common/apiResponse";
 
 export const CodeType = {};
 

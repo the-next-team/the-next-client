@@ -1,5 +1,5 @@
 import { Get } from "..";
-import { ApiResponse } from "../models/common/apiError";
+import { ApiResponse } from "../models/common/apiResponse";
 
 export interface ITeam {
   code: string; // 팀(파트)코드
