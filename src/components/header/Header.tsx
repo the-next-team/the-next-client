@@ -1,15 +1,15 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import Logo from "../../assets/images/logo/smart-next@c4.png";
-import NextLoge from "../../assets/images/logo/the-next.png";
-import useUser from "../../hooks/useUser";
-import Toolbar from "./components/Toolbar";
-import TopMenu from "./components/TopMenu";
 import { useSetRecoilState } from "recoil";
+import NextLoge from "../../assets/icons/the-next-icon.png";
+import Logo from "../../assets/images/logo/smart-next@c4.png";
+import useUser from "../../hooks/useUser";
 import {
   CurrentSideMenu,
   currentSideMenuState,
 } from "../../states/sidebar/sidebarAtom";
+import Toolbar from "./components/Toolbar";
+import TopMenu from "./components/TopMenu";
 
 function Header() {
   const setCurrentSideMenu =
