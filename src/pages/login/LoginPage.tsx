@@ -70,37 +70,35 @@ function LoginPage() {
   return (
     <div className="flex items-center justify-center w-full h-full bg-white">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-6">
+        <div className="mb-8">
           <div>
             <img className="" src={NextLoge} alt="" />
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4 mb-6">
           <Input
             type="text"
-            placeholder="username"
+            label="아이디"
+            className="w-full h-8"
+            placeholder="아이디"
             {...register("username", {
               required: "아이디를 입력해 주세요.",
             })}
+            error={errors.username}
           />
           <Input
             type="password"
-            placeholder="password"
+            label="비밀번호"
+            className="w-full h-8"
+            placeholder="비밀번호"
             {...register("password", {
               required: "비밀번호를 입력해 주세요.",
             })}
+            error={errors.password}
           />
         </div>
-        {(errors.password || errors.password) && (
-          <p className="text-red-500">
-            {"아이디 또는 비밀번호를 다시 입력해주세요"}
-          </p>
-        )}
-        <button
-          type="submit"
-          className="w-full py-1 rounded-[2px] hover:animate-gradient-primary mt-4 bg-custom-black"
-        >
-          <p className="text-sm text-white">로그인</p>
+        <button className="w-full py-3 rounded-[2px] hover:animate-gradient-primary bg-custom-black">
+          <p className="text-white">로그인</p>
         </button>
       </form>
     </div>
