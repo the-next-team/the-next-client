@@ -1,21 +1,26 @@
+import { ForwardedRef, forwardRef } from "react";
+
 type Props = {
   label?: string;
   disabled?: boolean;
   validate?: string;
-  error?: string;
+  error?: any;
   className?: string;
   description?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-function Input({
-  label,
-  disabled,
-  validate,
-  error,
-  className,
-  description,
-  ...props
-}: Props) {
+function Input(
+  {
+    label,
+    disabled,
+    validate,
+    error,
+    className = "",
+    description,
+    ...props
+  }: Props,
+  ref: ForwardedRef<HTMLInputElement>
+) {
   return (
     <div className="">
       {label && (
@@ -25,6 +30,7 @@ function Input({
       )}
       <div>
         <input
+          ref={ref}
           id={label}
           type="text"
           disabled={disabled}
@@ -42,7 +48,7 @@ function Input({
         {validate ? (
           <p className="mt-1 text-sm text-green-400">{validate}</p>
         ) : error ? (
-          <p className="mt-1 text-sm text-red-400">{error}</p>
+          <p className="mt-1 text-sm text-red-400">{error?.message}</p>
         ) : description ? (
           <p className="mt-1 text-sm text-gray-400">{description}</p>
         ) : (
@@ -53,4 +59,4 @@ function Input({
   );
 }
 
-export default Input;
+export default forwardRef(Input);
