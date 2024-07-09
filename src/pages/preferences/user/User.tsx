@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { UserService } from "../../../api/services/userService";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 
 function User() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
@@ -94,7 +95,7 @@ function User() {
   const findAll = async () => {
     try {
       const response = await UserService.getUser();
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         dp.setRows(response.data);
       }
     } catch (error) {}

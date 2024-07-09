@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ITeam, TeamService } from "../../../api/services/teamService";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 
 const bottomTableData = [
   {
@@ -213,7 +214,7 @@ function Team() {
   const findAll = async () => {
     try {
       const response = await TeamService.getTeam();
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         setTeamList(response.data);
         dp.setRows(response.data);
       }

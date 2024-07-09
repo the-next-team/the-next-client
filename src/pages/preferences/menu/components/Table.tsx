@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { IMenu1Depth, MenuService } from "../../../../api/services/menuService";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
 type Props = {
   onClick: (item: IMenu1Depth) => void;
@@ -120,7 +121,7 @@ function Table({ onClick }: Props) {
       console.log("onCellDblClicked");
     };
 
-    dp.setRows(items)
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
@@ -136,7 +137,7 @@ function Table({ onClick }: Props) {
   const findAll = async () => {
     try {
       const response = await MenuService.getMenu();
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         setItems(response.data);
       }
     } catch (errer) {}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { CodeService, IJobCode } from "../../../../../api/services/codeService";
+import { ApiResponseStats } from "../../../../../api/models/common/apiResponseStats";
 
 type Props = {
   onClick: (item: IJobCode) => void;
@@ -116,7 +117,7 @@ function Table({ onClick }: Props) {
       console.log("onCellDblClicked");
     };
 
-    dp.setRows(items)
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
@@ -132,7 +133,7 @@ function Table({ onClick }: Props) {
   const findAll = async () => {
     try {
       const response = await CodeService.getJobCode();
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         setItems(response.data);
       }
     } catch (errer) {}

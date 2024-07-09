@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import { CodeService, ICode, ICodeItem } from "../../../../../api/services/codeService";
+import {
+  CodeService,
+  ICode,
+  ICodeItem,
+} from "../../../../../api/services/codeService";
+import { ApiResponseStats } from "../../../../../api/models/common/apiResponseStats";
 
 type Props = {
-  item?: ICode | null,
+  item?: ICode | null;
   onClick: (item: ICodeItem) => void;
 };
 
@@ -130,17 +135,17 @@ function CodeItemTable({ item, onClick }: Props) {
   }, [item]);
 
   useEffect(() => {
-    if(item) {
+    if (item) {
       findAll();
     } else {
-      setItems([])
+      setItems([]);
     }
   }, [item]);
 
   const findAll = async () => {
     try {
       const response = await CodeService.getCodeByKind(item!.kind);
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         dp.setRows(response.data);
         setItems(response.data);
       }

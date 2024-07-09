@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import { IMenu1Depth, IMenu2Depth, MenuService } from "../../../../api/services/menuService";
+import {
+  IMenu1Depth,
+  IMenu2Depth,
+  MenuService,
+} from "../../../../api/services/menuService";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
 type Props = {
-  item?: IMenu1Depth | null,
+  item?: IMenu1Depth | null;
   onClick: (item: IMenu2Depth) => void;
 };
 
@@ -130,17 +135,17 @@ function ItemTable({ item, onClick }: Props) {
   }, [item]);
 
   useEffect(() => {
-    if(item) {
+    if (item) {
       findAll();
     } else {
-      setItems([])
+      setItems([]);
     }
   }, [item]);
 
   const findAll = async () => {
     try {
       const response = await MenuService.getMenuByCode(item!.code);
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         dp.setRows(response.data);
         setItems(response.data);
       }

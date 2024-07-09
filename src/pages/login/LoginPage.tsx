@@ -6,6 +6,7 @@ import Input from "../../components/form/input/Input";
 import { storageKey } from "../../constants";
 import useLoading from "../../hooks/useLoading";
 import useUser from "../../hooks/useUser";
+import { ApiResponseStats } from "../../api/models/common/apiResponseStats";
 
 type FormValues = {
   username: string;
@@ -40,7 +41,7 @@ function LoginPage() {
       const response = await UserService.login(data);
       hideLoading();
 
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         localStorage.setItem(storageKey.user, JSON.stringify(response.data));
         localStorage.setItem(storageKey.accessToken, response.data.accessToken);
         localStorage.setItem(

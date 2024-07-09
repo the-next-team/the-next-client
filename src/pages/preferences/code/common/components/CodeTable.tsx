@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { CodeService, ICode } from "../../../../../api/services/codeService";
 import useLoading from "../../../../../hooks/useLoading";
+import { ApiResponseStats } from "../../../../../api/models/common/apiResponseStats";
 
 type Props = {
   onClick: (item: ICode) => void;
@@ -122,7 +123,7 @@ function CodeTable({ onClick }: Props) {
       console.log("onCellDblClicked");
     };
 
-    dp.setRows(items)
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
@@ -140,7 +141,7 @@ function CodeTable({ onClick }: Props) {
       showLoading();
       const response = await CodeService.getCode();
       hideLoading();
-      if (response.status === "OK") {
+      if (response.status === ApiResponseStats.OK) {
         setItems(response.data);
       }
     } catch (errer) {}
