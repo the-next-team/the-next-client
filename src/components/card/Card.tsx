@@ -1,4 +1,4 @@
-import useSkin from "../../hooks/useSkin";
+import useSkin from "../../hooks/layout/useSkin";
 
 type Props = {
   className?: string | undefined;
