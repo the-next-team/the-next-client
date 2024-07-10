@@ -12,6 +12,7 @@ import User from "../pages/preferences/user/User";
 import MessageListPage from "../pages/system/message/MessageListPage";
 import JobCodePage from "../pages/preferences/code/job/JobCodePage";
 import Error404Page from "../pages/error/Error404Page";
+import ChangeLog from "../pages/example/changelog/ChangeLog";
 
 const Login = lazy(() => import("../pages/login/LoginPage"));
 
@@ -44,6 +45,9 @@ const AppRouter = () => {
             <Route path="system/user" element={<User />} />
             {/* 전문관리 -> 전문처리이력 */}
             <Route path="system/message" element={<MessageListPage />} />
+
+            {/* == Sample == */}
+            <Route path="changelog" element={<ChangeLog />} />
           </Route>
         </Route>
         <Route path="/login" element={<Login />} />
