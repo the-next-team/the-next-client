@@ -348,20 +348,20 @@ export const sampleMenuItems: MenuItemType[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: "Table",
-  //   icon: "heroicons-outline:table",
-  //   child: [
-  //     {
-  //       childtitle: "Basic Table",
-  //       childlink: "table-basic",
-  //     },
-  //     {
-  //       childtitle: "React Table",
-  //       childlink: "react-table",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Table",
+    icon: "heroicons-outline:table",
+    child: [
+      {
+        childtitle: "Basic Table",
+        childlink: "example/table/BasicTablePage",
+      },
+      {
+        childtitle: "React Table",
+        childlink: "react-table",
+      },
+    ],
+  },
   {
     title: "Chart",
     icon: "heroicons-outline:chart-bar",
