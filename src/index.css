@@ -21,7 +21,7 @@
 
 @layer components {
   ::selection {
-    @apply text-white bg-primary;
+    @apply text-white bg-main;
   }
 
   /* ScrollBar */
@@ -33,17 +33,17 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-primary/30;
+    @apply bg-main/30;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply rounded-md bg-primary;
+    @apply rounded-md bg-main;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/70;
+    @apply bg-main/70;
   }
 }
 
