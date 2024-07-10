@@ -362,24 +362,24 @@ export const sampleMenuItems: MenuItemType[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: "Chart",
-  //   icon: "heroicons-outline:chart-bar",
-  //   child: [
-  //     {
-  //       childtitle: "Apex chart",
-  //       childlink: "appex-chart",
-  //     },
-  //     {
-  //       childtitle: "Chart js",
-  //       childlink: "chartjs",
-  //     },
-  //     {
-  //       childtitle: "Recharts",
-  //       childlink: "recharts",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Chart",
+    icon: "heroicons-outline:chart-bar",
+    child: [
+      {
+        childtitle: "Apex chart",
+        childlink: "example/chart/appex-chart/AppexChartPage",
+      },
+      {
+        childtitle: "Chart js",
+        childlink: "chartjs",
+      },
+      {
+        childtitle: "Recharts",
+        childlink: "recharts",
+      },
+    ],
+  },
   {
     title: "Map",
     icon: "heroicons-outline:map",
