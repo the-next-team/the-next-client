@@ -95,9 +95,9 @@ export const sampleMenuItems: MenuItemType[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: "Pages",
-  // },
+  {
+    title: "Pages",
+  },
   // {
   //   title: "Authentication",
   //   icon: "heroicons-outline:lock-closed",
@@ -216,73 +216,73 @@ export const sampleMenuItems: MenuItemType[] = [
       },
     ],
   },
-  // {
-  //   title: "Components",
-  //   icon: "heroicons-outline:collection",
-  //   child: [
-  //     {
-  //       childtitle: "Typography",
-  //       childlink: "typography",
-  //     },
-  //     {
-  //       childtitle: "Colors",
-  //       childlink: "colors",
-  //     },
-  //     {
-  //       childtitle: "Alert",
-  //       childlink: "alert",
-  //     },
-  //     {
-  //       childtitle: "Button",
-  //       childlink: "button",
-  //     },
-  //     {
-  //       childtitle: "Card",
-  //       childlink: "card",
-  //     },
-  //     {
-  //       childtitle: "Carousel",
-  //       childlink: "carousel",
-  //     },
-  //     {
-  //       childtitle: "Dropdown",
-  //       childlink: "dropdown",
-  //     },
-  //     {
-  //       childtitle: "Image",
-  //       childlink: "image",
-  //     },
-  //     {
-  //       childtitle: "Modal",
-  //       childlink: "modal",
-  //     },
-  //     {
-  //       childtitle: "Progress bar",
-  //       childlink: "progress-bar",
-  //     },
-  //     {
-  //       childtitle: "Placeholder",
-  //       childlink: "placeholder",
-  //     },
-  //     {
-  //       childtitle: "Tab & Accordion",
-  //       childlink: "tab-accordion",
-  //     },
-  //     {},
-  //     {
-  //       childtitle: "Paginatins",
-  //       childlink: "paginations",
-  //     },
-  //     {
-  //       childtitle: "Video",
-  //       childlink: "video",
-  //     },
-  //     {
-  //       childtitle: "Tooltip & Popover",
-  //       childlink: "tooltip-popover",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Components",
+    icon: "heroicons-outline:collection",
+    child: [
+      {
+        childtitle: "Typography",
+        childlink: "example/components/typography/Typography",
+      },
+      {
+        childtitle: "Colors",
+        childlink: "example/components/colors/Colors",
+      },
+      {
+        childtitle: "Alert",
+        childlink: "example/components/alert/AlertPage",
+      },
+      {
+        childtitle: "Button",
+        childlink: "example/components/button/ButtonPage",
+      },
+      {
+        childtitle: "Card",
+        childlink: "example/components/card/CardPage",
+      },
+      {
+        childtitle: "Carousel",
+        childlink: "example/components/carousel/CarouselPage",
+      },
+      {
+        childtitle: "Dropdown",
+        childlink: "example/components/dropdown/DropdownPage",
+      },
+      {
+        childtitle: "Image",
+        childlink: "example/components/image/ImagePage",
+      },
+      {
+        childtitle: "Modal",
+        childlink: "example/components/modal/ModalPage",
+      },
+      {
+        childtitle: "Progress bar",
+        childlink: "example/components/progress/ProgressPage",
+      },
+      {
+        childtitle: "Placeholder",
+        childlink: "example/components/placeholder/PlaceholderPage",
+      },
+      {
+        childtitle: "Tab & Accordion",
+        childlink: "example/components/accordion/AccordionPage",
+      },
+      {},
+      {
+        childtitle: "Paginatins",
+        childlink: "example/components/pagination/PaginationPage",
+      },
+      {
+        childtitle: "Video",
+        childlink: "example/components/video/VideoPage",
+      },
+      {
+        childtitle: "Tooltip & Popover",
+        childlink: "example/components/tooltip/TooltipPage",
+      },
+    ],
+  },
   // {
   //   title: "Forms",
   //   icon: "heroicons-outline:clipboard-list",
