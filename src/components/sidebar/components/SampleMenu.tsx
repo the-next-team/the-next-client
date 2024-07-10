@@ -56,11 +56,11 @@ export const sampleMenuItems: MenuItemType[] = [
   {
     title: "apps",
   },
-  // {
-  //   title: "Chat",
-  //   icon: "heroicons-outline:chat",
-  //   link: "example/chat",
-  // },
+  {
+    title: "Chat",
+    icon: "heroicons-outline:chat",
+    link: "example/chat/ChatPage",
+  },
   // {
   //   title: "Email",
   //   icon: "heroicons-outline:mail",
