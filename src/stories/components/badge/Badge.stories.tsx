@@ -21,15 +21,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    text: "Badge",
+    label: "Badge",
   },
 };
 
 // Basic
 export const Basic: Story = () => (
   <div className="flex flex-col items-center gap-2">
-    <Badge text="Basic Badge" />
-    <Badge text="Badge With Icon" icon="heroicons:star-20-solid" />
+    <Badge label="Basic Badge" />
+    <Badge label="Badge With Icon" icon="heroicons:star-20-solid" />
   </div>
 );
 Basic.args = {

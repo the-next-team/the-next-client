@@ -7,6 +7,7 @@
   "copyright": "Copyright ⓒ 2024. THE NEXT inc. all rights reserved.",
   "author": "THE NEXT TEAM",
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
     "@iconify/react": "^4.1.1",
     "@stomp/stompjs": "^7.0.0",
     "@tanstack/react-query": "^5.37.1",
