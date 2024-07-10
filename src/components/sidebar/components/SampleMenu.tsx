@@ -76,11 +76,11 @@ export const sampleMenuItems: MenuItemType[] = [
   //   icon: "heroicons-outline:calendar",
   //   link: "calender",
   // },
-  // {
-  //   title: "Todo",
-  //   icon: "heroicons-outline:clipboard-check",
-  //   link: "todo",
-  // },
+  {
+    title: "Todo",
+    icon: "heroicons-outline:clipboard-check",
+    link: "example/todo/TodoPage",
+  },
   // {
   //   title: "Projects",
   //   icon: "heroicons-outline:document",
