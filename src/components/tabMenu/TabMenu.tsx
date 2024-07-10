@@ -1,8 +1,11 @@
 import { Icon } from "@iconify/react";
 import useTabMenu from "../../hooks/useTabMenu";
+import { useNavigate } from "react-router-dom";
 
 const TabMenu = () => {
-  const { activeTab, tabMenu, handleTabOpen, handleTabClose } = useTabMenu();
+  const navigate = useNavigate();
+  const { activeTab, tabMenu, setTabMenu, handleTabOpen, handleTabClose } =
+    useTabMenu();
 
   return (
     <div className="flex-none overflow-x-auto bg-custom-gray-100">
@@ -42,6 +45,17 @@ const TabMenu = () => {
             </div>
           </button>
         ))}
+      </div>
+      {/* 전체닫기 */}
+      <div
+        className="fixed px-1 py-0.5 flex items-center -translate-y-1/2 bg-white cursor-pointer right-2 top-[66px]"
+        onClick={() => {
+          setTabMenu([{ name: "대시보드", href: "dashboard/Dashboard" }]);
+          navigate("/dashboard/Dashboard");
+        }}
+      >
+        <p className="text-xs">전체닫기</p>
+        {/* <Icon icon="heroicons:x-mark-16-solid" width="16" color="#111625" /> */}
       </div>
     </div>
   );
