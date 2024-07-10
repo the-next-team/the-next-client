@@ -10,7 +10,7 @@ function TopMenu() {
           key={index}
           className={`${
             selectedMenu?.name === menu.name
-              ? "text-primary border-b border-primary"
+              ? "text-primary-800 border-b border-primary-800"
               : "text-white"
           } text-sm break-keep`}
           onClick={() => setSelectedMenu(menu)}

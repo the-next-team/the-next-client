@@ -1,6 +1,7 @@
 @tailwind base;
 
 @import "./styles/noise-anim.css";
+@import "./theme.css";
 
 @tailwind components;
 @tailwind utilities;

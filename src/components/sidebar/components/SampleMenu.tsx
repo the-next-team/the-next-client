@@ -407,7 +407,7 @@ function SampleMenu() {
           <li key={index}>
             <div
               className={`flex items-center gap-2 px-4 py-2 cursor-pointer ${
-                activeTab === item.link ? "bg-primary bg-opacity-[0.07]" : ""
+                activeTab === item.link ? "bg-primary-800 bg-opacity-[0.07]" : ""
               }`}
               onClick={() => {
                 handleTabOpen({
