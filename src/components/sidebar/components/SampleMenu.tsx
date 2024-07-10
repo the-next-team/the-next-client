@@ -268,7 +268,10 @@ export const sampleMenuItems: MenuItemType[] = [
         childtitle: "Tab & Accordion",
         childlink: "example/components/accordion/AccordionPage",
       },
-      {},
+      {
+        childtitle: "Badges",
+        childlink: "example/components/badge/BadgePage",
+      },
       {
         childtitle: "Paginatins",
         childlink: "example/components/pagination/PaginationPage",
