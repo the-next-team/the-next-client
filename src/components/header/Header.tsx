@@ -80,7 +80,7 @@ function Header() {
           <p className="text-sm font-light">님</p>
           <Icon icon="heroicons:chevron-down" width="16" color="white" />
           {visible && (
-            <div className="absolute right-0 w-32 py-1 bg-white rounded shadow-md top-8">
+            <div className="absolute right-0 z-10 w-32 py-1 bg-white rounded shadow-md top-8">
               {dropdown.map((menu, i) => (
                 <div
                   key={i}
