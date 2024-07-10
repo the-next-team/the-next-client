@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import NextLoge from "../../assets/icons/the-next-icon.png";
-import Logo from "../../assets/images/logo/smart-next@c4.png";
+import Logo from "../../assets/images/logo/smart-next@x4.png";
 import useUser from "../../hooks/useUser";
 import {
   CurrentSideMenu,
