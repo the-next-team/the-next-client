@@ -286,68 +286,68 @@ export const sampleMenuItems: MenuItemType[] = [
       },
     ],
   },
-  // {
-  //   title: "Forms",
-  //   icon: "heroicons-outline:clipboard-list",
-  //   child: [
-  //     {
-  //       childtitle: "Input",
-  //       childlink: "input",
-  //     },
-  //     {
-  //       childtitle: "Input group",
-  //       childlink: "input-group",
-  //     },
-  //     {
-  //       childtitle: "Input layout",
-  //       childlink: "input-layout",
-  //     },
-  //     {
-  //       childtitle: "Form validation",
-  //       childlink: "form-validation",
-  //     },
-  //     {
-  //       childtitle: "Wizard",
-  //       childlink: "form-wizard",
-  //     },
-  //     {
-  //       childtitle: "Input mask",
-  //       childlink: "input-mask",
-  //     },
-  //     {
-  //       childtitle: "File input",
-  //       childlink: "file-input",
-  //     },
-  //     {
-  //       childtitle: "Form repeater",
-  //       childlink: "form-repeater",
-  //     },
-  //     {
-  //       childtitle: "Textarea",
-  //       childlink: "textarea",
-  //     },
-  //     {
-  //       childtitle: "Checkbox",
-  //       childlink: "checkbox",
-  //     },
-  //     {
-  //       childtitle: "Radio button",
-  //       childlink: "radio-button",
-  //     },
-  //     {
-  //       childtitle: "Switch",
-  //       childlink: "switch",
-  //     },
-  //     {
-  //       childtitle: "Select & Vue select",
-  //       childlink: "select",
-  //     },
-  //     {
-  //       childtitle: "Date time picker",
-  //       childlink: "date-time-picker",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Forms",
+    icon: "heroicons-outline:clipboard-list",
+    child: [
+      {
+        childtitle: "Input",
+        childlink: "example/form/InputPage",
+      },
+      {
+        childtitle: "Input group",
+        childlink: "example/form/InputGroupPage",
+      },
+      {
+        childtitle: "Input layout",
+        childlink: "example/form/InputLayoutPage",
+      },
+      {
+        childtitle: "Form validation",
+        childlink: "example/form/validation/FormValidationPage",
+      },
+      {
+        childtitle: "Wizard",
+        childlink: "example/form/wizard/FormWizardPage",
+      },
+      {
+        childtitle: "Input mask",
+        childlink: "example/form/InputMaskPage",
+      },
+      {
+        childtitle: "File input",
+        childlink: "example/form/file/FileInputPage",
+      },
+      {
+        childtitle: "Form repeater",
+        childlink: "example/form/FormRepeaterPage",
+      },
+      {
+        childtitle: "Textarea",
+        childlink: "example/form/TextareaPage",
+      },
+      {
+        childtitle: "Checkbox",
+        childlink: "example/form/CheckboxPage",
+      },
+      {
+        childtitle: "Radio button",
+        childlink: "example/form/RadioButtonPage",
+      },
+      {
+        childtitle: "Switch",
+        childlink: "example/form/SwitchPage",
+      },
+      {
+        childtitle: "Select & Vue select",
+        childlink: "example/form/select/SelectPage",
+      },
+      {
+        childtitle: "Date time picker",
+        childlink: "example/form/DateTimePickerPage",
+      },
+    ],
+  },
   {
     title: "Table",
     icon: "heroicons-outline:table",
