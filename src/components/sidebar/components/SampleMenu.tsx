@@ -5,6 +5,7 @@ import {
   CurrentSideMenu,
   currentSideMenuState,
 } from "../../../states/sidebar/sidebarAtom";
+import { useState } from "react";
 
 export type MenuItemType = {
   title: string;
@@ -395,6 +396,7 @@ export const sampleMenuItems: MenuItemType[] = [
 function SampleMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
   const currentSideMenu = useRecoilValue<CurrentSideMenu>(currentSideMenuState);
+  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
 
   return (
     <div
@@ -405,45 +407,95 @@ function SampleMenu() {
       <ul>
         {sampleMenuItems.map((item, index) => (
           <li key={index}>
-            <div
-              className={`flex items-center gap-2 px-4 py-2 cursor-pointer ${
-                activeTab === item.link ? "bg-primary-800 bg-opacity-[0.07]" : ""
-              }`}
-              onClick={() => {
-                handleTabOpen({
-                  name: item.title ?? "",
-                  href: item.link ?? "",
-                });
-              }}
-            >
-              {item.icon && (
-                <Icon icon={item.icon} width="16" color="#111625" />
-              )}
-              <p className="text-sm font-medium text-custom-black">
-                {item.title}
-              </p>
-            </div>
-
-            <ul className="items-center gap-2 px-4 cursor-pointer ">
-              {item.child?.map((child, index) => {
-                return (
-                  <li
-                    key={index}
-                    className="py-2 pl-6"
-                    onClick={() => {
+            {!item.child && !item.link ? (
+              <div className="px-4 py-2">
+                <p className="text-sm font-medium text-custom-black">
+                  {item.title}
+                </p>
+              </div>
+            ) : (
+              <div>
+                <div
+                  className={`flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                    activeTab === item.link
+                      ? "bg-primary-800 bg-opacity-[0.07]"
+                      : activeSubmenu === index
+                      ? "bg-gray-100"
+                      : "hover:bg-gray-100"
+                  }`}
+                  onClick={() => {
+                    if (item.child) {
+                      if (activeSubmenu === index) {
+                        setActiveSubmenu(null);
+                      } else {
+                        setActiveSubmenu(index);
+                      }
+                    } else {
                       handleTabOpen({
-                        name: child.childtitle ?? "",
-                        href: child.childlink ?? "",
+                        name: item.title ?? "",
+                        href: item.link ?? "",
                       });
-                    }}
-                  >
+                    }
+                  }}
+                >
+                  {item.icon && (
+                    <Icon icon={item.icon} width="16" color="#111625" />
+                  )}
+                  <div className="flex items-center justify-between w-full">
                     <p className="text-sm font-medium text-custom-black">
-                      {child.childtitle}
+                      {item.title}
                     </p>
-                  </li>
-                );
-              })}
-            </ul>
+                    {item.child && (
+                      <div
+                        className={`duration-300 ${
+                          activeSubmenu === index ? "rotate-90" : ""
+                        }`}
+                      >
+                        <Icon
+                          icon="heroicons-outline:chevron-right"
+                          width={16}
+                          color={
+                            activeSubmenu === index ? "#111625" : "#8a8a8a"
+                          }
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <ul
+                  className={`${
+                    activeSubmenu === index
+                      ? "block"
+                      : "hidden pointer-events-none"
+                  } items-center gap-2 px-4 cursor-pointer`}
+                >
+                  {item.child?.map((child, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className={`py-2 pl-6 ${
+                          activeTab === child.childlink
+                            ? "text-primary-800"
+                            : activeSubmenu === index
+                            ? "text-gray-100"
+                            : ""
+                        }`}
+                        onClick={() => {
+                          handleTabOpen({
+                            name: child.childtitle ?? "",
+                            href: child.childlink ?? "",
+                          });
+                        }}
+                      >
+                        <p className="text-sm font-medium">
+                          {child.childtitle}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
           </li>
         ))}
       </ul>
