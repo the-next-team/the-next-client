@@ -1,10 +1,10 @@
+import { Icon } from "@iconify/react";
 import { useRecoilValue } from "recoil";
+import useTabMenu from "../../../hooks/useTabMenu";
 import {
   CurrentSideMenu,
   currentSideMenuState,
 } from "../../../states/sidebar/sidebarAtom";
-import useTabMenu from "../../../hooks/useTabMenu";
-import { Icon } from "@iconify/react";
 
 export type MenuItemType = {
   title: string;
@@ -19,9 +19,9 @@ export type MenuItemChildType = {
 };
 
 export const sampleMenuItems: MenuItemType[] = [
-  // {
-  //   title: "menu",
-  // },
+  {
+    title: "menu",
+  },
   // {
   //   title: "Dashboard",
   //   icon: "heroicons-outline:home",
@@ -53,13 +53,13 @@ export const sampleMenuItems: MenuItemType[] = [
     icon: "heroicons:arrow-trending-up",
     link: "example/changelog/ChangeLog",
   },
-  // {
-  //   title: "apps",
-  // },
+  {
+    title: "apps",
+  },
   // {
   //   title: "Chat",
   //   icon: "heroicons-outline:chat",
-  //   link: "chat",
+  //   link: "example/chat",
   // },
   // {
   //   title: "Email",
@@ -202,20 +202,20 @@ export const sampleMenuItems: MenuItemType[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: "Widgets",
-  //   icon: "heroicons-outline:view-grid-add",
-  //   child: [
-  //     {
-  //       childtitle: "Basic",
-  //       childlink: "basic",
-  //     },
-  //     {
-  //       childtitle: "Statistic",
-  //       childlink: "statistic",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Widgets",
+    icon: "heroicons-outline:view-grid-add",
+    child: [
+      {
+        childtitle: "Basic",
+        childlink: "example/widget/BasicWidget",
+      },
+      {
+        childtitle: "Statistic",
+        childlink: "example/widget/StatisticWidget",
+      },
+    ],
+  },
   // {
   //   title: "Components",
   //   icon: "heroicons-outline:collection",
@@ -392,6 +392,7 @@ export const sampleMenuItems: MenuItemType[] = [
 function SampleMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
   const currentSideMenu = useRecoilValue<CurrentSideMenu>(currentSideMenuState);
+
   return (
     <div
       className={`w-[215px] h-full overflow-y-auto shadow-md ${
@@ -400,22 +401,46 @@ function SampleMenu() {
     >
       <ul>
         {sampleMenuItems.map((item, index) => (
-          <li
-            key={index}
-            className={`flex items-center gap-2 px-4 py-2 cursor-pointer ${
-              activeTab === item.link ? "bg-primary bg-opacity-[0.07]" : ""
-            }`}
-            onClick={() => {
-              handleTabOpen({
-                name: item.title ?? "",
-                href: item.link ?? "",
-              });
-            }}
-          >
-            {item.icon && <Icon icon={item.icon} width="16" color="#111625" />}
-            <p className="text-sm font-medium text-custom-black">
-              {item.title}
-            </p>
+          <li key={index}>
+            <div
+              className={`flex items-center gap-2 px-4 py-2 cursor-pointer ${
+                activeTab === item.link ? "bg-primary bg-opacity-[0.07]" : ""
+              }`}
+              onClick={() => {
+                handleTabOpen({
+                  name: item.title ?? "",
+                  href: item.link ?? "",
+                });
+              }}
+            >
+              {item.icon && (
+                <Icon icon={item.icon} width="16" color="#111625" />
+              )}
+              <p className="text-sm font-medium text-custom-black">
+                {item.title}
+              </p>
+            </div>
+
+            <ul className="items-center gap-2 px-4 cursor-pointer ">
+              {item.child?.map((child, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="py-2 pl-6"
+                    onClick={() => {
+                      handleTabOpen({
+                        name: child.childtitle ?? "",
+                        href: child.childlink ?? "",
+                      });
+                    }}
+                  >
+                    <p className="text-sm font-medium text-custom-black">
+                      {child.childtitle}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
           </li>
         ))}
       </ul>
