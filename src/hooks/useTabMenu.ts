@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import {
   TabMenu,
@@ -5,7 +6,6 @@ import {
   tabMenuState,
 } from "../states/tabMenu/tabMenuAtom";
 import useAlert from "./useAlert";
-import { useLocation, useNavigate } from "react-router-dom";
 
 function useTabMenu() {
   const navigate = useNavigate();
@@ -14,17 +14,20 @@ function useTabMenu() {
   const [tabMenu, setTabMenu] = useRecoilState<TabMenuList>(tabMenuState);
   const { showAlert } = useAlert();
 
+  // Todo: - 고객사별 count 지정 필요
+  const maxTabCount = 20;
+
   // 탭 열기
   const handleTabOpen = (tab: TabMenu) => {
     if (tabMenu.every((t: { href: string }) => t.href !== tab.href)) {
       // 탭메뉴에 없는 새로운 메뉴라면
-      if (tabMenu.length >= 10) {
-        // 10개 넘으면 추가 X
+      if (tabMenu.length >= maxTabCount) {
+        // max count 넘으면 추가 X
         showAlert({
-          content: "탭은 최대 10개까지 추가 가능합니다.",
+          content: `탭은 최대 ${maxTabCount}개까지 추가 가능합니다.`,
         });
       } else {
-        // 10개 안넘으면 추가 O
+        // max count 안넘으면 추가 O
         navigate("/" + tab.href);
         setTabMenu([...tabMenu, tab]);
       }
