@@ -4,10 +4,18 @@ import {
   CurrentSideMenu,
   currentSideMenuState,
 } from "../../../states/sidebar/sidebarAtom";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 function SearchBar() {
   const [currentSideMenu, setCurrentSideMenu] =
     useRecoilState<CurrentSideMenu>(currentSideMenuState);
+  const { register, resetField, setFocus } = useForm();
+
+  useEffect(() => {
+    resetField("search");
+    setFocus("search");
+  }, [currentSideMenu]);
 
   return (
     <div
@@ -29,7 +37,7 @@ function SearchBar() {
           <input
             placeholder="Search..."
             className="w-full outline-none"
-            autoFocus
+            {...register("search")}
           />
         </div>
       </div>
