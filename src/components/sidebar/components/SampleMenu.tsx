@@ -380,16 +380,16 @@ export const sampleMenuItems: MenuItemType[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: "Map",
-  //   icon: "heroicons-outline:map",
-  //   link: "map",
-  // },
-  // {
-  //   title: "Icons",
-  //   icon: "heroicons-outline:emoji-happy",
-  //   link: "icons",
-  // },
+  {
+    title: "Map",
+    icon: "heroicons-outline:map",
+    link: "example/map/MapPage",
+  },
+  {
+    title: "Icons",
+    icon: "heroicons-outline:emoji-happy",
+    link: "example/icon/IconsPage",
+  },
 ];
 
 function SampleMenu() {
