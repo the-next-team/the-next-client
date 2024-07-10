@@ -19,9 +19,9 @@ export class AlertAction {
       case "normal":
         return "bg-custom-grey-100";
       case "success":
-        return "bg-primary text-white";
+        return "bg-primary-800 text-white";
       case "cancel":
-        return "bg-white text-primary border border-primary";
+        return "bg-white text-primary-800 border border-primary";
       default:
         return "bg-white";
     }
