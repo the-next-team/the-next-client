@@ -476,8 +476,6 @@ function SampleMenu() {
                         className={`py-2 pl-6 ${
                           activeTab === child.childlink
                             ? "text-primary-800"
-                            : activeSubmenu === index
-                            ? "text-gray-100"
                             : ""
                         }`}
                         onClick={() => {
