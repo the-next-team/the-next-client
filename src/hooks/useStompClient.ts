@@ -1,4 +1,4 @@
-import { Client } from "@stomp/stompjs";
+import { ActivationState, Client } from "@stomp/stompjs";
 import { useCallback, useEffect, useState } from "react";
 import { storageKey } from "../constants";
 
@@ -37,7 +37,7 @@ const useStompClient = () => {
       };
     }
 
-    if (!isConnected && client) {
+    if (!isConnected && client && client.state !== ActivationState.ACTIVE) {
       client.activate();
     }
   }, [isConnected]);
@@ -53,12 +53,12 @@ const useStompClient = () => {
   };
 
   const disconnect = useCallback(() => {
-    if (client && isConnected) {
+    if (client && client.state === ActivationState.ACTIVE) {
       client.deactivate();
       client = null;
       setIsConnected(false);
     }
-  }, [isConnected]);
+  }, []);
 
   return {
     client,
