@@ -60,7 +60,7 @@ const Select = ({
         <label
           htmlFor={id}
           className={`block capitalize ${classLabel}  ${
-            horizontal ? "flex-0 ml-2 text-xs mr-6 md:w-[100px] w-[60px] break-words" : ""
+            horizontal ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words" : ""
           }`}
         >
           {label}

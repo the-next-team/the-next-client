@@ -73,7 +73,7 @@ const TextInput = ({
           htmlFor={id}
           className={`block capitalize ${classLabel}  ${
             horizontal
-              ? "flex-0 ml-2 mr-6 text-xs md:w-[100px] w-[60px] break-words"
+              ? "flex-0 ml-2 mr-2 text-xs text-right md:w-[100px] w-[60px] break-words"
               : ""
           }`}
         >
