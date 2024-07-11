@@ -48,7 +48,7 @@ function HeaderForm({ onSubmit }: Props) {
       <div className="">
         <div className="grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <Select
-            label="부서(지점)"
+            label="• 부서(지점)"
             horizontal
             options={[
               {
