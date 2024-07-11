@@ -475,13 +475,13 @@
     @apply absolute bottom-0 hidden lg:block;
   }
   .btn {
-    @apply font-semibold  text-sm leading-6 md:px-6 md:py-3 px-4 py-[10px] rounded capitalize  transition-all duration-150 md:whitespace-nowrap whitespace-normal relative;
+    @apply relative px-4 py-2 text-sm font-medium leading-6 capitalize whitespace-normal transition-all duration-150 rounded-sm md:px-6 md:py-3 md:whitespace-nowrap;
   }
   .btn.btn-xl {
     @apply text-[16px] md:px-10 px-7 md:py-4 py-3;
   }
   .btn.btn-sm {
-    @apply px-3 py-2 text-xs md:px-4;
+    @apply px-3 py-1 text-xs md:px-4;
   }
   .btn.block-btn {
     @apply block w-full text-center;
