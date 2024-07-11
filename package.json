@@ -59,6 +59,7 @@
     "eject": "react-scripts eject",
     "start": "concurrently \"yarn react:start\" \"yarn electron:start\"",
     "electron:start": "wait-on tcp:127.0.0.1:3000 && cross-env mode=dev electron .",
+    "electron": "electron .",
     "react:start": "react-scripts start",
     "react:build": "react-scripts build",
     "storybook": "storybook dev -p 6006",
