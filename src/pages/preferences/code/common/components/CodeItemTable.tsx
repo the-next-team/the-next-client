@@ -83,6 +83,16 @@ function CodeItemTable({ item, onClick }: Props) {
         styles: {
           textAlignment: "center",
         },
+        header: "보기순서",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "220",
+        styles: {
+          textAlignment: "center",
+        },
         header: "사용여부",
       },
       {
@@ -93,17 +103,7 @@ function CodeItemTable({ item, onClick }: Props) {
         styles: {
           textAlignment: "center",
         },
-        header: "주요코드",
-      },
-      {
-        name: "",
-        fieldName: "",
-        type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "코드셋",
+        header: "등록일",
       },
       {
         name: "createdDate",
@@ -113,7 +113,7 @@ function CodeItemTable({ item, onClick }: Props) {
         styles: {
           textAlignment: "center",
         },
-        header: "생성일",
+        header: "변경일",
       },
     ]);
 
