@@ -46,6 +46,7 @@ function HeaderForm({ onSubmit }: Props) {
               },
             ]}
             name="a"
+            id="a"
             register={register}
           />
         </div>

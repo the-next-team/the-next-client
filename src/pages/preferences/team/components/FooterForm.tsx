@@ -33,7 +33,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
-      <div className="mb-2 p-2 bg-white rounded">
+      <div className="p-2 mb-2 bg-white rounded">
         <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <Select
             label="부서(지점)"
@@ -44,6 +44,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
                 label: "지점1",
               },
             ]}
+            id="a"
             name="a"
             register={register}
           />
@@ -52,6 +53,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="b"
+            id="b"
             placeholder=""
             register={register}
           />
@@ -61,6 +63,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
+            id="c"
             register={register}
           />
           <TextInput
@@ -69,6 +72,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="d"
+            id="d"
             register={register}
           />
           <TextInput
@@ -77,6 +81,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
+            id="e"
             register={register}
           />
           <TextInput
@@ -85,6 +90,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="f"
+            id="f"
             register={register}
           />
           <TextInput
@@ -93,6 +99,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="g"
+            id="g"
             register={register}
           />
           <TextInput
@@ -101,6 +108,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="h"
+            id="h"
             register={register}
           />
           <TextInput
@@ -108,6 +116,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="i"
+            id="i"
             placeholder=""
             register={register}
           />
@@ -115,6 +124,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             label="중앙회팀파트코드"
             type="text"
             name="j"
+            id="j"
             horizontal
             placeholder=""
             register={register}
