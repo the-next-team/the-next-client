@@ -25,15 +25,23 @@ function HeaderForm({ onSubmit }: Props) {
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex justify-end">
-        <div className="flex gap-2 mb-2">
-          <Button onClick={() => {
-            handleSubmit(onSubmit)();
-          }} text="조회" className="btn-primary btn-sm" />
-          <Button onClick={() => {
-            reset()
-          }} text="초기화" className="btn-primary btn-sm" />
+    <form onSubmit={handleSubmit(onSubmit)} className="mb-4">
+      <div className="flex justify-end mb-2">
+        <div className="flex gap-2">
+          <Button
+            onClick={() => {
+              handleSubmit(onSubmit)();
+            }}
+            text="조회"
+            className="btn-primary btn-sm"
+          />
+          <Button
+            onClick={() => {
+              reset();
+            }}
+            text="초기화"
+            className="btn-primary btn-sm"
+          />
           <Button text="엑셀" className="btn-primary btn-sm" />
         </div>
       </div>
