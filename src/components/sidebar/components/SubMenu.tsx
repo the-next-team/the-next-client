@@ -1,5 +1,5 @@
-import useTabMenu from "../../../hooks/useTabMenu";
 import { IMenu } from "../../../api/services/menuService";
+import useTabMenu from "../../../hooks/useTabMenu";
 
 type Props = {
   index: number;
@@ -25,7 +25,7 @@ function SubMenu({ index, item, activeSubmenu }: Props) {
           <p
             className={`${
               subItem.url && subItem.url === activeTab
-                ? "text-primary"
+                ? "text-primary-800"
                 : "text-custom-black"
             } text-sm`}
           >

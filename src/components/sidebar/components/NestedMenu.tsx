@@ -30,7 +30,7 @@ const NestedMenu = ({
         <p
           className={`${
             item.multiLink && item.multiLink === activeTab
-              ? "text-primary"
+              ? "text-primary-800"
               : "text-custom-gray-200"
           } text-sm`}
         >
