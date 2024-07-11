@@ -37,12 +37,12 @@ function Table() {
         name: "kind",
         fieldName: "kind",
         type: "data",
-        width: "80",
+        width: "100",
         styles: {
           textAlignment: "center",
         },
         header: {
-          text: "코드",
+          text: "시스템명",
           showTooltip: false,
         },
         renderer: {
@@ -54,12 +54,12 @@ function Table() {
         name: "name",
         fieldName: "name",
         type: "data",
-        width: "150",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
         header: {
-          text: "코드명",
+          text: "메뉴명",
           showTooltip: false,
         },
       },
@@ -67,11 +67,61 @@ function Table() {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "80",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: "사용여부",
+        header: "프로그램ID",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "200",
+        styles: {
+          textAlignment: "center",
+        },
+        header: "프로그램명",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "120",
+        styles: {
+          textAlignment: "center",
+        },
+        header: "보기순서",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "120",
+        styles: {
+          textAlignment: "center",
+        },
+        header: "DB로그",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "120",
+        styles: {
+          textAlignment: "center",
+        },
+        header: "사용",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "120",
+        styles: {
+          textAlignment: "center",
+        },
+        header: "종류",
       },
       {
         name: "",
@@ -81,33 +131,21 @@ function Table() {
         styles: {
           textAlignment: "center",
         },
-        header: "주요코드",
+        header: "도움말",
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "220",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: "코드셋",
-      },
-      {
-        name: "createdDate",
-        fieldName: "createdDate",
-        type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "생성일",
+        header: "그룹별화면설정",
       },
     ]);
 
-    gv.onCellClicked = (grid, data) => {
-
-    };
+    gv.onCellClicked = (grid, data) => {};
 
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
@@ -122,10 +160,10 @@ function Table() {
 
   return (
     <div
-    className="h-[500px] min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
-    ref={realgridElement}
-  ></div>
-  )
+      className="h-[500px] min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
+      ref={realgridElement}
+    ></div>
+  );
 }
 
-export default Table
+export default Table;
