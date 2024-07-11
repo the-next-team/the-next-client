@@ -26,26 +26,7 @@ function HeaderForm({ onSubmit }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
-      <div className="flex justify-end">
-        <div className="flex gap-2">
-          <Button
-            onClick={() => {
-              handleSubmit(onSubmit)();
-            }}
-            text="조회"
-            className="w-12 btn-primary btn-sm"
-          />
-          <Button
-            onClick={() => {
-              reset({});
-            }}
-            text="초기화"
-            className="w-12 btn-primary btn-sm"
-          />
-          <Button text="엑셀" className="w-12 btn-primary btn-sm" />
-        </div>
-      </div>
-      <div className="">
+      <div className="flex">
         <div className="grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <Select
             label="• 부서(지점)"
@@ -67,6 +48,25 @@ function HeaderForm({ onSubmit }: Props) {
             name="a"
             register={register}
           />
+        </div>
+        <div className="flex-grow">
+          <div className="flex justify-end gap-2">
+            <Button
+              onClick={() => {
+                handleSubmit(onSubmit)();
+              }}
+              text="조회"
+              className="w-12 btn-primary btn-sm"
+            />
+            <Button
+              onClick={() => {
+                reset({});
+              }}
+              text="초기화"
+              className="w-12 btn-primary btn-sm"
+            />
+            <Button text="엑셀" className="w-12 btn-primary btn-sm" />
+          </div>
         </div>
       </div>
     </form>
