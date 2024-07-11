@@ -1,41 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import { ITeam, TeamService } from "../../../api/services/teamService";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
-
-const bottomTableData = [
-  {
-    부서지점: "디지털신사업본부",
-    팀파트코드: "1100",
-    팀파트명: "심사1파트",
-    팀파트약어: "심사1파트",
-    보기순서: 1,
-    대표번호: "",
-    팩스번호: "",
-    WEB팩스번호: "",
-    인사시스템코드: "",
-    중앙회팀파트코드: "0901",
-  },
-];
-
-const firstColumns = [
-  {
-    label: "부서(지점)",
-  },
-];
-const first2Columns = [
-  {
-    label: "대표번호",
-  },
-];
-
-const second2Columns = [
-  {
-    label: "팩스번호",
-  },
-];
-
-const bottomRows = bottomTableData.slice(0, 7);
+import { ITeam, TeamService } from "../../../api/services/teamService";
+import Button from "../../../components/button/ExampleButton";
 
 function Team() {
   const [teamList, setTeamList] = useState<ITeam[]>([]);
@@ -223,22 +190,29 @@ function Team() {
 
   return (
     <div>
-      {/* RealGrid */}
-
-      {/* <Card> */}
       <div className="verflow-x-auto ">
+        {/* Header */}
+        <div className="flex justify-end">
+          <div className="space-xy-5">
+            <Button text="조회" className="btn-primary btn-sm" />
+            <Button text="초기화" className="btn-primary btn-sm" />
+            <Button text="엑셀" className="btn-primary btn-sm" />
+          </div>
+        </div>
+
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-hidden ">
+            {/* RealGrid */}
             <div
               className="h-[500px] min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
               ref={realgridElement}
             ></div>
           </div>
         </div>
-      </div>
-      {/* </Card> */}
 
-      {/* 하단 table */}
+        {/* Footer */}
+        <div></div>
+      </div>
     </div>
   );
 }
