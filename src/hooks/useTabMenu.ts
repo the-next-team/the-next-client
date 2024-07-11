@@ -39,7 +39,7 @@ function useTabMenu() {
   // 탭 닫기
   const handleTabClose = (href: string) => {
     let updatedTabs = [...tabMenu];
-    if (href === location.pathname) {
+    if (href === activeTab) {
       const currentIndex = updatedTabs.findIndex((t) => t.href === href);
       if (updatedTabs[currentIndex + 1]) {
         navigate("/" + updatedTabs[currentIndex + 1].href);
