@@ -128,19 +128,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             onClick={() => {
               reset({});
             }}
-            className="btn-primary btn-sm"
+            className="w-12 btn-primary btn-sm"
           />
           <Button
             text="등록"
             onClick={() => {
               handleSubmit(onSubmit)();
             }}
-            className="btn-primary btn-sm"
+            className="w-12 btn-primary btn-sm"
             disabled
           />
-          <Button text="수정" className="btn-primary btn-sm" />
-          <Button text="삭제" className="btn-primary btn-sm" />
-          <Button text="보기순서변경" className="btn-primary btn-sm" />
+          <Button text="수정" className="w-12 btn-primary btn-sm" />
+          <Button text="삭제" className="w-12 btn-primary btn-sm" />
+          <Button text="보기순서변경" className="w-20 btn-primary btn-sm" />
         </div>
       </div>
     </form>

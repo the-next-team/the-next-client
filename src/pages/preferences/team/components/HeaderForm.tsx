@@ -33,16 +33,16 @@ function HeaderForm({ onSubmit }: Props) {
               handleSubmit(onSubmit)();
             }}
             text="조회"
-            className="btn-primary btn-sm"
+            className="w-12 btn-primary btn-sm"
           />
           <Button
             onClick={() => {
               reset({});
             }}
             text="초기화"
-            className="btn-primary btn-sm"
+            className="w-12 btn-primary btn-sm"
           />
-          <Button text="엑셀" className="btn-primary btn-sm" />
+          <Button text="엑셀" className="w-12 btn-primary btn-sm" />
         </div>
       </div>
       <div className="mb-2 ">
