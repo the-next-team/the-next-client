@@ -191,7 +191,7 @@ function Team() {
 
   return (
     <div>
-      <div className="flex flex-col gap-4 verflow-x-auto">
+      <div className="flex flex-col gap-2 verflow-x-auto">
         {/* Header */}
         <div>
           <HeaderForm
