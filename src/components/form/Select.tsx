@@ -53,7 +53,7 @@ const Select = ({
   return (
     <div
       className={`fromGroup relative ${error ? "has-error" : ""}  ${
-        horizontal ? "flex" : ""
+        horizontal ? "flex items-baseline" : ""
       }  ${validate ? "is-valid" : ""} `}
     >
       {label && (

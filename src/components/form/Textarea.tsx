@@ -54,7 +54,7 @@ export const Textarea = forwardRef(
     return (
       <div
         className={`fromGroup ${error ? "has-error" : ""} ${
-          horizontal ? "flex" : ""
+          horizontal ? "flex items-baseline" : ""
         } ${validate ? "is-valid" : ""} `}
       >
         {label && (
