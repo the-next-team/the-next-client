@@ -121,8 +121,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           />
         </div>
       </div>
-      <div className="flex justify-end mb-2">
-        <div className="flex gap-2 mb-2">
+      <div className="flex justify-end">
+        <div className="flex gap-2">
           <Button
             text="초기화"
             onClick={() => {
