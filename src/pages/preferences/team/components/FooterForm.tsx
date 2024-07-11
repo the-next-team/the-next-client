@@ -33,7 +33,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mb-4">
-      <div className="mb-2">
+      <div className="mb-2 p-2 bg-white rounded">
         <div className="grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <Select
             label="부서(지점)"
@@ -139,7 +139,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             disabled
           />
           <Button text="수정" className="btn-primary btn-sm" />
-          <Button text="삭제" className="btn-danger btn-sm" />
+          <Button text="삭제" className="btn-primary btn-sm" />
           <Button text="보기순서변경" className="btn-primary btn-sm" />
         </div>
       </div>

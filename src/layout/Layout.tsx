@@ -76,7 +76,7 @@ function Layout() {
                 {tab.href ? (
                   <>
                     <Breadcrumbs />
-                    <div className="p-3 bg-white rounded">
+                    <div className="">
                       <DynamicComponent componentPath={tab.href} />
                     </div>
                   </>
