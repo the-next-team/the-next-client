@@ -88,7 +88,7 @@ const TextInput = ({
             {...rest}
             className={`${
               error ? " has-error" : " "
-            } form-control text-xs  py-1 ${className}  `}
+            } form-control text-xs  py-1 bg-warning-100 border-black-400 ${className}  `}
             placeholder={placeholder}
             readOnly={readonly}
             defaultValue={defaultValue}

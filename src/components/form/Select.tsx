@@ -73,7 +73,7 @@ const Select = ({
             {...register(name)}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 text-xs  appearance-none ${className}`}
+            } form-control py-1 text-xs  appearance-none bg-warning-100 border-black-400 ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
