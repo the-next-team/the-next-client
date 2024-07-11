@@ -28,15 +28,17 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] flex items-center justify-between px-2 py-[10px] gap-5">
+    <header className="bg-[#111625] flex items-center justify-between px-2 gap-5">
       {/* NEXT 로고 */}
-      <div>
-        <img className="h-[30px]" src={NextLoge} alt="" />
+      <div className="flex items-center gap-5">
+        <div>
+          <img className="h-[30px] rounded-sm" src={NextLoge} alt="" />
+        </div>
+        <div className="flex items-center w-[195px]">
+          <img className="h-4" src={Logo} alt="" />
+        </div>
+        <TopMenu />
       </div>
-      <div className="flex items-center w-[195px]">
-        <img className="h-4" src={Logo} alt="" />
-      </div>
-      <TopMenu />
       <div className="flex items-center gap-3">
         {/* 툴바 */}
         <div className="hidden lg:block">
