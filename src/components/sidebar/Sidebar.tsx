@@ -6,7 +6,7 @@ import SampleMenu from "./components/SampleMenu";
 
 function Sidebar() {
   return (
-    <div className="flex h-full bg-white">
+    <div className="flex h-full bg-white select-none">
       <Toolbar />
 
       {/* 즐겨찾기 */}
