@@ -13,9 +13,12 @@ function MenuManagement() {
 
   return (
     <div>
-      <div className="flex justify-end gap-3">
+      <div className="flex justify-end">
+      <div className="space-xy-5">
       <Button text="조회" className="btn-primary btn-sm"/>
       <Button text="초기화" className="btn-primary btn-sm"/>
+      </div>
+      
       </div>
       
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
