@@ -96,13 +96,13 @@ function Breadcrumbs() {
             </li>
           </ul>
           <div className="flex items-center gap-1">
+            <p className="text-xs">한줄 설명 입니다.</p>
             <Icon
               icon="heroicons:question-mark-circle"
               width={14}
               className="cursor-pointer"
               onClick={() => {}}
             />
-            <p className="text-xs">한줄 설명 입니다.</p>
           </div>
         </div>
       ) : null}
