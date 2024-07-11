@@ -37,7 +37,7 @@ function HeaderForm({ onSubmit }: Props) {
           />
           <Button
             onClick={() => {
-              reset();
+              reset({});
             }}
             text="초기화"
             className="btn-primary btn-sm"
@@ -45,8 +45,8 @@ function HeaderForm({ onSubmit }: Props) {
           <Button text="엑셀" className="btn-primary btn-sm" />
         </div>
       </div>
-      <div className="flex mb-2">
-        <div className="grid grid-cols-1 gap-5 xl:grid-cols-3 md:grid-cols-2">
+      <div className="mb-2 ">
+        <div className="grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <Select
             label="부서(지점)"
             horizontal

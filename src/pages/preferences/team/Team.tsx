@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 import { ITeam, TeamService } from "../../../api/services/teamService";
-import Button from "../../../components/button/ExampleButton";
+import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
 
 function Team() {
@@ -212,14 +212,12 @@ function Team() {
         </div>
 
         {/* Footer */}
-        <div className="flex justify-end mt-2">
-          <div className="flex gap-2 mb-2">
-            <Button text="초기화" className="btn-primary btn-sm" />
-            <Button text="등록" className="btn-primary btn-sm" disabled />
-            <Button text="수정" className="btn-primary btn-sm" />
-            <Button text="삭제" className="btn-danger btn-sm" />
-            <Button text="보기순서변경" className="btn-primary btn-sm" />
-          </div>
+        <div className="mt-4">
+          <FooterForm
+            onSubmit={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
       </div>
     </div>
