@@ -19,7 +19,11 @@ function CommonCodePage() {
 
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
         <div>
-          대분류코드
+          <div className="flex items-center space-x-2 text-base text-slate-900  dark:text-slate-300 rtl:space-x-reverse">
+            <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
+            <span>대분류코드</span>
+          </div>
+
           <CodeTable
             onClick={(item) => {
               setSelected(item);
@@ -36,7 +40,11 @@ function CommonCodePage() {
           </div>
         </div>
         <div className="">
-          소분류코드
+          <div className="flex items-center space-x-2 text-base text-slate-900  dark:text-slate-300 rtl:space-x-reverse">
+            <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
+            <span>소분류코드</span>
+          </div>
+
           <CodeItemTable
             item={selected}
             onClick={(item) => {
