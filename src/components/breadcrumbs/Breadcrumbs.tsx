@@ -97,7 +97,7 @@ function Breadcrumbs() {
           </ul>
           <div className="flex items-center gap-1">
             <Icon
-              icon="heroicons:exclamation-circle"
+              icon="heroicons:question-mark-circle"
               width={14}
               className="cursor-pointer"
               onClick={() => {}}
