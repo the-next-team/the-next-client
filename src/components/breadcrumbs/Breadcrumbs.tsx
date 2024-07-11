@@ -1,9 +1,9 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
+import useMenu from "../../hooks/useMenu";
 import useTabMenu from "../../hooks/useTabMenu";
 import { FavMenu, favMenuState } from "../../states/sidebar/sidebarAtom";
-import useMenu from "../../hooks/useMenu";
 
 function Breadcrumbs() {
   const { activeTab } = useTabMenu();
@@ -46,7 +46,7 @@ function Breadcrumbs() {
   return (
     <>
       {title.length ? (
-        <div className="flex px-4 py-1 mb-2 bg-white rounded-[6px]">
+        <div className="flex px-4 py-1 mb-2 bg-white rounded">
           <ul className="flex items-center space-x-1 text-sm">
             {title.map((item, i) => (
               <li

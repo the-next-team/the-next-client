@@ -76,12 +76,12 @@ function Layout() {
                 {tab.href ? (
                   <>
                     <Breadcrumbs />
-                    <div className="bg-white rounded-[10px] p-3">
+                    <div className="p-3 bg-white rounded">
                       <DynamicComponent componentPath={tab.href} />
                     </div>
                   </>
                 ) : (
-                  <div className="h-full bg-white rounded-[10px] p-3">
+                  <div className="h-full p-3 bg-white rounded">
                     <Error404Page />
                   </div>
                 )}
