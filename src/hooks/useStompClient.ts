@@ -1,4 +1,4 @@
-import { Client, Stomp } from "@stomp/stompjs";
+import { Client } from "@stomp/stompjs";
 import { useCallback, useEffect, useState } from "react";
 import { storageKey } from "../constants";
 
@@ -15,16 +15,10 @@ const useStompClient = () => {
   }, []);
 
   const connect = useCallback(() => {
-    const accessToken = localStorage.getItem(
-      storageKey.accessToken
-    );
+    const accessToken = localStorage.getItem(storageKey.accessToken);
 
     if (!client) {
-      client = Stomp.over(() => {
-
-      })
       client = new Client({
-        // webSocketFactory: () => new SockJS(`${process.env.REACT_APP_API_URL!}/ws-stomp`),
         brokerURL: `${process.env.REACT_APP_SOCKET_URL!}/ws-stomp`,
         debug: (str) => console.log(str),
         reconnectDelay: 5000,
@@ -43,7 +37,7 @@ const useStompClient = () => {
       };
     }
 
-    if (!isConnected) {
+    if (!isConnected && client) {
       client.activate();
     }
   }, [isConnected]);
