@@ -1,5 +1,5 @@
 import { IMessage } from "@stomp/stompjs";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
@@ -16,32 +16,37 @@ import DynamicComponent from "./components/DynamicComponent";
 function Layout() {
   const { tabMenu, setTabMenu, activeTab } = useTabMenu();
   const { menus, fetchMenu } = useMenu();
-  const { client, isConnected } = useStompClient();
+  const { client, connect, disconnect, isConnected, subscribe } = useStompClient();
   const { notifications, showNotification } = useLocalNotification();
 
-  const handleMessage = useCallback(
-    (message: IMessage) => {
-      console.log(message);
-      const {
-        type,
-        data: { title, body },
-      } = JSON.parse(message.body);
-      showNotification({ title, body: body });
-    },
-    [showNotification]
-  );
+  useEffect(() => {
+    if (!isConnected) {
+      connect();
+    }
+
+    return () => {
+      disconnect();
+    };
+  }, [isConnected, connect, disconnect]);
 
   useEffect(() => {
-    if (isConnected && client) {
-      const subscription = client.subscribe(
-        "/topic/notification",
-        handleMessage
-      );
-      return () => {
-        subscription.unsubscribe();
-      };
+    let subscription: any;
+
+    const handleMessage = (message: IMessage) => {
+      const body = JSON.parse(message.body);
+      console.log('Received message:', body);
+    };
+
+    if (isConnected) {
+      subscription = subscribe('/topic/notification', handleMessage);
     }
-  }, [isConnected, client, handleMessage]);
+
+    return () => {
+      if (subscription) {
+        subscription.unsubscribe();
+      }
+    };
+  }, [isConnected, subscribe]);
 
   useEffect(() => {
     if (!menus.length) {
