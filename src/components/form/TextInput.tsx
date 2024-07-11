@@ -86,7 +86,7 @@ const TextInput = ({
             {...rest}
             className={`${
               error ? " has-error" : " "
-            } form-control py-2 ${className}  `}
+            } form-control py-1 ${className}  `}
             placeholder={placeholder}
             readOnly={readonly}
             defaultValue={defaultValue}
@@ -98,7 +98,7 @@ const TextInput = ({
         {!name && !isMask && (
           <input
             type={type === "password" && open === true ? "text" : type}
-            className={`form-control py-2 ${className}`}
+            className={`form-control py-1 ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -115,7 +115,7 @@ const TextInput = ({
             options={options}
             className={`${
               error ? " has-error" : " "
-            } form-control py-2 ${className}  `}
+            } form-control py-1 ${className}  `}
             onFocus={onFocus}
             id={id}
             readOnly={readonly}
@@ -129,7 +129,7 @@ const TextInput = ({
             options={options}
             className={`${
               error ? " has-error" : " "
-            } form-control py-2 ${className}  `}
+            } form-control py-1 ${className}  `}
             onFocus={onFocus}
             id={id}
             readOnly={readonly}

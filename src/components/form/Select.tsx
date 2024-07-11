@@ -73,7 +73,7 @@ const Select = ({
             {...register(name)}
             className={`${
               error ? " has-error" : " "
-            } form-control py-2  appearance-none ${className}`}
+            } form-control py-1  appearance-none ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -106,7 +106,7 @@ const Select = ({
             onChange={onChange}
             className={`${
               error ? " has-error" : " "
-            } form-control py-2 appearance-none ${className}`}
+            } form-control py-1 appearance-none ${className}`}
             disabled={disabled}
             id={id}
             value={value}

@@ -74,7 +74,7 @@ export const Textarea = forwardRef(
               {...rest}
               className={`${
                 error ? " has-error" : " "
-              } form-control py-2 ${className}`}
+              } form-control py-1 ${className}`}
               placeholder={placeholder}
               readOnly={readOnly}
               disabled={disabled}
@@ -88,7 +88,7 @@ export const Textarea = forwardRef(
             <textarea
               className={`${
                 error ? " has-error" : " "
-              } form-control py-2 ${className}`}
+              } form-control py-1 ${className}`}
               placeholder={placeholder}
               readOnly={readOnly}
               disabled={disabled}
