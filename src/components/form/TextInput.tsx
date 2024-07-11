@@ -72,7 +72,9 @@ const TextInput = ({
         <label
           htmlFor={id}
           className={`block capitalize ${classLabel}  ${
-            horizontal ? "flex-0 ml-2 mr-6 md:w-[100px] w-[60px] break-words" : ""
+            horizontal
+              ? "flex-0 ml-2 mr-6 text-xs md:w-[100px] w-[60px] break-words"
+              : ""
           }`}
         >
           {label}
@@ -86,7 +88,7 @@ const TextInput = ({
             {...rest}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 ${className}  `}
+            } form-control text-xs  py-1 ${className}  `}
             placeholder={placeholder}
             readOnly={readonly}
             defaultValue={defaultValue}

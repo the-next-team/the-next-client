@@ -60,7 +60,7 @@ const Select = ({
         <label
           htmlFor={id}
           className={`block capitalize ${classLabel}  ${
-            horizontal ? "flex-0 ml-2 mr-6 md:w-[100px] w-[60px] break-words" : ""
+            horizontal ? "flex-0 ml-2 text-xs mr-6 md:w-[100px] w-[60px] break-words" : ""
           }`}
         >
           {label}
@@ -73,7 +73,7 @@ const Select = ({
             {...register(name)}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1  appearance-none ${className}`}
+            } form-control py-1 text-xs  appearance-none ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}

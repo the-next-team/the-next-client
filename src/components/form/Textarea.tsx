@@ -61,7 +61,7 @@ export const Textarea = forwardRef(
           <label
             htmlFor={id}
             className={`block capitalize ${classLabel}  ${
-              horizontal ? "flex-0 ml-2 mr-6 md:w-[100px] w-[60px] break-words" : ""
+              horizontal ? "flex-0 ml-2 text-xs mr-6 md:w-[100px] w-[60px] break-words" : ""
             }`}
           >
             {label}
@@ -74,7 +74,7 @@ export const Textarea = forwardRef(
               {...rest}
               className={`${
                 error ? " has-error" : " "
-              } form-control py-1 ${className}`}
+              } form-control text-xs py-1 ${className}`}
               placeholder={placeholder}
               readOnly={readOnly}
               disabled={disabled}
