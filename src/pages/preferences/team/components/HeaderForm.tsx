@@ -45,6 +45,7 @@ function HeaderForm({ onSubmit }: Props) {
                 label: "지점3",
               },
             ]}
+            essential
             name="a"
             id="a"
             register={register}

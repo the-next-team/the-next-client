@@ -14,6 +14,7 @@ type Props = {
   error?: any | undefined;
   register?: any | undefined;
   className?: string | undefined;
+  essential?: boolean;
   name?: string | undefined;
   readOnly?: boolean | undefined;
   value?: string | undefined;
@@ -39,6 +40,7 @@ export const Textarea = forwardRef(
       error,
       icon,
       disabled = false,
+      essential = false,
       id,
       horizontal = false,
       validate,
@@ -74,7 +76,7 @@ export const Textarea = forwardRef(
               {...rest}
               className={`${
                 error ? " has-error" : " "
-              } form-control text-xs py-1 bg-warning-100 border-black-400 ${className}`}
+              } form-control text-xs py-1 ${essential ? 'bg-warning-100 border-black-400':''} ${className}`}
               placeholder={placeholder}
               readOnly={readOnly}
               disabled={disabled}
@@ -88,7 +90,7 @@ export const Textarea = forwardRef(
             <textarea
               className={`${
                 error ? " has-error" : " "
-              } form-control py-1 ${className}`}
+              } form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
               placeholder={placeholder}
               readOnly={readOnly}
               disabled={disabled}

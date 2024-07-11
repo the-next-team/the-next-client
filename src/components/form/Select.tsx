@@ -14,6 +14,7 @@ type Props = {
   error?: any;
   icon?: string;
   disabled?: boolean;
+  essential?: boolean;
   id?: string;
   horizontal?: boolean;
   validate?: string;
@@ -38,6 +39,7 @@ const Select = ({
   error,
   icon,
   disabled = false,
+  essential = false,
   id,
   horizontal = false,
   validate,
@@ -73,7 +75,7 @@ const Select = ({
             {...register(name)}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 text-xs  appearance-none bg-warning-100 border-black-400 ${className}`}
+            } form-control py-1 text-xs  appearance-none ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -106,7 +108,7 @@ const Select = ({
             onChange={onChange}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 appearance-none ${className}`}
+            } form-control py-1 appearance-none ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
             disabled={disabled}
             id={id}
             value={value}

@@ -20,6 +20,7 @@ type Props = {
   horizontal?: boolean;
   isMask?: boolean;
   msgTooltip?: boolean;
+  essential?: boolean;
   error?: any;
   value?: any;
   hasicon?: boolean;
@@ -44,6 +45,7 @@ const TextInput = ({
   error,
   icon,
   disabled = false,
+  essential = false,
   id,
   horizontal = false,
   validate,
@@ -88,7 +90,7 @@ const TextInput = ({
             {...rest}
             className={`${
               error ? " has-error" : " "
-            } form-control text-xs  py-1 bg-warning-100 border-black-400 ${className}  `}
+            } form-control text-xs  py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}  `}
             placeholder={placeholder}
             readOnly={readonly}
             defaultValue={defaultValue}
@@ -100,7 +102,7 @@ const TextInput = ({
         {!name && !isMask && (
           <input
             type={type === "password" && open === true ? "text" : type}
-            className={`form-control py-1 ${className}`}
+            className={`form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -117,7 +119,7 @@ const TextInput = ({
             options={options}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 ${className}  `}
+            } form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}  `}
             onFocus={onFocus}
             id={id}
             readOnly={readonly}
@@ -131,7 +133,7 @@ const TextInput = ({
             options={options}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 ${className}  `}
+            } form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}  `}
             onFocus={onFocus}
             id={id}
             readOnly={readonly}
