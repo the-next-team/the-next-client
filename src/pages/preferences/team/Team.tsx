@@ -193,7 +193,7 @@ function Team() {
       <div className="verflow-x-auto ">
         {/* Header */}
         <div className="flex justify-end">
-          <div className="space-xy-5">
+          <div className="flex gap-2 mb-2">
             <Button text="조회" className="btn-primary btn-sm" />
             <Button text="초기화" className="btn-primary btn-sm" />
             <Button text="엑셀" className="btn-primary btn-sm" />
@@ -212,7 +212,7 @@ function Team() {
 
         {/* Footer */}
         <div className="flex justify-end mt-2">
-          <div className="space-xy-5">
+          <div className="flex gap-2 mb-2">
             <Button text="초기화" className="btn-primary btn-sm" />
             <Button text="등록" className="btn-primary btn-sm" disabled/>
             <Button text="수정" className="btn-primary btn-sm" />
