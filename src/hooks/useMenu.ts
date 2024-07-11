@@ -40,6 +40,9 @@ function useMenu() {
             } else if (m.programId === "CMM002U") {
               // 메뉴권한 -> 화면관리
               m.url = "screen/ScreenManagement";
+            } else if (m.programId === "CMM005U") {
+              // 메뉴권한 -> 권한관리
+              m.url = "system/menuPermissions/PermissionManagement";
             } else if (m.programId === "CMC002U") {
               // 사용자 -> 팀(파트)
               m.url = "preferences/team/Team";

@@ -13,6 +13,7 @@ import MessageListPage from "../pages/system/message/MessageListPage";
 import JobCodePage from "../pages/preferences/code/job/JobCodePage";
 import Error404Page from "../pages/error/Error404Page";
 import ChangeLog from "../pages/example/changelog/ChangeLog";
+import PermissionManagement from "../pages/system/menuPermissions/PermissionManagement";
 
 const Login = lazy(() => import("../pages/login/LoginPage"));
 
@@ -38,6 +39,11 @@ const AppRouter = () => {
             <Route
               path="system/screenmanagement"
               element={<ScreenManagement />}
+            />
+            {/* 메뉴권한 -> 권한관리 */}
+            <Route
+              path="system/menuPermissions/PermissionManagement"
+              element={<PermissionManagement />}
             />
             {/* 사용자 -> 팀(파트) */}
             <Route path="system/team" element={<Team />} />
