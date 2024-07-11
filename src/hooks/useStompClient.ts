@@ -1,18 +1,11 @@
-import { ActivationState, Client, Message, StompConfig } from '@stomp/stompjs';
-import { useCallback, useEffect, useState } from 'react';
+import { ActivationState, Client, Message, StompConfig, StompSubscription } from '@stomp/stompjs';
+import { useCallback, useState } from 'react';
 import { storageKey } from '../constants';
 
 let client: Client | null = null;
 
 const useStompClient = () => {
   const [isConnected, setIsConnected] = useState(false);
-
-  useEffect(() => {
-    connect();
-    return () => {
-      disconnect();
-    };
-  }, []);
 
   const connect = useCallback(() => {
     const accessToken = localStorage.getItem(storageKey.accessToken);
@@ -31,28 +24,26 @@ const useStompClient = () => {
 
       client = new Client(stompConfig);
 
-      client.onConnect = onConnect;
-      client.onStompError = onError;
+      client.onConnect = () => {
+        console.log('Connected');
+        setIsConnected(true);
+      };
+
+      client.onStompError = (frame: any) => {
+        console.error('Broker reported error: ' + frame.headers['message']);
+        console.error('Additional details: ' + frame.body);
+      };
+
       client.onDisconnect = () => {
         console.log('Disconnected from STOMP');
         setIsConnected(false);
       };
     }
 
-    if (!isConnected && client && client.state !== ActivationState.ACTIVE) {
+    if (client.state !== ActivationState.ACTIVE) {
       client.activate();
     }
-  }, [isConnected]);
-
-  const onConnect = (frame: any) => {
-    console.log('Connected: ' + frame);
-    setIsConnected(true);
-  };
-
-  const onError = (frame: any) => {
-    console.log('Broker reported error: ' + frame.headers['message']);
-    console.log('Additional details: ' + frame.body);
-  };
+  }, []);
 
   const disconnect = useCallback(() => {
     if (client && client.state === ActivationState.ACTIVE) {
@@ -62,20 +53,18 @@ const useStompClient = () => {
     }
   }, []);
 
-  const subscribe = (destination: string, callback: (message: Message) => void) => {
+  const subscribe = (destination: string, callback: (message: Message) => void): StompSubscription | null => {
     if (isConnected && client) {
-      const subscription = client.subscribe(destination, callback);
-      return subscription;
+      return client.subscribe(destination, callback);
     }
     return null;
   };
 
   return {
-    client,
     connect,
     disconnect,
-    isConnected,
     subscribe,
+    isConnected,
   };
 };
 

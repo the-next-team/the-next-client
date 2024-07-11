@@ -1,14 +1,11 @@
-import { IMessage } from "@stomp/stompjs";
 import { useEffect } from "react";
 import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
-import LocalNotification from "../components/notification/LocalNotification";
 import Sidebar from "../components/sidebar/Sidebar";
 import TabMenu from "../components/tabMenu/TabMenu";
 import useLocalNotification from "../hooks/useLocalNotification";
 import useMenu from "../hooks/useMenu";
-import useStompClient from "../hooks/useStompClient";
 import useTabMenu from "../hooks/useTabMenu";
 import Error404Page from "../pages/error/Error404Page";
 import DynamicComponent from "./components/DynamicComponent";
@@ -16,37 +13,7 @@ import DynamicComponent from "./components/DynamicComponent";
 function Layout() {
   const { tabMenu, setTabMenu, activeTab } = useTabMenu();
   const { menus, fetchMenu } = useMenu();
-  const { client, connect, disconnect, isConnected, subscribe } = useStompClient();
-  const { notifications, showNotification } = useLocalNotification();
-
-  useEffect(() => {
-    if (!isConnected) {
-      connect();
-    }
-
-    return () => {
-      disconnect();
-    };
-  }, [isConnected, connect, disconnect]);
-
-  useEffect(() => {
-    let subscription: any;
-
-    const handleMessage = (message: IMessage) => {
-      const body = JSON.parse(message.body);
-      console.log('Received message:', body);
-    };
-
-    if (isConnected) {
-      subscription = subscribe('/topic/notification', handleMessage);
-    }
-
-    return () => {
-      if (subscription) {
-        subscription.unsubscribe();
-      }
-    };
-  }, [isConnected, subscribe]);
+  const { notifications } = useLocalNotification();
 
   useEffect(() => {
     if (!menus.length) {
@@ -96,8 +63,6 @@ function Layout() {
           <Footer />
         </div>
       </main>
-
-      <LocalNotification notifications={notifications} />
     </div>
   );
 }
