@@ -13,8 +13,8 @@ function MenuManagement() {
     <div>
       <div className="flex justify-end">
         <div className="flex gap-2 mb-2">
-          <Button text="조회" className="btn-primary btn-sm" />
-          <Button text="초기화" className="btn-primary btn-sm" />
+          <Button text="조회" className="btn-primary btn-sm w-12" />
+          <Button text="초기화" className="btn-primary btn-sm w-12" />
         </div>
       </div>
 
@@ -33,10 +33,14 @@ function MenuManagement() {
           />
           <div className="flex justify-end mt-2">
             <div className="space-xy-5">
-              <Button text="초기화" className="btn-primary btn-sm" />
-              <Button text="등록" className="btn-primary btn-sm" disabled />
-              <Button text="수정" className="btn-primary btn-sm" />
-              <Button text="삭제" className="btn-primary btn-sm" />
+              <Button text="초기화" className="btn-primary btn-sm w-12" />
+              <Button
+                text="등록"
+                className="btn-primary btn-sm w-12"
+                disabled
+              />
+              <Button text="수정" className="btn-primary btn-sm w-12" />
+              <Button text="삭제" className="btn-primary btn-sm w-12" />
             </div>
           </div>
         </div>
@@ -55,10 +59,18 @@ function MenuManagement() {
           />
           <div className="flex justify-end mt-2">
             <div className="space-xy-5">
-              <Button text="초기화" className="btn-primary btn-sm" />
-              <Button text="등록" className="btn-primary btn-sm" />
-              <Button text="수정" className="btn-primary btn-sm" disabled />
-              <Button text="삭제" className="btn-primary btn-sm" disabled />
+              <Button text="초기화" className="btn-primary btn-sm w-12" />
+              <Button text="등록" className="btn-primary btn-sm w-12" />
+              <Button
+                text="수정"
+                className="btn-primary btn-sm w-12"
+                disabled
+              />
+              <Button
+                text="삭제"
+                className="btn-primary btn-sm w-12"
+                disabled
+              />
             </div>
           </div>
         </div>
