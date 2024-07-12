@@ -28,7 +28,7 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] flex items-center justify-between px-2 gap-5">
+    <header className="relative bg-[#111625] flex items-center justify-between px-2 gap-5">
       {/* NEXT 로고 */}
       <div className="flex items-center gap-5">
         <div>
