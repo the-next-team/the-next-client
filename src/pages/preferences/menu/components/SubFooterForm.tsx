@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/ExampleButton";
 import Select from "../../../../components/form/Select";
 import TextInput from "../../../../components/form/TextInput";
+import CodeSelect from "../../../../components/form/CodeSelect";
 
 type FormValues = {
   a: string;
@@ -35,17 +36,14 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mb-2 bg-white rounded">
         <div className="grid grid-cols-2 2xl:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
-          <Select
+          <CodeSelect
             label="시스템명"
             horizontal
-            options={[
-              {
-                value: "HOME",
-                label: "HOME",
-              },
-            ]}
-            id="a"
+            codeType=""
+            placeholder=""
+            essential
             name="a"
+            id="a"
             register={register}
           />
 
