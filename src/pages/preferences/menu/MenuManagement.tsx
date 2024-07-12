@@ -4,6 +4,8 @@ import { IMenu1Depth } from "../../../api/services/menuService";
 import ItemTable from "./components/ItemTable";
 import ButtonPage from "../../example/components/button/ButtonPage";
 import Button from "../../../components/button/ExampleButton";
+import SystemFooterForm from "./components/SystemFooterForm";
+import SubFooterForm from "./components/SubFooterForm";
 // import Table from "./components/Table";
 
 function MenuManagement() {
@@ -31,18 +33,13 @@ function MenuManagement() {
               console.log("item", item);
             }}
           />
-          <div className="flex justify-end mt-2">
-            <div className="space-xy-5">
-              <Button text="초기화" className="btn-primary btn-sm w-12" />
-              <Button
-                text="등록"
-                className="btn-primary btn-sm w-12"
-                disabled
-              />
-              <Button text="수정" className="btn-primary btn-sm w-12" />
-              <Button text="삭제" className="btn-primary btn-sm w-12" />
-            </div>
-          </div>
+
+          {/* Footer */}
+          <SystemFooterForm
+            onSubmit={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
 
         <div className="">
@@ -57,22 +54,13 @@ function MenuManagement() {
               console.log("item", item);
             }}
           />
-          <div className="flex justify-end mt-2">
-            <div className="space-xy-5">
-              <Button text="초기화" className="btn-primary btn-sm w-12" />
-              <Button text="등록" className="btn-primary btn-sm w-12" />
-              <Button
-                text="수정"
-                className="btn-primary btn-sm w-12"
-                disabled
-              />
-              <Button
-                text="삭제"
-                className="btn-primary btn-sm w-12"
-                disabled
-              />
-            </div>
-          </div>
+
+          {/* Footer */}
+          <SubFooterForm
+            onSubmit={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
       </div>
     </div>
