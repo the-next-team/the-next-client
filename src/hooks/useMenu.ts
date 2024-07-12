@@ -52,7 +52,10 @@ function useMenu() {
                 "system/standardManagement/interoperableSystem/InteroperableSystemPage";
             } else if (m.programId === "CMC008U") {
               // 기준관리(중앙회) -> 코드매핑(vs중앙회직업코드)
-              m.url = "preferences/code/job/JobCodePage";
+              m.url = "system/standardManagement/jobCode/JobCodePage";
+            } else if (m.programId === "CMC005L") {
+              // 기준관리(중앙회) -> 영업일
+              m.url = "system/standardManagement/businessDay/BusinessDayPage";
             } else if (m.programId === "CMM001U") {
               // 메뉴권한 -> 메뉴관리
               m.url = "preferences/menu/MenuManagement";
