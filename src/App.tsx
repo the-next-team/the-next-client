@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { HashRouter } from "react-router-dom";
-import { RecoilRoot } from "recoil";
+import { RecoilEnv, RecoilRoot } from "recoil";
 import Alert from "./components/alert/Alert";
 import Loader from "./components/loader/Loader";
 import LocalNotification from "./components/notification/LocalNotification";
@@ -11,6 +11,9 @@ import useLocalNotification from "./hooks/useLocalNotification";
 import useStompClient from "./hooks/useStompClient";
 import Error500Page from "./pages/error/Error500Page";
 import AppRouter from "./routes";
+
+// Duplicate atom key 체크 false
+RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
 
 const queryClient = new QueryClient();
 
