@@ -26,7 +26,7 @@ function useMenu() {
             } else if (m.programId === "CMC001U") {
               // [시스템]
               // 코드관리 -> 공통코드
-              m.url = "preferences/code/common/CommonCodePage";
+              m.url = "system/codeManagement/commonCode/CommonCodePage";
             } else if (m.programId === "CMC008U") {
               // 기준관리(중앙회) -> 코드매핑(vs중앙회직업코드)
               m.url = "preferences/code/job/JobCodePage";
