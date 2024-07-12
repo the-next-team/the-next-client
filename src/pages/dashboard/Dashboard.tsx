@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
 import { NotificationService } from "../../api/services/notification/notificationService";
+import Button from "../../components/button/ExampleButton";
 import PopupButton from "../../components/button/PopupButton";
 import Card from "../../components/card/Card";
 import CalendarView from "../../components/partials/widget/CalendarView";
 import Profile from "../../components/partials/widget/profile";
-import TaskLists from "../../components/partials/widget/task-list";
-import RealGridPage from "../../components/table/RealGridPage";
-import useNotification from "../../hooks/useNotification";
 import RecentActivity from "../../components/partials/widget/recent-activity";
-import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
-import LoanPerformanceChart from "./components/chart/LoanPerformanceChart";
-import LoanAmountChart from "./components/chart/LoanAmountChart";
+import TaskLists from "../../components/partials/widget/task-list";
+import useNotification from "../../hooks/useNotification";
 import BalanceDelayChart from "./components/chart/BalanceDelayChart";
-import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
+import LoanAmountChart from "./components/chart/LoanAmountChart";
+import LoanPerformanceChart from "./components/chart/LoanPerformanceChart";
 import MonthlyBalanceChart from "./components/chart/MonthlyBalanceChart";
-import Button from "../../components/button/ExampleButton";
+import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
+import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
 
 function Dashboard() {
   const { show } = useNotification();
@@ -22,7 +21,6 @@ function Dashboard() {
     <div className="flex items-start gap-2">
       <div className="flex flex-col gap-2 w-72">
         <Profile />
-        <RealGridPage />
         <Card
           title="TO-DO List"
           headerslot={
