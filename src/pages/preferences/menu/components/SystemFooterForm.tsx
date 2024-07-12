@@ -34,7 +34,7 @@ function SystemFooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mb-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="시스템코드"
             type="text"
