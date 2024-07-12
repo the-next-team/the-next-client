@@ -27,12 +27,14 @@ function MenuManagement() {
             <span>시스템메뉴</span>
           </div>
 
-          <ItemTable
-            item={selected}
-            onClick={(item) => {
-              console.log("item", item);
-            }}
-          />
+          <div className="mb-2">
+            <ItemTable
+              item={selected}
+              onClick={(item) => {
+                console.log("item", item);
+              }}
+            />
+          </div>
 
           {/* Footer */}
           <SystemFooterForm
@@ -48,12 +50,14 @@ function MenuManagement() {
             <span>서브메뉴</span>
           </div>
 
-          <ItemTable
-            item={selected}
-            onClick={(item) => {
-              console.log("item", item);
-            }}
-          />
+          <div className="mb-2">
+            <ItemTable
+              item={selected}
+              onClick={(item) => {
+                console.log("item", item);
+              }}
+            />
+          </div>
 
           {/* Footer */}
           <SubFooterForm
