@@ -27,17 +27,19 @@ function HeaderForm({ onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
-        <div className="grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
-          <CodeSelect
-            label="• 부서(지점)"
-            horizontal
-            codeType="NBR"
-            placeholder={"* 전체"}
-            essential
-            name="a"
-            id="a"
-            register={register}
-          />
+        <div>
+          <div className="grid grid-cols-2 gap-3 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+            <CodeSelect
+              label="• 부서(지점)"
+              horizontal
+              codeType="NBR"
+              placeholder={"* 전체"}
+              essential
+              name="a"
+              id="a"
+              register={register}
+            />
+          </div>
         </div>
         <div className="flex-grow">
           <div className="flex justify-end gap-2">
