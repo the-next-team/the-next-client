@@ -28,7 +28,7 @@ type Props = {
 
 const Select = ({
   label,
-  placeholder = "Select Option",
+  placeholder = "선택",
   classLabel = "form-label",
   className = "",
   classGroup = "",

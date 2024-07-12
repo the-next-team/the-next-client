@@ -30,7 +30,7 @@ type Props = {
 
 const CodeSelect = ({
   label,
-  placeholder = "Select Option",
+  placeholder = "선택",
   classLabel = "form-label",
   className = "",
   classGroup = "",
