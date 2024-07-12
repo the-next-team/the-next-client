@@ -20,11 +20,15 @@ function useMenu() {
         item.items?.forEach((i) => {
           i.items?.forEach((m) => {
             if (m.programId === "HMM001L") {
-              // [HOME]
+              // =================== [HOME] ===================
               // 메인 -> 메인화면
               m.url = "dashboard/Dashboard";
+            } else if (m.programId === "CMC021U") {
+              // =================== [시스템] ===================
+              // 코드관리 -> nTree기본코드
+              m.url =
+                "system/codeManagement/nTreeDefaultCode/NTreeDefaultCodePage";
             } else if (m.programId === "CMC001U") {
-              // [시스템]
               // 코드관리 -> 공통코드
               m.url = "system/codeManagement/commonCode/CommonCodePage";
             } else if (m.programId === "CMC008U") {
@@ -48,9 +52,6 @@ function useMenu() {
             } else if (m.programId === "CMN003L") {
               // 전문관리 -> 전문처리이력
               m.url = "system/message/MessageListPage";
-            } else if (m.programId === "CMC021U") {
-              // 코드관리 -> nTree기본코드
-              m.url = "preferences/code/NTreeDefaultCodePage";
             }
           });
         });
