@@ -1,11 +1,12 @@
 import { atomFamily, selectorFamily } from "recoil";
+import { v4 as uuidv4 } from "uuid";
 import { CodeService, ICodeItem } from "../../api/services/codeService";
 import { recoilPersist } from "../persist";
 
 const { persistAtom } = recoilPersist();
 
 export const codeState = atomFamily<ICodeItem[], string>({
-  key: 'codeState',
+  key: `codeState-${uuidv4()}`,
   default: localStorage.getItem("code")
     ? JSON.parse(localStorage.getItem("code")!)
     : [],
@@ -13,7 +14,7 @@ export const codeState = atomFamily<ICodeItem[], string>({
 });
 
 export const codeSelector = selectorFamily<ICodeItem[], string>({
-  key: 'codeSelector',
+  key: `codeSelector-${uuidv4()}`,
   get: (codeType) => async (): Promise<ICodeItem[]> => {
     try {
       const response = await CodeService.getCodeByKind(codeType);
