@@ -1,11 +1,13 @@
 import { Icon } from "@iconify/react";
 import useTabMenu from "../../hooks/useTabMenu";
 import { useNavigate } from "react-router-dom";
+import { useResetRecoilState } from "recoil";
+import { tabMenuState } from "../../states/tabMenu/tabMenuAtom";
 
 const TabMenu = () => {
   const navigate = useNavigate();
-  const { activeTab, tabMenu, setTabMenu, handleTabOpen, handleTabClose } =
-    useTabMenu();
+  const { activeTab, tabMenu, handleTabOpen, handleTabClose } = useTabMenu();
+  const setTabMenuReset = useResetRecoilState(tabMenuState);
 
   return (
     <div className="relative">
@@ -52,7 +54,7 @@ const TabMenu = () => {
       <div
         className="absolute px-1 py-0.5 flex items-center -translate-y-1/2 bg-white cursor-pointer right-2 top-4"
         onClick={() => {
-          setTabMenu([{ name: "대시보드", href: "dashboard/Dashboard" }]);
+          setTabMenuReset();
           navigate("/dashboard/Dashboard");
         }}
       >
