@@ -160,7 +160,7 @@ function Table() {
 
   return (
     <div
-      className="h-[500px] min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
+      className="h-[500px] mt-2 min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
       ref={realgridElement}
     ></div>
   );

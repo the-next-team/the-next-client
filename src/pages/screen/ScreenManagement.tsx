@@ -1,27 +1,32 @@
 import Button from "../../components/button/ExampleButton";
+import FooterForm from "./components/FooterForm";
+import HeaderForm from "./components/HeaderForm";
 import Table from "./components/Table";
 
 function ScreenManagement() {
   return (
     <div>
-      <div className="flex justify-end">
-        <div className="flex gap-2 mb-2">
-          <Button text="조회" className="btn-primary btn-sm" />
-          <Button text="초기화" className="btn-primary btn-sm" />
-          <Button text="엑셀" className="btn-primary btn-sm" />
-        </div>
-      </div>
+      <div className="flex flex-col gap-2 overflow-x-auto">
+        {/* Header */}
+        <div>
+          <HeaderForm
+            onSubmit={(data) => {
+              console.log(data);
+            }}
+          />
 
-      {/* <Card> */}
-      <div>
-        <Table />
-        <div className="flex justify-end mt-2">
-          <div className="space-xy-5">
-            <Button text="초기화" className="btn-primary btn-sm" />
-            <Button text="등록" className="btn-primary btn-sm" disabled />
-            <Button text="수정" className="btn-primary btn-sm" />
-            <Button text="삭제" className="btn-primary btn-sm" />
-            <Button text="보기순서변경" className="btn-primary btn-sm" />
+          {/* <Card> */}
+          <div>
+            <Table />
+          </div>
+
+          {/* Footer */}
+          <div>
+            <FooterForm
+              onSubmit={(data) => {
+                console.log(data);
+              }}
+            />
           </div>
         </div>
       </div>
