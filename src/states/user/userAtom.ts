@@ -1,7 +1,5 @@
 import { atom } from "recoil";
-import { v4 as uuidv4 } from "uuid";
 import { recoilPersist } from "../persist";
-
 const { persistAtom } = recoilPersist();
 
 export interface UserState {
@@ -12,7 +10,7 @@ export interface UserState {
 }
 
 export const userState = atom<UserState | null>({
-  key: `userState-${uuidv4()}`,
+  key: "userState",
   default: localStorage.getItem("user") && JSON.parse(localStorage.getItem("user")!),
   effects_UNSTABLE: [persistAtom],
 });

@@ -1,5 +1,4 @@
 import { atom } from "recoil";
-import { v4 as uuidv4 } from "uuid";
 import { recoilPersist } from "../persist";
 
 const { persistAtom } = recoilPersist();
@@ -11,7 +10,7 @@ export type TabMenu = {
   href: string;
 };
 export const tabMenuState = atom<TabMenuList>({
-  key: `tabMenuState-${uuidv4()}`,
+  key: "tabMenuState",
   default: [{ name: "대시보드", href: "dashboard/Dashboard" }],
   effects_UNSTABLE: [persistAtom],
 });
