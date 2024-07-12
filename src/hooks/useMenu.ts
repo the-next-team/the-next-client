@@ -39,6 +39,10 @@ function useMenu() {
               // 코드관리 -> 코드매핑(vs채널플랫폼)
               m.url =
                 "system/codeManagement/mappingVsChannelPlatform/MappingVsChannelPlatformPage";
+            } else if (m.programId === "CMC010U") {
+              // 코드관리 -> 표준산업분류(국가)
+              m.url =
+                "system/codeManagement/nationalSICCode/NationalSICCodePage";
             } else if (m.programId === "CMC008U") {
               // 기준관리(중앙회) -> 코드매핑(vs중앙회직업코드)
               m.url = "preferences/code/job/JobCodePage";
