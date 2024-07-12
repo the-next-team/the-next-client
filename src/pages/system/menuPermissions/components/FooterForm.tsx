@@ -43,8 +43,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             label="화면그룹코드"
             type="text"
             horizontal
-            name="b"
-            id="b"
+            name="a"
+            id="a"
             placeholder=""
             register={register}
           />
@@ -53,8 +53,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="c"
-            id="c"
+            name="b"
+            id="b"
             register={register}
           />
           <TextInput
@@ -62,8 +62,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="d"
-            id="d"
+            name="c"
+            id="c"
             register={register}
           />
           <TextInput
@@ -71,8 +71,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="e"
-            id="e"
+            name="d"
+            id="d"
             register={register}
           />
         </div>
@@ -82,8 +82,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           horizontal
           placeholder=""
           className="h-12 mb-1"
-          name="f"
-          id="f"
+          name="e"
+          id="e"
           register={register}
         />
       </div>
