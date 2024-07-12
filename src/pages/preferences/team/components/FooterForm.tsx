@@ -43,7 +43,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             label="• 부서(지점)"
             horizontal
             codeType="NBR"
-            placeholder={"* 전체"}
+            placeholder={"* 선택"}
             name="a"
             id="a"
             register={register}
