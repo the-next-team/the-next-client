@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/ExampleButton";
-import Select from "../../../../components/form/Select";
+import CodeSelect from "../../../../components/form/CodeSelect";
 
 type FormValues = {
   a: string;
@@ -20,7 +20,7 @@ function HeaderForm({ onSubmit }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      a: "지점1",
+      a: "",
     },
   });
 
@@ -28,23 +28,11 @@ function HeaderForm({ onSubmit }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
         <div className="grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
-          <Select
+          <CodeSelect
             label="• 부서(지점)"
             horizontal
-            options={[
-              {
-                value: "지점1",
-                label: "지점1",
-              },
-              {
-                value: "지점2",
-                label: "지점2",
-              },
-              {
-                value: "지점3",
-                label: "지점3",
-              },
-            ]}
+            codeType="NBR"
+            placeholder={"* 선택"}
             essential
             name="a"
             id="a"
