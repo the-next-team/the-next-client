@@ -39,7 +39,7 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
           <CodeSelect
             label="시스템명"
             horizontal
-            codeType=""
+            codeType="TST"
             placeholder=""
             essential
             name="a"
