@@ -43,7 +43,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             label="시스템"
             horizontal
             codeType="TST"
-            placeholder={"* 전체"}
+            placeholder={"* 선택"}
             name="a"
             essential
             id="a"
@@ -54,7 +54,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             essential
             codeType="TST"
-            placeholder={"* 전체"}
+            placeholder={"* 선택"}
             name="a"
             id="a"
             register={register}
@@ -64,7 +64,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             essential
             codeType="TST"
-            placeholder={"* 전체"}
+            placeholder={"* 선택"}
             name="a"
             id="a"
             register={register}
