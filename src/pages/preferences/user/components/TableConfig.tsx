@@ -1,9 +1,7 @@
-import { ForwardedRef, forwardRef, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 
-type Props = {};
-
-function TableConfig({}: Props, ref: ForwardedRef<HTMLInputElement>) {
+function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
   var dp = new LocalDataProvider(true);
 
@@ -18,47 +16,34 @@ function TableConfig({}: Props, ref: ForwardedRef<HTMLInputElement>) {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "branchCode",
-        dataType: ValueType.TEXT,
-      },
-      {
         fieldName: "code",
         dataType: ValueType.TEXT,
       },
       {
         fieldName: "name",
-        dataType: ValueType.NUMBER,
-      },
-      {
-        fieldName: "priority",
-        dataType: ValueType.TEXT,
-      },
-      {
-        fieldName: "telephoneNumber",
-        dataType: ValueType.TEXT,
-      },
-      {
-        fieldName: "faxNumber",
         dataType: ValueType.TEXT,
       },
       {
         fieldName: "useYn",
         dataType: ValueType.TEXT,
       },
+      {
+        fieldName: "createdDate",
+        dataType: ValueType.TEXT,
+      },
     ]);
     gv.setColumns([
       {
-        name: "branchCode",
-        fieldName: "branchCode",
+        name: "kind",
+        fieldName: "kind",
         type: "data",
-        width: "80",
+        width: "100",
         styles: {
           textAlignment: "center",
         },
         header: {
-          text: "지점코드",
-          showTooltip: true,
-          tooltip: '<span style="color: red;">이름</span>',
+          text: "사용자ID",
+          showTooltip: false,
         },
         renderer: {
           type: "text",
@@ -66,100 +51,91 @@ function TableConfig({}: Props, ref: ForwardedRef<HTMLInputElement>) {
         },
       },
       {
-        name: "branchCode",
-        fieldName: "branchCode",
+        name: "name",
+        fieldName: "name",
         type: "data",
         width: "150",
         styles: {
           textAlignment: "center",
         },
         header: {
-          text: "지점명",
+          text: "사용자명",
           showTooltip: false,
         },
       },
       {
-        name: "code",
-        fieldName: "code",
+        name: "number",
+        fieldName: "number",
         type: "data",
-        width: "220",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: "팀(파트)코드",
+        header: "시스템사번",
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "",
+        fieldName: "",
         type: "data",
-        width: "130",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: {
-          text: "팀(파트)명",
-          showTooltip: false,
-        },
-        numberFormat: "0",
+        header: "직급",
       },
       {
-        name: "priority",
-        fieldName: "priority",
+        name: "",
+        fieldName: "",
         type: "data",
-        width: "130",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: {
-          text: "보기순서",
-          showTooltip: false,
-        },
-        numberFormat: "0",
+        header: "사번",
       },
       {
-        name: "telephoneNumber",
-        fieldName: "telephoneNumber",
+        name: "",
+        fieldName: "",
         type: "data",
-        width: "300",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: {
-          text: "대표번호",
-          showTooltip: false,
-        },
+        header: "상태",
       },
       {
-        name: "faxNumber",
-        fieldName: "faxNumber",
+        name: "",
+        fieldName: "",
         type: "data",
-        width: "300",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: {
-          text: "팩스번호",
-          showTooltip: false,
-        },
+        header: "부점",
       },
       {
-        name: "useYn",
-        fieldName: "useYn",
+        name: "",
+        fieldName: "",
         type: "data",
-        width: "50",
+        width: "120",
         styles: {
           textAlignment: "center",
         },
-        header: {
-          text: "사용여부",
-          showTooltip: false,
+        header: "화면권한",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "120",
+        styles: {
+          textAlignment: "center",
         },
+        header: "이기종ID",
       },
     ]);
 
-    gv.onCellClicked = () => {
-      console.log("onCellClicked");
-    };
+    gv.onCellClicked = (grid, data) => {};
 
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
@@ -172,9 +148,12 @@ function TableConfig({}: Props, ref: ForwardedRef<HTMLInputElement>) {
     };
   }, []);
 
-  useEffect(() => {}, [])
-
-  return <div ref={realgridElement}>TableConfig</div>;
+  return (
+    <div
+      className="h-[500px] mt-2 min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
+      ref={realgridElement}
+    ></div>
+  );
 }
 
-export default forwardRef(TableConfig);
+export default Table;
