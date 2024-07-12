@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/ExampleButton";
-import Select from "../../../../components/form/Select";
+import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
 
 type FormValues = {
@@ -29,23 +29,23 @@ function FooterForm({ initialValues, onSubmit }: Props) {
     reset,
     clearErrors,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>({});
+  } = useForm<FormValues>({
+    defaultValues: {
+      a: ''
+    }
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mb-2 bg-white rounded">
         <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
-          <Select
-            label="부서(지점)"
+          <CodeSelect
+            label="• 부서(지점)"
             horizontal
-            options={[
-              {
-                value: "지점1",
-                label: "지점1",
-              },
-            ]}
-            id="a"
+            codeType="NBR"
+            placeholder={"* 전체"}
             name="a"
+            id="a"
             register={register}
           />
           <TextInput

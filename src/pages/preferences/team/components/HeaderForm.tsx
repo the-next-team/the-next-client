@@ -32,7 +32,7 @@ function HeaderForm({ onSubmit }: Props) {
             label="• 부서(지점)"
             horizontal
             codeType="NBR"
-            placeholder={"* 선택"}
+            placeholder={"* 전체"}
             essential
             name="a"
             id="a"
