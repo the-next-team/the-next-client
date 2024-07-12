@@ -1,4 +1,5 @@
 import useIsElectron from "../../hooks/useIsElectron";
+import Button from "./ExampleButton";
 
 type Props = {
   path: string;
@@ -30,7 +31,11 @@ function PopupButton({ path, width, height, children }: Props) {
     });
   };
 
-  return <button onClick={openNewWindow}>{children}</button>;
+  return (
+    <Button className="btn-sm btn-primary" onClick={openNewWindow}>
+      {children}
+    </Button>
+  );
 }
 
 export default PopupButton;
