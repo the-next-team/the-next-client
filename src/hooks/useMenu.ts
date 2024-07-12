@@ -46,6 +46,10 @@ function useMenu() {
             } else if (m.programId === "CMC007U") {
               // 기준관리(중앙회) -> 부서(지점)
               m.url = "system/standardManagement/branchOffice/BranchOfficePage";
+            } else if (m.programId === "CMU040U") {
+              // 기준관리(중앙회) -> 이기종사번
+              m.url =
+                "system/standardManagement/interoperableSystem/InteroperableSystemPage";
             } else if (m.programId === "CMC008U") {
               // 기준관리(중앙회) -> 코드매핑(vs중앙회직업코드)
               m.url = "preferences/code/job/JobCodePage";
