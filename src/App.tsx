@@ -9,7 +9,6 @@ import Loader from "./components/loader/Loader";
 import LocalNotification from "./components/notification/LocalNotification";
 import useLocalNotification from "./hooks/useLocalNotification";
 import useStompClient from "./hooks/useStompClient";
-import TitleBar from "./layout/titleBar/TitleBar";
 import Error500Page from "./pages/error/Error500Page";
 import AppRouter from "./routes";
 
@@ -54,7 +53,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
           <div className="flex flex-col h-full">
-            <TitleBar />
+            {/* <TitleBar /> */}
             <div className="flex flex-col flex-grow overflow-hidden">
               <HashRouter>
                 <AppRouter />
