@@ -35,6 +35,10 @@ function useMenu() {
               // 코드관리 -> 심사거절사유코드
               m.url =
                 "system/codeManagement/rejectionReason/RejectionReasonPage";
+            } else if (m.programId === "CMC009U") {
+              // 코드관리 -> 코드매핑(vs채널플랫폼)
+              m.url =
+                "system/codeManagement/mappingVsChannelPlatform/MappingVsChannelPlatformPage";
             } else if (m.programId === "CMC008U") {
               // 기준관리(중앙회) -> 코드매핑(vs중앙회직업코드)
               m.url = "preferences/code/job/JobCodePage";
