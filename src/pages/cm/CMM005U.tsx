@@ -1,5 +1,5 @@
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../components/button/ExampleButton";
 import { useEffect, useRef } from "react";
 import FooterForm from "./components/FooterForm";
 
@@ -138,8 +138,8 @@ function PermissionManagement() {
       {/* Header */}
       <div className="flex justify-end">
         <div className="flex gap-2 mb-2">
-          <Button text="조회" className="btn-primary btn-sm w-12" />
-          <Button text="초기화" className="btn-primary btn-sm w-12" />
+          <Button text="조회" className="w-12 btn-primary btn-sm" />
+          <Button text="초기화" className="w-12 btn-primary btn-sm" />
         </div>
       </div>
 
