@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 import {
   IMenu1Depth,
   IMenu2Depth,
   MenuService,
 } from "../../../../api/services/menuService";
-import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
 type Props = {
   item?: IMenu1Depth | null;

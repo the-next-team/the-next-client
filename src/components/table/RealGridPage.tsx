@@ -1,25 +1,68 @@
-import { useEffect, useRef } from "react";
-import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import { useEffect, useRef, useState } from "react";
+import {
+  ConfigObject,
+  DataFieldInput,
+  GridView,
+  LocalDataProvider,
+  ValueType
+} from "realgrid";
+import { Get } from "../../api";
+import { ApiResponseStats } from "../../api/models/common/apiResponseStats";
 
-function RealGridPage() {
-  const realgridElement = useRef<HTMLDivElement| null>(null);
+type Props<T> = {
+  endPoint: string;
+  fields: DataFieldInput[];
+  columns: (ConfigObject | string)[];
+  data: T[];
+};
+
+function RealGridPage<T extends []>({ endPoint, fields }: Props<T>) {
+  const realgridElement = useRef<HTMLDivElement | null>(null);
+  const dataProviderRef = useRef<LocalDataProvider | null>(null);
+  const gridViewRef = useRef<GridView | null>(null);
+
+  const [rows, setRows] = useState<T[]>([]); // Define your rows here
 
   useEffect(() => {
     const container = realgridElement.current;
-    const dp = new LocalDataProvider(true);
-    const gv = new GridView(container as any);
+    const dataProvider = new LocalDataProvider(true);
+    const gridView = new GridView(container as any);
 
-    gv.setDataSource(dp);
-    dp.setFields(fields);
-    gv.setColumns(columns);
-    dp.setRows(rows);
+    gridView.setDataSource(dataProvider);
+    dataProvider.setFields(fields);
+    gridView.setColumns(columns);
+    dataProvider.setRows(rows);
+
+    dataProviderRef.current = dataProvider;
+    gridViewRef.current = gridView;
+
+    gridView.onScrollToBottom = () => {
+      fetchData();
+    };
 
     return () => {
-      dp.clearRows();
-      gv.destroy();
-      dp.destroy();
+      dataProvider.clearRows();
+      gridView.destroy();
+      dataProvider.destroy();
     };
-  }, []);
+  }, [fields, columns, rows]);
+
+  const fetchData = async () => {
+    try {
+      const response = await Get<T>(endPoint);
+      if (response.status === ApiResponseStats.OK) {
+        if (dataProviderRef.current) {
+          setRows(response.data);
+        }
+      }
+    } catch (error) {}
+  };
+
+  const addRow = (row: any) => {
+    if (dataProviderRef.current) {
+      dataProviderRef.current.addRow(row);
+    }
+  };
 
   return (
     <div style={{ height: "500px", width: "100%" }} ref={realgridElement}></div>

@@ -1,13 +1,17 @@
 type Props = {
   label?: string;
+  name?: string;
   disabled?: boolean;
   className?: string;
   onChange?: () => void;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  register?: any;
+};
 
 const Checkbox = ({
   label,
   disabled = false,
+  name,
+  register,
   className,
   onChange,
   ...props
@@ -28,6 +32,7 @@ const Checkbox = ({
       {label && (
         <label
           htmlFor={label}
+          {...register(name)}
           className={`${
             disabled
               ? "cursor-default peer-checked:text-gray-400 text-gray-300"

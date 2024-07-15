@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
+import Button from "../../../../../components/button/ExampleButton";
 import CodeSelect from "../../../../../components/form/CodeSelect";
 import TextInput from "../../../../../components/form/TextInput";
-import Button from "../../../../../components/button/ExampleButton";
-import Checkbox from "../../../../../components/checkbox/Checkbox";
-import { useState } from "react";
+import Checkbox from "../../../../../components/form/checkbox/Checkbox";
 
 type FormValues = {
   a: string;
@@ -16,6 +15,7 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
+  checkboxes: { [key: string]: boolean };
 };
 
 type Props = {
@@ -34,10 +34,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   } = useForm<FormValues>({
     defaultValues: {
       a: "",
+      checkboxes: {
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+      },
     },
   });
-
-  const [checked, setChecked] = useState(true);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
@@ -321,11 +324,21 @@ function FooterForm({ initialValues, onSubmit }: Props) {
         </div>
         <div className="ml-[64px] p-1 text-[12px] font-medium flex flex-row items-center">
           권한설정
-          <div className="mx-2">
+          <div className="flex gap-2 mx-2">
             <Checkbox
-              label="개인정보조회"
-              value={checked}
-              onChange={() => setChecked(!checked)}
+              label="체크1"
+              name={"checkboxes.checkbox1"}
+              register={register}
+            />
+            <Checkbox
+              label="체크2"
+              name={"checkboxes.checkbox2"}
+              register={register}
+            />
+            <Checkbox
+              label="체크3"
+              name={"checkboxes.checkbox3"}
+              register={register}
             />
           </div>
         </div>
@@ -352,10 +365,10 @@ function FooterForm({ initialValues, onSubmit }: Props) {
       </div>
       <div className="flex justify-end mt-2">
         <div className="flex gap-2 mb-2">
-          <Button text="초기화" className="btn-primary btn-sm w-12" />
-          <Button text="등록" className="btn-primary btn-sm w-12" />
-          <Button text="수정" className="btn-primary btn-sm w-12" disabled />
-          <Button text="삭제" className="btn-primary btn-sm w-12" disabled />
+          <Button text="초기화" className="w-12 btn-primary btn-sm" />
+          <Button text="등록" className="w-12 btn-primary btn-sm" />
+          <Button text="수정" className="w-12 btn-primary btn-sm" disabled />
+          <Button text="삭제" className="w-12 btn-primary btn-sm" disabled />
         </div>
       </div>
     </form>
