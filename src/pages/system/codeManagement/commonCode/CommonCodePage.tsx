@@ -3,20 +3,20 @@ import { ICode } from "../../../../api/services/codeService";
 import CodeItemTable from "./components/CodeItemTable";
 import CodeTable from "./components/CodeTable";
 import Button from "../../../../components/button/ExampleButton";
+import HeaderForm from "./components/HeaderForm";
 
 function CommonCodePage() {
   const [selected, setSelected] = useState<ICode | null>(null); // 선택된 코드
 
   return (
     <div>
-      <div className="flex justify-end">
-        <div className="flex gap-2 mb-2">
-          <Button text="조회" className="btn-primary btn-sm" />
-          <Button text="초기화" className="btn-primary btn-sm" />
-          <Button text="엑셀" className="btn-primary btn-sm" />
-        </div>
+      <div className="my-2">
+        <HeaderForm
+          onSubmit={(data) => {
+            console.log(data);
+          }}
+        />
       </div>
-
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
         <div>
           <div className="flex items-center space-x-2 text-base text-slate-900  dark:text-slate-300 rtl:space-x-reverse">
