@@ -5,6 +5,7 @@ import CodeTable from "./components/CodeTable";
 import Button from "../../../../components/button/ExampleButton";
 import HeaderForm from "./components/HeaderForm";
 import CodeTableFooter from "./components/CodeTableFooter";
+import CodeItemTableFooter from "./components/CodeItemTableFooter";
 
 function CommonCodePage() {
   const [selected, setSelected] = useState<ICode | null>(null); // 선택된 코드
@@ -56,14 +57,9 @@ function CommonCodePage() {
               console.log("item", item);
             }}
           />
-          <div className="flex justify-end mt-2">
-            <div className="space-xy-5">
-              <Button text="초기화" className="btn-primary btn-sm" />
-              <Button text="등록" className="btn-primary btn-sm" />
-              <Button text="수정" className="btn-primary btn-sm" disabled />
-              <Button text="삭제" className="btn-primary btn-sm" disabled />
-              <Button text="보기순서변경" className="btn-primary btn-sm" />
-            </div>
+
+          <div>
+            <CodeItemTableFooter onSubmit={(data) => console.log(data)} />
           </div>
         </div>
       </div>
