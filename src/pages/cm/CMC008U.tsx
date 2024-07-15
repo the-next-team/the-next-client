@@ -1,3 +1,8 @@
+/**
+ * 코드매핑(vs중앙회직업코드)
+ * 시스템 > 기준관리(중앙회) > 코드매핑(vs중앙회직업코드)
+ * CMC008U
+ */
 import Table from "./components/Table";
 
 function JobCodePage() {

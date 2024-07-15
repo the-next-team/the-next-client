@@ -1,3 +1,8 @@
+/**
+ * 팀(파트) 페이지
+ * 시스템 > 사용자 > 팀(파트)
+ * CMC002U
+ */
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ApiResponseStats } from "../../api/models/common/apiResponseStats";
