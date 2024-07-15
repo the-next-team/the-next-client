@@ -58,11 +58,11 @@ function Toolbar() {
                 : "border border-custom-blue-100 text-custom-black"
             }`}
             onClick={() => {
-              if (currentSideMenu == menu.name) {
-                setCurrentSideMenu("");
-              } else {
-                setCurrentSideMenu(menu.name);
-              }
+              //   if (currentSideMenu == menu.name) {
+              //     setCurrentSideMenu("");
+              //   } else {
+              setCurrentSideMenu(menu.name);
+              //   }
               menu.onClick && menu.onClick();
             }}
           >
