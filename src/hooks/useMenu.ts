@@ -99,6 +99,37 @@ function useMenu() {
               // 사용자 -> 사용자신용조회권한
               m.url =
                 "system/user/creditInquiryAuthority/CreditInquiryAuthorityPage";
+            } else if (m.programId === "CML001L") {
+              // 이력조회 -> 사용자로그인이력
+              m.url = "system/employmentHistory/userLogin/UserLoginPage";
+            } else if (m.programId === "CML002L") {
+              // 이력조회 -> 사용자화면접근이력
+              m.url =
+                "system/employmentHistory/userScreenAccess/UserScreenAccessPage";
+            } else if (m.programId === "CMU001TH") {
+              // 이력조회 -> 사용자정보변경이력
+              m.url =
+                "system/employmentHistory/userInfoModification/UserInfoModificationPage";
+            } else if (m.programId === "CMU011H") {
+              // 이력조회 -> 사용자신용조회권한변경이력
+              m.url =
+                "system/employmentHistory/userCreditChkPermission/UserCreditChkPermissionPage";
+            } else if (m.programId === "CMU021U") {
+              // 이력조회 -> 신용정보과다조회명세
+              m.url =
+                "system/employmentHistory/userCreditInfoExcessiveQuery/UserCreditInfoExcessiveQueryPage";
+            } else if (m.programId === "CML010L") {
+              // 이력조회 -> 엑셀다운로드이력
+              m.url =
+                "system/employmentHistory/excelDownload/ExcelDownloadPage";
+            } else if (m.programId === "CML040L") {
+              // 이력조회 -> 개인정보식별조회이력
+              m.url =
+                "system/employmentHistory/personalInfoIdentificationQuery/PersonalInfoIdentificationQueryPage";
+            } else if (m.programId === "CML050L") {
+              // 이력조회 -> 동기화처리이력
+              m.url =
+                "system/employmentHistory/syncProcessing/SyncProcessingPage";
             } else if (m.programId === "CMN003L") {
               // 전문관리 -> 전문처리이력
               m.url = "system/message/MessageListPage";
