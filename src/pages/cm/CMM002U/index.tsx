@@ -1,3 +1,8 @@
+/**
+ * 화면관리 페이지
+ * 시스템 > 메뉴권한 > 화면관리
+ * CMM002U
+ */
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
 import Table from "./components/Table";

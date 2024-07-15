@@ -1,3 +1,8 @@
+/**
+ * 공통코드 페이지
+ * 시스템 > 코드관리 > 공통코드
+ * CMC001U
+ */
 import { useState } from "react";
 import { ICode } from "../../../api/services/codeService";
 import CodeItemTable from "../../cm/components/CodeItemTable";
