@@ -99,7 +99,7 @@ function MainMenu() {
           <div
             className={`cursor-pointer flex items-center transition-colors duration-100 justify-between px-4 py-2 ${
               item.url && item.url === activeTab
-                ? "bg-primary bg-opacity-[0.07]"
+                ? "bg-primary-800 bg-opacity-[0.07]"
                 : "hover:bg-gray-100"
             }`}
             onClick={() => {
