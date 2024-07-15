@@ -1,8 +1,16 @@
+import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
+<<<<<<< HEAD:src/pages/cm/components/CodeTableFooter.tsx
 import TextInput from "../../../components/form/TextInput";
 import Button from "../../../components/button/ExampleButton";
 import Radio from "../../../components/form/Radio";
 import { ChangeEvent, useState } from "react";
+=======
+import Button from "../../../../../components/button/ExampleButton";
+import Radio from "../../../../../components/form/Radio";
+import RadioGroup from "../../../../../components/form/RadioGroup";
+import TextInput from "../../../../../components/form/TextInput";
+>>>>>>> 7b01722 (refactor: 라디오그룹 추가):src/pages/system/codeManagement/commonCode/components/CodeTableFooter.tsx
 
 type FormValues = {
   a: string;
@@ -64,8 +72,7 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
             id="b"
             register={register}
           />
-          <div className="flex gap-2 items-center p-1 ml-[64px]">
-            <span className="font-medium text-[12px]">사용여부</span>
+          <RadioGroup horizontal label={"사용여부"}>
             <Radio
               label="Yes"
               name="x"
@@ -80,7 +87,7 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
               checked={value === "B"}
               onChange={handleChange}
             />
-          </div>
+          </RadioGroup>
         </div>
         <TextInput
           label="권한설정"
