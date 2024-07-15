@@ -1,3 +1,8 @@
+/**
+ * 전문처리이력 페이지
+ * 시스템 > 전문관리 > 전문처리이력
+ * CMN003L
+ */
 import { useQuery } from "@tanstack/react-query";
 import { MessageService } from "../../../api/services/messageService";
 import MessageListTable from "./components/MessageListTable";
