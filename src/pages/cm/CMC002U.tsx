@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
-import { ITeam, TeamService } from "../../../../api/services/teamService";
-import FooterForm from "./components/FooterForm";
-import HeaderForm from "./components/HeaderForm";
+import { ApiResponseStats } from "../../api/models/common/apiResponseStats";
+import { ITeam, TeamService } from "../../api/services/teamService";
+import FooterForm from "./components/teamComponents/FooterForm";
+import HeaderForm from "./components/teamComponents/HeaderForm";
 
 function Team() {
   const [teamList, setTeamList] = useState<ITeam[]>([]);

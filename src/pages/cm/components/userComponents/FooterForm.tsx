@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import Button from "../../../../../components/button/ExampleButton";
-import CodeSelect from "../../../../../components/form/CodeSelect";
-import TextInput from "../../../../../components/form/TextInput";
-import Checkbox from "../../../../../components/form/checkbox/Checkbox";
+import Button from "../../../../components/button/ExampleButton";
+import CodeSelect from "../../../../components/form/CodeSelect";
+import TextInput from "../../../../components/form/TextInput";
+import Checkbox from "../../../../components/form/checkbox/Checkbox";
 
 type FormValues = {
   a: string;
