@@ -4,6 +4,7 @@ import { storageKey } from "../constants";
 import { menuSelectedState, menuState } from "../states/menu/menuAtom";
 import { activeSubmenuState } from "../states/sidebar/sidebarAtom";
 import { tabMenuState } from "../states/tabMenu/tabMenuAtom";
+import { v4 as uuidv4 } from "uuid";
 
 function useMenu() {
   const [menus, _setMenu] = useRecoilState(menuState);
@@ -18,6 +19,9 @@ function useMenu() {
       // 임시 경로 세팅
       data.forEach((item) => {
         item.items?.forEach((i) => {
+          if (!i?.url) {
+            i.url = uuidv4();
+          }
           i.items?.forEach((m) => {
             if (m.programId === "HMM001L") {
               // =================== [HOME] ===================
