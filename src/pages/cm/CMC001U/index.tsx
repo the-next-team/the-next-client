@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { ICode } from "../../../../api/services/codeService";
-import Button from "../../../../components/button/ExampleButton";
+import { ICode } from "../../../api/services/codeService";
+import CodeItemTable from "../../cm/components/CodeItemTable";
+import CodeTable from "../../cm/components/CodeTable";
+import CodeTableFooter from "../../cm/components/CodeTableFooter";
+import HeaderForm from "../../cm/components/HeaderForm";
 import CodeItemTableFooter from "./components/CodeItemTableFooter";
-import HeaderForm from "../../../cm/components/HeaderForm";
-import CodeTable from "../../../cm/components/CodeTable";
-import CodeTableFooter from "../../../cm/components/CodeTableFooter";
-import CodeItemTable from "../../../cm/components/CodeItemTable";
 
-function CommonCodePage() {
+function CMC001U() {
   const [selected, setSelected] = useState<ICode | null>(null); // 선택된 코드
 
   return (
@@ -67,4 +66,4 @@ function CommonCodePage() {
   );
 }
 
-export default CommonCodePage;
+export default CMC001U;
