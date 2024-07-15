@@ -1,6 +1,6 @@
-import FooterForm from "./components/userComponents/FooterForm";
-import HeaderForm from "./components/userComponents/HeaderForm";
-import TableConfig from "./components/userComponents/TableConfig";
+import FooterForm from "./components/FooterForm";
+import HeaderForm from "./components/HeaderForm";
+import TableConfig from "./components/TableConfig";
 
 function CMU001U() {
   return (
