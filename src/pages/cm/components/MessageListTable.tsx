@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import { IMessageModel } from "../../../../api/services/messageService";
+import { IMessageModel } from "../../../api/services/messageService";
 
 type Props = {
   items: IMessageModel[];
@@ -53,7 +53,8 @@ function MessageListTable({ items }: Props) {
       {
         fieldName: "caller",
         dataType: ValueType.TEXT,
-      }, {
+      },
+      {
         fieldName: "inqMode",
         dataType: ValueType.TEXT,
       },
@@ -207,7 +208,7 @@ function MessageListTable({ items }: Props) {
         },
       },
     ]);
-    dp.setRows(items)
+    dp.setRows(items);
 
     gv.onCellClicked = () => {
       console.log("onCellClicked");
