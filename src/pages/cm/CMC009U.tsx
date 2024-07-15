@@ -1,3 +1,8 @@
+/**
+ * 코드매핑(vs채널플랫폼) 페이지
+ * 시스템 > 코드관리 > 코드매핑(vs채널플랫폼)
+ * CMC009U
+ */
 function MappingVsChannelPlatformPage() {
   return (
     <div>

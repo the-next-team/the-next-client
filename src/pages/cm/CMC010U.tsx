@@ -1,3 +1,8 @@
+/**
+ * 표준산업분류코드(국가) 페이지
+ * 시스템 > 코드관리 > 표준산업분류코드(국가)
+ * CMC010U
+ */
 function NationalSICCodePage() {
   return (
     <div>
