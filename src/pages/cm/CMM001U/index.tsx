@@ -1,3 +1,8 @@
+/**
+ * 메뉴관리 페이지
+ * 시스템 > 메뉴권한 > 메뉴관리
+ * CMM001U
+ */
 import { useState } from "react";
 // import Card from "../../components/card/Card";
 import { IMenu1Depth } from "../../../api/services/menuService";
