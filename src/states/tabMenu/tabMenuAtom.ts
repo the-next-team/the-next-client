@@ -11,6 +11,6 @@ export type TabMenu = {
 };
 export const tabMenuState = atom<TabMenuList>({
   key: "tabMenuState",
-  default: [{ name: "대시보드", href: "dashboard/Dashboard" }],
+  default: [{ name: "대시보드", href: "hm/HMM001L" }],
   effects_UNSTABLE: [persistAtom],
 });

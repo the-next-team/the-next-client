@@ -30,7 +30,7 @@ const TabMenu = () => {
                   {tab.name}
                 </p>
                 {/* 메뉴 닫기 (단, 대시보드는 고정)*/}
-                {tab.href !== "dashboard/Dashboard" && (
+                {tab.href !== "hm/HMM001L" && (
                   <div
                     className="rounded-full p-0.5"
                     onClick={(e) => {
@@ -55,7 +55,7 @@ const TabMenu = () => {
         className="absolute px-1 py-0.5 flex items-center -translate-y-1/2 bg-white cursor-pointer right-2 top-4"
         onClick={() => {
           setTabMenuReset();
-          navigate("/dashboard/Dashboard");
+          navigate("/hm/HMM001L");
         }}
       >
         <p className="text-xs">전체닫기</p>

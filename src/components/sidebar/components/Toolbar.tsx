@@ -21,7 +21,7 @@ function Toolbar() {
       onClick: () => {
         handleTabOpen({
           name: "대시보드",
-          href: "dashboard/Dashboard",
+          href: "hm/HMM001L",
         });
       },
     },
