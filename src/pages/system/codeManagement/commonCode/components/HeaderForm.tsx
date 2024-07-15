@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import Select from "../../../components/form/Select";
-import Button from "../../../components/button/ExampleButton";
-import CodeSelect from "../../../components/form/CodeSelect";
-import TextInput from "../../../components/form/TextInput";
+import CodeSelect from "../../../../../components/form/CodeSelect";
+import TextInput from "../../../../../components/form/TextInput";
+import Button from "../../../../../components/button/ExampleButton";
+import Select from "../../../../../components/form/Select";
 
 type FormValues = {
   a: string;
@@ -30,28 +30,8 @@ function HeaderForm({ onSubmit }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
         <div className="pr-10 grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
-          <CodeSelect
-            label="• 시스템"
-            horizontal
-            codeType="TST"
-            placeholder={"* 전체"}
-            essential
-            name="a"
-            id="a"
-            register={register}
-          />
-          <CodeSelect
-            label="• 메뉴"
-            horizontal
-            codeType="TST"
-            placeholder={"* 전체"}
-            essential
-            name="a"
-            id="a"
-            register={register}
-          />
           <TextInput
-            label="• 프로그램ID"
+            label="• 코드명"
             type="text"
             horizontal
             name="b"
@@ -60,22 +40,12 @@ function HeaderForm({ onSubmit }: Props) {
             register={register}
           />
           <TextInput
-            label="• 프로그램명"
+            label="• 대분류코드"
             type="text"
             horizontal
             name="b"
             id="b"
             placeholder=""
-            register={register}
-          />
-          <CodeSelect
-            label="• 프로그램종류"
-            horizontal
-            codeType="TST"
-            placeholder={"* 전체"}
-            essential
-            name="a"
-            id="a"
             register={register}
           />
           <Select
@@ -94,6 +64,16 @@ function HeaderForm({ onSubmit }: Props) {
             ]}
             id="Y/N"
             name="Y/N"
+            register={register}
+          />
+          <CodeSelect
+            label="• 주요코드여부"
+            horizontal
+            codeType="TST"
+            placeholder={"* 전체"}
+            essential
+            name="a"
+            id="a"
             register={register}
           />
         </div>

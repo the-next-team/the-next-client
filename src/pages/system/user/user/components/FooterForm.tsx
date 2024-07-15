@@ -28,6 +28,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
     register,
     handleSubmit,
     setError,
+    watch,
     reset,
     clearErrors,
     formState: { errors, isSubmitting },
@@ -334,46 +335,55 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             <Checkbox
               label="개인정보조회"
               name={"checkboxes.checkbox1"}
+              value={watch("checkboxes.checkbox1")}
               register={register}
             />
             <Checkbox
               label="개인정보파기"
               name={"checkboxes.checkbox2"}
+              value={watch("checkboxes.checkbox2")}
               register={register}
             />
             <Checkbox
               label="책임자(팀장)"
               name={"checkboxes.checkbox3"}
+              value={watch("checkboxes.checkbox3")}
               register={register}
             />
             <Checkbox
               label="텔러(회계)"
               name={"checkboxes.checkbox4"}
+              value={watch("checkboxes.checkbox4")}
               register={register}
             />
             <Checkbox
               label="신용조회"
               name={"checkboxes.checkbox5"}
+              value={watch("checkboxes.checkbox5")}
               register={register}
             />
             <Checkbox
               label="엑셀"
               name={"checkboxes.checkbox6"}
+              value={watch("checkboxes.checkbox6")}
               register={register}
             />
             <Checkbox
               label="출력"
               name={"checkboxes.checkbox7"}
+              value={watch("checkboxes.checkbox7")}
               register={register}
             />
             <Checkbox
               label="팝업"
               name={"checkboxes.checkbox8"}
+              value={watch("checkboxes.checkbox8")}
               register={register}
             />
             <Checkbox
               label="이연부대비용"
               name={"checkboxes.checkbox9"}
+              value={watch("checkboxes.checkbox9")}
               register={register}
             />
           </div>

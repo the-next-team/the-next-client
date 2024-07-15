@@ -89,7 +89,7 @@ function CodeItemTable({ item, onClick }: Props) {
         name: "",
         fieldName: "",
         type: "data",
-        width: "220",
+        width: "80",
         styles: {
           textAlignment: "center",
         },
