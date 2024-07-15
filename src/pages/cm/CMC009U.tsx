@@ -3,7 +3,7 @@
  * 시스템 > 코드관리 > 코드매핑(vs채널플랫폼)
  * CMC009U
  */
-function MappingVsChannelPlatformPage() {
+function CMC009U() {
   return (
     <div>
       <p>코드매핑(vs채널플랫폼) 페이지 입니다.</p>
@@ -11,4 +11,4 @@ function MappingVsChannelPlatformPage() {
   );
 }
 
-export default MappingVsChannelPlatformPage;
+export default CMC009U;

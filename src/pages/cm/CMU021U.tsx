@@ -1,4 +1,4 @@
-function UserCreditInfoExcessiveQueryPage() {
+function CMU021U() {
   return (
     <div>
       <p>신용정보과다조회명세 페이지 입니다.</p>
@@ -6,4 +6,4 @@ function UserCreditInfoExcessiveQueryPage() {
   );
 }
 
-export default UserCreditInfoExcessiveQueryPage;
+export default CMU021U;

@@ -10,7 +10,7 @@ import { ITeam, TeamService } from "../../api/services/teamService";
 import FooterForm from "./components/teamComponents/FooterForm";
 import HeaderForm from "./components/teamComponents/HeaderForm";
 
-function Team() {
+function CMC002U() {
   const [teamList, setTeamList] = useState<ITeam[]>([]);
   const realgridElement = useRef<HTMLDivElement | null>(null);
   var dp = new LocalDataProvider(true);
@@ -229,4 +229,4 @@ function Team() {
   );
 }
 
-export default Team;
+export default CMC002U;

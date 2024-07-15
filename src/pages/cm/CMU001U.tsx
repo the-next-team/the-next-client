@@ -2,7 +2,7 @@ import FooterForm from "./components/userComponents/FooterForm";
 import HeaderForm from "./components/userComponents/HeaderForm";
 import TableConfig from "./components/userComponents/TableConfig";
 
-function User() {
+function CMU001U() {
   return (
     <div>
       <div className="flex flex-col gap-2 overflow-x-auto ">
@@ -33,4 +33,4 @@ function User() {
   );
 }
 
-export default User;
+export default CMU001U;

@@ -3,7 +3,7 @@
  * 시스템 > 기준관리(중앙회) > 부서(지점)
  * CMC007U
  */
-function BranchOfficePage() {
+function CMC007U() {
   return (
     <div>
       <p>부서(지점) 페이지 입니다.</p>
@@ -11,4 +11,4 @@ function BranchOfficePage() {
   );
 }
 
-export default BranchOfficePage;
+export default CMC007U;

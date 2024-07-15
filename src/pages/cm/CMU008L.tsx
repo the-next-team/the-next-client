@@ -1,4 +1,4 @@
-function CreditApprovalAuthorityPage() {
+function CMU008L() {
   return (
     <div>
       <p>신용심사승인전결기준 페이지 입니다.</p>
@@ -6,4 +6,4 @@ function CreditApprovalAuthorityPage() {
   );
 }
 
-export default CreditApprovalAuthorityPage;
+export default CMU008L;

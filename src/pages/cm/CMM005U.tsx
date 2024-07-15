@@ -3,7 +3,7 @@ import Button from "../../components/button/ExampleButton";
 import { useEffect, useRef } from "react";
 import FooterForm from "./components/FooterForm";
 
-function PermissionManagement() {
+function CMM005U() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
   var dp = new LocalDataProvider(true);
 
@@ -165,4 +165,4 @@ function PermissionManagement() {
   );
 }
 
-export default PermissionManagement;
+export default CMM005U;

@@ -1,4 +1,4 @@
-function NTreeDefaultCodePage() {
+function CMC021U() {
   return (
     <div>
       <p>nTree 기본코드 페이지 입니다.</p>
@@ -6,4 +6,4 @@ function NTreeDefaultCodePage() {
   );
 }
 
-export default NTreeDefaultCodePage;
+export default CMC021U;

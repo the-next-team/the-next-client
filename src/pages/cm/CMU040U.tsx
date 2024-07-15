@@ -1,4 +1,4 @@
-function InteroperableSystemPage() {
+function CMU040U() {
   return (
     <div>
       <p>이기종사번 페이지 입니다.</p>
@@ -6,4 +6,4 @@ function InteroperableSystemPage() {
   );
 }
 
-export default InteroperableSystemPage;
+export default CMU040U;

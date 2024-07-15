@@ -5,7 +5,7 @@
  */
 import Table from "./components/Table";
 
-function JobCodePage() {
+function CMC008U() {
   return (
     <div>
       {/* <Card> */}
@@ -21,4 +21,4 @@ function JobCodePage() {
   );
 }
 
-export default JobCodePage;
+export default CMC008U;

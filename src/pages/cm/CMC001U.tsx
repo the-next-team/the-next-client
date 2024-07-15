@@ -11,7 +11,7 @@ import Button from "../../components/button/ExampleButton";
 import HeaderForm from "./components/HeaderForm";
 import CodeTableFooter from "./components/CodeTableFooter";
 
-function CommonCodePage() {
+function CMC001U() {
   const [selected, setSelected] = useState<ICode | null>(null); // 선택된 코드
 
   return (
@@ -28,7 +28,7 @@ function CommonCodePage() {
       {/* 대분류 */}
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
         <div>
-          <div className="flex items-center space-x-2 text-base text-slate-900  dark:text-slate-300 rtl:space-x-reverse">
+          <div className="flex items-center space-x-2 text-base text-slate-900 dark:text-slate-300 rtl:space-x-reverse">
             <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
             <span>대분류코드</span>
           </div>
@@ -50,7 +50,7 @@ function CommonCodePage() {
 
         {/* 소분류 */}
         <div className="">
-          <div className="flex items-center space-x-2 text-base text-slate-900  dark:text-slate-300 rtl:space-x-reverse">
+          <div className="flex items-center space-x-2 text-base text-slate-900 dark:text-slate-300 rtl:space-x-reverse">
             <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
             <span>소분류코드</span>
           </div>
@@ -76,4 +76,4 @@ function CommonCodePage() {
   );
 }
 
-export default CommonCodePage;
+export default CMC001U;

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { MessageService } from "../../api/services/messageService";
 import MessageListTable from "./components/MessageListTable";
 
-function MessageListPage() {
+function CMN003L() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["messageList"],
     queryFn: () => {
@@ -30,4 +30,4 @@ function MessageListPage() {
   );
 }
 
-export default MessageListPage;
+export default CMN003L;

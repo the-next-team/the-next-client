@@ -3,7 +3,7 @@
  * 시스템 > 코드관리 > 심사거절사유코드
  * CMC020L
  */
-function RejectionReasonPage() {
+function CMC020L() {
   return (
     <div>
       <p>심사거절사유코드 페이지 입니다.</p>
@@ -11,4 +11,4 @@ function RejectionReasonPage() {
   );
 }
 
-export default RejectionReasonPage;
+export default CMC020L;
