@@ -1,3 +1,8 @@
+/**
+ * 권한관리 페이지
+ * 시스템 > 메뉴권한 > 권한관리
+ * CMM005U
+ */
 import { useEffect, useRef } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import Button from "../../../components/button/ExampleButton";
