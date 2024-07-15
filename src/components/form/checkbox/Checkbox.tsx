@@ -5,7 +5,7 @@ type Props = {
   className?: string;
   onChange?: () => void;
   register?: any;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Checkbox = ({
   label,
