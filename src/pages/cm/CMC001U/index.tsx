@@ -5,11 +5,11 @@
  */
 import { useState } from "react";
 import { ICode } from "../../../api/services/codeService";
-import CodeItemTable from "../../cm/components/CodeItemTable";
-import CodeTable from "../../cm/components/CodeTable";
-import CodeTableFooter from "../../cm/components/CodeTableFooter";
-import HeaderForm from "../../cm/components/HeaderForm";
+import CodeItemTable from "./components/CodeItemTable";
 import CodeItemTableFooter from "./components/CodeItemTableFooter";
+import CodeTable from "./components/CodeTable";
+import CodeTableFooter from "./components/CodeTableFooter";
+import HeaderForm from "./components/HeaderForm";
 
 function CMC001U() {
   const [selected, setSelected] = useState<ICode | null>(null); // 선택된 코드

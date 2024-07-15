@@ -1,21 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
-import { CodeService, ICode } from "../../../api/services/codeService";
-import useLoading from "../../../hooks/useLoading";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
+import {
+  CodeService,
+  ICode,
+  ICodeItem,
+} from "../../../../api/services/codeService";
 
 type Props = {
-  onClick: (item: ICode) => void;
+  item?: ICode | null;
+  onClick: (item: ICodeItem) => void;
 };
 
-function CodeTable({ onClick }: Props) {
+function CodeItemTable({ item, onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  const { showLoading, hideLoading } = useLoading();
-  const [items, setItems] = useState<ICode[]>([]); // 대분류
+  var dp = new LocalDataProvider(true);
+  const [items, setItems] = useState<ICodeItem[]>([]); // 대분류
 
   useEffect(() => {
     const container = realgridElement.current;
-    const dp = new LocalDataProvider(true);
+    dp = new LocalDataProvider(true);
     const gv = new GridView(container as any);
     gv.setEditOptions({
       editable: false,
@@ -24,7 +28,7 @@ function CodeTable({ onClick }: Props) {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "kind",
+        fieldName: "code",
         dataType: ValueType.TEXT,
       },
       {
@@ -79,27 +83,27 @@ function CodeTable({ onClick }: Props) {
         styles: {
           textAlignment: "center",
         },
+        header: "보기순서",
+      },
+      {
+        name: "",
+        fieldName: "",
+        type: "data",
+        width: "80",
+        styles: {
+          textAlignment: "center",
+        },
         header: "사용여부",
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "80",
+        width: "220",
         styles: {
           textAlignment: "center",
         },
-        header: "주요코드",
-      },
-      {
-        name: "",
-        fieldName: "",
-        type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "코드셋",
+        header: "등록일",
       },
       {
         name: "createdDate",
@@ -109,7 +113,7 @@ function CodeTable({ onClick }: Props) {
         styles: {
           textAlignment: "center",
         },
-        header: "생성일",
+        header: "변경일",
       },
     ]);
 
@@ -123,23 +127,26 @@ function CodeTable({ onClick }: Props) {
       console.log("onCellDblClicked");
     };
 
-    dp.setRows(items);
-
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
-  }, [items]);
+  }, [item]);
 
   useEffect(() => {
-    findAll();
-  }, []);
+    if (item) {
+      findAll();
+    } else {
+      setItems([]);
+    }
+  }, [item]);
 
   const findAll = async () => {
     try {
-      const response = await CodeService.getCode();
+      const response = await CodeService.getCodeByKind(item!.kind);
       if (response.status === ApiResponseStats.OK) {
+        dp.setRows(response.data);
         setItems(response.data);
       }
     } catch (errer) {}
@@ -153,4 +160,4 @@ function CodeTable({ onClick }: Props) {
   );
 }
 
-export default CodeTable;
+export default CodeItemTable;

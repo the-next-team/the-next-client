@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import CodeSelect from "../../../components/form/CodeSelect";
-import TextInput from "../../../components/form/TextInput";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../../components/button/ExampleButton";
+import TextInput from "../../../../components/form/TextInput";
 
 type FormValues = {
   a: string;
@@ -89,10 +88,10 @@ function FooterForm({ initialValues, onSubmit }: Props) {
       </div>
       <div className="flex justify-end mt-2">
         <div className="flex gap-2 mb-2">
-          <Button text="초기화" className="btn-primary btn-sm w-12" />
-          <Button text="등록" className="btn-primary btn-sm w-12" />
-          <Button text="수정" className="btn-primary btn-sm w-12" disabled />
-          <Button text="삭제" className="btn-primary btn-sm w-12" disabled />
+          <Button text="초기화" className="w-12 btn-primary btn-sm" />
+          <Button text="등록" className="w-12 btn-primary btn-sm" />
+          <Button text="수정" className="w-12 btn-primary btn-sm" disabled />
+          <Button text="삭제" className="w-12 btn-primary btn-sm" disabled />
         </div>
       </div>
     </form>

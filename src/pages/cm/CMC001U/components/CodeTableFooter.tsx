@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
-import Button from "../../../components/button/ExampleButton";
-import Radio from "../../../components/form/Radio";
-import RadioGroup from "../../../components/form/RadioGroup";
-import TextInput from "../../../components/form/TextInput";
+import Button from "../../../../components/button/ExampleButton";
+import Radio from "../../../../components/form/Radio";
+import RadioGroup from "../../../../components/form/RadioGroup";
+import TextInput from "../../../../components/form/TextInput";
 
 type FormValues = {
   a: string;

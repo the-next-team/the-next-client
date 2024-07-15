@@ -1,20 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import { CodeService, IJobCode } from "../../../api/services/codeService";
-import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
+import { CodeService, ICode } from "../../../../api/services/codeService";
+import useLoading from "../../../../hooks/useLoading";
 
 type Props = {
-  onClick: (item: IJobCode) => void;
+  onClick: (item: ICode) => void;
 };
 
-function Table({ onClick }: Props) {
+function CodeTable({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  const [items, setItems] = useState<IJobCode[]>([]);
-  var dp = new LocalDataProvider(true);
+  const { showLoading, hideLoading } = useLoading();
+  const [items, setItems] = useState<ICode[]>([]); // 대분류
 
   useEffect(() => {
     const container = realgridElement.current;
-    dp = new LocalDataProvider(true);
+    const dp = new LocalDataProvider(true);
     const gv = new GridView(container as any);
     gv.setEditOptions({
       editable: false,
@@ -23,11 +24,15 @@ function Table({ onClick }: Props) {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "jobCode",
+        fieldName: "kind",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "jobName",
+        fieldName: "name",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "useYn",
         dataType: ValueType.TEXT,
       },
       {
@@ -37,15 +42,15 @@ function Table({ onClick }: Props) {
     ]);
     gv.setColumns([
       {
-        name: "jobCode",
-        fieldName: "jobCode",
+        name: "kind",
+        fieldName: "kind",
         type: "data",
         width: "80",
         styles: {
           textAlignment: "center",
         },
         header: {
-          text: "직업코드",
+          text: "코드",
           showTooltip: false,
         },
         renderer: {
@@ -54,47 +59,47 @@ function Table({ onClick }: Props) {
         },
       },
       {
-        name: "jobName",
-        fieldName: "jobName",
+        name: "name",
+        fieldName: "name",
         type: "data",
-        width: "300",
+        width: "150",
         styles: {
-          textAlignment: "left",
+          textAlignment: "center",
         },
         header: {
-          text: "직업명",
+          text: "코드명",
           showTooltip: false,
         },
       },
       {
-        name: "jobLevel1",
-        fieldName: "jobLevel1",
+        name: "useYn",
+        fieldName: "useYn",
         type: "data",
-        width: "100",
+        width: "80",
         styles: {
           textAlignment: "center",
         },
-        header: "직업등급1",
+        header: "사용여부",
       },
       {
-        name: "jobLevel2",
-        fieldName: "jobLevel2",
+        name: "",
+        fieldName: "",
         type: "data",
-        width: "100",
+        width: "80",
         styles: {
           textAlignment: "center",
         },
-        header: "직업등급2",
+        header: "주요코드",
       },
       {
-        name: "acctJobCode",
-        fieldName: "acctJobCode",
+        name: "",
+        fieldName: "",
         type: "data",
-        width: "100",
+        width: "80",
         styles: {
           textAlignment: "center",
         },
-        header: "계정계 직업코드",
+        header: "코드셋",
       },
       {
         name: "createdDate",
@@ -110,6 +115,7 @@ function Table({ onClick }: Props) {
 
     gv.onCellClicked = (grid, data) => {
       if (data.itemIndex) {
+        onClick(items[data.itemIndex]);
       }
     };
 
@@ -132,7 +138,7 @@ function Table({ onClick }: Props) {
 
   const findAll = async () => {
     try {
-      const response = await CodeService.getJobCode();
+      const response = await CodeService.getCode();
       if (response.status === ApiResponseStats.OK) {
         setItems(response.data);
       }
@@ -147,4 +153,4 @@ function Table({ onClick }: Props) {
   );
 }
 
-export default Table;
+export default CodeTable;
