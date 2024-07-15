@@ -19,7 +19,7 @@ function useMenu() {
       // 임시 경로 세팅
       data.forEach((item) => {
         item.items?.forEach((i) => {
-          if (!i?.url) {
+          if (!i.items.length && !i?.url) {
             i.url = uuidv4();
           }
           i.items?.forEach((m) => {
@@ -60,6 +60,26 @@ function useMenu() {
             } else if (m.programId === "CMC005L") {
               // 기준관리(중앙회) -> 영업일
               m.url = "system/standardManagement/businessDay/BusinessDayPage";
+            } else if (m.programId === "CMC003U") {
+              // 기준관리 -> 접수채널
+              m.url =
+                "system/standardManagement/submissionChannel/SubmissionChannelPage";
+            } else if (m.programId === "CRA005U") {
+              // 기준관리 -> 신용심사상품
+              m.url =
+                "system/standardManagement/creditProduct/CreditProductPage";
+            } else if (m.programId === "CRA101U") {
+              // 기준관리 -> 신용심사한도조회기준
+              m.url =
+                "system/standardManagement/creditLimitInquiry/CreditLimitInquiryPage";
+            } else if (m.programId === "CMU008L") {
+              // 기준관리 -> 신용심사승인전결기준
+              m.url =
+                "system/standardManagement/creditApprovalAuthority/CreditApprovalAuthorityPage";
+            } else if (m.programId === "CMC040U") {
+              // 기준관리 -> 소득구분요율관리
+              m.url =
+                "system/standardManagement/incomeCategoryRate/IncomeCategoryRatePage";
             } else if (m.programId === "CMM001U") {
               // 메뉴권한 -> 메뉴관리
               m.url = "preferences/menu/MenuManagement";
