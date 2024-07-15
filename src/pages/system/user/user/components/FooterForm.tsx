@@ -28,6 +28,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
     register,
     handleSubmit,
     setError,
+    watch,
     reset,
     clearErrors,
     formState: { errors, isSubmitting },
@@ -334,16 +335,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             <Checkbox
               label="개인정보조회"
               name={"checkboxes.checkbox1"}
+              value={watch("checkboxes.checkbox1")}
               register={register}
             />
             <Checkbox
               label="개인정보파기"
               name={"checkboxes.checkbox2"}
+              value={watch("checkboxes.checkbox2")}
               register={register}
             />
             <Checkbox
               label="책임자(팀장)"
               name={"checkboxes.checkbox3"}
+              value={watch("checkboxes.checkbox3")}
               register={register}
             />
             <Checkbox

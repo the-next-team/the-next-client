@@ -1,48 +1,61 @@
+import CheckImage from "../../../assets/images/icon/ck-white.svg";
+
 type Props = {
-  label?: string;
-  name?: string;
+  id?: string;
   disabled?: boolean;
-  className?: string;
-  onChange?: () => void;
+  label?: string;
+  value: boolean;
+  name?: string;
   register?: any;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  activeClass?: string;
+};
 
 const Checkbox = ({
-  label,
+  id,
   disabled = false,
-  name,
+  label,
+  value = false,
   register,
-  className,
-  onChange,
-  ...props
+  name,
+  activeClass = "ring-black-500  bg-slate-900 dark:bg-slate-700 dark:ring-slate-700 ",
 }: Props) => {
   return (
-    <div className="flex items-center justify-center gap-2">
+    <label
+      className={`flex items-center ${
+        disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer"
+      }`}
+      htmlFor={id}
+    >
       <input
-        id={label}
         type="checkbox"
+        className="hidden"
+        {...register(name)}
+        name={name}
+        id={id}
         disabled={disabled}
-        className={`${className} ${
-          disabled
-            ? "cursor-default bg-gray-100 checked:bg-gray-400"
-            : "cursor-pointer bg-custom-gray-100 checked:bg-custom-black"
-        } select-none duration-100 peer appearance-none w-4 h-4 checked:bg-ck-white rounded-sm bg-no-repeat bg-center`}
-        {...props}
       />
-      {label && (
-        <label
-          htmlFor={label}
-          {...register(name)}
-          className={`${
-            disabled
-              ? "cursor-default peer-checked:text-gray-400 text-gray-300"
-              : "cursor-pointer peer-checked:text-custom-black text-custom-gray-200"
-          } duration-100`}
-        >
-          <p className="text-sm select-none">{label}</p>
-        </label>
-      )}
-    </div>
+      <span
+        className={`h-4 w-4 border flex-none border-slate-100 dark:border-slate-800 rounded
+        inline-flex mr-3 rtl:ml-3 relative transition-all duration-150
+        ${
+          value
+            ? activeClass + " ring-2 ring-offset-2 dark:ring-offset-slate-800 "
+            : "bg-slate-100 dark:bg-slate-600 dark:border-slate-600"
+        }
+        `}
+      >
+        {value && (
+          <img
+            src={CheckImage}
+            alt=""
+            className="h-[10px] w-[10px] block m-auto"
+          />
+        )}
+      </span>
+      <span className="text-sm leading-6 capitalize text-slate-500 dark:text-slate-400">
+        {label}
+      </span>
+    </label>
   );
 };
 
