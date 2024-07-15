@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import { ApiResponseStats } from "../../../../../api/models/common/apiResponseStats";
 import { CodeService, ICode } from "../../../../../api/services/codeService";
 import useLoading from "../../../../../hooks/useLoading";
-import { ApiResponseStats } from "../../../../../api/models/common/apiResponseStats";
 
 type Props = {
   onClick: (item: ICode) => void;
@@ -138,9 +138,7 @@ function CodeTable({ onClick }: Props) {
 
   const findAll = async () => {
     try {
-      showLoading();
       const response = await CodeService.getCode();
-      hideLoading();
       if (response.status === ApiResponseStats.OK) {
         setItems(response.data);
       }
