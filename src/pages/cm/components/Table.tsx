@@ -1,21 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
-import {
-  CodeService,
-  ICode,
-  ICodeItem,
-} from "../../../../../api/services/codeService";
-import { ApiResponseStats } from "../../../../../api/models/common/apiResponseStats";
+import { CodeService, IJobCode } from "../../../api/services/codeService";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 
 type Props = {
-  item?: ICode | null;
-  onClick: (item: ICodeItem) => void;
+  onClick: (item: IJobCode) => void;
 };
 
-function CodeItemTable({ item, onClick }: Props) {
+function Table({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
+  const [items, setItems] = useState<IJobCode[]>([]);
   var dp = new LocalDataProvider(true);
-  const [items, setItems] = useState<ICodeItem[]>([]); // 대분류
 
   useEffect(() => {
     const container = realgridElement.current;
@@ -28,15 +23,11 @@ function CodeItemTable({ item, onClick }: Props) {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "jobCode",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
-        dataType: ValueType.TEXT,
-      },
-      {
-        fieldName: "useYn",
+        fieldName: "jobName",
         dataType: ValueType.TEXT,
       },
       {
@@ -46,15 +37,15 @@ function CodeItemTable({ item, onClick }: Props) {
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "jobCode",
+        fieldName: "jobCode",
         type: "data",
         width: "80",
         styles: {
           textAlignment: "center",
         },
         header: {
-          text: "코드",
+          text: "직업코드",
           showTooltip: false,
         },
         renderer: {
@@ -63,47 +54,47 @@ function CodeItemTable({ item, onClick }: Props) {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "jobName",
+        fieldName: "jobName",
         type: "data",
-        width: "150",
+        width: "300",
         styles: {
-          textAlignment: "center",
+          textAlignment: "left",
         },
         header: {
-          text: "코드명",
+          text: "직업명",
           showTooltip: false,
         },
       },
       {
-        name: "useYn",
-        fieldName: "useYn",
+        name: "jobLevel1",
+        fieldName: "jobLevel1",
         type: "data",
-        width: "80",
+        width: "100",
         styles: {
           textAlignment: "center",
         },
-        header: "보기순서",
+        header: "직업등급1",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "jobLevel2",
+        fieldName: "jobLevel2",
         type: "data",
-        width: "80",
+        width: "100",
         styles: {
           textAlignment: "center",
         },
-        header: "사용여부",
+        header: "직업등급2",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "acctJobCode",
+        fieldName: "acctJobCode",
         type: "data",
-        width: "220",
+        width: "100",
         styles: {
           textAlignment: "center",
         },
-        header: "등록일",
+        header: "계정계 직업코드",
       },
       {
         name: "createdDate",
@@ -113,13 +104,12 @@ function CodeItemTable({ item, onClick }: Props) {
         styles: {
           textAlignment: "center",
         },
-        header: "변경일",
+        header: "생성일",
       },
     ]);
 
     gv.onCellClicked = (grid, data) => {
       if (data.itemIndex) {
-        onClick(items[data.itemIndex]);
       }
     };
 
@@ -127,26 +117,23 @@ function CodeItemTable({ item, onClick }: Props) {
       console.log("onCellDblClicked");
     };
 
+    dp.setRows(items);
+
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
-  }, [item]);
+  }, [items]);
 
   useEffect(() => {
-    if (item) {
-      findAll();
-    } else {
-      setItems([]);
-    }
-  }, [item]);
+    findAll();
+  }, []);
 
   const findAll = async () => {
     try {
-      const response = await CodeService.getCodeByKind(item!.kind);
+      const response = await CodeService.getJobCode();
       if (response.status === ApiResponseStats.OK) {
-        dp.setRows(response.data);
         setItems(response.data);
       }
     } catch (errer) {}
@@ -160,4 +147,4 @@ function CodeItemTable({ item, onClick }: Props) {
   );
 }
 
-export default CodeItemTable;
+export default Table;

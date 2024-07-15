@@ -12,6 +12,19 @@ function useMenu() {
   const activeSubmenuReset = useResetRecoilState(activeSubmenuState);
   const tabMenuReset = useResetRecoilState(tabMenuState);
 
+  function formatString(url: string) {
+    const regex = /^(\w+)::([A-Z0-9]+)\.xfdl$/;
+    const match = url.match(regex);
+
+    if (match) {
+      const part1 = match[1];
+      const part2 = match[2];
+      return `${part1}/${part2}`;
+    } else {
+      return "";
+    }
+  }
+
   const fetchMenu = async () => {
     try {
       const response = await MenuService.findAll();
@@ -23,117 +36,118 @@ function useMenu() {
             i.url = uuidv4();
           }
           i.items?.forEach((m) => {
-            if (m.programId === "HMM001L") {
-              // =================== [HOME] ===================
-              // 메인 -> 메인화면
-              m.url = "dashboard/Dashboard";
-            } else if (m.programId === "CMC021U") {
-              // =================== [시스템] ===================
-              // 코드관리 -> nTree기본코드
-              m.url =
-                "system/codeManagement/nTreeDefaultCode/NTreeDefaultCodePage";
-            } else if (m.programId === "CMC001U") {
-              // 코드관리 -> 공통코드
-              m.url = "system/codeManagement/commonCode/CommonCodePage";
-            } else if (m.programId === "CMC020L") {
-              // 코드관리 -> 심사거절사유코드
-              m.url =
-                "system/codeManagement/rejectionReason/RejectionReasonPage";
-            } else if (m.programId === "CMC009U") {
-              // 코드관리 -> 코드매핑(vs채널플랫폼)
-              m.url =
-                "system/codeManagement/mappingVsChannelPlatform/MappingVsChannelPlatformPage";
-            } else if (m.programId === "CMC010U") {
-              // 코드관리 -> 표준산업분류(국가)
-              m.url =
-                "system/codeManagement/nationalSICCode/NationalSICCodePage";
-            } else if (m.programId === "CMC007U") {
-              // 기준관리(중앙회) -> 부서(지점)
-              m.url = "system/standardManagement/branchOffice/BranchOfficePage";
-            } else if (m.programId === "CMU040U") {
-              // 기준관리(중앙회) -> 이기종사번
-              m.url =
-                "system/standardManagement/interoperableSystem/InteroperableSystemPage";
-            } else if (m.programId === "CMC008U") {
-              // 기준관리(중앙회) -> 코드매핑(vs중앙회직업코드)
-              m.url = "system/standardManagement/jobCode/JobCodePage";
-            } else if (m.programId === "CMC005L") {
-              // 기준관리(중앙회) -> 영업일
-              m.url = "system/standardManagement/businessDay/BusinessDayPage";
-            } else if (m.programId === "CMC003U") {
-              // 기준관리 -> 접수채널
-              m.url =
-                "system/standardManagement/submissionChannel/SubmissionChannelPage";
-            } else if (m.programId === "CRA005U") {
-              // 기준관리 -> 신용심사상품
-              m.url =
-                "system/standardManagement/creditProduct/CreditProductPage";
-            } else if (m.programId === "CRA101U") {
-              // 기준관리 -> 신용심사한도조회기준
-              m.url =
-                "system/standardManagement/creditLimitInquiry/CreditLimitInquiryPage";
-            } else if (m.programId === "CMU008L") {
-              // 기준관리 -> 신용심사승인전결기준
-              m.url =
-                "system/standardManagement/creditApprovalAuthority/CreditApprovalAuthorityPage";
-            } else if (m.programId === "CMC040U") {
-              // 기준관리 -> 소득구분요율관리
-              m.url =
-                "system/standardManagement/incomeCategoryRate/IncomeCategoryRatePage";
-            } else if (m.programId === "CMM001U") {
-              // 메뉴권한 -> 메뉴관리
-              m.url = "preferences/menu/MenuManagement";
-            } else if (m.programId === "CMM002U") {
-              // 메뉴권한 -> 화면관리
-              m.url = "screen/ScreenManagement";
-            } else if (m.programId === "CMM005U") {
-              // 메뉴권한 -> 권한관리
-              m.url = "system/menuPermissions/PermissionManagement";
-            } else if (m.programId === "CMC002U") {
-              // 사용자 -> 팀(파트)
-              m.url = "system/user/team/Team";
-            } else if (m.programId === "CMU001U") {
-              // 사용자 -> 사용자
-              m.url = "system/user/user/User";
-            } else if (m.programId === "CMU011U") {
-              // 사용자 -> 사용자신용조회권한
-              m.url =
-                "system/user/creditInquiryAuthority/CreditInquiryAuthorityPage";
-            } else if (m.programId === "CML001L") {
-              // 이력조회 -> 사용자로그인이력
-              m.url = "system/employmentHistory/userLogin/UserLoginPage";
-            } else if (m.programId === "CML002L") {
-              // 이력조회 -> 사용자화면접근이력
-              m.url =
-                "system/employmentHistory/userScreenAccess/UserScreenAccessPage";
-            } else if (m.programId === "CMU001TH") {
-              // 이력조회 -> 사용자정보변경이력
-              m.url =
-                "system/employmentHistory/userInfoModification/UserInfoModificationPage";
-            } else if (m.programId === "CMU011H") {
-              // 이력조회 -> 사용자신용조회권한변경이력
-              m.url =
-                "system/employmentHistory/userCreditChkPermission/UserCreditChkPermissionPage";
-            } else if (m.programId === "CMU021U") {
-              // 이력조회 -> 신용정보과다조회명세
-              m.url =
-                "system/employmentHistory/userCreditInfoExcessiveQuery/UserCreditInfoExcessiveQueryPage";
-            } else if (m.programId === "CML010L") {
-              // 이력조회 -> 엑셀다운로드이력
-              m.url =
-                "system/employmentHistory/excelDownload/ExcelDownloadPage";
-            } else if (m.programId === "CML040L") {
-              // 이력조회 -> 개인정보식별조회이력
-              m.url =
-                "system/employmentHistory/personalInfoIdentificationQuery/PersonalInfoIdentificationQueryPage";
-            } else if (m.programId === "CML050L") {
-              // 이력조회 -> 동기화처리이력
-              m.url =
-                "system/employmentHistory/syncProcessing/SyncProcessingPage";
-            } else if (m.programId === "CMN003L") {
-              // 전문관리 -> 전문처리이력
-              m.url = "system/message/MessageListPage";
-            }
+            m.url = formatString(m.url ?? "");
+            // if (m.programId === "HMM001L") {
+            //   // =================== [HOME] ===================
+            //   // 메인 -> 메인화면
+            //   m.url = "dashboard/Dashboard";
+            // } else if (m.programId === "CMC021U") {
+            //   // =================== [시스템] ===================
+            //   // 코드관리 -> nTree기본코드
+            //   m.url =
+            //     "system/codeManagement/nTreeDefaultCode/NTreeDefaultCodePage";
+            // } else if (m.programId === "CMC001U") {
+            //   // 코드관리 -> 공통코드
+            //   m.url = "system/codeManagement/commonCode/CommonCodePage";
+            // } else if (m.programId === "CMC020L") {
+            //   // 코드관리 -> 심사거절사유코드
+            //   m.url =
+            //     "system/codeManagement/rejectionReason/RejectionReasonPage";
+            // } else if (m.programId === "CMC009U") {
+            //   // 코드관리 -> 코드매핑(vs채널플랫폼)
+            //   m.url =
+            //     "system/codeManagement/mappingVsChannelPlatform/MappingVsChannelPlatformPage";
+            // } else if (m.programId === "CMC010U") {
+            //   // 코드관리 -> 표준산업분류(국가)
+            //   m.url =
+            //     "system/codeManagement/nationalSICCode/NationalSICCodePage";
+            // } else if (m.programId === "CMC007U") {
+            //   // 기준관리(중앙회) -> 부서(지점)
+            //   m.url = "system/standardManagement/branchOffice/BranchOfficePage";
+            // } else if (m.programId === "CMU040U") {
+            //   // 기준관리(중앙회) -> 이기종사번
+            //   m.url =
+            //     "system/standardManagement/interoperableSystem/InteroperableSystemPage";
+            // } else if (m.programId === "CMC008U") {
+            //   // 기준관리(중앙회) -> 코드매핑(vs중앙회직업코드)
+            //   m.url = "system/standardManagement/jobCode/JobCodePage";
+            // } else if (m.programId === "CMC005L") {
+            //   // 기준관리(중앙회) -> 영업일
+            //   m.url = "system/standardManagement/businessDay/BusinessDayPage";
+            // } else if (m.programId === "CMC003U") {
+            //   // 기준관리 -> 접수채널
+            //   m.url =
+            //     "system/standardManagement/submissionChannel/SubmissionChannelPage";
+            // } else if (m.programId === "CRA005U") {
+            //   // 기준관리 -> 신용심사상품
+            //   m.url =
+            //     "system/standardManagement/creditProduct/CreditProductPage";
+            // } else if (m.programId === "CRA101U") {
+            //   // 기준관리 -> 신용심사한도조회기준
+            //   m.url =
+            //     "system/standardManagement/creditLimitInquiry/CreditLimitInquiryPage";
+            // } else if (m.programId === "CMU008L") {
+            //   // 기준관리 -> 신용심사승인전결기준
+            //   m.url =
+            //     "system/standardManagement/creditApprovalAuthority/CreditApprovalAuthorityPage";
+            // } else if (m.programId === "CMC040U") {
+            //   // 기준관리 -> 소득구분요율관리
+            //   m.url =
+            //     "system/standardManagement/incomeCategoryRate/IncomeCategoryRatePage";
+            // } else if (m.programId === "CMM001U") {
+            //   // 메뉴권한 -> 메뉴관리
+            //   m.url = "preferences/menu/MenuManagement";
+            // } else if (m.programId === "CMM002U") {
+            //   // 메뉴권한 -> 화면관리
+            //   m.url = "screen/ScreenManagement";
+            // } else if (m.programId === "CMM005U") {
+            //   // 메뉴권한 -> 권한관리
+            //   m.url = "system/menuPermissions/PermissionManagement";
+            // } else if (m.programId === "CMC002U") {
+            //   // 사용자 -> 팀(파트)
+            //   m.url = "system/user/team/Team";
+            // } else if (m.programId === "CMU001U") {
+            //   // 사용자 -> 사용자
+            //   m.url = "system/user/user/User";
+            // } else if (m.programId === "CMU011U") {
+            //   // 사용자 -> 사용자신용조회권한
+            //   m.url =
+            //     "system/user/creditInquiryAuthority/CreditInquiryAuthorityPage";
+            // } else if (m.programId === "CML001L") {
+            //   // 이력조회 -> 사용자로그인이력
+            //   m.url = "system/employmentHistory/userLogin/UserLoginPage";
+            // } else if (m.programId === "CML002L") {
+            //   // 이력조회 -> 사용자화면접근이력
+            //   m.url =
+            //     "system/employmentHistory/userScreenAccess/UserScreenAccessPage";
+            // } else if (m.programId === "CMU001TH") {
+            //   // 이력조회 -> 사용자정보변경이력
+            //   m.url =
+            //     "system/employmentHistory/userInfoModification/UserInfoModificationPage";
+            // } else if (m.programId === "CMU011H") {
+            //   // 이력조회 -> 사용자신용조회권한변경이력
+            //   m.url =
+            //     "system/employmentHistory/userCreditChkPermission/UserCreditChkPermissionPage";
+            // } else if (m.programId === "CMU021U") {
+            //   // 이력조회 -> 신용정보과다조회명세
+            //   m.url =
+            //     "system/employmentHistory/userCreditInfoExcessiveQuery/UserCreditInfoExcessiveQueryPage";
+            // } else if (m.programId === "CML010L") {
+            //   // 이력조회 -> 엑셀다운로드이력
+            //   m.url =
+            //     "system/employmentHistory/excelDownload/ExcelDownloadPage";
+            // } else if (m.programId === "CML040L") {
+            //   // 이력조회 -> 개인정보식별조회이력
+            //   m.url =
+            //     "system/employmentHistory/personalInfoIdentificationQuery/PersonalInfoIdentificationQueryPage";
+            // } else if (m.programId === "CML050L") {
+            //   // 이력조회 -> 동기화처리이력
+            //   m.url =
+            //     "system/employmentHistory/syncProcessing/SyncProcessingPage";
+            // } else if (m.programId === "CMN003L") {
+            //   // 전문관리 -> 전문처리이력
+            //   m.url = "system/message/MessageListPage";
+            // }
           });
         });
       });
