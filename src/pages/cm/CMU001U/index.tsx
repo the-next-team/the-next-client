@@ -1,3 +1,8 @@
+/**
+ * 사용자 페이지
+ * 시스템 > 사용자 > 사용자
+ * CMU001U
+ */
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
 import TableConfig from "./components/TableConfig";
