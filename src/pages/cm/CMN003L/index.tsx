@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { MessageService } from "../../api/services/messageService";
+import { MessageService } from "../../../api/services/messageService";
 import MessageListTable from "./components/MessageListTable";
 
 function CMN003L() {
