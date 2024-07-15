@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import CodeSelect from "../../../../../components/form/CodeSelect";
 import TextInput from "../../../../../components/form/TextInput";
 import Button from "../../../../../components/button/ExampleButton";
+import Checkbox from "../../../../../components/checkbox/Checkbox";
+import { useState } from "react";
 
 type FormValues = {
   a: string;
@@ -34,6 +36,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
       a: "",
     },
   });
+
+  const [checked, setChecked] = useState(true);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
@@ -315,16 +319,36 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             register={register}
           />
         </div>
-        <TextInput
-          label="권한설정"
-          type="text"
-          horizontal
-          placeholder=""
-          className="h-12 mb-1"
-          name="e"
-          id="e"
-          register={register}
-        />
+        <div className="ml-[64px] p-1 text-[12px] font-medium flex flex-row items-center">
+          권한설정
+          <div className="mx-2">
+            <Checkbox
+              label="개인정보조회"
+              value={checked}
+              onChange={() => setChecked(!checked)}
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 ">
+          <CodeSelect
+            label="제한상태"
+            horizontal
+            codeType="TST"
+            placeholder={"* 선택"}
+            name=""
+            id=""
+            register={register}
+          />
+          <CodeSelect
+            label="신용정보관리권한"
+            horizontal
+            codeType="TST"
+            placeholder={"* 선택"}
+            name=""
+            id=""
+            register={register}
+          />
+        </div>
       </div>
       <div className="flex justify-end mt-2">
         <div className="flex gap-2 mb-2">
