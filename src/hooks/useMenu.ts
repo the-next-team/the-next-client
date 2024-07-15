@@ -91,10 +91,14 @@ function useMenu() {
               m.url = "system/menuPermissions/PermissionManagement";
             } else if (m.programId === "CMC002U") {
               // 사용자 -> 팀(파트)
-              m.url = "preferences/team/Team";
+              m.url = "system/user/team/Team";
             } else if (m.programId === "CMU001U") {
               // 사용자 -> 사용자
-              m.url = "preferences/user/User";
+              m.url = "system/user/user/User";
+            } else if (m.programId === "CMU011U") {
+              // 사용자 -> 사용자신용조회권한
+              m.url =
+                "system/user/creditInquiryAuthority/CreditInquiryAuthorityPage";
             } else if (m.programId === "CMN003L") {
               // 전문관리 -> 전문처리이력
               m.url = "system/message/MessageListPage";

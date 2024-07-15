@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import Button from "../../../../components/button/ExampleButton";
-import CodeSelect from "../../../../components/form/CodeSelect";
-import TextInput from "../../../../components/form/TextInput";
+import Button from "../../../../../components/button/ExampleButton";
+import CodeSelect from "../../../../../components/form/CodeSelect";
+import TextInput from "../../../../../components/form/TextInput";
 
 type FormValues = {
   a: string;
@@ -31,8 +31,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      a: ''
-    }
+      a: "",
+    },
   });
 
   return (
