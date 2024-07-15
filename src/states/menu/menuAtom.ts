@@ -7,9 +7,11 @@ const { persistAtom } = recoilPersist();
 export const menuState = atom<IMenu[]>({
   key: "menuState",
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const menuSelectedState = atom<IMenu | null>({
   key: "menuSelectedState",
   default: null,
+  effects_UNSTABLE: [persistAtom],
 });
