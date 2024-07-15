@@ -51,7 +51,7 @@ function HeaderForm({ onSubmit }: Props) {
             register={register}
           />
           <TextInput
-            label="프로그램ID"
+            label="• 프로그램ID"
             type="text"
             horizontal
             name="b"
@@ -60,7 +60,7 @@ function HeaderForm({ onSubmit }: Props) {
             register={register}
           />
           <TextInput
-            label="프로그램명"
+            label="• 프로그램명"
             type="text"
             horizontal
             name="b"
@@ -79,7 +79,7 @@ function HeaderForm({ onSubmit }: Props) {
             register={register}
           />
           <Select
-            label="사용여부"
+            label="• 사용여부"
             placeholder={"* 전체"}
             horizontal
             options={[
