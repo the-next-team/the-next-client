@@ -1,9 +1,8 @@
-import Button from "../../components/button/ExampleButton";
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
 import Table from "./components/Table";
 
-function ScreenManagement() {
+function CMM002U() {
   return (
     <div>
       <div className="flex flex-col gap-2 overflow-x-auto">
@@ -34,4 +33,4 @@ function ScreenManagement() {
   );
 }
 
-export default ScreenManagement;
+export default CMM002U;

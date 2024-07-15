@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import Select from "../../../components/form/Select";
-import Button from "../../../components/button/ExampleButton";
-import CodeSelect from "../../../components/form/CodeSelect";
-import TextInput from "../../../components/form/TextInput";
+import Select from "../../../../components/form/Select";
+import Button from "../../../../components/button/ExampleButton";
+import CodeSelect from "../../../../components/form/CodeSelect";
+import TextInput from "../../../../components/form/TextInput";
 
 type FormValues = {
   a: string;
@@ -29,7 +29,7 @@ function HeaderForm({ onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
-        <div className="pr-10 grid grid-cols-2 gap-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 gap-3 pr-10 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <CodeSelect
             label="• 시스템"
             horizontal
