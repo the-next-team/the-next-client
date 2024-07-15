@@ -38,6 +38,12 @@ function FooterForm({ initialValues, onSubmit }: Props) {
         checkbox1: false,
         checkbox2: false,
         checkbox3: false,
+        checkbox4: false,
+        checkbox5: false,
+        checkbox6: false,
+        checkbox7: false,
+        checkbox8: false,
+        checkbox9: false,
       },
     },
   });
@@ -326,18 +332,48 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           권한설정
           <div className="flex gap-2 mx-2">
             <Checkbox
-              label="체크1"
+              label="개인정보조회"
               name={"checkboxes.checkbox1"}
               register={register}
             />
             <Checkbox
-              label="체크2"
+              label="개인정보파기"
               name={"checkboxes.checkbox2"}
               register={register}
             />
             <Checkbox
-              label="체크3"
+              label="책임자(팀장)"
               name={"checkboxes.checkbox3"}
+              register={register}
+            />
+            <Checkbox
+              label="텔러(회계)"
+              name={"checkboxes.checkbox4"}
+              register={register}
+            />
+            <Checkbox
+              label="신용조회"
+              name={"checkboxes.checkbox5"}
+              register={register}
+            />
+            <Checkbox
+              label="엑셀"
+              name={"checkboxes.checkbox6"}
+              register={register}
+            />
+            <Checkbox
+              label="출력"
+              name={"checkboxes.checkbox7"}
+              register={register}
+            />
+            <Checkbox
+              label="팝업"
+              name={"checkboxes.checkbox8"}
+              register={register}
+            />
+            <Checkbox
+              label="이연부대비용"
+              name={"checkboxes.checkbox9"}
               register={register}
             />
           </div>
