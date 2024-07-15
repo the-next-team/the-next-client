@@ -359,7 +359,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             <Checkbox
               label="신용조회"
               name={"checkboxes.checkbox5"}
-              value={watch("checkboxes.checkbox6")}
+              value={watch("checkboxes.checkbox5")}
               register={register}
             />
             <Checkbox
