@@ -64,20 +64,23 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
             id="b"
             register={register}
           />
-          <Radio
-            label="Yes"
-            name="x"
-            value="A"
-            checked={value === "A"}
-            onChange={handleChange}
-          />
-          <Radio
-            label="No"
-            name="x"
-            value="B"
-            checked={value === "B"}
-            onChange={handleChange}
-          />
+          <div className="flex gap-2 items-center p-1 ml-[64px]">
+            <span className="font-medium text-[12px]">사용여부</span>
+            <Radio
+              label="Yes"
+              name="x"
+              value="A"
+              checked={value === "A"}
+              onChange={handleChange}
+            />
+            <Radio
+              label="No"
+              name="x"
+              value="B"
+              checked={value === "B"}
+              onChange={handleChange}
+            />
+          </div>
         </div>
         <TextInput
           label="권한설정"
