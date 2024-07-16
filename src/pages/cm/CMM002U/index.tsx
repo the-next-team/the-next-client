@@ -1,6 +1,6 @@
 /**
- * 화면관리 페이지
- * 시스템 > 메뉴권한 > 화면관리
+ * 프로그램관리 페이지
+ * 시스템 > 메뉴권한 > 프로그램관리
  * CMM002U
  */
 import FooterForm from "./components/FooterForm";
