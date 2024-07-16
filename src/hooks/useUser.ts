@@ -21,9 +21,7 @@ function useUser() {
   };
 
   const logout = () => {
-    localStorage.removeItem(storageKey.user);
-    localStorage.removeItem(storageKey.accessToken);
-    localStorage.removeItem(storageKey.refreshToken);
+    localStorage.clear();
     _setUser(null);
     navigate("/login", {
       replace: true,
