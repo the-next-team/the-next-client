@@ -1,3 +1,8 @@
+/**
+ * 배치등록 페이지
+ * 시스템 > 배치관리 > 배치등록
+ * CMM008U
+ */
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
 import Table from "./components/Table";
