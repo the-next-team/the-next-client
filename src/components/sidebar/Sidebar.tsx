@@ -17,10 +17,10 @@ function Sidebar() {
       <MainMenu />
 
       {/* 검색창 */}
-      <SearchBar />
+      {/* <SearchBar /> */}
 
       {/* 투두 */}
-      <Todo />
+      {/* <Todo /> */}
 
       {/* 샘플 */}
       <SampleMenu />

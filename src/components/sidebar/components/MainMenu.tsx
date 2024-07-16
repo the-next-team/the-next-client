@@ -123,7 +123,12 @@ function MainMenu() {
   return (
     <div
       className={`w-[215px] h-full overflow-y-auto shadow-md ${
-        currentSideMenu === "menu" ? "block" : "hidden pointer-events-none"
+        currentSideMenu === "home" ||
+        currentSideMenu === "menu" ||
+        currentSideMenu === "search" ||
+        currentSideMenu === "todo"
+          ? "block"
+          : "hidden pointer-events-none"
       }`}
     >
       <ul>{selectedMenu?.items.map((item, i) => renderMenuItem(item, i))}</ul>
