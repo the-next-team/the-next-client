@@ -44,7 +44,7 @@ function Table() {
         styles: {
           textAlignment: "center",
         },
-        header: "사용자ID",
+        header: "출력자ID",
       },
       {
         name: "department",
@@ -53,7 +53,7 @@ function Table() {
         styles: {
           textAlignment: "center",
         },
-        header: "로그인일시",
+        header: "출력자 부서",
       },
       {
         name: "name",
@@ -62,7 +62,7 @@ function Table() {
         styles: {
           textAlignment: "center",
         },
-        header: "성공여부",
+        header: "출력자명",
       },
       {
         name: "datetime",
@@ -71,7 +71,7 @@ function Table() {
         styles: {
           textAlignment: "center",
         },
-        header: "로그타입",
+        header: "출력일시",
       },
       {
         name: "output",
@@ -80,7 +80,7 @@ function Table() {
         styles: {
           textAlignment: "center",
         },
-        header: "LOGIN IP",
+        header: "출력물",
       },
     ]);
 
