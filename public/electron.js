@@ -92,6 +92,9 @@ const createWindow = () => {
   }
 
   win?.once("ready-to-show", () => win?.show());
+  win?.on('close', () => {
+    win.webContents.executeJavaScript('localStorage.clear();');
+  });
   win?.on("closed", () => {
     win = null;
   });
