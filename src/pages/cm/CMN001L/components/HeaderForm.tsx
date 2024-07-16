@@ -23,7 +23,7 @@ function HeaderForm({ onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
-        <div className="grid grid-cols-2 gap-3 pr-14 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 pr-14 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="• 호스트명"
             type="text"
