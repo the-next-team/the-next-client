@@ -96,16 +96,6 @@ function Table({ onClick }: Props) {
         },
         header: "계정계 직업코드",
       },
-      {
-        name: "createdDate",
-        fieldName: "createdDate",
-        type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "생성일",
-      },
     ]);
 
     gv.onCellClicked = (grid, data) => {
