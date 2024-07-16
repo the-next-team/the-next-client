@@ -1,16 +1,12 @@
-import { useRecoilState, useResetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { v4 as uuidv4 } from "uuid";
 import { IMenu, MenuService } from "../api/services/menuService";
 import { storageKey } from "../constants";
 import { menuSelectedState, menuState } from "../states/menu/menuAtom";
-import { activeSubmenuState } from "../states/sidebar/sidebarAtom";
-import { tabMenuState } from "../states/tabMenu/tabMenuAtom";
 
 function useMenu() {
   const [menus, _setMenu] = useRecoilState(menuState);
   const [selectedMenu, setSelectedMenu] = useRecoilState(menuSelectedState);
-  const activeSubmenuReset = useResetRecoilState(activeSubmenuState);
-  const tabMenuReset = useResetRecoilState(tabMenuState);
 
   function formatString(url: string) {
     const regex = /^(\w+)::([A-Z0-9]+)\.xfdl$/;
@@ -40,12 +36,6 @@ function useMenu() {
         });
       });
       setMenu(data);
-      // 초기화
-      activeSubmenuReset();
-      tabMenuReset();
-      if (data.length > 0) {
-        setSelectedMenu(data[0]);
-      }
     } catch (error) {}
   };
 

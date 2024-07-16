@@ -4,7 +4,6 @@ import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
 import TabMenu from "../components/tabMenu/TabMenu";
-import useLocalNotification from "../hooks/useLocalNotification";
 import useMenu from "../hooks/useMenu";
 import useTabMenu from "../hooks/useTabMenu";
 import Error404Page from "../pages/error/Error404Page";
@@ -12,13 +11,10 @@ import DynamicComponent from "./components/DynamicComponent";
 
 function Layout() {
   const { tabMenu, setTabMenu, activeTab } = useTabMenu();
-  const { menus, fetchMenu } = useMenu();
-  const { notifications } = useLocalNotification();
+  const { fetchMenu } = useMenu();
 
   useEffect(() => {
-    if (!menus.length) {
-      fetchMenu();
-    }
+    fetchMenu();
 
     setTabMenu(
       tabMenu.map(({ name, href }) => ({
