@@ -1,3 +1,8 @@
+/**
+ * 배치수행이력 페이지
+ * 시스템 > 배치관리 > 배치수행이력
+ * CMM009L
+ */
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/ExampleButton";
 import TextInput from "../../../../components/form/TextInput";
