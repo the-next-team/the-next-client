@@ -18,12 +18,12 @@ function Toolbar() {
     {
       name: "home",
       icon: "heroicons:home",
-      onClick: () => {
-        handleTabOpen({
-          name: "대시보드",
-          href: "hm/HMM001L",
-        });
-      },
+      //   onClick: () => {
+      //     handleTabOpen({
+      //       name: "대시보드",
+      //       href: "hm/HMM001L",
+      //     });
+      //   },
     },
     {
       name: "bookmark",
@@ -63,7 +63,7 @@ function Toolbar() {
               //   } else {
               setCurrentSideMenu(menu.name);
               //   }
-              menu.onClick && menu.onClick();
+              //   menu.onClick && menu.onClick();
             }}
           >
             <Icon icon={menu.icon} width="16" />

@@ -50,7 +50,7 @@ function LoginPage() {
         );
         await fetchUser();
 
-        navigate("/hm/HMM001L", {
+        navigate("/dashboard", {
           replace: true,
         });
       } else {

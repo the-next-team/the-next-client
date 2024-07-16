@@ -15,7 +15,7 @@ import MonthlyBalanceChart from "./components/chart/MonthlyBalanceChart";
 import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
 import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
 
-function HMM001L() {
+function Dashboard() {
   const { show } = useNotification();
   return (
     <div className="flex items-start gap-2">
@@ -106,4 +106,4 @@ function HMM001L() {
   );
 }
 
-export default HMM001L;
+export default Dashboard;
