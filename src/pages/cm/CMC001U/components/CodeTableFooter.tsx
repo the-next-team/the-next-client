@@ -82,8 +82,6 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
               onChange={handleChange}
             />
           </RadioGroup>
-        </div>
-        <div className="grid grid-cols-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="대분류코드명"
             type="text"
@@ -261,20 +259,10 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
               onChange={handleChange}
             />
           </RadioGroup>
-          <CodeSelect
-            label="관련대분코드"
-            horizontal
-            codeType="TST"
-            placeholder={"* 선택"}
-            name="c"
-            id="c"
-            register={register}
-          />
         </div>
       </div>
       <div className="flex justify-end mt-2">
         <div className="space-xy-5">
-          <Button text="새로고침" className="btn-primary btn-sm w-12" />
           <Button text="초기화" className="btn-primary btn-sm w-12" />
           <Button text="등록" className="btn-primary btn-sm w-12" disabled />
           <Button text="수정" className="btn-primary btn-sm w-12" />
