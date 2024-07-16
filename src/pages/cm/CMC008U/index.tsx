@@ -1,22 +1,35 @@
 /**
- * 코드매핑(vs중앙회직업코드) / 직업/직군코드
- * 시스템 > 기준관리(중앙회) > 코드매핑(vs중앙회직업코드)
+ * 직업/직군코드
+ * 시스템 > 기준관리(중앙회) > 직업/직군코드
  * CMC008U
  */
+import FooterForm from "./components/FooterForm";
+import HeaderForm from "./components/HeaderForm";
 import Table from "./components/Table";
 
 function CMC008U() {
   return (
     <div>
-      {/* <Card> */}
-      <div className="verflow-x-auto ">
-        <div className="inline-block min-w-full align-middle">
-          <div className="overflow-hidden ">
-            <Table onClick={() => {}} />
-          </div>
+      <div className="flex flex-col gap-2 overflow-x-auto ">
+        {/* Header */}
+        <div>
+          <HeaderForm
+            onSubmit={(data) => {
+              console.log(data);
+            }}
+          />
+        </div>
+
+        {/* <Card> */}
+        <div>
+          <Table onClick={() => {}} />
+        </div>
+
+        {/* Footer */}
+        <div>
+          <FooterForm onSubmit={(data) => console.log(data)} />
         </div>
       </div>
-      {/* </Card> */}
     </div>
   );
 }
