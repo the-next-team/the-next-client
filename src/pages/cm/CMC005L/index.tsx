@@ -9,7 +9,7 @@ import Table from "./components/Table";
 function CMC005L() {
   return (
     <div>
-      <div className="flex flex-col gap2 overflow-x-auto">
+      <div className="flex flex-col gap-2 overflow-x-auto">
         {/* Header */}
         <div>
           <HeaderForm
