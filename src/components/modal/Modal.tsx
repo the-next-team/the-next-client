@@ -10,7 +10,7 @@ function Modal({ open = false, onClose, children }: Props) {
   useEffect(() => {
     if (open) {
       // document.documentElement.style.overflow = "hidden";
-      document.body.style.overflowY = "scroll";
+      // document.body.style.overflowY = "scroll";
     } else {
       // document.documentElement.style.overflow = "";
 
