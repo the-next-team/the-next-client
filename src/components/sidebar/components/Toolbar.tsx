@@ -90,7 +90,7 @@ function Toolbar() {
           >
             <Icon icon="heroicons:book-open" width="16" />
           </div>
-          <div className="absolute z-10 px-1 duration-100 -translate-y-1/2 rounded-sm opacity-0 pointer-events-none top-1/2 left-10 peer-hover:opacity-100 bg-primary bg-opacity-30 backdrop-blur">
+          <div className="absolute z-10 px-1 duration-100 -translate-y-1/2 rounded-sm opacity-0 pointer-events-none top-1/2 left-10 peer-hover:opacity-100 bg-[#ffd2c0]">
             <p className="text-sm break-keep whitespace-nowrap text-custom-black">
               {fav.name}
             </p>
