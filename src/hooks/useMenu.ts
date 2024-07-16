@@ -31,7 +31,11 @@ function useMenu() {
             i.url = uuidv4();
           }
           i.items?.forEach((m) => {
-            m.url = formatString(m.url ?? "");
+            if (formatString(m.url ?? "") === "hm/HMM001L") {
+              m.url = "dashboard";
+            } else {
+              m.url = formatString(m.url ?? "");
+            }
           });
         });
       });

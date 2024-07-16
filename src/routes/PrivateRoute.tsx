@@ -20,7 +20,7 @@ function PrivateRoute() {
 
   if (!activeTab) {
     return (
-      <Navigate to={`${process.env.PUBLIC_URL}/hm/HMM001L`} replace={true} />
+      <Navigate to={`${process.env.PUBLIC_URL}/dashboard`} replace={true} />
     );
   }
 
