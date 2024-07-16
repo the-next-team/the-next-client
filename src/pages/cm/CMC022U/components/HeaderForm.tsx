@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
-import Select from "../../../../components/form/Select";
 import Button from "../../../../components/button/ExampleButton";
 import CodeSelect from "../../../../components/form/CodeSelect";
-import TextInput from "../../../../components/form/TextInput";
+import Select from "../../../../components/form/Select";
 
 type FormValues = {
   a: string;
@@ -29,7 +28,7 @@ function HeaderForm({ onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
-        <div className="grid grid-cols-2 gap-3 pr-10 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
+        <div className="grid flex-grow grid-cols-2 gap-3 pr-10 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <CodeSelect
             label="• 중개사명"
             horizontal
@@ -49,8 +48,7 @@ function HeaderForm({ onSubmit }: Props) {
             name="a"
             id="a"
             register={register}
-          />
-
+          />{" "}
           <Select
             label="• 사용여부"
             placeholder={"* 전체"}
@@ -70,8 +68,8 @@ function HeaderForm({ onSubmit }: Props) {
             register={register}
           />
         </div>
-        <div className="flex-grow">
-          <div className="flex justify-end gap-2">
+        <div>
+          <div className="flex gap-2">
             <Button
               onClick={() => {
                 handleSubmit(onSubmit)();
