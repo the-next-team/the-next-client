@@ -26,7 +26,7 @@ function Modal({ open = false, onClose, children }: Props) {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 bottom-0 bg-black/[0.3] z-[9999] transition-opacity duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 bottom-0 bg-black-900/[0.3] z-[9999] transition-opacity duration-300 ease-in-out ${
         open ? "opacity-100" : "opacity-0"
       }`}
       style={{
