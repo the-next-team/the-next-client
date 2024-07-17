@@ -29,7 +29,7 @@ function HeaderForm({ onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
-        <div className="pr-14 grid grid-cols-2 gap-3 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="pr-14 grid flex-grow grid-cols-2 gap-3 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
           <CodeSelect
             label="• 직업구분"
             horizontal
@@ -50,7 +50,7 @@ function HeaderForm({ onSubmit }: Props) {
             register={register}
           />
         </div>
-        <div className="flex-grow">
+        <div>
           <div className="flex justify-end gap-2">
             <Button
               onClick={() => {

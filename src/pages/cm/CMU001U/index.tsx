@@ -1,6 +1,6 @@
 /**
- * 사용자 페이지
- * 시스템 > 사용자 > 사용자
+ * 사용자 관리 페이지
+ * 시스템 > 사용자 > 사용자 관리
  * CMU001U
  */
 import FooterForm from "./components/FooterForm";
