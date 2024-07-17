@@ -88,7 +88,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               />
             </div>
           </div>
-          <div className="ml-[64px] p-1 text-[12px] font-medium flex flex-row items-center">
+          <div className="ml-[40px] p-1 text-[12px] font-medium flex flex-row items-center">
             VPN사용여부
             <div className="flex gap-2 mx-2">
               <Checkbox
