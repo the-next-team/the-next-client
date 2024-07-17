@@ -29,7 +29,7 @@ function HeaderForm({ onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
-        <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid flex-grow grid-cols-2 pr-10 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 ">
           <CodeSelect
             label="• 중개사명"
             horizontal
@@ -87,17 +87,19 @@ function HeaderForm({ onSubmit }: Props) {
             register={register}
           />
         </div>
-        <div className="flex-grow">
-          <div className="flex justify-end gap-2">
-            <Button
-              onClick={() => {
-                handleSubmit(onSubmit)();
-              }}
-              text="조회"
-              className="w-12 btn-primary btn-sm"
-            />
+        <div>
+          <div className="flex gap-2">
+            <div className="flex justify-end gap-2">
+              <Button
+                onClick={() => {
+                  handleSubmit(onSubmit)();
+                }}
+                text="조회"
+                className="w-12 btn-primary btn-sm"
+              />
 
-            <Button text="엑셀" className="w-12 btn-primary btn-sm" />
+              <Button text="엑셀" className="w-12 btn-primary btn-sm" />
+            </div>
           </div>
         </div>
       </div>
