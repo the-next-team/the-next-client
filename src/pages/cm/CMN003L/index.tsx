@@ -6,6 +6,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { MessageService } from "../../../api/services/messageService";
 import MessageListTable from "./components/MessageListTable";
+import HeaderForm from "./components/HeaderForm";
 
 function CMN003L() {
   const { data, isLoading, isError, error } = useQuery({
@@ -27,7 +28,16 @@ function CMN003L() {
   if (isError) return <>{error.message}</>;
 
   return (
-    <div className="w-full h-full min-w-full">
+    <div className="flex flex-col gap-2 overflow-x-auto">
+      {/* Header */}
+      <div>
+        <HeaderForm
+          onSubmit={(data) => {
+            console.log(data);
+          }}
+        />
+      </div>
+
       <div className="overflow-x-auto bg-white rounded ">
         <MessageListTable items={data?.data ?? []} />
       </div>
