@@ -1,6 +1,6 @@
 /**
  * 직업/직군코드
- * 시스템 > 기준관리(중앙회) > 직업/직군코드
+ * 시스템 > 코드관리 > 직업/직군코드
  * CMC008U
  */
 import FooterForm from "./components/FooterForm";

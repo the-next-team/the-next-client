@@ -1,6 +1,6 @@
 /**
  * 영업일관리 페이지
- * 시스템 > 기준관리(중앙회) > 영업일관리
+ * 시스템 > 코드관리 > 영업일관리
  * CMC005L
  */
 import HeaderForm from "./components/HeaderForm";
