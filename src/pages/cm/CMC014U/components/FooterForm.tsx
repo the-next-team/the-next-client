@@ -112,7 +112,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             label="접속권한"
             horizontal
             codeType="TST"
-            placeholder={"* 전체"}
+            placeholder={"* 선택"}
             essential
             name="a"
             id="a"
@@ -156,8 +156,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               />
               <Checkbox
                 label="SMS수신"
-                name={"checkboxes.checkbox1"}
-                value={watch("checkboxes.checkbox1")}
+                name={"checkboxes.checkbox2"}
+                value={watch("checkboxes.checkbox2")}
                 register={register}
               />
             </div>
