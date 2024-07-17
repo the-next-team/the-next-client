@@ -1,11 +1,11 @@
-import HeaderForm from "./components/HeaderForm";
-import Table from "./components/Table";
-
 /**
  * 로그인 이력 페이지
  * 시스템 > 로그조회 > 로그인 이력
  * CML001L
  */
+import HeaderForm from "./components/HeaderForm";
+import Table from "./components/Table";
+
 function CML001L() {
   return (
     <div className="overflow-x-auto">

@@ -1,11 +1,11 @@
-import HeaderForm from "./components/HeaderForm";
-import Table from "./components/Table";
-
 /**
  * 출력물 이력 페이지
  * 시스템 > 로그조회 > 출력물 이력
  * CML008L
  */
+import HeaderForm from "./components/HeaderForm";
+import Table from "./components/Table";
+
 function CML008L() {
   return (
     <div className="overflow-x-auto">
