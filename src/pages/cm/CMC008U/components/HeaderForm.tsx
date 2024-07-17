@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
 import Button from "../../../../components/button/ExampleButton";
-import Select from "../../../../components/form/Select";
 
 type FormValues = {
   a: string;
@@ -29,7 +28,7 @@ function HeaderForm({ onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
-        <div className="pr-14 grid flex-grow grid-cols-2 gap-3 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid flex-grow grid-cols-2 pr-14 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
           <CodeSelect
             label="• 직업구분"
             horizontal
