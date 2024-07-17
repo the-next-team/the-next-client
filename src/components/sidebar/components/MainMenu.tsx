@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { IMenu } from "../../../api/services/menuService";
 import useMenu from "../../../hooks/useMenu";
 import useTabMenu from "../../../hooks/useTabMenu";
 import {
@@ -10,7 +11,6 @@ import {
   currentSideMenuState,
 } from "../../../states/sidebar/sidebarAtom";
 import SubMenu from "./SubMenu";
-import { IMenu } from "../../../api/services/menuService";
 
 function MainMenu() {
   const { activeTab, handleTabOpen } = useTabMenu();
@@ -34,7 +34,7 @@ function MainMenu() {
       console.log(menus[menuIndex].code);
       setSelectedMenu(menus[menuIndex]);
     }
-  }, [activeTab]);
+  }, [activeTab, menus]);
 
   const findMenuIndex = (menu: IMenu[] | undefined, link: string) => {
     let menuIndex = null;
