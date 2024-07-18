@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
+import Button from "../../../../components/button/ExampleButton";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
-import Button from "../../../../components/button/ExampleButton";
 
 type FormValues = {
   a: string;
@@ -32,7 +32,7 @@ function HeaderForm({ onSubmit }: Props) {
           <CodeSelect
             label="• 직업구분"
             horizontal
-            codeType="TST"
+            codeType="HAC"
             placeholder={"* 전체"}
             essential
             name="c"

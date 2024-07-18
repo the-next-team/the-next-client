@@ -4,9 +4,9 @@ import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
 
 type FormValues = {
-  a: string;
-  b: string;
-  c: string;
+  code: string;
+  jobCode: string;
+  jobName: string;
   d: string;
   e: string;
   f: string;
@@ -33,7 +33,9 @@ function FooterForm({ initialValues, onSubmit }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      a: "",
+      code: "",
+      jobCode: "",
+      jobName: "",
     },
   });
 
@@ -44,18 +46,18 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           <CodeSelect
             label="직업종류"
             horizontal
-            codeType="TST"
-            placeholder={"* 전체"}
-            name="c"
-            id="c"
+            codeType="HAC"
+            placeholder={"* 선택"}
+            name="code"
+            id="code"
             register={register}
           />
           <TextInput
             label="직업코드"
             type="text"
             horizontal
-            name=""
-            id=""
+            name="jobCode"
+            id="jobCode"
             placeholder=""
             register={register}
           />
@@ -64,8 +66,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name=""
-            id=""
+            name="jobName"
+            id="jobName"
             register={register}
           />
 
@@ -154,7 +156,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
       </div>
       <div className="flex justify-end mt-2">
         <div className="flex gap-2 mb-2">
-          <Button text="초기화" className="w-12 btn-primary btn-sm" />
+          <Button
+            text="초기화"
+            className="w-12 btn-primary btn-sm"
+            onClick={() => {
+              reset();
+            }}
+          />
           <Button text="등록" className="w-12 btn-primary btn-sm" disabled />
           <Button text="수정" className="w-12 btn-primary btn-sm" />
           <Button text="삭제" className="w-12 btn-primary btn-sm" />

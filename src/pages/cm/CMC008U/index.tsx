@@ -20,7 +20,7 @@ function CMC008U() {
           />
         </div>
 
-        {/* <Card> */}
+        {/* Body */}
         <div>
           <Table onClick={() => {}} />
         </div>
