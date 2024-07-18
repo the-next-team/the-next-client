@@ -38,7 +38,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <CodeSelect
             label="시스템"
             horizontal
@@ -118,28 +118,30 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="f"
             register={register}
           />
-        </div>
-        <TextInput
-          label="기능요약"
-          type="text"
-          horizontal
-          placeholder=""
-          className="h-12 mb-1"
-          name="f"
-          id="f"
-          register={register}
-        />
-        <TextInput
-          label="프로그램설명(도움말)"
-          type="text"
-          horizontal
-          placeholder=""
-          className="h-12 mb-1"
-          name="f"
-          id="f"
-          register={register}
-        />
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+          <div className="col-span-4">
+            <TextInput
+              label="기능요약"
+              type="text"
+              horizontal
+              placeholder=""
+              className="h-12"
+              name="f"
+              id="f"
+              register={register}
+            />
+          </div>
+          <div className="col-span-4">
+            <TextInput
+              label="프로그램설명(도움말)"
+              type="text"
+              horizontal
+              placeholder=""
+              className="h-12"
+              name="f"
+              id="f"
+              register={register}
+            />
+          </div>
           <TextInput
             label="등록자"
             type="text"

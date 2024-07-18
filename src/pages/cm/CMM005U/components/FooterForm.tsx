@@ -43,7 +43,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <TextInput
             label="화면그룹코드"
             type="text"
@@ -82,17 +82,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="d"
             register={register}
           />
+          <div className="col-span-4">
+            <TextInput
+              label="권한설정"
+              type="text"
+              horizontal
+              placeholder=""
+              className="h-12 mb-1"
+              name="e"
+              id="e"
+              register={register}
+            />
+          </div>
         </div>
-        <TextInput
-          label="권한설정"
-          type="text"
-          horizontal
-          placeholder=""
-          className="h-12 mb-1"
-          name="e"
-          id="e"
-          register={register}
-        />
       </div>
       <div className="flex justify-end mt-2">
         <div className="flex gap-2 mb-2">
