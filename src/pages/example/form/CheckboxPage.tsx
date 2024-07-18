@@ -14,8 +14,10 @@ const CheckboxPage = () => {
   const [checked9, setChecked9] = useState(true);
   const [checked10, setChecked10] = useState(true);
 
-  const [selected, setSelected] = useState<{value: string, label: string}[]>([]);
-  const options: {value: string, label: string}[] = [
+  const [selected, setSelected] = useState<{ value: string; label: string }[]>(
+    []
+  );
+  const options: { value: string; label: string }[] = [
     {
       value: "orange",
       label: "Orange",
@@ -98,16 +100,16 @@ const CheckboxPage = () => {
         </div>
       </Card>
       <Card title="Using Options Array">
-        <div className="space-y-4 ">
+        <div className="space-y-4">
           {options.map((option, i) => (
             <Checkbox
               key={i}
               name="jorina"
               label={option.label}
-              value={selected.includes(option)}
+              value={selected.some((s) => s.value === option.value)}
               onChange={() => {
-                if (selected.includes(option)) {
-                  setSelected(selected.filter((item) => item.value !== option.value));
+                if (selected.some((s) => s.value === option.value)) {
+                  setSelected(selected.filter((s) => s.value !== option.value));
                 } else {
                   setSelected([...selected, option]);
                 }
@@ -115,7 +117,7 @@ const CheckboxPage = () => {
             />
           ))}
           {selected.length > 0 && (
-            <div className="text-slate-900 dark:text-white ">
+            <div className="text-slate-900">
               Selected: [{selected.map((e) => e.value).join(", ")}]
             </div>
           )}
