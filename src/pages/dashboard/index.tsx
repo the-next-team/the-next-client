@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { NotificationService } from "../../api/services/notification/notificationService";
-import Button from "../../components/button/ExampleButton";
+import Button from "../../components/button/Button";
 import PopupButton from "../../components/button/PopupButton";
 import Card from "../../components/card/Card";
 import CalendarView from "../../components/partials/widget/CalendarView";

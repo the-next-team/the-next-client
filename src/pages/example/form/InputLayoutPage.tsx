@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../components/button/Button";
 import Card from "../../../components/card/Card";
 import Checkbox from "../../../components/checkbox/Checkbox";
 import InputGroup from "../../../components/form/InputGroup";

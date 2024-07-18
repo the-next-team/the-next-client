@@ -1,4 +1,4 @@
-import Button from "../../../../components/button/ExampleButton";
+import Button from "../../../../components/button/Button";
 import Card from "../../../../components/card/Card";
 
 const ButtonPage = () => {

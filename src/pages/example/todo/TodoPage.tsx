@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SimpleBar from "simplebar-react";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../components/button/Button";
 import Card from "../../../components/card/Card";
 import SkeletonListLoading from "../../../components/skeleton/SkeletonListLoading";
 import useWidth from "../../../hooks/layout/useWidth";

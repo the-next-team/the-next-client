@@ -12,7 +12,7 @@ import svgLine from "../../../assets/images/svg/line.svg";
 import svgRabit from "../../../assets/images/svg/rabit.svg";
 import vectorImage from "../../../assets/images/svg/widgetvector.svg";
 import vectorImage2 from "../../../assets/images/svg/widgetvector2.svg";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../components/button/Button";
 
 const rabitWidget = [
   {

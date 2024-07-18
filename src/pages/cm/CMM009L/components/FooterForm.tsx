@@ -4,7 +4,7 @@
  * CMM009L
  */
 import { useForm } from "react-hook-form";
-import Button from "../../../../components/button/ExampleButton";
+import Button from "../../../../components/button/Button";
 import TextInput from "../../../../components/form/TextInput";
 import CodeSelect from "../../../../components/form/CodeSelect";
 

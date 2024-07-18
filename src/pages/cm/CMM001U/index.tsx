@@ -6,7 +6,7 @@
 import { useState } from "react";
 // import Card from "../../components/card/Card";
 import { IMenu1Depth } from "../../../api/services/menuService";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../components/button/Button";
 import ItemTable from "../../cm/CMM001U/components/ItemTable";
 import SubFooterForm from "../../cm/CMM001U/components/SubFooterForm";
 import SystemFooterForm from "../../cm/CMM001U/components/SystemFooterForm";

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
-import Button from "../../../../components/button/ExampleButton";
+import Button from "../../../../components/button/Button";
 
 type FormValues = {
   a: string;

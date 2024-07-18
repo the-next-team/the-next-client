@@ -10,7 +10,7 @@ import cardImage6 from "../../../../assets/images/all-img/card-6.png";
 import cardImage7 from "../../../../assets/images/all-img/card-7.png";
 import postImage from "../../../../assets/images/all-img/post-1.png";
 import authorImage from "../../../../assets/images/all-img/t1.png";
-import Button from "../../../../components/button/ExampleButton";
+import Button from "../../../../components/button/Button";
 import Card from "../../../../components/card/Card";
 import Icon from "../../../../components/icons/Icon";
 

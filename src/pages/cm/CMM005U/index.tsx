@@ -3,7 +3,7 @@
  * 시스템 > 메뉴관리 > 화면권한그룹
  * CMM005U
  */
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../components/button/Button";
 import FooterForm from "./components/FooterForm";
 import Table from "./components/Table";
 

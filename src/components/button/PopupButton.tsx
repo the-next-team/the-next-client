@@ -1,5 +1,5 @@
 import useIsElectron from "../../hooks/useIsElectron";
-import Button from "./ExampleButton";
+import Button from "./Button";
 
 type Props = {
   path: string;

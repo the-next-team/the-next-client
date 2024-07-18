@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import Button from "../../../../components/button/ExampleButton";
+import Button from "../../../../components/button/Button";
 import TextInput from "../../../../components/form/TextInput";
 import Checkbox from "../../../../components/checkbox/Checkbox";
 

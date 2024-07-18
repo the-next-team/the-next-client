@@ -1,5 +1,5 @@
 import { useFieldArray, useForm } from "react-hook-form";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../components/button/Button";
 import Card from "../../../components/card/Card";
 import TextInput from "../../../components/form/TextInput";
 import Icon from "../../../components/icons/Icon";

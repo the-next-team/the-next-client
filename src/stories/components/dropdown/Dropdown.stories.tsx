@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HashRouter } from "react-router-dom";
 import Dropdown from "../../../components/dropdown/Dropdown";
-import Button from "../../../components/button/ExampleButton";
+import Button from "../../../components/button/Button";
 
 const meta = {
   title: "Components/Dropdown",

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import Button from "../../../../components/button/ExampleButton";
+import Button from "../../../../components/button/Button";
 import Select from "../../../../components/form/Select";
 import TextInput from "../../../../components/form/TextInput";
 import CodeSelect from "../../../../components/form/CodeSelect";

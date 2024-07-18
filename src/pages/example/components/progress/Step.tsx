@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Icon from "../../../../components/icons/Icon";
-import Button from "../../../../components/button/ExampleButton";
+import Button from "../../../../components/button/Button";
 
 const Step = () => {
   const [stepNumber, setStepNumber] = useState(0);
