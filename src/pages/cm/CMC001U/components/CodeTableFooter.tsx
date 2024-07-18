@@ -4,7 +4,6 @@ import Button from "../../../../components/button/ExampleButton";
 import Radio from "../../../../components/form/Radio";
 import RadioGroup from "../../../../components/form/RadioGroup";
 import TextInput from "../../../../components/form/TextInput";
-import CodeSelect from "../../../../components/form/CodeSelect";
 
 type FormValues = {
   a: string;
@@ -47,8 +46,9 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
           <TextInput
+            essential
             label="코드"
             type="text"
             horizontal
@@ -58,6 +58,7 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
             register={register}
           />
           <TextInput
+            essential
             label="코드길이"
             type="text"
             horizontal
@@ -82,15 +83,18 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
               onChange={handleChange}
             />
           </RadioGroup>
-          <TextInput
-            label="대분류코드명"
-            type="text"
-            horizontal
-            placeholder=""
-            name="e"
-            id="e"
-            register={register}
-          />
+          <div className="col-span-2">
+            <TextInput
+              essential
+              label="대분류코드명"
+              type="text"
+              horizontal
+              placeholder=""
+              name="e"
+              id="e"
+              register={register}
+            />
+          </div>
           <TextInput
             label="코드명약어"
             type="text"
@@ -100,9 +104,6 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
             id="e"
             register={register}
           />
-        </div>
-
-        <div className="grid grid-cols-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="사용여부1용도"
             type="text"
@@ -218,15 +219,17 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
               onChange={handleChange}
             />
           </RadioGroup>
-          <TextInput
-            label="설명"
-            type="text"
-            horizontal
-            placeholder=""
-            name="e"
-            id="e"
-            register={register}
-          />
+          <div className="col-span-2">
+            <TextInput
+              label="설명"
+              type="text"
+              horizontal
+              placeholder=""
+              name="e"
+              id="e"
+              register={register}
+            />
+          </div>
           <RadioGroup horizontal label={"주요코드여부"}>
             <Radio
               label="Yes"
@@ -263,10 +266,10 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
       </div>
       <div className="flex justify-end mt-2">
         <div className="space-xy-5">
-          <Button text="초기화" className="btn-primary btn-sm w-12" />
-          <Button text="등록" className="btn-primary btn-sm w-12" disabled />
-          <Button text="수정" className="btn-primary btn-sm w-12" />
-          <Button text="삭제" className="btn-primary btn-sm w-12" />
+          <Button text="초기화" className="w-12 btn-primary btn-sm" />
+          <Button text="등록" className="w-12 btn-primary btn-sm" disabled />
+          <Button text="수정" className="w-12 btn-primary btn-sm" />
+          <Button text="삭제" className="w-12 btn-primary btn-sm" />
         </div>
       </div>
     </form>
