@@ -34,7 +34,7 @@ function SystemFooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mb-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <TextInput
             label="시스템코드"
             type="text"
@@ -55,33 +55,37 @@ function SystemFooterForm({ initialValues, onSubmit }: Props) {
             id="b"
             register={register}
           />
+          <div className="col-span-2">
+            <TextInput
+              label="시스템설명"
+              type="text"
+              horizontal
+              className="h-12"
+              placeholder=""
+              name="c"
+              id="c"
+              register={register}
+            />
+          </div>
+          <div className="col-span-2">
+            <TextInput
+              label="보기순서"
+              type="text"
+              horizontal
+              placeholder=""
+              name="d"
+              id="d"
+              register={register}
+            />
+          </div>
         </div>
-        <TextInput
-          label="시스템설명"
-          type="text"
-          horizontal
-          className="h-12 mb-1"
-          placeholder=""
-          name="c"
-          id="c"
-          register={register}
-        />
-        <TextInput
-          label="보기순서"
-          type="text"
-          horizontal
-          placeholder=""
-          name="d"
-          id="d"
-          register={register}
-        />
       </div>
       <div className="flex justify-end mt-2">
         <div className="space-xy-5">
-          <Button text="초기화" className="btn-primary btn-sm w-12" />
-          <Button text="등록" className="btn-primary btn-sm w-12" disabled />
-          <Button text="수정" className="btn-primary btn-sm w-12" />
-          <Button text="삭제" className="btn-primary btn-sm w-12" />
+          <Button text="초기화" className="w-12 btn-primary btn-sm" />
+          <Button text="등록" className="w-12 btn-primary btn-sm" disabled />
+          <Button text="수정" className="w-12 btn-primary btn-sm" />
+          <Button text="삭제" className="w-12 btn-primary btn-sm" />
         </div>
       </div>
     </form>

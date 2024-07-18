@@ -39,7 +39,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <TextInput
             label="부서지점코드"
             type="text"
@@ -79,17 +79,15 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-        </div>
-        <TextInput
-          label="부점주소"
-          type="text"
-          horizontal
-          placeholder=""
-          name=""
-          id=""
-          register={register}
-        />
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+          <TextInput
+            label="부점주소"
+            type="text"
+            horizontal
+            placeholder=""
+            name=""
+            id=""
+            register={register}
+          />
           <TextInput
             label="NICE 계정1"
             type="text"
