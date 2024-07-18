@@ -1,8 +1,6 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/ExampleButton";
-import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
-import Checkbox from "../../../../components/form/checkbox/Checkbox";
 
 type FormValues = {
   a: string;
@@ -91,7 +89,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           id=""
           register={register}
         />
-
         <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="NICE 계정1"

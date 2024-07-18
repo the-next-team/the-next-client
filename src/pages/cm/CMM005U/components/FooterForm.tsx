@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/ExampleButton";
 import TextInput from "../../../../components/form/TextInput";
-import Checkbox from "../../../../components/form/checkbox/Checkbox";
+import Checkbox from "../../../../components/checkbox/Checkbox";
 
 type FormValues = {
   a: string;

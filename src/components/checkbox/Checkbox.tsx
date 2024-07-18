@@ -6,6 +6,7 @@ type Props = {
   label?: string;
   value: boolean;
   name?: string;
+  register?: any | undefined;
   onChange?: () => void;
   activeClass?: string;
 };
@@ -15,6 +16,7 @@ const Checkbox = ({
   disabled = false,
   label,
   value = false,
+  register,
   name,
   onChange,
   activeClass = "ring-black-500  bg-slate-900 dark:bg-slate-700 dark:ring-slate-700 ",
@@ -26,15 +28,29 @@ const Checkbox = ({
       }`}
       htmlFor={id}
     >
-      <input
-        type="checkbox"
-        className="hidden"
-        name={name}
-        checked={value}
-        onChange={onChange}
-        id={id}
-        disabled={disabled}
-      />
+      {register && (
+        <input
+          type="checkbox"
+          className="hidden"
+          {...register(name)}
+          name={name}
+          checked={value}
+          onChange={onChange}
+          id={id}
+          disabled={disabled}
+        />
+      )}
+      {!register && (
+        <input
+          type="checkbox"
+          className="hidden"
+          name={name}
+          checked={value}
+          onChange={onChange}
+          id={id}
+          disabled={disabled}
+        />
+      )}
       <span
         className={`h-4 w-4 border flex-none border-slate-100 dark:border-slate-800 rounded
         inline-flex mr-3 rtl:ml-3 relative transition-all duration-150
