@@ -3,7 +3,7 @@ import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 
 type FormValues = {
-  a: string;
+  brCode: string;
 };
 
 type Props = {
@@ -20,7 +20,7 @@ function HeaderForm({ onSubmit }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      a: "",
+      brCode: "",
     },
   });
 
@@ -35,8 +35,8 @@ function HeaderForm({ onSubmit }: Props) {
               codeType="NBR"
               placeholder={"* 전체"}
               essential
-              name="a"
-              id="a"
+              name="brCode"
+              id="brCode"
               register={register}
             />
           </div>
