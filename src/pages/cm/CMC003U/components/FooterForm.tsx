@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
+import Checkbox from "../../../../components/checkbox/Checkbox";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
-import Checkbox from "../../../../components/checkbox/Checkbox";
 
 type FormValues = {
   a: string;
@@ -44,7 +44,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 gap-1 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="접수(광고)채널번호"
             type="text"
