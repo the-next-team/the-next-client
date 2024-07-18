@@ -1,5 +1,5 @@
 import Badge from "../../../../components/badge/Badge";
-import Button from "../../../../components/button/Button";
+import Button from "../../../../components/button/ExampleButton";
 import Card from "../../../../components/card/Card";
 import Icon from "../../../../components/icons/Icon";
 
