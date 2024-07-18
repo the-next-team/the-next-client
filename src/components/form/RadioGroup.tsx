@@ -12,7 +12,7 @@ type Props = {
 function RadioGroup(
   {
     label,
-    classLabel = "form-label",
+    classLabel = "text-xs font-medium text-slate-600 break-words",
     children,
     horizontal = false,
     error,
@@ -22,24 +22,20 @@ function RadioGroup(
 ) {
   return (
     <div
-      className={`fromGroup ${error ? "has-error" : ""}  ${
-        horizontal ? "flex items-baseline" : ""
-      }  ${validate ? "is-valid" : ""} `}
+      className={`${error ? "has-error" : ""} ${
+        horizontal ? "flex items-center" : "flex flex-col items-end"
+      } ${validate ? "is-valid" : ""}`}
     >
       {label && (
         <label
-          className={`block capitalize ${classLabel}  ${
-            horizontal
-              ? "flex-0 ml-2 mr-2 text-xs text-right md:w-[100px] w-[60px] break-words"
-              : ""
+          className={`block cursor-pointer ${classLabel} ${
+            horizontal ? "ml-2 mr-2 text-right md:w-[100px] w-[60px]" : "mb-1"
           }`}
         >
           {label}
         </label>
       )}
-      <div className={`relative ${horizontal ? "flex-1" : ""}`}>
-        <div className="flex gap-2">{children}</div>
-      </div>
+      <div className="flex gap-2">{children}</div>
     </div>
   );
 }

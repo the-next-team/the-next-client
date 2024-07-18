@@ -21,23 +21,19 @@ const Radio = ({
   disabled = false,
   value,
   onChange,
-  activeClass = "ring-slate-500 dark:ring-slate-400",
-  wrapperClass = " ",
-  labelClass = "text-slate-500 dark:text-slate-400 text-sm leading-6",
+  activeClass = "ring-slate-500",
+  wrapperClass = "",
+  labelClass = "text-slate-500 text-sm",
   checked = false,
-  className = "h-[18px] w-[18px]",
+  className = "w-3 h-3",
 }: Props) => {
   return (
     <div>
       <label
-        className={
-          `flex items-center ${
-            disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
-          }` +
-          "" +
-          wrapperClass
-        }
         htmlFor={id}
+        className={`flex items-center ${
+          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+        } ${wrapperClass}`}
       >
         <input
           type="radio"
@@ -50,16 +46,12 @@ const Radio = ({
           disabled={disabled}
         />
         <span
-          className={` flex-none  bg-white dark:bg-slate-500 rounded-full border inline-flex mr-3 rtl:ml-3 relative transition-all duration-150
-          ${className}
-          ${
+          className={`flex-none bg-white rounded-full border inline-flex mr-1 relative transition-all duration-150 ${className} ${
             checked
-              ? activeClass +
-                " ring-[6px]  ring-inset ring-offset-2 dark:ring-offset-slate-600  dark:ring-offset-4 border-slate-700"
-              : "border-slate-400 dark:border-slate-600 dark:ring-slate-700"
-          }
-          `}
-        ></span>
+              ? `${activeClass} ring-[6px] ring-inset ring-offset-1 border-slate-700`
+              : "border-slate-400"
+          }`}
+        />
         {label && <span className={labelClass}>{label}</span>}
       </label>
     </div>
