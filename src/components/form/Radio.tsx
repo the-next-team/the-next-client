@@ -21,7 +21,7 @@ const Radio = ({
   disabled = false,
   value,
   onChange,
-  activeClass = "ring-slate-500",
+  activeClass = "ring-slate-500 border-slate-700",
   wrapperClass = "",
   labelClass = "text-slate-500 text-sm",
   checked = false,
@@ -48,7 +48,7 @@ const Radio = ({
         <span
           className={`flex-none bg-white rounded-full border inline-flex mr-1 relative transition-all duration-150 ${className} ${
             checked
-              ? `${activeClass} ring-[6px] ring-inset ring-offset-1 border-slate-700`
+              ? `${activeClass} ring-[6px] ring-inset ring-offset-1`
               : "border-slate-400"
           }`}
         />
