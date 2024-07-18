@@ -44,7 +44,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 gap-y-1 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 gap-y-1 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
           <TextInput
             label="접수(광고)채널번호"
             type="text"

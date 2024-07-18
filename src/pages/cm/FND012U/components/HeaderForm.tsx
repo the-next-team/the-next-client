@@ -34,7 +34,7 @@ function HeaderForm({ onSubmit }: Props) {
       </div>
       <div className="flex p-2 bg-white rounded">
         <div>
-          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
+          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
             <CodeSelect
               essential
               label="• 코드번호"
@@ -109,7 +109,7 @@ function HeaderForm({ onSubmit }: Props) {
             </div>
           </div>
           <hr className="mx-10 my-4" />
-          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
+          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
             <CodeSelect
               label="• 계좌번호"
               horizontal

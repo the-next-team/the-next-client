@@ -45,7 +45,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid gap-2 grid-cols-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
+        <div className="grid grid-cols-2 gap-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <TextInput
             essential
             label="전문코드"
@@ -76,8 +76,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="f"
             register={register}
           />
-        </div>
-        <div className="grid grid-cols-2 gap-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
           <CodeSelect
             essential
             label="호스트명"
@@ -108,8 +106,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="i"
             register={register}
           />
-        </div>
-        <div className="grid grid-cols-2 gap-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
           <TextInput
             label="파라메타1-5"
             type="text"
@@ -120,6 +116,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             register={register}
           />
           <TextInput
+            label=" "
             type="text"
             horizontal
             placeholder=""
@@ -128,6 +125,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             register={register}
           />
           <TextInput
+            label=" "
             type="text"
             horizontal
             placeholder=""
@@ -136,6 +134,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             register={register}
           />
           <TextInput
+            label=" "
             type="text"
             horizontal
             placeholder=""
@@ -144,6 +143,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             register={register}
           />
           <TextInput
+            label=" "
             type="text"
             horizontal
             placeholder=""
@@ -151,17 +151,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="n"
             register={register}
           />
+          <div className="col-span-4">
+            <TextInput
+              label="설명"
+              type="text"
+              horizontal
+              className="h-12"
+              placeholder=""
+              name="o"
+              id="o"
+              register={register}
+            />
+          </div>
         </div>
-        <TextInput
-          label="설명"
-          type="text"
-          horizontal
-          className="h-12"
-          placeholder=""
-          name="o"
-          id="o"
-          register={register}
-        />
       </div>
       <div className="flex justify-end mt-2">
         <div className="flex gap-2 mb-2">

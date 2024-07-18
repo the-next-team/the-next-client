@@ -43,7 +43,7 @@ function FooterForm({ onSubmit }: Props) {
       </div>
       <div className="flex p-2 bg-white rounded">
         <div>
-          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
+          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
             <CodeSelect
               essential
               label="• 가수금코드"
@@ -118,7 +118,7 @@ function FooterForm({ onSubmit }: Props) {
             </div>
           </div>
           <hr className="mx-10 my-4" />
-          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
+          <div className="grid grid-cols-2 pr-10 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
             <CodeSelect
               label="• 거래후잔액"
               horizontal

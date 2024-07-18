@@ -1,12 +1,6 @@
-/**
- * 배치수행이력 페이지
- * 시스템 > 배치관리 > 배치수행이력
- * CMM009L
- */
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
 import TextInput from "../../../../components/form/TextInput";
-import CodeSelect from "../../../../components/form/CodeSelect";
 
 type FormValues = {
   a: string;
@@ -39,7 +33,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <div className="col-span-2">
             <TextInput
               label="프로그램ID"

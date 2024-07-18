@@ -40,7 +40,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2">
+        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <CodeSelect
             label="중개사"
             horizontal
@@ -145,9 +145,11 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="c"
             register={register}
           />
-          <div className="ml-[86px] p-1 text-[12px] font-medium flex flex-row items-center">
-            여부
-            <div className="flex gap-2 mx-2">
+          <div className="flex items-center font-medium">
+            <p className="ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px]">
+              여부
+            </p>
+            <div className="flex gap-2">
               <Checkbox
                 label="사용여부"
                 name={"checkboxes.checkbox1"}
@@ -162,7 +164,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               />
             </div>
           </div>
-
           <TextInput
             label="최종접속IP"
             type="text"
@@ -228,7 +229,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="c"
             register={register}
           />
-
           <TextInput
             label="변경자"
             type="text"
@@ -238,7 +238,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="c"
             register={register}
           />
-
           <TextInput
             label="변경일시"
             type="text"

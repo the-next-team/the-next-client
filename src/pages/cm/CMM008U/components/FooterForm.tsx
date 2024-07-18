@@ -34,16 +34,18 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 mt-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
-          <TextInput
-            label="프로그램ID"
-            type="text"
-            horizontal
-            name="a"
-            id="a"
-            placeholder=""
-            register={register}
-          />
+        <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
+          <div className="col-span-2">
+            <TextInput
+              label="프로그램ID"
+              type="text"
+              horizontal
+              name="a"
+              id="a"
+              placeholder=""
+              register={register}
+            />
+          </div>
           <CodeSelect
             label="사용여부"
             horizontal
@@ -62,15 +64,17 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="c"
             register={register}
           />
-          <TextInput
-            label="프로그램명"
-            type="text"
-            horizontal
-            placeholder=""
-            name="d"
-            id="d"
-            register={register}
-          />
+          <div className="col-span-2">
+            <TextInput
+              label="프로그램명"
+              type="text"
+              horizontal
+              placeholder=""
+              name="d"
+              id="d"
+              register={register}
+            />
+          </div>
           <CodeSelect
             label="수행주기"
             horizontal
@@ -89,17 +93,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="f"
             register={register}
           />
+          <div className="col-span-4">
+            <TextInput
+              label="프로그램 설명"
+              type="text"
+              horizontal
+              placeholder=""
+              className="h-12 mb-1"
+              name="g"
+              id="g"
+              register={register}
+            />
+          </div>
         </div>
-        <TextInput
-          label="프로그램 설명"
-          type="text"
-          horizontal
-          placeholder=""
-          className="h-12 mb-1"
-          name="g"
-          id="g"
-          register={register}
-        />
       </div>
       <div className="flex justify-end gap-2 my-2">
         <Button text="초기화" className="w-12 btn-primary btn-sm" />

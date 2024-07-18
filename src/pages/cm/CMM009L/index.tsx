@@ -1,3 +1,8 @@
+/**
+ * 배치수행이력 페이지
+ * 시스템 > 배치관리 > 배치수행이력
+ * CMM009L
+ */
 import { useEffect, useRef } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import HeaderForm from "./components/HeaderForm";
