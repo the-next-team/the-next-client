@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HashRouter } from "react-router-dom";
-import Button from "../../../components/button/Button";
+import Button from "../../../components/button/ExampleButton";
 
 const meta = {
   title: "Components/Button",
