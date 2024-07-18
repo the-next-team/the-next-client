@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserService } from "../../api/services/userService";
 import NextLoge from "../../assets/images/logo/the-next.png";
-import Input from "../../components/form/input/Input";
+import TextInput from "../../components/form/TextInput";
 import { storageKey } from "../../constants";
 import useLoading from "../../hooks/useLoading";
 import useUser from "../../hooks/useUser";
@@ -76,28 +76,30 @@ function LoginPage() {
           </div>
         </div>
         <div className="flex flex-col gap-4 mb-6">
-          <Input
+          <TextInput
+            id="username"
             type="text"
             label="아이디"
-            className="w-full h-8"
+            className="w-full py-2"
             placeholder="아이디"
+            error={errors.username}
             {...register("username", {
               required: "아이디를 입력해 주세요.",
             })}
-            error={errors.username}
           />
-          <Input
+          <TextInput
+            id="password"
             type="password"
             label="비밀번호"
-            className="w-full h-8"
+            className="w-full py-2"
             placeholder="비밀번호"
+            error={errors.password}
             {...register("password", {
               required: "비밀번호를 입력해 주세요.",
             })}
-            error={errors.password}
           />
         </div>
-        <button className="w-full py-3 rounded-[2px] hover:animate-gradient-primary bg-custom-black">
+        <button className="w-full py-2 rounded-[2px] hover:animate-gradient-primary bg-custom-black">
           <p className="text-white">로그인</p>
         </button>
       </form>

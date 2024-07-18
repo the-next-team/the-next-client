@@ -1,6 +1,12 @@
 import "cleave.js/dist/addons/cleave-phone.us";
 import Cleave from "cleave.js/react";
-import { FocusEventHandler, HTMLInputTypeAttribute, useState } from "react";
+import React, {
+  FocusEventHandler,
+  ForwardedRef,
+  forwardRef,
+  HTMLInputTypeAttribute,
+  useState,
+} from "react";
 import Icon from "../icons/Icon";
 
 type Props = {
@@ -9,7 +15,6 @@ type Props = {
   classLabel?: string | undefined;
   className?: string | undefined;
   classGroup?: string | undefined;
-  name?: string | undefined;
   label?: string | undefined;
   icon?: string | undefined;
   id?: string | undefined;
@@ -29,36 +34,38 @@ type Props = {
   options?: any;
   onFocus?: FocusEventHandler | undefined;
   defaultValue?: string | number | readonly string[] | undefined;
-};
+} & React.ComponentPropsWithoutRef<"input">;
 
-const TextInput = ({
-  type,
-  label,
-  placeholder = "Add placeholder",
-  classLabel = "form-label",
-  className = "",
-  classGroup = "",
-  register,
-  name,
-  readonly = false,
-  value,
-  error,
-  icon,
-  disabled = false,
-  essential = false,
-  id,
-  horizontal = false,
-  validate,
-  isMask = false,
-  msgTooltip = false,
-  description,
-  hasicon = false,
-  onChange,
-  options,
-  onFocus,
-  defaultValue,
-  ...rest
-}: Props) => {
+const TextInput = (
+  {
+    type,
+    label,
+    placeholder = "Add placeholder",
+    classLabel = "form-label",
+    className = "",
+    classGroup = "",
+    register,
+    readonly = false,
+    value,
+    error,
+    icon,
+    disabled = false,
+    essential = false,
+    id,
+    horizontal = false,
+    validate,
+    isMask = false,
+    msgTooltip = false,
+    description,
+    hasicon = false,
+    onChange,
+    options,
+    onFocus,
+    defaultValue,
+    ...props
+  }: Props,
+  ref: ForwardedRef<HTMLInputElement>
+) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
@@ -66,14 +73,14 @@ const TextInput = ({
 
   return (
     <div
-      className={`fromGroup  ${error ? "has-error" : ""}  ${
+      className={`fromGroup ${error ? "has-error" : ""} ${
         horizontal ? "flex items-baseline" : ""
-      }  ${validate ? "is-valid" : ""} `}
+      } ${validate ? "is-valid" : ""}`}
     >
       {label && (
         <label
           htmlFor={id}
-          className={`block capitalize ${classLabel}  ${
+          className={`block capitalize ${classLabel} ${
             horizontal
               ? "flex-0 ml-2 mr-2 text-xs text-right md:w-[100px] w-[60px] break-words"
               : ""
@@ -83,66 +90,41 @@ const TextInput = ({
         </label>
       )}
       <div className={`relative ${horizontal ? "flex-1" : ""}`}>
-        {name && !isMask && (
+        {!isMask && (
           <input
+            ref={ref}
             type={type === "password" && open === true ? "text" : type}
-            {...register(name)}
-            {...rest}
             className={`${
-              error ? " has-error" : " "
-            } form-control text-xs  py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}  `}
+              error ? " has-error" : ""
+            } form-control text-xs py-1 ${
+              essential ? "bg-warning-100 border-black-400" : ""
+            } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             defaultValue={defaultValue}
             disabled={disabled}
             id={id}
             onChange={onChange}
+            {...props}
           />
         )}
-        {!name && !isMask && (
-          <input
-            type={type === "password" && open === true ? "text" : type}
-            className={`form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
-            placeholder={placeholder}
-            readOnly={readonly}
-            disabled={disabled}
-            defaultValue={defaultValue}
-            onChange={onChange}
-            id={id}
-          />
-        )}
-        {name && isMask && (
+        {isMask && (
           <Cleave
-            {...register(name)}
-            {...rest}
             placeholder={placeholder}
             options={options}
-            className={`${
-              error ? " has-error" : " "
-            } form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}  `}
+            className={`form-control py-1 ${error ? "has-error" : ""} ${
+              essential ? "bg-warning-100 border-black-400" : ""
+            } ${className}`}
             onFocus={onFocus}
             id={id}
             readOnly={readonly}
             disabled={disabled}
             onChange={onChange}
-          />
-        )}
-        {!name && isMask && (
-          <Cleave
-            placeholder={placeholder}
-            options={options}
-            className={`${
-              error ? " has-error" : " "
-            } form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}  `}
-            onFocus={onFocus}
-            id={id}
-            readOnly={readonly}
-            disabled={disabled}
-            onChange={onChange}
+            {...props}
           />
         )}
         {/* icon */}
-        <div className="flex text-xl absolute right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2  space-x-1 rtl:space-x-reverse">
+        <div className="flex text-xl absolute right-[14px] top-1/2 -translate-y-1/2 space-x-1">
           {hasicon && (
             <span
               className="cursor-pointer text-secondary-500"
@@ -172,10 +154,10 @@ const TextInput = ({
       {/* error and success message*/}
       {error && (
         <div
-          className={` mt-2 ${
+          className={`mt-1 ${
             msgTooltip
-              ? " inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-danger-500 block text-sm"
+              ? "inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded"
+              : "text-danger-500 block text-xs"
           }`}
         >
           {error.message}
@@ -184,10 +166,10 @@ const TextInput = ({
       {/* validated and success message*/}
       {validate && (
         <div
-          className={` mt-2 ${
+          className={`mt-1 ${
             msgTooltip
-              ? " inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-success-500 block text-sm"
+              ? "inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded"
+              : "text-success-500 block text-xs"
           }`}
         >
           {validate}
@@ -199,4 +181,4 @@ const TextInput = ({
   );
 };
 
-export default TextInput;
+export default forwardRef(TextInput);
