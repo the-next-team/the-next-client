@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ForwardedRef, forwardRef } from "react";
 
 type Props = {
   label: string;
@@ -12,21 +12,25 @@ type Props = {
   disabled?: boolean;
   checked?: boolean;
   value?: string | number | readonly string[] | undefined;
-};
+} & React.ComponentPropsWithoutRef<"input">;
 
-const Radio = ({
-  label,
-  id,
-  name,
-  disabled = false,
-  value,
-  onChange,
-  activeClass = "ring-slate-500 border-slate-700",
-  wrapperClass = "",
-  labelClass = "text-slate-500 text-sm",
-  checked = false,
-  className = "w-3 h-3",
-}: Props) => {
+const Radio = (
+  {
+    label,
+    id,
+    name,
+    disabled = false,
+    value,
+    onChange,
+    activeClass = "ring-slate-500 border-slate-700",
+    wrapperClass = "",
+    labelClass = "text-slate-500 text-sm",
+    checked = false,
+    className = "w-3 h-3",
+    ...props
+  }: Props,
+  ref: ForwardedRef<HTMLInputElement>
+) => {
   return (
     <div>
       <label
@@ -36,6 +40,7 @@ const Radio = ({
         } ${wrapperClass}`}
       >
         <input
+          ref={ref}
           type="radio"
           className="hidden"
           name={name}
@@ -44,6 +49,7 @@ const Radio = ({
           onChange={onChange}
           id={id}
           disabled={disabled}
+          {...props}
         />
         <span
           className={`flex-none bg-white rounded-full border inline-flex mr-1 relative transition-all duration-150 ${className} ${
@@ -58,4 +64,4 @@ const Radio = ({
   );
 };
 
-export default Radio;
+export default forwardRef(Radio);

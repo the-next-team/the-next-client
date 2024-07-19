@@ -1,5 +1,3 @@
-import { ForwardedRef } from "react";
-
 type Props = {
   label?: any | undefined;
   classLabel?: string | undefined;
@@ -7,19 +5,16 @@ type Props = {
   horizontal?: boolean;
   error?: any;
   validate?: string | undefined;
-} & React.ComponentPropsWithoutRef<"input">;
+};
 
-function RadioGroup(
-  {
-    label,
-    classLabel = "text-xs font-medium text-slate-600 break-words",
-    children,
-    horizontal = false,
-    error,
-    validate,
-  }: Props,
-  ref: ForwardedRef<HTMLInputElement>
-) {
+function RadioGroup({
+  label,
+  classLabel = "text-xs font-medium text-slate-600 break-words",
+  children,
+  horizontal = false,
+  error,
+  validate,
+}: Props) {
   return (
     <div
       className={`${error ? "has-error" : ""} ${
