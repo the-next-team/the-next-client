@@ -19,7 +19,7 @@ function CMC007U() {
 
         {/* Table */}
         <div>
-          <Table />
+          <Table onClick={() => {}} />
         </div>
 
         {/* Footer */}

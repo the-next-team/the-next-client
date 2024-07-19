@@ -1,8 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import {
+  departmentService,
+  IDepartment,
+} from "../../../../api/services/departmentService";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
-function Table() {
+type Props = {
+  onClick: (item: IDepartment) => void;
+};
+
+function Table({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
+  const [items, setItems] = useState<IDepartment[]>([]);
   var dp = new LocalDataProvider(true);
 
   useEffect(() => {
@@ -16,26 +26,34 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "brCode",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "brNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "useYn",
+        fieldName: "viewSeq",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "createdDate",
+        fieldName: "brTelno",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "brFaxno",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "crtDtm",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "brCode",
+        fieldName: "brCode",
         type: "data",
         width: "150",
         styles: {
@@ -51,8 +69,8 @@ function Table() {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "brNm",
+        fieldName: "brNm",
         type: "data",
         width: "120",
         styles: {
@@ -64,8 +82,8 @@ function Table() {
         },
       },
       {
-        name: "number",
-        fieldName: "number",
+        name: "",
+        fieldName: "",
         type: "data",
         width: "120",
         styles: {
@@ -74,8 +92,8 @@ function Table() {
         header: "부점약어",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "viewSeq",
+        fieldName: "viewSeq",
         type: "data",
         width: "80",
         styles: {
@@ -84,8 +102,8 @@ function Table() {
         header: "보기순서",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "brTelno",
+        fieldName: "brTelno",
         type: "data",
         width: "180",
         styles: {
@@ -94,8 +112,8 @@ function Table() {
         header: "대표번호",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "brFaxno",
+        fieldName: "brFaxno",
         type: "data",
         width: "180",
         styles: {
@@ -114,8 +132,8 @@ function Table() {
         header: "등록자",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "crtDtm",
+        fieldName: "crtDtm",
         type: "data",
         width: "220",
         styles: {
@@ -125,19 +143,36 @@ function Table() {
       },
     ]);
 
-    gv.onCellClicked = (grid, data) => {};
+    gv.onCellClicked = (grid, data) => {
+      if (data.itemIndex) {
+      }
+    };
 
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
     };
+
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
+  }, [items]);
+
+  useEffect(() => {
+    findAll();
   }, []);
 
+  const findAll = async () => {
+    try {
+      const response = await departmentService.getDepartments();
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+      }
+    } catch (error) {}
+  };
   return (
     <div
       className="h-[500px] mt-2 min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
