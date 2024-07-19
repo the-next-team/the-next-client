@@ -91,7 +91,7 @@ function Toolbar() {
             >
               <Icon icon="heroicons:book-open" width="16" />
             </div>
-            <div className="absolute z-10 px-1 duration-100 -translate-y-1/2 rounded-sm opacity-0 pointer-events-none top-1/2 left-10 peer-hover:opacity-100 bg-[#ffd2c0]">
+            <div className="absolute z-10 px-1 duration-100 -translate-y-1/2 rounded-sm opacity-0 pointer-events-none top-1/2 left-10 peer-hover:opacity-100 bg-warning-300">
               <p className="text-sm break-keep whitespace-nowrap text-custom-black">
                 {fav.name}
               </p>
@@ -99,14 +99,23 @@ function Toolbar() {
           </div>
         ))}
       </div>
-      {currentSideMenu && (
+      {currentSideMenu ? (
         <div
-          className="cursor-pointer"
+          className="cursor-pointer bg-slate-100 rounded-[6px] p-1.5"
           onClick={() => {
             setCurrentSideMenu("");
           }}
         >
-          <Icon icon="heroicons:x-mark-16-solid" width="20" />
+          <Icon icon="heroicons:chevron-left" width="16" />
+        </div>
+      ) : (
+        <div
+          className="cursor-pointer bg-slate-100 rounded-[6px] p-1.5"
+          onClick={() => {
+            setCurrentSideMenu("menu");
+          }}
+        >
+          <Icon icon="heroicons:bars-3-16-solid" width="16" />
         </div>
       )}
     </div>
