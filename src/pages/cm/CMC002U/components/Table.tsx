@@ -23,7 +23,11 @@ function Table({ onClick }: Props) {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "branchCode",
+        fieldName: "brCode",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "brNm",
         dataType: ValueType.TEXT,
       },
       {
