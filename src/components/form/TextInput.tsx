@@ -107,7 +107,15 @@ const TextInput = ({
         {!name && !isMask && (
           <input
             type={type === "password" && open === true ? "text" : type}
-            className={`form-control py-2 ${className}`}
+            className={`${
+              error ? " has-error" : ""
+            } form-control text-xs py-1 border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
+            } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -123,8 +131,14 @@ const TextInput = ({
             placeholder={placeholder}
             options={options}
             className={`${
-              error ? " has-error" : " "
-            } form-control py-2 ${className}  `}
+              error ? " has-error" : ""
+            } form-control text-xs py-1 border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
+            } ${className}`}
             onFocus={onFocus}
             id={id}
             readOnly={readonly}
