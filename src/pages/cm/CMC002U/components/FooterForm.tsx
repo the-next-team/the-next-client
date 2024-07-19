@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { ITeam } from "../../../../api/services/teamService";
 import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
@@ -17,26 +19,50 @@ type FormValues = {
 };
 
 type Props = {
-  initialValues?: FormValues;
-  onSubmit: (data: FormValues) => void;
+  initialValues?: ITeam | null;
+  onAdd?: (data: ITeam) => void;
+  onEdit?: (data: ITeam) => void;
+  onDelete?: () => void;
+  onReset?: () => void;
 };
 
-function FooterForm({ initialValues, onSubmit }: Props) {
+function FooterForm({
+  initialValues,
+  onAdd,
+  onEdit,
+  onReset,
+  onDelete,
+}: Props) {
+  const defaultValues = {
+    depCode: "",
+    depNm: "",
+    depTelno: "",
+    brNm: "",
+    brCode: "",
+    depFaxno: "",
+    depWebFaxno: "",
+    useYn: "",
+    viewSeq: 0,
+  };
   const {
     register,
     handleSubmit,
     setError,
     reset,
+    setValue,
     clearErrors,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>({
-    defaultValues: {
-      a: "",
-    },
+  } = useForm<ITeam>({
+    defaultValues: defaultValues,
   });
 
+  useEffect(() => {
+    console.log("initialValues", initialValues);
+    reset(initialValues ?? defaultValues);
+  }, [initialValues, reset]);
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="">
+    <form className="">
       <div className="p-2 mb-2 bg-white rounded">
         <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-y-1">
           <CodeSelect
@@ -44,16 +70,16 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             codeType="NBR"
             placeholder={"* 선택"}
-            name="a"
-            id="a"
+            name="brCode"
+            id="brCode"
             register={register}
           />
           <TextInput
             label="팀(파트)코드"
             type="text"
             horizontal
-            name="b"
-            id="b"
+            name="depCode"
+            id="depCode"
             placeholder=""
             register={register}
           />
@@ -62,8 +88,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="c"
-            id="c"
+            name="depNm"
+            id="depNm"
             register={register}
           />
           <TextInput
@@ -71,8 +97,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="d"
-            id="d"
+            name="viewSeq"
+            id="viewSeq"
             register={register}
           />
           <TextInput
@@ -80,8 +106,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="e"
-            id="e"
+            name="useYn"
+            id="useYn"
             register={register}
           />
           <TextInput
@@ -89,8 +115,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="f"
-            id="f"
+            name="depTelno"
+            id="depTelno"
             register={register}
           />
           <TextInput
@@ -98,8 +124,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="g"
-            id="g"
+            name="depFaxno"
+            id="depFaxno"
             register={register}
           />
           <TextInput
@@ -107,8 +133,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             placeholder=""
-            name="h"
-            id="h"
+            name="depWebFaxno"
+            id="depWebFaxno"
             register={register}
           />
           <TextInput
@@ -136,20 +162,37 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           <Button
             text="초기화"
             onClick={() => {
-              reset({});
+              reset(defaultValues);
+              onReset && onReset();
             }}
             className="w-12 btn-primary btn-sm"
           />
           <Button
             text="등록"
             onClick={() => {
-              handleSubmit(onSubmit)();
+              if (onAdd) {
+                handleSubmit(onAdd)();
+              }
             }}
             className="w-12 btn-primary btn-sm"
             disabled
           />
-          <Button text="수정" className="w-12 btn-primary btn-sm" />
-          <Button text="삭제" className="w-12 btn-primary btn-sm" />
+          <Button
+            text="수정"
+            onClick={() => {
+              if (onEdit) {
+                handleSubmit(onEdit)();
+              }
+            }}
+            className="w-12 btn-primary btn-sm"
+          />
+          <Button
+            text="삭제"
+            onClick={() => {
+              onDelete && onDelete();
+            }}
+            className="w-12 btn-primary btn-sm"
+          />
           <Button text="보기순서변경" className="w-20 btn-primary btn-sm" />
         </div>
       </div>

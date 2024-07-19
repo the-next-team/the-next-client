@@ -1,12 +1,6 @@
 import "cleave.js/dist/addons/cleave-phone.us";
 import Cleave from "cleave.js/react";
-import React, {
-  FocusEventHandler,
-  ForwardedRef,
-  forwardRef,
-  HTMLInputTypeAttribute,
-  useState,
-} from "react";
+import { FocusEventHandler, HTMLInputTypeAttribute, useState } from "react";
 import Icon from "../icons/Icon";
 
 type Props = {
@@ -15,6 +9,7 @@ type Props = {
   classLabel?: string | undefined;
   className?: string | undefined;
   classGroup?: string | undefined;
+  name?: string | undefined;
   label?: string | undefined;
   icon?: string | undefined;
   id?: string | undefined;
@@ -34,38 +29,35 @@ type Props = {
   options?: any;
   onFocus?: FocusEventHandler | undefined;
   defaultValue?: string | number | readonly string[] | undefined;
-} & React.ComponentPropsWithoutRef<"input">;
+};
 
-const TextInput = (
-  {
-    type,
-    label,
-    placeholder = "Add placeholder",
-    classLabel = "form-label",
-    className = "",
-    classGroup = "",
-    register,
-    readonly = false,
-    value,
-    error,
-    icon,
-    disabled = false,
-    essential = false,
-    id,
-    horizontal = false,
-    validate,
-    isMask = false,
-    msgTooltip = false,
-    description,
-    hasicon = false,
-    onChange,
-    options,
-    onFocus,
-    defaultValue,
-    ...props
-  }: Props,
-  ref: ForwardedRef<HTMLInputElement>
-) => {
+const TextInput = ({
+  type,
+  label,
+  placeholder = "Add placeholder",
+  classLabel = "form-label",
+  className = "",
+  classGroup = "",
+  register,
+  name,essential,
+  readonly = false,
+  value,
+  error,
+  icon,
+  disabled = false,
+  id,
+  horizontal = false,
+  validate,
+  isMask = false,
+  msgTooltip = false,
+  description,
+  hasicon = false,
+  onChange,
+  options,
+  onFocus,
+  defaultValue,
+  ...rest
+}: Props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
@@ -90,10 +82,11 @@ const TextInput = (
         </label>
       )}
       <div className={`relative ${horizontal ? "flex-1" : ""}`}>
-        {!isMask && (
+        {name && !isMask && (
           <input
-            ref={ref}
             type={type === "password" && open === true ? "text" : type}
+            {...register(name)}
+            {...rest}
             className={`${
               error ? " has-error" : ""
             } form-control text-xs py-1 border-slate-300 ${
@@ -109,10 +102,37 @@ const TextInput = (
             disabled={disabled}
             id={id}
             onChange={onChange}
-            {...props}
           />
         )}
-        {isMask && (
+        {!name && !isMask && (
+          <input
+            type={type === "password" && open === true ? "text" : type}
+            className={`form-control py-2 ${className}`}
+            placeholder={placeholder}
+            readOnly={readonly}
+            disabled={disabled}
+            defaultValue={defaultValue}
+            onChange={onChange}
+            id={id}
+          />
+        )}
+        {name && isMask && (
+          <Cleave
+            {...register(name)}
+            {...rest}
+            placeholder={placeholder}
+            options={options}
+            className={`${
+              error ? " has-error" : " "
+            } form-control py-2 ${className}  `}
+            onFocus={onFocus}
+            id={id}
+            readOnly={readonly}
+            disabled={disabled}
+            onChange={onChange}
+          />
+        )}
+        {!name && isMask && (
           <Cleave
             placeholder={placeholder}
             options={options}
@@ -130,7 +150,6 @@ const TextInput = (
             readOnly={readonly}
             disabled={disabled}
             onChange={onChange}
-            {...props}
           />
         )}
         {/* icon */}
@@ -191,4 +210,4 @@ const TextInput = (
   );
 };
 
-export default forwardRef(TextInput);
+export default TextInput;
