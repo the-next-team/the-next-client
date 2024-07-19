@@ -3,7 +3,11 @@ import { ITeam, TeamService } from "../../../../api/services/teamService";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
-function Table() {
+type Props = {
+  onClick: (item: ITeam) => void;
+};
+
+function Table({ onClick }: Props) {
   const [teamList, setTeamList] = useState<ITeam[]>([]);
 
   const realgridElement = useRef<HTMLDivElement | null>(null);
@@ -158,8 +162,10 @@ function Table() {
       },
     ]);
 
-    gv.onCellClicked = () => {
-      console.log("onCellClicked");
+    gv.onCellClicked = (grid, data) => {
+      if (data.itemIndex) {
+        onClick(teamList[data.itemIndex]);
+      }
     };
 
     gv.onCellDblClicked = () => {
