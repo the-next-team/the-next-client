@@ -1,8 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import {
+  IUserName,
+  userNameService,
+} from "../../../../api/services/userNameService";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
-function Table() {
+type Props = {
+  onClick: (item: IUserName) => void;
+};
+
+function Table({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
+  const [items, setItems] = useState<IUserName[]>([]);
   var dp = new LocalDataProvider(true);
 
   useEffect(() => {
@@ -16,15 +26,15 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "userNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "sabNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "useYn",
+        fieldName: "brNm",
         dataType: ValueType.TEXT,
       },
       {
@@ -34,8 +44,8 @@ function Table() {
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "",
+        fieldName: "",
         type: "data",
         width: "100",
         styles: {
@@ -51,8 +61,8 @@ function Table() {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "userNm",
+        fieldName: "userNm",
         type: "data",
         width: "150",
         styles: {
@@ -64,8 +74,8 @@ function Table() {
         },
       },
       {
-        name: "number",
-        fieldName: "number",
+        name: "",
+        fieldName: "",
         type: "data",
         width: "120",
         styles: {
@@ -94,8 +104,8 @@ function Table() {
         header: "사번",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "sabNm",
+        fieldName: "sabNm",
         type: "data",
         width: "120",
         styles: {
@@ -104,8 +114,8 @@ function Table() {
         header: "상태",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "brNm",
+        fieldName: "brNm",
         type: "data",
         width: "120",
         styles: {
@@ -135,19 +145,36 @@ function Table() {
       },
     ]);
 
-    gv.onCellClicked = (grid, data) => {};
+    gv.onCellClicked = (grid, data) => {
+      if (data.itemIndex) {
+      }
+    };
 
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
     };
+
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
+  }, [items]);
+
+  useEffect(() => {
+    findAll();
   }, []);
 
+  const findAll = async () => {
+    try {
+      const response = await userNameService.getUserName();
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+      }
+    } catch (error) {}
+  };
   return (
     <div
       className="h-[500px] mt-2 min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"

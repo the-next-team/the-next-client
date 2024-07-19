@@ -22,7 +22,7 @@ function CMU001U() {
 
         {/* <Card> */}
         <div>
-          <TableConfig />
+          <TableConfig onClick={() => {}} />
         </div>
 
         {/* Footer */}
