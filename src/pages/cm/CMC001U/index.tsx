@@ -28,43 +28,35 @@ function CMC001U() {
       {/* 대분류 */}
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
         <div>
-          <div className="flex items-center space-x-2 text-base text-slate-900 dark:text-slate-300 rtl:space-x-reverse">
-            <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
+          <div className="flex items-center mb-1 space-x-2 text-sm font-medium text-slate-900">
+            <span className="h-[6px] w-[6px] bg-slate-900 rounded-full inline-block" />
             <span>대분류코드</span>
           </div>
-
           <CodeTable
             onClick={(item) => {
               setSelected(item);
             }}
           />
-
-          <div>
-            <CodeTableFooter
-              onSubmit={(data) => {
-                console.log(data);
-              }}
-            />
-          </div>
+          <CodeTableFooter
+            onSubmit={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
 
         {/* 소분류 */}
         <div className="">
-          <div className="flex items-center space-x-2 text-base text-slate-900 dark:text-slate-300 rtl:space-x-reverse">
-            <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
+          <div className="flex items-center mb-1 space-x-2 text-sm font-medium text-slate-900">
+            <span className="h-[6px] w-[6px] bg-slate-900 rounded-full inline-block" />
             <span>소분류코드</span>
           </div>
-
           <CodeItemTable
             item={selected}
             onClick={(item) => {
               console.log("item", item);
             }}
           />
-
-          <div>
-            <CodeItemTableFooter onSubmit={(data) => console.log(data)} />
-          </div>
+          <CodeItemTableFooter onSubmit={(data) => console.log(data)} />
         </div>
       </div>
     </div>
