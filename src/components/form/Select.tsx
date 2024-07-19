@@ -62,7 +62,9 @@ const Select = ({
         <label
           htmlFor={id}
           className={`block capitalize ${classLabel}  ${
-            horizontal ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words" : ""
+            horizontal
+              ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words"
+              : ""
           }`}
         >
           {label}
@@ -75,7 +77,13 @@ const Select = ({
             {...register(name)}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 text-xs  appearance-none ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
+            } form-control py-1 text-xs  appearance-none border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
+            } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -108,7 +116,13 @@ const Select = ({
             onChange={onChange}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 appearance-none ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
+            } form-control py-1 appearance-none border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
+            } ${className}`}
             disabled={disabled}
             id={id}
             value={value}

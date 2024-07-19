@@ -63,7 +63,9 @@ export const Textarea = forwardRef(
           <label
             htmlFor={id}
             className={`block capitalize ${classLabel}  ${
-              horizontal ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words" : ""
+              horizontal
+                ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words"
+                : ""
             }`}
           >
             {label}
@@ -76,7 +78,13 @@ export const Textarea = forwardRef(
               {...rest}
               className={`${
                 error ? " has-error" : " "
-              } form-control text-xs py-1 ${essential ? 'bg-warning-100 border-black-400':''} ${className}`}
+              } form-control text-xs py-1 border-slate-300 ${
+                readOnly
+                  ? "bg-slate-100"
+                  : essential
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
+              }${className}`}
               placeholder={placeholder}
               readOnly={readOnly}
               disabled={disabled}
@@ -90,7 +98,13 @@ export const Textarea = forwardRef(
             <textarea
               className={`${
                 error ? " has-error" : " "
-              } form-control py-1 ${essential ? 'bg-warning-100 border-black-400':''}  ${className}`}
+              } form-control py-1 border-slate-300 ${
+                readOnly
+                  ? "bg-slate-100"
+                  : essential
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
+              } ${className}`}
               placeholder={placeholder}
               readOnly={readOnly}
               disabled={disabled}

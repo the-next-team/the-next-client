@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import { ChangeEvent, useEffect } from "react";
-import { useRecoilState, useRecoilValueLoadable } from 'recoil';
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { codeSelector, codeState } from "../../states/code/codeAtom";
 
 type Props = {
@@ -57,7 +57,7 @@ const CodeSelect = ({
   const codeLoadable = useRecoilValueLoadable(codeSelector(codeType));
 
   useEffect(() => {
-    if (codeLoadable.state === 'hasValue') {
+    if (codeLoadable.state === "hasValue") {
       setOptions(codeLoadable.contents);
     }
   }, [codeLoadable, setOptions]);
@@ -72,7 +72,9 @@ const CodeSelect = ({
         <label
           htmlFor={id}
           className={`block capitalize ${classLabel}  ${
-            horizontal ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words" : ""
+            horizontal
+              ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words"
+              : ""
           }`}
         >
           {label}
@@ -85,7 +87,13 @@ const CodeSelect = ({
             {...register(name)}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 text-xs appearance-none ${essential ? 'bg-warning-100 border-black-400' : ''}  ${className}`}
+            } form-control py-1 text-xs appearance-none border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
+            } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             disabled={disabled}
@@ -110,7 +118,13 @@ const CodeSelect = ({
             onChange={onChange}
             className={`${
               error ? " has-error" : " "
-            } form-control py-1 text-xs appearance-none ${essential ? 'bg-warning-100 border-black-400' : ''}  ${className}`}
+            } form-control py-1 text-xs appearance-none border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
+            } ${className}`}
             disabled={disabled}
             id={id}
             value={value}

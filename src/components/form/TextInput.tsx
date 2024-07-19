@@ -96,8 +96,12 @@ const TextInput = (
             type={type === "password" && open === true ? "text" : type}
             className={`${
               error ? " has-error" : ""
-            } form-control text-xs py-1 ${
-              essential ? "bg-warning-100 border-black-400" : ""
+            } form-control text-xs py-1 border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
             } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
@@ -112,8 +116,14 @@ const TextInput = (
           <Cleave
             placeholder={placeholder}
             options={options}
-            className={`form-control py-1 ${error ? "has-error" : ""} ${
-              essential ? "bg-warning-100 border-black-400" : ""
+            className={`${
+              error ? " has-error" : ""
+            } form-control text-xs py-1 border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
             } ${className}`}
             onFocus={onFocus}
             id={id}
