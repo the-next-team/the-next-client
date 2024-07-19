@@ -27,23 +27,23 @@ function Table({ onClick }: Props) {
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "code",
+        fieldName: "depCode",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "depNm",
         dataType: ValueType.NUMBER,
       },
       {
-        fieldName: "priority",
+        fieldName: "viewSeq",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "telephoneNumber",
+        fieldName: "depTelno",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "faxNumber",
+        fieldName: "depFaxno",
         dataType: ValueType.TEXT,
       },
       {
