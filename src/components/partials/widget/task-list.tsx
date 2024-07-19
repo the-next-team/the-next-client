@@ -51,7 +51,7 @@ const TaskLists = () => {
               <Checkbox
                 id=""
                 label=""
-                value={item.isDone}
+                checked={item.isDone}
                 onChange={() => {
                   setLists(
                     lists.map((list) =>

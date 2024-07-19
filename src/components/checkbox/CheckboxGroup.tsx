@@ -1,14 +1,16 @@
 type Props = {
   label?: any | undefined;
+  className?: string | undefined;
   classLabel?: string | undefined;
   children: React.ReactNode;
   horizontal?: boolean;
   error?: any;
   validate?: string | undefined;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 function CheckboxGroup({
   label,
+  className = "",
   classLabel = "text-xs font-medium text-slate-600 break-words",
   children,
   horizontal = false,
@@ -19,7 +21,7 @@ function CheckboxGroup({
     <div
       className={`${error ? "has-error" : ""} ${
         horizontal ? "flex items-center" : "flex flex-col items-end"
-      } ${validate ? "is-valid" : ""}`}
+      } ${validate ? "is-valid" : ""} ${className}`}
     >
       {label && (
         <label

@@ -22,7 +22,7 @@ function Tasks({ item }: Props) {
     <>
       <li className="flex items-center px-6 py-6 space-x-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-todo rtl:space-x-reverse">
         <div>
-          <Checkbox value={checked} onChange={() => {}} />
+          <Checkbox checked={checked} onChange={() => {}} />
         </div>
 
         <label>

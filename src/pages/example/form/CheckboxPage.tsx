@@ -37,24 +37,24 @@ const CheckboxPage = () => {
         <div className="flex flex-wrap space-xy-6">
           <Checkbox
             label="Checked"
-            value={checked}
+            checked={checked}
             onChange={() => setChecked(!checked)}
           />
           <Checkbox
             label="UnChecked"
-            value={checked2}
+            checked={checked2}
             onChange={() => setChecked2(!checked2)}
           />
           <Checkbox
             label="Checked disabled"
             disabled
-            value={checked3}
+            checked={checked3}
             onChange={() => setChecked3(!checked3)}
           />
           <Checkbox
             label="UnChecked disabled"
             disabled
-            value={checked4}
+            checked={checked4}
             onChange={() => setChecked4(!checked4)}
           />
         </div>
@@ -63,37 +63,37 @@ const CheckboxPage = () => {
         <div className="flex flex-wrap space-xy-6">
           <Checkbox
             label="Primary"
-            value={checked5}
+            checked={checked5}
             activeClass="ring-primary-500 bg-primary-500"
             onChange={() => setChecked5(!checked5)}
           />
           <Checkbox
             label="Secondary"
-            value={checked6}
+            checked={checked6}
             activeClass="ring-secondary-500 bg-secondary-500"
             onChange={() => setChecked6(!checked6)}
           />
           <Checkbox
             label="Success"
-            value={checked7}
+            checked={checked7}
             activeClass="ring-success-500 bg-success-500"
             onChange={() => setChecked7(!checked7)}
           />
           <Checkbox
             label="Danger"
-            value={checked8}
+            checked={checked8}
             activeClass="ring-danger-500 bg-danger-500"
             onChange={() => setChecked8(!checked8)}
           />
           <Checkbox
             label="Warning"
-            value={checked9}
+            checked={checked9}
             activeClass="ring-warning-500 bg-warning-500"
             onChange={() => setChecked9(!checked9)}
           />
           <Checkbox
             label="Info"
-            value={checked10}
+            checked={checked10}
             activeClass="ring-info-500 bg-info-500"
             onChange={() => setChecked10(!checked10)}
           />
@@ -106,7 +106,7 @@ const CheckboxPage = () => {
               key={i}
               name="jorina"
               label={option.label}
-              value={selected.some((s) => s.value === option.value)}
+              checked={selected.some((s) => s.value === option.value)}
               onChange={() => {
                 if (selected.some((s) => s.value === option.value)) {
                   setSelected(selected.filter((s) => s.value !== option.value));

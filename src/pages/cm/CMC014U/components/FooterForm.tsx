@@ -3,6 +3,7 @@ import Button from "../../../../components/button/Button";
 import TextInput from "../../../../components/form/TextInput";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import Checkbox from "../../../../components/checkbox/Checkbox";
+import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
 
 type FormValues = {
   a: string;
@@ -12,7 +13,7 @@ type FormValues = {
   e: string;
   f: string;
   g: string;
-  checkboxes: { [key: string]: boolean };
+  checkbox: Array<string>;
 };
 
 type Props = {
@@ -30,10 +31,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
       e: "",
       f: "",
       g: "",
-      checkboxes: {
-        checkbox1: false,
-        checkbox2: false,
-      },
+      checkbox: [],
     },
   });
 
@@ -145,25 +143,20 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="c"
             register={register}
           />
-          <div className="flex items-center font-medium">
-            <p className="ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px]">
-              여부
-            </p>
-            <div className="flex gap-2">
-              <Checkbox
-                label="사용여부"
-                name={"checkboxes.checkbox1"}
-                value={watch("checkboxes.checkbox1")}
-                register={register}
-              />
-              <Checkbox
-                label="SMS수신"
-                name={"checkboxes.checkbox2"}
-                value={watch("checkboxes.checkbox2")}
-                register={register}
-              />
-            </div>
-          </div>
+          <CheckboxGroup horizontal label="여부">
+            <Checkbox
+              label="사용여부"
+              checked={watch("checkbox").includes("chk1")}
+              value="chk1"
+              {...register("checkbox")}
+            />
+            <Checkbox
+              label="SMS수신"
+              checked={watch("checkbox").includes("chk2")}
+              value="chk2"
+              {...register("checkbox")}
+            />
+          </CheckboxGroup>
           <TextInput
             label="최종접속IP"
             type="text"

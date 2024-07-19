@@ -3,6 +3,7 @@ import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
 import Checkbox from "../../../../components/checkbox/Checkbox";
+import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
 
 type FormValues = {
   a: string;
@@ -15,7 +16,10 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
-  checkboxes: { [key: string]: boolean };
+  checkbox1: Array<string>;
+  checkbox2: Array<string>;
+  checkbox3: Array<string>;
+  checkbox4: Array<string>;
 };
 
 type Props = {
@@ -35,12 +39,10 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   } = useForm<FormValues>({
     defaultValues: {
       a: "",
-      checkboxes: {
-        checkbox1: false,
-        checkbox2: false,
-        checkbox3: false,
-        checkbox4: false,
-      },
+      checkbox1: [],
+      checkbox2: [],
+      checkbox3: [],
+      checkbox4: [],
     },
   });
 
@@ -77,32 +79,22 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-          <div className="flex items-center font-medium">
-            <p className="ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px]">
-              사용여부
-            </p>
-            <div className="flex gap-2">
-              <Checkbox
-                label="사용"
-                name={"checkboxes.checkbox1"}
-                value={watch("checkboxes.checkbox1")}
-                register={register}
-              />
-            </div>
-          </div>
-          <div className="flex items-center font-medium">
-            <p className="ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px]">
-              VPN사용여부
-            </p>
-            <div className="flex gap-2">
-              <Checkbox
-                label="사용"
-                name={"checkboxes.checkbox2"}
-                value={watch("checkboxes.checkbox2")}
-                register={register}
-              />
-            </div>
-          </div>
+          <CheckboxGroup horizontal label="사용여부">
+            <Checkbox
+              label="사용"
+              checked={watch("checkbox1").includes("chk1")}
+              value="chk1"
+              {...register("checkbox1")}
+            />
+          </CheckboxGroup>
+          <CheckboxGroup horizontal label="VPN사용여부">
+            <Checkbox
+              label="사용"
+              checked={watch("checkbox2").includes("chk2")}
+              value="chk2"
+              {...register("checkbox2")}
+            />
+          </CheckboxGroup>
           <CodeSelect
             label="여신상품그룹코드"
             horizontal
@@ -293,32 +285,22 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-          <div className="flex items-center font-medium">
-            <p className="ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px]">
-              혁신금융여부
-            </p>
-            <div className="flex gap-2">
-              <Checkbox
-                label="사용"
-                name={"checkboxes.checkbox3"}
-                value={watch("checkboxes.checkbox3")}
-                register={register}
-              />
-            </div>
-          </div>
-          <div className="flex items-center font-medium">
-            <p className="ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px]">
-              이연부대비용 처리여부
-            </p>
-            <div className="flex gap-2">
-              <Checkbox
-                label="사용"
-                name={"checkboxes.checkbox4"}
-                value={watch("checkboxes.checkbox4")}
-                register={register}
-              />
-            </div>
-          </div>
+          <CheckboxGroup horizontal label="혁신금융여부">
+            <Checkbox
+              label="사용"
+              checked={watch("checkbox3").includes("chk3")}
+              value="chk3"
+              {...register("checkbox3")}
+            />
+          </CheckboxGroup>
+          <CheckboxGroup horizontal label="이연부대비용 처리여부">
+            <Checkbox
+              label="사용"
+              checked={watch("checkbox4").includes("chk4")}
+              value="chk4"
+              {...register("checkbox4")}
+            />
+          </CheckboxGroup>
         </div>
       </div>
       <div className="flex justify-end mt-2">

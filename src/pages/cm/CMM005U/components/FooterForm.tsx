@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
 import TextInput from "../../../../components/form/TextInput";
 import Checkbox from "../../../../components/checkbox/Checkbox";
+import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
 
 type FormValues = {
   a: string;
@@ -14,7 +15,7 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
-  checkboxes: { [key: string]: boolean };
+  checkbox: Array<string>;
 };
 
 type Props = {
@@ -34,9 +35,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   } = useForm<FormValues>({
     defaultValues: {
       a: "",
-      checkboxes: {
-        checkbox1: false,
-      },
+      checkbox: [],
     },
   });
 
@@ -62,17 +61,14 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="b"
             register={register}
           />
-          <div className="ml-[64px] p-1 text-[12px] font-medium flex flex-row items-center">
-            사용
-            <div className="flex gap-2 mx-2">
-              <Checkbox
-                label=""
-                name={"checkboxes.checkbox1"}
-                value={watch("checkboxes.checkbox1")}
-                register={register}
-              />
-            </div>
-          </div>
+          <CheckboxGroup horizontal label="사용">
+            <Checkbox
+              label=""
+              checked={watch("checkbox").includes("chk1")}
+              value="chk1"
+              {...register("checkbox")}
+            />
+          </CheckboxGroup>
           <TextInput
             label="등록일시"
             type="text"

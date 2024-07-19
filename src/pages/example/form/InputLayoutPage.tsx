@@ -44,7 +44,7 @@ const InputLayoutPage = () => {
           <div className="ml-[124px] space-y-4">
             <Checkbox
               label="Remember me"
-              value={checked}
+              checked={checked}
               onChange={() => setChecked(!checked)}
             />
             <Button text="Submit" className="btn-dark" />
@@ -92,7 +92,7 @@ const InputLayoutPage = () => {
           <div className="ml-[124px] space-y-4">
             <Checkbox
               label="Remember me"
-              value={checked}
+              checked={checked}
               onChange={() => setChecked(!checked)}
             />
             <Button text="Submit" className="btn-dark" />
@@ -128,7 +128,7 @@ const InputLayoutPage = () => {
           <div className="space-y-4 ">
             <Checkbox
               label="Remember me"
-              value={checked}
+              checked={checked}
               onChange={() => setChecked(!checked)}
             />
             <Button text="Submit" className="btn-dark" />
@@ -172,7 +172,7 @@ const InputLayoutPage = () => {
           <div className="space-y-4 ">
             <Checkbox
               label="Remember me"
-              value={checked}
+              checked={checked}
               onChange={() => setChecked(!checked)}
             />
             <Button text="Submit" className="btn-dark" />

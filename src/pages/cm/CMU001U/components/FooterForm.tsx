@@ -3,6 +3,7 @@ import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
 import Checkbox from "../../../../components/checkbox/Checkbox";
+import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
 
 type FormValues = {
   a: string;
@@ -15,7 +16,7 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
-  checkboxes: { [key: string]: boolean };
+  checkbox: Array<string>;
 };
 
 type Props = {
@@ -35,17 +36,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   } = useForm<FormValues>({
     defaultValues: {
       a: "",
-      checkboxes: {
-        checkbox1: false,
-        checkbox2: false,
-        checkbox3: false,
-        checkbox4: false,
-        checkbox5: false,
-        checkbox6: false,
-        checkbox7: false,
-        checkbox8: false,
-        checkbox9: false,
-      },
+      checkbox: [],
     },
   });
 
@@ -328,67 +319,62 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-        </div>
-        <div className="ml-[64px] p-1 text-[12px] font-medium flex flex-row items-center">
-          권한설정
-          <div className="flex gap-2 mx-2">
+          <CheckboxGroup horizontal label="권한설정" className="col-span-4">
             <Checkbox
               label="개인정보조회"
-              name={"checkboxes.checkbox1"}
-              value={watch("checkboxes.checkbox1")}
-              register={register}
+              checked={watch("checkbox").includes("chk1")}
+              value="chk1"
+              {...register("checkbox")}
             />
             <Checkbox
               label="개인정보파기"
-              name={"checkboxes.checkbox2"}
-              value={watch("checkboxes.checkbox2")}
-              register={register}
+              checked={watch("checkbox").includes("chk2")}
+              value="chk2"
+              {...register("checkbox")}
             />
             <Checkbox
               label="책임자(팀장)"
-              name={"checkboxes.checkbox3"}
-              value={watch("checkboxes.checkbox3")}
-              register={register}
+              checked={watch("checkbox").includes("chk3")}
+              value="chk3"
+              {...register("checkbox")}
             />
             <Checkbox
               label="텔러(회계)"
-              name={"checkboxes.checkbox4"}
-              value={watch("checkboxes.checkbox4")}
-              register={register}
+              checked={watch("checkbox").includes("chk4")}
+              value="chk4"
+              {...register("checkbox")}
             />
             <Checkbox
               label="신용조회"
-              name={"checkboxes.checkbox5"}
-              value={watch("checkboxes.checkbox5")}
-              register={register}
+              checked={watch("checkbox").includes("chk5")}
+              value="chk5"
+              {...register("checkbox")}
             />
             <Checkbox
               label="엑셀"
-              name={"checkboxes.checkbox6"}
-              value={watch("checkboxes.checkbox6")}
-              register={register}
+              checked={watch("checkbox").includes("chk6")}
+              value="chk6"
+              {...register("checkbox")}
             />
             <Checkbox
               label="출력"
-              name={"checkboxes.checkbox7"}
-              value={watch("checkboxes.checkbox7")}
-              register={register}
+              checked={watch("checkbox").includes("chk7")}
+              value="chk7"
+              {...register("checkbox")}
             />
             <Checkbox
               label="팝업"
-              name={"checkboxes.checkbox8"}
-              value={watch("checkboxes.checkbox8")}
-              register={register}
+              checked={watch("checkbox").includes("chk8")}
+              value="chk8"
+              {...register("checkbox")}
             />
             <Checkbox
               label="이연부대비용"
-              name={"checkboxes.checkbox9"}
-              value={watch("checkboxes.checkbox9")}
-              register={register}
+              checked={watch("checkbox").includes("chk9")}
+              value="chk9"
+              {...register("checkbox")}
             />
-          </div>
-        </div>
-        <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 ">
+          </CheckboxGroup>
           <CodeSelect
             label="제한상태"
             horizontal

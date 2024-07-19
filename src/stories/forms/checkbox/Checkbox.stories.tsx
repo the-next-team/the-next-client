@@ -25,7 +25,7 @@ const meta = {
     label: {
       description: "라벨",
     },
-    value: {
+    checked: {
       description: "선택 여부",
     },
     name: {
@@ -47,15 +47,15 @@ export const Default: Story = {
   args: {
     id: "defaultCheckbox",
     label: "체크박스입니다.",
-    value: true,
+    checked: true,
   },
 };
 
 // Basic
 export const Basic: Story = () => (
   <div className="flex flex-wrap gap-4">
-    <Checkbox label="Checked" value={true} onChange={() => {}} />
-    <Checkbox label="UnChecked" value={false} onChange={() => {}} />
+    <Checkbox label="Checked" checked={true} onChange={() => {}} />
+    <Checkbox label="UnChecked" checked={false} onChange={() => {}} />
   </div>
 );
 Basic.args = {
@@ -68,13 +68,13 @@ export const Disabled: Story = () => (
     <Checkbox
       label="Checked disabled"
       disabled
-      value={true}
+      checked={true}
       onChange={() => {}}
     />
     <Checkbox
       label="UnChecked disabled"
       disabled
-      value={false}
+      checked={false}
       onChange={() => {}}
     />
   </div>
@@ -88,37 +88,37 @@ export const Color: Story = () => (
   <div className="flex flex-wrap gap-4">
     <Checkbox
       label="Primary"
-      value={true}
+      checked={true}
       activeClass="ring-primary-500 bg-primary-500"
       onChange={() => {}}
     />
     <Checkbox
       label="Secondary"
-      value={true}
+      checked={true}
       activeClass="ring-secondary-500 bg-secondary-500"
       onChange={() => {}}
     />
     <Checkbox
       label="Success"
-      value={true}
+      checked={true}
       activeClass="ring-success-500 bg-success-500"
       onChange={() => {}}
     />
     <Checkbox
       label="Danger"
-      value={true}
+      checked={true}
       activeClass="ring-danger-500 bg-danger-500"
       onChange={() => {}}
     />
     <Checkbox
       label="Warning"
-      value={true}
+      checked={true}
       activeClass="ring-warning-500 bg-warning-500"
       onChange={() => {}}
     />
     <Checkbox
       label="Info"
-      value={true}
+      checked={true}
       activeClass="ring-info-500 bg-info-500"
       onChange={() => {}}
     />
