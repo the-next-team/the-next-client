@@ -22,7 +22,7 @@ function CMU040U() {
 
         {/* Table */}
         <div>
-          <Table />
+          <Table onClick={() => {}} />
         </div>
 
         {/* Footer */}

@@ -1,8 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import { FsbService, IFsb } from "../../../../api/services/fsbService";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
-function Table() {
+type Props = {
+  onClick: (item: IFsb) => void;
+};
+
+function Table({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
+  const [items, setItems] = useState<IFsb[]>([]);
   var dp = new LocalDataProvider(true);
 
   useEffect(() => {
@@ -16,26 +23,30 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "fsbEmpNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "fsbNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "useYn",
+        fieldName: "brNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "createdDate",
+        fieldName: "fsbCd",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "loginErrCnt",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "fsbEmpNm",
+        fieldName: "fsbEmpNm",
         type: "data",
         width: "150",
         styles: {
@@ -51,8 +62,8 @@ function Table() {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "fsbNm",
+        fieldName: "fsbNm",
         type: "data",
         width: "150",
         styles: {
@@ -64,8 +75,8 @@ function Table() {
         },
       },
       {
-        name: "number",
-        fieldName: "number",
+        name: "brNm",
+        fieldName: "brNm",
         type: "data",
         width: "120",
         styles: {
@@ -84,8 +95,8 @@ function Table() {
         header: "용도",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "fsbCd",
+        fieldName: "fsbCd",
         type: "data",
         width: "120",
         styles: {
@@ -124,8 +135,8 @@ function Table() {
         header: "비밀번호만료일",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "loginErrCnt",
+        fieldName: "loginErrCnt",
         type: "data",
         width: "120",
         styles: {
@@ -135,18 +146,36 @@ function Table() {
       },
     ]);
 
-    gv.onCellClicked = (grid, data) => {};
+    gv.onCellClicked = (grid, data) => {
+      if (data.itemIndex) {
+      }
+    };
 
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
     };
+
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
+  }, [items]);
+
+  useEffect(() => {
+    findAll();
   }, []);
+
+  const findAll = async () => {
+    try {
+      const response = await FsbService.getFsb();
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+      }
+    } catch (error) {}
+  };
 
   return (
     <div
