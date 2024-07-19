@@ -14,7 +14,9 @@ export interface ITeam {
 }
 
 export const TeamService = {
-  getTeam: async (): Promise<ApiResponse<ITeam[]>> => {
-    return Get(`/api/common/user-management/team`);
+  getTeam: async (params: any): Promise<ApiResponse<ITeam[]>> => {
+    return Get(`/api/common/user-management/team`, {
+      data: params,
+    });
   },
 };

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { ITeam, TeamService } from "../../../../api/services/teamService";
+import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
+import { ITeam, TeamService } from "../../../../api/services/teamService";
 
 type Props = {
   onClick: (item: ITeam) => void;
@@ -189,7 +189,9 @@ function Table({ onClick }: Props) {
 
   const findAll = async () => {
     try {
-      const response = await TeamService.getTeam();
+      const response = await TeamService.getTeam({
+        brCode: ""
+      });
       if (response.status === ApiResponseStats.OK) {
         setTeamList(response.data);
         dp.setRows(response.data);
