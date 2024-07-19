@@ -64,7 +64,7 @@ function CMC002U() {
           textAlignment: "center",
         },
         header: {
-          text: "지점코드",
+          text: "부점코드",
           showTooltip: true,
           tooltip: '<span style="color: red;">이름</span>',
         },
@@ -82,7 +82,7 @@ function CMC002U() {
           textAlignment: "center",
         },
         header: {
-          text: "지점명",
+          text: "부점명",
           showTooltip: false,
         },
       },
@@ -154,7 +154,7 @@ function CMC002U() {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "50",
+        width: "80",
         styles: {
           textAlignment: "center",
         },
