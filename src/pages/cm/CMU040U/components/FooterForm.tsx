@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
-import TextInput from "../../../../components/form/TextInput";
 import CodeSelect from "../../../../components/form/CodeSelect";
+import TextInput from "../../../../components/form/TextInput";
 
 type FormValues = {
   a: string;
@@ -132,7 +132,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             register={register}
           />
         </div>
-        <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className="grid grid-cols-2 mt-1 gap-y-1 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="비밀번호 변경일"
             type="text"
