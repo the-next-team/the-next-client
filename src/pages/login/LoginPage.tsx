@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { ApiResponseStats } from "../../api/models/common/apiResponseStats";
 import { UserService } from "../../api/services/userService";
 import NextLoge from "../../assets/images/logo/the-next.png";
 import TextInput from "../../components/form/TextInput";
 import { storageKey } from "../../constants";
 import useLoading from "../../hooks/useLoading";
 import useUser from "../../hooks/useUser";
-import { ApiResponseStats } from "../../api/models/common/apiResponseStats";
 
 type FormValues = {
   username: string;
@@ -82,10 +82,8 @@ function LoginPage() {
             label="아이디"
             className="w-full py-2"
             placeholder="아이디"
-            error={errors.username}
-            {...register("username", {
-              required: "아이디를 입력해 주세요.",
-            })}
+            // error={{ message: "아이디를 입력해 주세요." }}
+            register={register}
           />
           <TextInput
             id="password"
@@ -93,10 +91,8 @@ function LoginPage() {
             label="비밀번호"
             className="w-full py-2"
             placeholder="비밀번호"
-            error={errors.password}
-            {...register("password", {
-              required: "비밀번호를 입력해 주세요.",
-            })}
+            // error={{ message: "비밀번호를 입력해 주세요." }}
+            register={register}
           />
         </div>
         <button className="w-full py-2 rounded-[2px] hover:animate-gradient-primary bg-custom-black">
