@@ -26,7 +26,7 @@ function CMC001U() {
       </div>
 
       {/* 대분류 */}
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
         <div>
           <div className="flex items-center mb-1 space-x-2 text-sm font-medium text-slate-900">
             <span className="h-[6px] w-[6px] bg-slate-900 rounded-full inline-block" />
