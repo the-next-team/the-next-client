@@ -28,7 +28,7 @@ function Button({
   icon,
   loadingClass = "unset-classname",
   iconPosition = "left",
-  iconClass = "text-[20px]",
+  iconClass = "text-[16px]",
   link,
   onClick,
   div = false,
@@ -39,11 +39,9 @@ function Button({
         <button
           type={type}
           onClick={onClick}
-          className={`btn btn inline-flex justify-center   ${
-            isLoading ? " pointer-events-none" : ""
-          }
-        ${disabled ? " opacity-40 cursor-not-allowed" : ""}
-        ${className}`}
+          className={`btn inline-flex justify-center ${
+            isLoading ? "pointer-events-none" : ""
+          } ${disabled ? "opacity-40 cursor-not-allowed" : ""} ${className}`}
         >
           {/* if has children and not loading*/}
           {children && !isLoading && children}
@@ -54,13 +52,11 @@ function Button({
               {/* if has icon */}
               {icon && (
                 <span
-                  className={`
-          ${iconPosition === "right" ? "order-1 ml-2 rtl:mr-2" : " "}
-          ${text && iconPosition === "left" ? "mr-2 rtl:ml-2" : ""}
-
-          ${iconClass}
-
-          `}
+                  className={`${
+                    iconPosition === "right" ? "order-1 ml-2" : ""
+                  } ${
+                    text && iconPosition === "left" ? "mr-2" : ""
+                  } ${iconClass}`}
                 >
                   <Icon icon={icon} />
                 </span>
@@ -73,7 +69,7 @@ function Button({
           {isLoading && (
             <>
               <svg
-                className={`animate-spin -ml-1 mr-3 rtl:-mr-1 rtl:ml-3 h-5 w-5 ${loadingClass}`}
+                className={`animate-spin -ml-1 mr-3 h-5 w-5 ${loadingClass}`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -100,11 +96,9 @@ function Button({
       {!link && div && (
         <div
           onClick={onClick}
-          className={`btn btn inline-flex justify-center   ${
-            isLoading ? " pointer-events-none" : ""
-          }
-        ${disabled ? " opacity-40 cursor-not-allowed" : ""}
-        ${className}`}
+          className={`btn btn inline-flex justify-center ${
+            isLoading ? "pointer-events-none" : ""
+          } ${disabled ? "opacity-40 cursor-not-allowed" : ""} ${className}`}
         >
           {/* if has children and not loading*/}
           {children && !isLoading && children}
@@ -115,13 +109,11 @@ function Button({
               {/* if has icon */}
               {icon && (
                 <span
-                  className={`
-          ${iconPosition === "right" ? "order-1 ml-2 rtl:mr-2" : " "}
-          ${text && iconPosition === "left" ? "mr-2 rtl:ml-2" : ""}
-
-          ${iconClass}
-
-          `}
+                  className={`${
+                    iconPosition === "right" ? "order-1 ml-2" : ""
+                  } ${
+                    text && iconPosition === "left" ? "mr-2" : ""
+                  } ${iconClass}`}
                 >
                   <Icon icon={icon} />
                 </span>
@@ -134,7 +126,7 @@ function Button({
           {isLoading && (
             <>
               <svg
-                className={`animate-spin -ml-1 mr-3 rtl:-mr-1 rtl:ml-3 h-5 w-5 ${loadingClass}`}
+                className={`animate-spin -ml-1 mr-3 h-5 w-5 ${loadingClass}`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -161,11 +153,9 @@ function Button({
       {link && !div && (
         <Link
           to={link}
-          className={`btn btn inline-flex justify-center   ${
-            isLoading ? " pointer-events-none" : ""
-          }
-        ${disabled ? " opacity-40 cursor-not-allowed" : ""}
-        ${className}`}
+          className={`btn btn inline-flex justify-center ${
+            isLoading ? "pointer-events-none" : ""
+          } ${disabled ? "opacity-40 cursor-not-allowed" : ""} ${className}`}
         >
           {/* if has children and not loading*/}
           {children && !isLoading && children}
@@ -176,13 +166,11 @@ function Button({
               {/* if has icon */}
               {icon && (
                 <span
-                  className={`
-          ${iconPosition === "right" ? "order-1 ml-2 rtl:mr-2" : " "}
-          ${text && iconPosition === "left" ? "mr-2 rtl:ml-2" : ""}
-
-          ${iconClass}
-
-          `}
+                  className={`${
+                    iconPosition === "right" ? "order-1 ml-2" : ""
+                  } ${
+                    text && iconPosition === "left" ? "mr-2" : ""
+                  } ${iconClass}`}
                 >
                   <Icon icon={icon} />
                 </span>
@@ -195,7 +183,7 @@ function Button({
           {isLoading && (
             <>
               <svg
-                className={`animate-spin -ml-1 mr-3 rtl:-mr-1 rtl:ml-3 h-5 w-5 ${loadingClass}`}
+                className={`animate-spin -ml-1 mr-3 h-5 w-5 ${loadingClass}`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
