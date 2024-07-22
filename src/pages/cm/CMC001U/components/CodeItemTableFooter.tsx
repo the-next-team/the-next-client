@@ -16,6 +16,10 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
+  r1: string;
+  r2: string;
+  r3: string;
+  r4: string;
 };
 
 type Props = {
@@ -28,12 +32,16 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
     register,
     handleSubmit,
     setError,
+    watch,
     reset,
     clearErrors,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      a: "",
+      r1: "r1-1",
+      r2: "r2-1",
+      r3: "r3-1",
+      r4: "r4-1",
     },
   });
 
@@ -69,17 +77,15 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
           <RadioGroup horizontal label={"사용여부"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r1-1"
+              checked={watch("r1") === "r1-1"}
+              {...register("r1")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r1-2"
+              checked={watch("r1") === "r1-2"}
+              {...register("r1")}
             />
           </RadioGroup>
           <div className="col-span-2">
@@ -106,49 +112,43 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
           <RadioGroup horizontal label={"사용여부1"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r2-1"
+              checked={watch("r2") === "r2-1"}
+              {...register("r2")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r2-2"
+              checked={watch("r2") === "r2-2"}
+              {...register("r2")}
             />
           </RadioGroup>
           <RadioGroup horizontal label={"사용여부2"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r3-1"
+              checked={watch("r3") === "r3-1"}
+              {...register("r3")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r3-2"
+              checked={watch("r3") === "r3-2"}
+              {...register("r3")}
             />
           </RadioGroup>
           <RadioGroup horizontal label={"사용여부3"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r4-1"
+              checked={watch("r4") === "r4-1"}
+              {...register("r4")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r4-2"
+              checked={watch("r4") === "r4-2"}
+              {...register("r4")}
             />
           </RadioGroup>
           <TextInput

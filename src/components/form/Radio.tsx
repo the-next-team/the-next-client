@@ -1,14 +1,14 @@
-import { ChangeEvent, ForwardedRef, forwardRef } from "react";
+import { ForwardedRef, forwardRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 type Props = {
-  label: string;
   id?: string | undefined;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  label: string;
+  //   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   className?: string | undefined;
   activeClass?: string | undefined;
   wrapperClass?: string | undefined;
   labelClass?: string | undefined;
-  name?: string;
   disabled?: boolean;
   checked?: boolean;
   value?: string | number | readonly string[] | undefined;
@@ -16,13 +16,12 @@ type Props = {
 
 const Radio = (
   {
+    id = uuidv4(),
     label,
-    id,
-    name,
     disabled = false,
     checked = false,
     value,
-    onChange,
+    // onChange,
     className = "w-3 h-3",
     activeClass = "ring-black-500 border-black-500",
     wrapperClass = "",
@@ -41,13 +40,12 @@ const Radio = (
       >
         <input
           ref={ref}
+          id={id}
           type="radio"
           className="hidden"
-          name={name}
           value={value}
           checked={checked}
-          onChange={onChange}
-          id={id}
+          //   onChange={onChange}
           disabled={disabled}
           {...props}
         />

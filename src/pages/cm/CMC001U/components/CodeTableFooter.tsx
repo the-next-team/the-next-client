@@ -16,6 +16,11 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
+  r1: string;
+  r2: string;
+  r3: string;
+  r4: string;
+  r5: string;
 };
 
 type Props = {
@@ -28,12 +33,17 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
     register,
     handleSubmit,
     setError,
+    watch,
     reset,
     clearErrors,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      a: "",
+      r1: "r1-1",
+      r2: "r2-1",
+      r3: "r3-1",
+      r4: "r4-1",
+      r5: "r5-1",
     },
   });
 
@@ -70,17 +80,15 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
           <RadioGroup horizontal label={"사용여부"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r1-1"
+              checked={watch("r1") === "r1-1"}
+              {...register("r1")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r1-2"
+              checked={watch("r1") === "r1-2"}
+              {...register("r1")}
             />
           </RadioGroup>
           <div className="col-span-2">
@@ -206,17 +214,15 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
           <RadioGroup horizontal label={"코드셋여부"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r2-1"
+              checked={watch("r2") === "r2-1"}
+              {...register("r2")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r2-2"
+              checked={watch("r2") === "r2-2"}
+              {...register("r2")}
             />
           </RadioGroup>
           <div className="col-span-2">
@@ -233,33 +239,29 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
           <RadioGroup horizontal label={"주요코드여부"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r4-1"
+              checked={watch("r4") === "r4-1"}
+              {...register("r4")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r4-2"
+              checked={watch("r4") === "r4-2"}
+              {...register("r4")}
             />
           </RadioGroup>
           <RadioGroup horizontal label={"시스템코드여부"}>
             <Radio
               label="Yes"
-              name="x"
-              value="A"
-              checked={value === "A"}
-              onChange={handleChange}
+              value="r5-1"
+              checked={watch("r5") === "r5-1"}
+              {...register("r5")}
             />
             <Radio
               label="No"
-              name="x"
-              value="B"
-              checked={value === "B"}
-              onChange={handleChange}
+              value="r5-2"
+              checked={watch("r5") === "r5-2"}
+              {...register("r5")}
             />
           </RadioGroup>
         </div>
