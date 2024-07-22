@@ -21,8 +21,8 @@ const Checkbox = (
     checked,
     value,
     // onChange,
-    activeClass = "ring-black-500 bg-slate-900",
-    labelClass = "text-slate-500 text-sm",
+    activeClass = "ring-black-500 bg-black-500",
+    labelClass = checked ? "text-black-500 text-sm" : "text-slate-400 text-sm",
     ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>
@@ -46,8 +46,8 @@ const Checkbox = (
         {...props}
       />
       <span
-        className={`h-4 w-4 border flex-none border-slate-100 rounded inline-flex mr-3 relative transition-all duration-150 ${
-          checked ? `${activeClass} ring-2 ring-offset-2` : "bg-slate-100"
+        className={`h-4 w-4 border flex-none border-slate-100 rounded inline-flex mr-2 relative transition-all duration-150 ${
+          checked ? `${activeClass} ring-1 ring-offset-1` : "bg-slate-100"
         }`}
       >
         {checked && (
