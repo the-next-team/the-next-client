@@ -131,8 +131,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id="a"
             register={register}
           />
-        </div>
-        <div className="grid grid-cols-2 mt-1 gap-y-1 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 ">
           <TextInput
             label="비밀번호 변경일"
             type="text"
@@ -187,15 +185,17 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             placeholder=""
             register={register}
           />
-          <TextInput
-            label="최종로그인 메시지"
-            type="text"
-            horizontal
-            name=""
-            id=""
-            placeholder=""
-            register={register}
-          />
+          <div className="col-span-2">
+            <TextInput
+              label="최종로그인 메시지"
+              type="text"
+              horizontal
+              name=""
+              id=""
+              placeholder=""
+              register={register}
+            />
+          </div>
           <TextInput
             label="변경자"
             type="text"
