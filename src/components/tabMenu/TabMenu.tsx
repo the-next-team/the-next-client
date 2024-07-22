@@ -51,16 +51,18 @@ const TabMenu = () => {
         </div>
       </div>
       {/* 전체닫기 */}
-      <div
-        className="absolute px-1 py-0.5 flex items-center -translate-y-1/2 bg-white cursor-pointer right-2 top-4"
-        onClick={() => {
-          setTabMenuReset();
-          navigate("/dashboard");
-        }}
-      >
-        <p className="text-xs">전체닫기</p>
-        {/* <Icon icon="heroicons:x-mark-16-solid" width="16" color="#111625" /> */}
-      </div>
+      {tabMenu.length > 1 && (
+        <div
+          className="absolute px-1 py-0.5 flex items-center -translate-y-1/2 bg-white cursor-pointer right-2 top-4 rounded-sm"
+          onClick={() => {
+            setTabMenuReset();
+            navigate("/dashboard");
+          }}
+        >
+          <p className="text-xs">전체닫기</p>
+          {/* <Icon icon="heroicons:x-mark-16-solid" width="16" color="#111625" /> */}
+        </div>
+      )}
     </div>
   );
 };
