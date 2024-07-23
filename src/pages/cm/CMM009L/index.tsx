@@ -3,20 +3,24 @@
  * 시스템 > 배치관리 > 배치수행이력
  * CMM009L
  */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import HeaderForm from "./components/HeaderForm";
 import FooterForm from "./components/FooterForm";
+import {
+  batchService,
+  IBatchHistory,
+} from "../../../api/services/batchService";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 
 function CMM009L() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  var dp = new LocalDataProvider(true);
+  const [items, setItems] = useState<IBatchHistory[]>([]);
 
   useEffect(() => {
     const container = realgridElement.current;
-    dp = new LocalDataProvider(true);
+    const dp = new LocalDataProvider(true);
     const gv = new GridView(container as any);
-
     gv.setEditOptions({
       editable: false,
     });
@@ -142,13 +146,13 @@ function CMM009L() {
         header: "처리상태",
       },
     ]);
-
     gv.onCellClicked = () => {
       console.log("onCellClicked");
     };
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
     };
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
@@ -156,6 +160,23 @@ function CMM009L() {
       dp.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    findAll();
+  }, []);
+
+  const findAll = async () => {
+    try {
+      const response = await batchService.fetchBatchInquiryHistory({
+        procSt: "",
+        runDt: "",
+        useYn: "",
+      });
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+      }
+    } catch (errer) {}
+  };
 
   return (
     <div className="overflow-x-auto">

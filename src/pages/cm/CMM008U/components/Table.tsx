@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
-import { batchService, ICode } from "../../../../api/services/batchService";
+import { batchService, IBatch } from "../../../../api/services/batchService";
 
 function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  const [items, setItems] = useState<ICode[]>([]);
+  const [items, setItems] = useState<IBatch[]>([]);
 
   useEffect(() => {
     const container = realgridElement.current;
@@ -138,7 +138,7 @@ function Table() {
 
   const findAll = async () => {
     try {
-      const response = await batchService.getCode({
+      const response = await batchService.fetchBatchInquiry({
         procCycl: "",
         prgNm: "",
         useYn: "",
