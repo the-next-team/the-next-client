@@ -1,8 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
+import { AgentService, IAgent } from "../../../../api/services/agentService";
+import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
-function Table() {
+type Props = {
+  onClick: (item: IAgent) => void;
+};
+function Table({ onClick }: Props) {
   const realgridElement = useRef<HTMLDivElement | null>(null);
+  const [items, setItems] = useState<IAgent[]>([]);
   var dp = new LocalDataProvider(true);
 
   useEffect(() => {
@@ -16,26 +22,34 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "agentId",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "agentNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "useYn",
+        fieldName: "acno",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "createdDate",
+        fieldName: "crtDtm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "chgDtm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "replyUrl",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "agentId",
+        fieldName: "agentId",
         type: "data",
         width: "150",
         styles: {
@@ -51,8 +65,8 @@ function Table() {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "agentNm",
+        fieldName: "agentNm",
         type: "data",
         width: "150",
         styles: {
@@ -64,8 +78,8 @@ function Table() {
         },
       },
       {
-        name: "number",
-        fieldName: "number",
+        name: "",
+        fieldName: "",
         type: "data",
         width: "150",
         styles: {
@@ -104,8 +118,8 @@ function Table() {
         header: "등록자",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "crtDtm",
+        fieldName: "crtDtm",
         type: "data",
         width: "180",
         styles: {
@@ -114,8 +128,8 @@ function Table() {
         header: "등록일시",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "acno",
+        fieldName: "acno",
         type: "data",
         width: "180",
         styles: {
@@ -134,8 +148,8 @@ function Table() {
         header: "혁신금융",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "replyUrl",
+        fieldName: "replyUrl",
         type: "data",
         width: "120",
         styles: {
@@ -155,18 +169,36 @@ function Table() {
       },
     ]);
 
-    gv.onCellClicked = (grid, data) => {};
+    gv.onCellClicked = (grid, data) => {
+      if (data.itemIndex) {
+      }
+    };
 
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
     };
+
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
+  }, [items]);
+
+  useEffect(() => {
+    findAll();
   }, []);
+
+  const findAll = async () => {
+    try {
+      const response = await AgentService.getAgents();
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+      }
+    } catch (error) {}
+  };
 
   return (
     <div
