@@ -1,3 +1,4 @@
+import JSZip from "jszip";
 import {
   ForwardedRef,
   forwardRef,
@@ -25,6 +26,7 @@ export type RealGridHandle = {
   getGridView: () => GridView | null;
   getDataProvider: () => LocalDataProvider | null;
   setRows: (newRows: any[]) => void;
+  excelExport: () => void;
 };
 
 function RealGridTable(
@@ -53,6 +55,39 @@ function RealGridTable(
     gridView.onCellClicked = (grid, clickData) => {
       onCellClicked && onCellClicked(grid, clickData);
     };
+    gridView.setContextMenu([
+      {
+        label: "메뉴1",
+        children: [
+          {
+            label: "submenu1 입니다.",
+          },
+          {
+            label: "submenu2 입니다.",
+          },
+        ],
+      },
+      {
+        label: "메뉴2",
+      },
+      {
+        label: "-", // menu separator를 삽입합니다.
+      },
+      {
+        label: "엑셀 내보내기",
+        tag: 'ExcelExport'
+      },
+    ]);
+
+    gridView.onContextMenuItemClicked = function (grid, item, clickData) {
+      if (item.tag == "ExcelExport") {
+        window.JSZip = window.JSZip || JSZip;
+        grid.exportGrid({
+          type: "excel",
+          target: "local",
+        });
+      }
+    };
 
     return () => {
       dataProvider.clearRows();
@@ -61,11 +96,19 @@ function RealGridTable(
     };
   }, [fields, columns]);
 
+  // 외부에서 사용하는 함수 정의
   useImperativeHandle(ref, () => ({
     getGridView: () => gridViewRef.current,
     getDataProvider: () => dataProviderRef.current,
     setRows: (newRows: any[]) => {
       dataProviderRef.current?.setRows(newRows);
+    },
+    excelExport: () => {
+      window.JSZip = window.JSZip || JSZip;
+      gridViewRef.current?.exportGrid({
+        type: "excel",
+        target: "local",
+      });
     },
   }));
 

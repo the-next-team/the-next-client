@@ -207,6 +207,9 @@ function CMC002U() {
               setSelectedIndex(null);
               setFormData(data);
             }}
+            onExcelClick={() => {
+              realGridRef.current?.excelExport();
+            }}
           />
         </div>
 
