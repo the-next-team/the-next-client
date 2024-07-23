@@ -1,56 +1,54 @@
 import { useEffect, useRef, useState } from "react";
 import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
-import { CodeService, IJobCode } from "../../../../api/services/codeService";
+import { batchService, ICode } from "../../../../api/services/batchService";
 
 function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  const [items, setItems] = useState<IJobCode[]>([]);
-  var dp = new LocalDataProvider(true);
+  const [items, setItems] = useState<ICode[]>([]);
 
   useEffect(() => {
     const container = realgridElement.current;
-    dp = new LocalDataProvider(true);
+    const dp = new LocalDataProvider(true);
     const gv = new GridView(container as any);
-
     gv.setEditOptions({
       editable: false,
     });
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "progId",
+        fieldName: "PRG_ID",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "progName",
+        fieldName: "PRG_NM",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "performCycle",
+        fieldName: "PROC_CYCL_DATA",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "viewOrder",
+        fieldName: "VIEW_SEQ",
+        dataType: ValueType.NUMBER,
+      },
+      {
+        fieldName: "USE_YN",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "useYn",
+        fieldName: "BF_PRG_ID",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "preExecPlace",
-        dataType: ValueType.TEXT,
-      },
-      {
-        fieldName: "reg",
+        fieldName: "CRT_ID",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "progId",
-        fieldName: "progId",
+        name: "PRG_ID",
+        fieldName: "PRG_ID",
         type: "data",
         width: "220",
         styles: {
@@ -59,8 +57,8 @@ function Table() {
         header: "프로그램ID",
       },
       {
-        name: "progName",
-        fieldName: "progName",
+        name: "PRG_NM",
+        fieldName: "PRG_NM",
         type: "data",
         width: "220",
         styles: {
@@ -69,8 +67,8 @@ function Table() {
         header: "프로그램명",
       },
       {
-        name: "performCycle",
-        fieldName: "performCycle",
+        name: "PROC_CYCL_DATA",
+        fieldName: "PROC_CYCL_DATA",
         type: "data",
         width: "120",
         styles: {
@@ -79,8 +77,8 @@ function Table() {
         header: "수행주기",
       },
       {
-        name: "viewOrder",
-        fieldName: "viewOrder",
+        name: "VIEW_SEQ",
+        fieldName: "VIEW_SEQ",
         type: "data",
         width: "120",
         styles: {
@@ -89,8 +87,8 @@ function Table() {
         header: "보기순서",
       },
       {
-        name: "useYn",
-        fieldName: "useYn",
+        name: "USE_YN",
+        fieldName: "USE_YN",
         type: "data",
         width: "80",
         styles: {
@@ -99,8 +97,8 @@ function Table() {
         header: "사용여부",
       },
       {
-        name: "preExecPlace",
-        fieldName: "preExecPlace",
+        name: "BF_PRG_ID",
+        fieldName: "BF_PRG_ID",
         type: "data",
         width: "220",
         styles: {
@@ -109,8 +107,8 @@ function Table() {
         header: "선수행배치",
       },
       {
-        name: "reg",
-        fieldName: "reg",
+        name: "CRT_ID",
+        fieldName: "CRT_ID",
         type: "data",
         width: "120",
         styles: {
@@ -119,20 +117,37 @@ function Table() {
         header: "등록자",
       },
     ]);
-
     gv.onCellClicked = () => {
       console.log("onCellClicked");
     };
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
     };
+    dp.setRows(items);
 
     return () => {
       dp.clearRows();
       gv.destroy();
       dp.destroy();
     };
+  }, [items]);
+
+  useEffect(() => {
+    findAll();
   }, []);
+
+  const findAll = async () => {
+    try {
+      const response = await batchService.getCode({
+        procCycl: "",
+        prgNm: "",
+        useYn: "",
+      });
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+      }
+    } catch (errer) {}
+  };
 
   return (
     <div
