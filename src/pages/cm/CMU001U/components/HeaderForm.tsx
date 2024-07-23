@@ -8,10 +8,11 @@ type FormValues = {
 };
 
 type Props = {
+  onExcelClick?: () => void;
   onSubmit: (data: FormValues) => void;
 };
 
-function HeaderForm({ onSubmit }: Props) {
+function HeaderForm({ onSubmit, onExcelClick }: Props) {
   const {
     register,
     handleSubmit,

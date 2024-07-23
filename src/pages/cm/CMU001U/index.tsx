@@ -17,6 +17,7 @@ function CMU001U() {
             onSubmit={(data) => {
               console.log(data);
             }}
+            onExcelClick={() => {}}
           />
         </div>
 
