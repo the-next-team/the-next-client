@@ -210,7 +210,7 @@ function CMC002U() {
         />
       </div>
 
-      <div className="flex-grow h-full">
+      <div className="flex-grow">
         <RealGridTable
           ref={realGridRef}
           fields={fields}
