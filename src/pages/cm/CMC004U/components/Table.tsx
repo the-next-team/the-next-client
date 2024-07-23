@@ -3,10 +3,7 @@ import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { AgentService, IAgent } from "../../../../api/services/agentService";
 import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
-type Props = {
-  onClick: (item: IAgent) => void;
-};
-function Table({ onClick }: Props) {
+function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
   const [items, setItems] = useState<IAgent[]>([]);
   var dp = new LocalDataProvider(true);

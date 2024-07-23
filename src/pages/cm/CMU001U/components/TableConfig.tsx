@@ -9,10 +9,6 @@ import RealGridTable, {
   RealGridHandle,
 } from "../../../../components/table/RealGridTable";
 
-type Props = {
-  onClick: (item: IUserName) => void;
-};
-
 const fields = [
   {
     fieldName: "userNm",
@@ -135,7 +131,7 @@ const columns = [
   },
 ];
 
-function Table({ onClick }: Props) {
+function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
   const [items, setItems] = useState<IUserName[]>([]);
   var dp = new LocalDataProvider(true);
