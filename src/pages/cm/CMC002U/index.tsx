@@ -4,7 +4,7 @@
  * CMC002U
  */
 import { useEffect, useRef, useState } from "react";
-import { LocalDataProvider, ValueType } from "realgrid";
+import { ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 import { ITeam, TeamService } from "../../../api/services/teamService";
 import RealGridTable, {
@@ -162,8 +162,6 @@ const columns = [
 function CMC002U() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [items, setItems] = useState<ITeam[]>([]);
-  const realgridElement = useRef<HTMLDivElement | null>(null);
-  var dataProvider = new LocalDataProvider(true);
   const [formData, setFormData] = useState({
     brCode: "",
   });
