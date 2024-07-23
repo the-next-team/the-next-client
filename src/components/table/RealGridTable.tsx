@@ -209,7 +209,7 @@ function RealGridTable(
   }));
 
   return (
-    <div className="h-full" style={{ width: "100%" }} ref={realgridElement}></div>
+    <div className="w-full h-full" ref={realgridElement}></div>
   );
 }
 
