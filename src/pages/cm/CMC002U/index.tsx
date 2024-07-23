@@ -196,56 +196,52 @@ function CMC002U() {
   }, []);
 
   return (
-    <div>
-      <div className="flex flex-col gap-2 verflow-x-auto">
-        {/* Header */}
-        <div>
-          <HeaderForm
-            onSubmit={(data) => {
-              setSelectedIndex(null);
-              setFormData(data);
-            }}
-            onExcelClick={() => {
-              realGridRef.current?.excelExport();
-            }}
-          />
-        </div>
+    <div className="relative flex flex-col h-full gap-4">
+      {/* Header */}
+      <div className="">
+        <HeaderForm
+          onSubmit={(data) => {
+            setSelectedIndex(null);
+            setFormData(data);
+          }}
+          onExcelClick={() => {
+            realGridRef.current?.excelExport();
+          }}
+        />
+      </div>
 
-        <div className="inline-block min-w-full align-middle">
-          <div className="overflow-hidden ">
-            <RealGridTable
-              ref={realGridRef}
-              fields={fields}
-              columns={columns}
-              onCellClicked={(grid, data) => {
-                console.log("onCellClicked", data.itemIndex);
-                if (data.itemIndex) {
-                  setSelectedIndex(data.itemIndex);
-                }
-              }}
-            />
-          </div>
-        </div>
+      <div className="flex-grow">
+        <RealGridTable
+          ref={realGridRef}
+          fields={fields}
+          columns={columns}
+          onCellClicked={(grid, data) => {
+            console.log("onCellClicked", data.itemIndex);
+            if (data.itemIndex) {
+              setSelectedIndex(data.itemIndex);
+            }
+          }}
+        />
+      </div>
 
-        {/* Footer */}
-        <div>
-          <FooterForm
-            initialValues={selectedIndex ? items[selectedIndex] : null}
-            onAdd={(data) => {
-              console.log("onAdd", data);
-            }}
-            onEdit={(data) => {
-              console.log("onEdit", data);
-            }}
-            onReset={() => {
-              console.log("onReset");
-              setSelectedIndex(null);
-            }}
-            onDelete={() => {
-              console.log("onDelete");
-            }}
-          />
-        </div>
+      {/* Footer */}
+      <div className="">
+        <FooterForm
+          initialValues={selectedIndex ? items[selectedIndex] : null}
+          onAdd={(data) => {
+            console.log("onAdd", data);
+          }}
+          onEdit={(data) => {
+            console.log("onEdit", data);
+          }}
+          onReset={() => {
+            console.log("onReset");
+            setSelectedIndex(null);
+          }}
+          onDelete={() => {
+            console.log("onDelete");
+          }}
+        />
       </div>
     </div>
   );

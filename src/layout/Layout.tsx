@@ -36,15 +36,15 @@ function Layout() {
             {tabMenu.map((tab) => (
               <div
                 key={tab.href}
-                className="flex-1"
+                className="relative flex flex-col h-full"
                 style={{
-                  display: activeTab === tab.href ? "block" : "none",
+                  display: activeTab === tab.href ? "" : "none",
                 }}
               >
                 {tab.href ? (
                   <>
                     <Breadcrumbs />
-                    <div className="">
+                    <div className="relative flex-grow">
                       <DynamicComponent componentPath={tab.href} />
                     </div>
                   </>
