@@ -196,7 +196,7 @@ function CMC002U() {
   }, []);
 
   return (
-    <div className="relative flex flex-col h-full gap-4">
+    <div className="relative flex flex-col h-full gap-2">
       {/* Header */}
       <div className="">
         <HeaderForm
