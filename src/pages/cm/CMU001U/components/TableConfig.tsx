@@ -133,11 +133,6 @@ const columns = [
 
 function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
-  const [items, setItems] = useState<IUserName[]>([]);
-  var dp = new LocalDataProvider(true);
-  const [formData, setFormData] = useState({
-    brCode: "",
-  });
 
   const realGridRef = useRef<RealGridHandle>(null);
 
@@ -149,7 +144,6 @@ function Table() {
     try {
       const response = await userNameService.getUserName();
       if (response.status === ApiResponseStats.OK) {
-        setItems(response.data);
         realGridRef.current?.setRows(response.data);
       }
     } catch (error) {}
