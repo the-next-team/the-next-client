@@ -170,6 +170,9 @@ function CMU040U() {
         onSubmit={(data) => {
           console.log(data);
         }}
+        onExcelClick={() => {
+          realGridRef.current?.excelExport();
+        }}
       />
 
       {/* Table */}
