@@ -21,7 +21,7 @@ const Checkbox = (
     checked,
     value,
     // onChange,
-    activeClass = "ring-slate-800 border-slate-800",
+    activeClass = "ring-slate-800 bg-slate-800",
     labelClass = "text-slate-800 text-xs",
     ...props
   }: Props,
