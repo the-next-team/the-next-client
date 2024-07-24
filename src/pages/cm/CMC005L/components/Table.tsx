@@ -16,26 +16,30 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "DATE",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "BIZ_YN",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "useYn",
+        fieldName: "YEAR_WEEK",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "createdDate",
+        fieldName: "MONTH_WEEK",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "DESCRIPTION",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "DATE",
+        fieldName: "DATE",
         type: "data",
         width: "150",
         styles: {
@@ -51,8 +55,8 @@ function Table() {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "BIZ_YN",
+        fieldName: "BIZ_YN",
         type: "data",
         width: "80",
         styles: {
@@ -64,8 +68,8 @@ function Table() {
         },
       },
       {
-        name: "number",
-        fieldName: "number",
+        name: "YEAR_WEEK",
+        fieldName: "YEAR_WEEK",
         type: "data",
         width: "120",
         styles: {
@@ -74,8 +78,8 @@ function Table() {
         header: "년주차",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "MONTH_WEEK",
+        fieldName: "MONTH_WEEK",
         type: "data",
         width: "120",
         styles: {
@@ -84,8 +88,8 @@ function Table() {
         header: "월주차",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "DESCRIPTION",
+        fieldName: "DESCRIPTION",
         type: "data",
         width: "220",
         styles: {
