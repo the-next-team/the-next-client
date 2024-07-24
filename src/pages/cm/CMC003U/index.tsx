@@ -185,6 +185,9 @@ function CMC003U() {
           onSubmit={(data) => {
             console.log(data);
           }}
+          onExcelClick={() => {
+            realGridRef.current?.excelExport();
+          }}
         />
       </div>
 
