@@ -6,11 +6,7 @@ import {
 } from "../../../../api/services/departmentService";
 import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 
-type Props = {
-  onClick: (item: IDepartment) => void;
-};
-
-function Table({ onClick }: Props) {
+function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
   const [items, setItems] = useState<IDepartment[]>([]);
   var dp = new LocalDataProvider(true);
