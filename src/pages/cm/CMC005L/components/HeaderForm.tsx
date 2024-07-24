@@ -7,10 +7,11 @@ type FormValues = {
 };
 
 type Props = {
+  onExcelClick: () => void;
   onSubmit: (data: FormValues) => void;
 };
 
-function HeaderForm({ onSubmit }: Props) {
+function HeaderForm({ onSubmit, onExcelClick }: Props) {
   const {
     register,
     handleSubmit,
@@ -50,7 +51,11 @@ function HeaderForm({ onSubmit }: Props) {
             />
 
             <Button text="저장" className="w-12 btn-primary btn-sm" />
-            <Button text="엑셀" className="w-12 btn-primary btn-sm" />
+            <Button
+              onClick={onExcelClick}
+              text="엑셀"
+              className="w-12 btn-primary btn-sm"
+            />
             <Button text="추가" className="w-12 btn-primary btn-sm" />
           </div>
         </div>
