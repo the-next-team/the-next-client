@@ -3,18 +3,18 @@
  * 시스템 > 사용자 > 사용자 관리
  * CMU001U
  */
-import { ValueType } from "realgrid";
-import FooterForm from "./components/FooterForm";
-import HeaderForm from "./components/HeaderForm";
 import { useEffect, useRef, useState } from "react";
-import RealGridTable, {
-  RealGridHandle,
-} from "../../../components/table/RealGridTable";
+import { ValueType } from "realgrid";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 import {
   IUserName,
   userNameService,
 } from "../../../api/services/userNameService";
-import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
+import RealGridTable, {
+  RealGridHandle,
+} from "../../../components/table/RealGridTable";
+import FooterForm from "./components/FooterForm";
+import HeaderForm from "./components/HeaderForm";
 
 const fields = [
   {
@@ -157,21 +157,21 @@ function CMU001U() {
   };
 
   return (
-    <div>
-      <div className="flex flex-col gap-2 overflow-x-auto ">
-        {/* Header */}
-        <div>
-          <HeaderForm
-            onSubmit={(data) => {
-              console.log(data);
-            }}
-            onExcelClick={() => {
-              realGridRef.current?.excelExport();
-            }}
-          />
-        </div>
+    <div className="relative flex flex-col h-full gap-2">
+      {/* Header */}
+      <div>
+        <HeaderForm
+          onSubmit={(data) => {
+            console.log(data);
+          }}
+          onExcelClick={() => {
+            realGridRef.current?.excelExport();
+          }}
+        />
+      </div>
 
-        {/* <Card> */}
+      {/* <Card> */}
+      <div className="flex-grow">
         <RealGridTable
           ref={realGridRef}
           fields={fields}
@@ -180,15 +180,15 @@ function CMU001U() {
             console.log("onCellClicked", data.itemIndex);
           }}
         />
+      </div>
 
-        {/* Footer */}
-        <div>
-          <FooterForm
-            onSubmit={(data) => {
-              console.log(data);
-            }}
-          />
-        </div>
+      {/* Footer */}
+      <div>
+        <FooterForm
+          onSubmit={(data) => {
+            console.log(data);
+          }}
+        />
       </div>
     </div>
   );
