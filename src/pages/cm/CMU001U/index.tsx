@@ -18,6 +18,14 @@ import HeaderForm from "./components/HeaderForm";
 
 const fields = [
   {
+    fieldName: "userId",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "empNo",
+    dataType: ValueType.TEXT,
+  },
+  {
     fieldName: "userNm",
     dataType: ValueType.TEXT,
   },
@@ -33,12 +41,16 @@ const fields = [
     fieldName: "createdDate",
     dataType: ValueType.TEXT,
   },
+  {
+    fieldName: "fsbEmpno",
+    dataType: ValueType.TEXT,
+  },
 ];
 
 const columns = [
   {
-    name: "",
-    fieldName: "",
+    name: "userId",
+    fieldName: "userId",
     type: "data",
     width: "100",
     styles: {
@@ -67,8 +79,8 @@ const columns = [
     },
   },
   {
-    name: "",
-    fieldName: "",
+    name: "empNo",
+    fieldName: "empNo",
     type: "data",
     width: "120",
     styles: {
@@ -77,8 +89,8 @@ const columns = [
     header: "시스템사번",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "saaNm",
+    fieldName: "saaNm",
     type: "data",
     width: "120",
     styles: {
@@ -87,8 +99,8 @@ const columns = [
     header: "직급",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "empNo",
+    fieldName: "empNo",
     type: "data",
     width: "120",
     styles: {
@@ -117,8 +129,8 @@ const columns = [
     header: "부점",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "permission",
+    fieldName: "permission",
     type: "data",
     width: "120",
     styles: {
@@ -127,8 +139,8 @@ const columns = [
     header: "화면권한",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "fsbEmpno",
+    fieldName: "fsbEmpno",
     type: "data",
     width: "120",
     styles: {
