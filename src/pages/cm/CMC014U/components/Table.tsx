@@ -16,26 +16,42 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "agentId",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "agentNm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "lpTreeCd",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "lpTreeStructure",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "crtId",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "lpNm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "lpaCd",
         dataType: ValueType.TEXT,
       },
       {
         fieldName: "useYn",
         dataType: ValueType.TEXT,
       },
-      {
-        fieldName: "createdDate",
-        dataType: ValueType.TEXT,
-      },
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "agentId",
+        fieldName: "agentId",
         type: "data",
         width: "150",
         styles: {
@@ -51,8 +67,8 @@ function Table() {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "agentNm",
+        fieldName: "agentNm",
         type: "data",
         width: "150",
         styles: {
@@ -64,8 +80,8 @@ function Table() {
         },
       },
       {
-        name: "number",
-        fieldName: "number",
+        name: "lpTreeCd",
+        fieldName: "lpTreeCd",
         type: "data",
         width: "150",
         styles: {
@@ -75,8 +91,8 @@ function Table() {
       },
 
       {
-        name: "",
-        fieldName: "",
+        name: "lpTreeStructure",
+        fieldName: "lpTreeStructure",
         type: "data",
         width: "180",
         styles: {
@@ -85,8 +101,8 @@ function Table() {
         header: "중개조직 구조",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "crtId",
+        fieldName: "crtId",
         type: "data",
         width: "120",
         styles: {
@@ -95,8 +111,8 @@ function Table() {
         header: "모집인ID",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "lpNm",
+        fieldName: "lpNm",
         type: "data",
         width: "120",
         styles: {
@@ -105,8 +121,8 @@ function Table() {
         header: "모집인명",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "lpaCd",
+        fieldName: "lpaCd",
         type: "data",
         width: "180",
         styles: {
@@ -115,8 +131,8 @@ function Table() {
         header: "권한",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "useYn",
+        fieldName: "useYn",
         type: "data",
         width: "180",
         styles: {
