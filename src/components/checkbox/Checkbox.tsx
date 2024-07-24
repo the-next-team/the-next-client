@@ -21,8 +21,8 @@ const Checkbox = (
     checked,
     value,
     // onChange,
-    activeClass = "ring-black-500 bg-black-500",
-    labelClass = checked ? "text-black-500 text-sm" : "text-slate-400 text-sm",
+    activeClass = "ring-slate-800 border-slate-800",
+    labelClass = "text-slate-800 text-xs",
     ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>

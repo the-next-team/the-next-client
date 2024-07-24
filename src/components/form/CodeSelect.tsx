@@ -91,8 +91,8 @@ const CodeSelect = ({
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
@@ -122,8 +122,8 @@ const CodeSelect = ({
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             disabled={disabled}
             id={id}
@@ -143,9 +143,9 @@ const CodeSelect = ({
         )}
 
         {/* icon */}
-        <div className="flex text-xl absolute right-[14px] top-1/2 -translate-y-1/2 space-x-1">
-          <span className="relative inline-block pointer-events-none -right-2 text-slate-900 dark:text-slate-300">
-            <Icon icon="heroicons:chevron-down" />
+        <div className="flex text-xl absolute right-[14px] top-1/2 -translate-y-1/2 space-x-1 pointer-events-none">
+          <span className="relative inline-block -right-2 text-slate-900">
+            <Icon icon="heroicons:chevron-down" width={16} />
           </span>
           {error && (
             <span className="text-danger-500">

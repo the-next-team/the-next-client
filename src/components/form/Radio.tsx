@@ -23,9 +23,9 @@ const Radio = (
     value,
     // onChange,
     className = "w-3 h-3",
-    activeClass = "ring-black-500 border-black-500",
     wrapperClass = "",
-    labelClass = checked ? "text-black-500 text-sm" : "text-slate-400 text-sm",
+    activeClass = "ring-slate-800 border-slate-800",
+    labelClass = "text-slate-800 text-xs",
     ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>
