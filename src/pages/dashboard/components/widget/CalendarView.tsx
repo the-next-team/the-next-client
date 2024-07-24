@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import React, { useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
@@ -12,6 +12,7 @@ const CalendarView = () => {
         value={value}
         calendarType="gregory"
         formatDay={(locale, date) => dayjs(date).format("DD")}
+        className="rounded text-sm"
       />
     </div>
   );

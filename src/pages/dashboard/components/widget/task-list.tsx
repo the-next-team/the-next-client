@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Checkbox from "../../checkbox/Checkbox";
-import Icon from "../../icons/Icon";
+import { useState } from "react";
+import Checkbox from "../../../../components/checkbox/Checkbox";
+import Icon from "../../../../components/icons/Icon";
+
 const TaskLists = () => {
   const [lists, setLists] = useState([
     {
@@ -41,16 +42,11 @@ const TaskLists = () => {
 
   return (
     <div>
-      <ul className="-mx-6 -mb-6 divide-y divide-slate-100 dark:divide-slate-700">
+      <ul className="divide-y divide-slate-100">
         {lists.map((item) => (
-          <li
-            className="flex items-center px-6 py-4 space-x-4 rtl:space-x-reverse"
-            key={item.id}
-          >
-            <div className="flex items-center flex-none space-x-2 rtl:space-x-reverse">
+          <li className="flex items-center justify-between py-1" key={item.id}>
+            <div className="flex items-center">
               <Checkbox
-                id=""
-                label=""
                 checked={item.isDone}
                 onChange={() => {
                   setLists(
@@ -62,27 +58,28 @@ const TaskLists = () => {
                   );
                 }}
               />
-            </div>
-            <div
-              className={`flex-1 flex  ${
-                item.isDone ? "line-through dark:text-white" : ""
-              }`}
-            >
-              <span className="flex-1 text-sm text-slate-600 dark:text-slate-300">
+              <p
+                className={`flex-1 text-sm ${item.isDone ? "line-through text-slate-500" : "text-slate-600"}`}
+              >
                 {item.title.slice(0, 20) + "..."}
-              </span>
-              <span className="flex-none space-x-2 text-base text-secondary-500 rtl:space-x-reverse">
+              </p>
+            </div>
+            <div className="flex items-center">
+              <span className="space-x-1 text-base text-secondary-500">
                 {item.isDone === false && (
-                  <button type="button">
-                    <Icon icon="heroicons-outline:pencil-alt" />
+                  <button
+                    type="button"
+                    className="transition duration-150 hover:text-primary-800"
+                  >
+                    <Icon icon="heroicons:pencil-square" />
                   </button>
                 )}
                 <button
                   type="button"
                   onClick={() => deleteItem(item.id)}
-                  className="transition duration-150 hover:text-danger-500"
+                  className="transition duration-150 hover:text-primary-800"
                 >
-                  <Icon icon="heroicons-outline:trash" />
+                  <Icon icon="heroicons:trash" />
                 </button>
               </span>
             </div>

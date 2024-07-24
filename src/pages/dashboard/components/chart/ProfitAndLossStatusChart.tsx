@@ -103,7 +103,7 @@ const ProfitAndLossStatusChart = () => {
   };
   return (
     <div>
-      <Chart options={options} series={series} type="bar" height="350" />
+      <Chart options={options} series={series} type="bar" height="300" />
     </div>
   );
 };

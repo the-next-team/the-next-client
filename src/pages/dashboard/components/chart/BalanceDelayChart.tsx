@@ -145,7 +145,7 @@ const BalanceDelayChart = () => {
   };
   return (
     <div>
-      <Chart options={options} series={series} type="scatter" height="350" />
+      <Chart options={options} series={series} type="scatter" height="300" />
     </div>
   );
 };

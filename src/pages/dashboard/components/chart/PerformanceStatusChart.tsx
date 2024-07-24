@@ -18,7 +18,7 @@ const PerformanceStatusChart = ({
         enabled: true,
       },
       style: {
-        fontSize: "11px",
+        fontSize: "10px",
         colors: [isDark ? "#CBD5E1" : "#475569"],
       },
       enabled: true,
@@ -42,7 +42,7 @@ const PerformanceStatusChart = ({
           //   minAngleToShowLabel: 0,
         },
         donut: {
-          size: "65%",
+          size: "60%",
         },
       },
     },
@@ -62,7 +62,7 @@ const PerformanceStatusChart = ({
   };
   return (
     <div className={`${className}`}>
-      <Chart type="donut" height="250" options={options} series={series} />
+      <Chart type="donut" height="200" options={options} series={series} />
     </div>
   );
 };

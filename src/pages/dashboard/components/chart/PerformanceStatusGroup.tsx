@@ -150,7 +150,7 @@ const PerformanceStatusGroup = () => {
       {statistics.map((item, i) => (
         <div
           key={i}
-          className={`${item.bg} rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-25 relative z-[1]`}
+          className={`${item.bg} rounded-md p-3 bg-opacity-[0.15] dark:bg-opacity-25 relative z-[1]`}
         >
           <div className="overlay absolute left-0 top-0 w-full h-full z-[-1]">
             <img
@@ -160,21 +160,21 @@ const PerformanceStatusGroup = () => {
               className="object-contain w-full h-full"
             />
           </div>
-          <span className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <span className="block text-sm font-medium text-slate-900">
             {item.title}
           </span>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="block text-3xl font-medium text-slate-900 dark:text-white">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="block text-xl font-medium text-slate-900">
               {item.count}
             </span>
             <div>
               <div className="flex gap-1">
-                <Icon icon={item.icon} className={`text-xl ${item.text}`} />
-                <span className={`text-sm block ${item.percentClass} `}>
+                <Icon icon={item.icon} className={`${item.text}`} />
+                <span className={`text-xs block ${item.percentClass} `}>
                   {item.percent}
                 </span>
               </div>
-              <span className="block text-[10px] text-slate-600 dark:text-slate-300">
+              <span className="block text-[10px] text-slate-600">
                 전월 대비 증감율
               </span>
             </div>

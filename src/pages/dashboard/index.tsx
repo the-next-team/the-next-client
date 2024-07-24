@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
 import { NotificationService } from "../../api/services/notification/notificationService";
 import Button from "../../components/button/Button";
 import PopupButton from "../../components/button/PopupButton";
-import Card from "../../components/card/Card";
-import CalendarView from "../../components/partials/widget/CalendarView";
-import Profile from "../../components/partials/widget/profile";
-import RecentActivity from "../../components/partials/widget/recent-activity";
-import TaskLists from "../../components/partials/widget/task-list";
+import CalendarView from "./components/widget/CalendarView";
+import Profile from "./components/widget/profile";
+import RecentActivity from "./components/widget/recent-activity";
+import TaskLists from "./components/widget/task-list";
 import useNotification from "../../hooks/useNotification";
 import BalanceDelayChart from "./components/chart/BalanceDelayChart";
 import LoanAmountChart from "./components/chart/LoanAmountChart";
@@ -14,43 +12,52 @@ import LoanPerformanceChart from "./components/chart/LoanPerformanceChart";
 import MonthlyBalanceChart from "./components/chart/MonthlyBalanceChart";
 import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
 import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
+import { Icon } from "@iconify/react";
+
+const Card = ({
+  title,
+  more = false,
+  children,
+}: {
+  title: string;
+  more?: boolean;
+  children?: React.ReactNode;
+}) => (
+  <div className="bg-white rounded p-3">
+    <div className="mb-3 flex items-center justify-between border-b border-slate-200 pb-1">
+      <p className="font-semibold text-custom-black">{title}</p>
+      {more && (
+        <div className="hover:cursor-pointer select-none text-slate-700 duration-100 hover:text-primary-800 flex items-center">
+          <Icon icon="heroicons:plus-small-20-solid" />
+          <p className="text-xs">더보기</p>
+        </div>
+      )}
+    </div>
+    {children && children}
+  </div>
+);
 
 function Dashboard() {
   const { show } = useNotification();
   return (
     <div className="flex items-start gap-2">
-      <div className="flex flex-col gap-2 w-72">
+      <div className="flex flex-col gap-2 w-60">
         <Profile />
-        <Card
-          title="TO-DO List"
-          headerslot={
-            <div className="text-sm text-slate-800 dark:text-slate-200">
-              <div></div>
-            </div>
-          }
-        >
-          <div className="pb-4">
+        {/* TO-DO List */}
+        <Card title="TO-DO List">
+          <div className="pb-3">
             <CalendarView />
           </div>
-          <hr className="pb-4 -mx-6" />
           <TaskLists />
         </Card>
-        <Card
-          title="공지사항"
-          headerslot={
-            <div className="text-sm text-slate-800 dark:text-slate-200">
-              <Link to="#" className="underline">
-                더보기
-              </Link>
-            </div>
-          }
-        >
+        {/* 공지사항 */}
+        <Card title="공지사항" more>
           <RecentActivity />
         </Card>
       </div>
       <div className="flex flex-col gap-2">
         <Card title="리테일금융 실적현황">
-          <div className="grid col-span-1 gap-3 2xl:grid-cols-4 xl:grid-cols-2">
+          <div className="grid col-span-1 gap-3 2xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1">
             <PerformanceStatusGroup />
           </div>
         </Card>

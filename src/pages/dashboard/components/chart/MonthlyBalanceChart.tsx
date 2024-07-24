@@ -120,7 +120,7 @@ const MonthlyBalanceChart = () => {
   };
   return (
     <div>
-      <Chart options={options} series={series} type="line" height={350} />
+      <Chart options={options} series={series} type="line" height={300} />
     </div>
   );
 };
