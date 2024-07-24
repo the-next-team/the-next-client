@@ -2,11 +2,28 @@ import { Get } from "..";
 import { ApiResponse } from "../models/common/apiResponse";
 
 export interface IFsb {
-  fsbEmpNm: string; // 이기종사번
-  fsbNm: string; // 이기종사용자명
-  brNm: string; // 부서
-  fsbCd: string; //이기종 지점코드
-  loginErrCnt: number; // 비밀번호 오류횟수
+  brNm: string;
+  fsbTermIp: number;
+  chgDtm: string;
+  oldBrCode: string;
+  loginDtm: number;
+  fsbCd: string;
+  pwChgDtm: number;
+  fsbNm: string;
+  crtId: string;
+  loginMsg: number;
+  fsbBrchcd: number;
+  fsbEmpNo: string;
+  fsbTermNo: number;
+  fsbEmpNm: number;
+  pwExprDtm: number;
+  fsbTeamCode: number;
+  loginErrCnt: number;
+  crtDtm: string;
+  oldFsbCd: string;
+  fsbUserPw: number;
+  brCode: string;
+  chgId: string;
 }
 
 export const FsbService = {

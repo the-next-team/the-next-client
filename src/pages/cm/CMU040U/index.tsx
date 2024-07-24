@@ -15,11 +15,11 @@ import { FsbService, IFsb } from "../../../api/services/fsbService";
 
 const fields = [
   {
-    fieldName: "fsbEmpNm",
+    fieldName: "fsbEmpNo",
     dataType: ValueType.TEXT,
   },
   {
-    fieldName: "fsbNm",
+    fieldName: "fsbEmpNm",
     dataType: ValueType.TEXT,
   },
   {
@@ -27,7 +27,23 @@ const fields = [
     dataType: ValueType.TEXT,
   },
   {
+    fieldName: "fsbNm",
+    dataType: ValueType.TEXT,
+  },
+  {
     fieldName: "fsbCd",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "fsbTeamCode",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "pwChgDtm",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "pwExprDtm",
     dataType: ValueType.TEXT,
   },
   {
@@ -38,6 +54,16 @@ const fields = [
 
 const columns = [
   {
+    name: "fsbEmpNo",
+    fieldName: "fsbEmpNo",
+    type: "data",
+    width: "150",
+    styles: {
+      textAlignment: "center",
+    },
+    header: "이기종사번",
+  },
+  {
     name: "fsbEmpNm",
     fieldName: "fsbEmpNm",
     type: "data",
@@ -45,27 +71,7 @@ const columns = [
     styles: {
       textAlignment: "center",
     },
-    header: {
-      text: "이기종사번",
-      showTooltip: false,
-    },
-    renderer: {
-      type: "text",
-      showTooltip: true,
-    },
-  },
-  {
-    name: "fsbNm",
-    fieldName: "fsbNm",
-    type: "data",
-    width: "150",
-    styles: {
-      textAlignment: "center",
-    },
-    header: {
-      text: "이기종사용자명",
-      showTooltip: false,
-    },
+    header: "이기종사용자명",
   },
   {
     name: "brNm",
@@ -78,8 +84,8 @@ const columns = [
     header: "부서",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "fsbNm",
+    fieldName: "fsbNm",
     type: "data",
     width: "120",
     styles: {
@@ -98,8 +104,8 @@ const columns = [
     header: "이기종 지점코드",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "fsbTeamCode",
+    fieldName: "fsbTeamCode",
     type: "data",
     width: "120",
     styles: {
@@ -108,8 +114,8 @@ const columns = [
     header: "이기종 팀코드",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "pwChgDtm",
+    fieldName: "pwChgDtm",
     type: "data",
     width: "220",
     styles: {
@@ -118,8 +124,8 @@ const columns = [
     header: "비밀번호변경일",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "pwExprDtm",
+    fieldName: "pwExprDtm",
     type: "data",
     width: "220",
     styles: {
