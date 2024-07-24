@@ -102,7 +102,11 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
               className="w-12 btn-primary btn-sm"
             />
 
-            <Button text="엑셀" className="w-12 btn-primary btn-sm" />
+            <Button
+              onClick={onExcelClick}
+              text="엑셀"
+              className="w-12 btn-primary btn-sm"
+            />
           </div>
         </div>
       </div>
