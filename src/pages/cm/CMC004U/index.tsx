@@ -3,7 +3,6 @@
  * 시스템 > 중개사관리 > 중개사관리
  * CMC004U
  */
-import Table from "./components/Table";
 import HeaderForm from "./components/HeaderForm";
 import FooterForm from "./components/FooterForm";
 import { ValueType } from "realgrid";
@@ -24,6 +23,22 @@ const fields = [
     dataType: ValueType.TEXT,
   },
   {
+    fieldName: "agentSnm",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "brNm",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "invtId",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "crtId",
+    dataType: ValueType.TEXT,
+  },
+  {
     fieldName: "acno",
     dataType: ValueType.TEXT,
   },
@@ -37,6 +52,14 @@ const fields = [
   },
   {
     fieldName: "replyUrl",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "chgId",
+    dataType: ValueType.TEXT,
+  },
+  {
+    fieldName: "adNm",
     dataType: ValueType.TEXT,
   },
 ];
@@ -73,8 +96,8 @@ const columns = [
     },
   },
   {
-    name: "",
-    fieldName: "",
+    name: "agentSnm",
+    fieldName: "agentSnm",
     type: "data",
     width: "150",
     styles: {
@@ -83,8 +106,8 @@ const columns = [
     header: "중개사명약어",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "brNm",
+    fieldName: "brNm",
     type: "data",
     width: "120",
     styles: {
@@ -93,8 +116,8 @@ const columns = [
     header: "관리부점",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "adNm",
+    fieldName: "adNm",
     type: "data",
     width: "180",
     styles: {
@@ -103,8 +126,8 @@ const columns = [
     header: "접수(광고)채널",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "crtId",
+    fieldName: "crtId",
     type: "data",
     width: "120",
     styles: {
@@ -133,8 +156,8 @@ const columns = [
     header: "계좌번호",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "invtId",
+    fieldName: "invtId",
     type: "data",
     width: "120",
     styles: {
@@ -153,8 +176,8 @@ const columns = [
     header: "응답URL",
   },
   {
-    name: "",
-    fieldName: "",
+    name: "chgId",
+    fieldName: "chgId",
     type: "data",
     width: "120",
     styles: {
@@ -189,6 +212,9 @@ function CMC004U() {
         <HeaderForm
           onSubmit={(data) => {
             console.log(data);
+          }}
+          onExcelClick={() => {
+            realGridRef.current?.excelExport();
           }}
         />
       </div>
