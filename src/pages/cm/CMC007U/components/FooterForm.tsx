@@ -38,7 +38,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
-      <div className="p-2 mt-2 bg-white rounded">
+      <div className="p-2 mb-2 bg-white rounded">
         <div className="grid grid-cols-2 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <TextInput
             label="부서지점코드"
@@ -162,8 +162,8 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           />
         </div>
       </div>
-      <div className="flex justify-end mt-2">
-        <div className="flex gap-2 mb-2">
+      <div className="flex justify-end ">
+        <div className="flex gap-2 ">
           <Button text="초기화" className="w-12 btn-primary btn-sm" />
           <Button text="등록" className="w-12 btn-primary btn-sm" />
           <Button text="수정" className="w-12 btn-primary btn-sm" disabled />
