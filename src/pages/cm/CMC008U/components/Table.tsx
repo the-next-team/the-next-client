@@ -3,11 +3,7 @@ import { GridView, LocalDataProvider, ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../../api/models/common/apiResponseStats";
 import { CodeService, IJobCode } from "../../../../api/services/codeService";
 
-type Props = {
-  onClick: (item: IJobCode) => void;
-};
-
-function Table({ onClick }: Props) {
+function Table() {
   const realgridElement = useRef<HTMLDivElement | null>(null);
   const [items, setItems] = useState<IJobCode[]>([]);
   var dp = new LocalDataProvider(true);

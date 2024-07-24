@@ -22,7 +22,7 @@ function CMC008U() {
 
         {/* Body */}
         <div>
-          <Table onClick={() => {}} />
+          <Table />
         </div>
 
         {/* Footer */}
