@@ -46,7 +46,7 @@ function Breadcrumbs() {
   return (
     <>
       {title.length ? (
-        <div className="flex gap-2 px-4 py-1 mb-2 bg-white rounded">
+        <div className="flex justify-between gap-2 px-4 py-1 mb-2 bg-white rounded">
           <ul className="flex items-center space-x-1 text-sm">
             {title.map((item, i) => (
               <li
