@@ -6,11 +6,14 @@
 import { ValueType } from "realgrid";
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import RealGridTable, {
   RealGridHandle,
 } from "../../../components/table/RealGridTable";
-import { userNameService } from "../../../api/services/userNameService";
+import {
+  IUserName,
+  userNameService,
+} from "../../../api/services/userNameService";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 
 const fields = [
@@ -136,9 +139,8 @@ const columns = [
 ];
 
 function CMU001U() {
-  const realgridElement = useRef<HTMLDivElement | null>(null);
-
   const realGridRef = useRef<RealGridHandle>(null);
+  const [items, setItems] = useState<IUserName[]>([]);
 
   useEffect(() => {
     findAll();
@@ -148,6 +150,7 @@ function CMU001U() {
     try {
       const response = await userNameService.getUserName();
       if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
         realGridRef.current?.setRows(response.data);
       }
     } catch (error) {}
@@ -162,28 +165,21 @@ function CMU001U() {
             onSubmit={(data) => {
               console.log(data);
             }}
-            onExcelClick={() => {}}
+            onExcelClick={() => {
+              realGridRef.current?.excelExport();
+            }}
           />
         </div>
 
         {/* <Card> */}
-        <div>
-          <div
-            className="h-[500px] mt-2 min-w-full divide-y table-fixed divide-slate-100 dark:divide-slate-700"
-            ref={realgridElement}
-          >
-            <RealGridTable
-              ref={realGridRef}
-              fields={fields}
-              columns={columns}
-              onCellClicked={(grid, data) => {
-                console.log("onCellClicked", data.itemIndex);
-                if (data.itemIndex) {
-                }
-              }}
-            />
-          </div>
-        </div>
+        <RealGridTable
+          ref={realGridRef}
+          fields={fields}
+          columns={columns}
+          onCellClicked={(grid, data) => {
+            console.log("onCellClicked", data.itemIndex);
+          }}
+        />
 
         {/* Footer */}
         <div>
