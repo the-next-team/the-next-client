@@ -16,11 +16,27 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "code",
+        fieldName: "adNo",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "adNm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "adSnm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "adaNm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "adbNm",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "invtId",
         dataType: ValueType.TEXT,
       },
       {
@@ -28,14 +44,18 @@ function Table() {
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "createdDate",
+        fieldName: "chgId",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "chgDtm",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "adNo",
+        fieldName: "adNo",
         type: "data",
         width: "220",
         styles: {
@@ -51,8 +71,8 @@ function Table() {
         },
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "adNm",
+        fieldName: "adNm",
         type: "data",
         width: "180",
         styles: {
@@ -64,8 +84,8 @@ function Table() {
         },
       },
       {
-        name: "number",
-        fieldName: "number",
+        name: "adSnm",
+        fieldName: "adSnm",
         type: "data",
         width: "180",
         styles: {
@@ -74,8 +94,8 @@ function Table() {
         header: "채널명(약어)",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "adaNm",
+        fieldName: "adaNm",
         type: "data",
         width: "150",
         styles: {
@@ -84,8 +104,8 @@ function Table() {
         header: "접수경로",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "adbNm",
+        fieldName: "adbNm",
         type: "data",
         width: "180",
         styles: {
@@ -94,8 +114,8 @@ function Table() {
         header: "통계구분",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "invtId",
+        fieldName: "invtId",
         type: "data",
         width: "150",
         styles: {
@@ -104,8 +124,8 @@ function Table() {
         header: "권유자ID",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "useYn",
+        fieldName: "useYn",
         type: "data",
         width: "120",
         styles: {
@@ -114,8 +134,8 @@ function Table() {
         header: "사용여부",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "chgId",
+        fieldName: "chgId",
         type: "data",
         width: "180",
         styles: {
@@ -124,8 +144,8 @@ function Table() {
         header: "등록자",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "chgDtm",
+        fieldName: "chgDtm",
         type: "data",
         width: "180",
         styles: {
