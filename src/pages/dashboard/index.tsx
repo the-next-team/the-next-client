@@ -18,12 +18,14 @@ const Card = ({
   title,
   more = false,
   children,
+  className = "",
 }: {
   title: string;
   more?: boolean;
   children?: React.ReactNode;
+  className?: string;
 }) => (
-  <div className="bg-white rounded p-3">
+  <div className={`bg-white rounded p-3 ${className}`}>
     <div className="mb-3 flex items-center justify-between border-b border-slate-200 pb-1">
       <p className="font-semibold text-custom-black">{title}</p>
       {more && (
@@ -40,8 +42,8 @@ const Card = ({
 function Dashboard() {
   const { show } = useNotification();
   return (
-    <div className="flex items-start gap-2">
-      <div className="flex flex-col gap-2 w-60">
+    <div className="flex gap-2 overflow-x-hidden">
+      <div className="w-80 space-y-2">
         <Profile />
         {/* TO-DO List */}
         <Card title="TO-DO List">
@@ -55,7 +57,7 @@ function Dashboard() {
           <RecentActivity />
         </Card>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="w-full space-y-2">
         <Card title="리테일금융 실적현황">
           <div className="grid col-span-1 gap-3 2xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1">
             <PerformanceStatusGroup />
