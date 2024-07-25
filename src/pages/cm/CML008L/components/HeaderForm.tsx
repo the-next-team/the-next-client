@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   h: string;
@@ -10,11 +11,12 @@ type FormValues = {
 };
 
 type Props = {
+  onExcelClick: () => void;
   onSubmit: (data: FormValues) => void;
 };
 
-function HeaderForm({ onSubmit }: Props) {
-  const { register, handleSubmit } = useForm<FormValues>({
+function HeaderForm({ onSubmit, onExcelClick }: Props) {
+  const { register, handleSubmit, control } = useForm<FormValues>({
     defaultValues: {
       h: "",
       i: "",
@@ -26,13 +28,12 @@ function HeaderForm({ onSubmit }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
         <div className="grid grid-cols-2 pr-10 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-y-1">
-          <TextInput
+          <DateInput
             label="• 출력일"
             horizontal
-            type="text"
-            placeholder="2024-06-13"
-            name="i"
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
           <TextInput
             label="• 출력자ID"
@@ -69,9 +70,7 @@ function HeaderForm({ onSubmit }: Props) {
               className="w-12 btn-primary btn-sm"
             />
             <Button
-              onClick={() => {
-                handleSubmit(onSubmit)();
-              }}
+              onClick={onExcelClick}
               text="엑셀"
               className="w-12 btn-primary btn-sm"
             />
