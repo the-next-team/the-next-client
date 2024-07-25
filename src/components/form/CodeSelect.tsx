@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { ChangeEvent, useEffect } from "react";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { codeSelector, codeState } from "../../states/code/codeAtom";
+import { v4 as uuidv4 } from "uuid";
 
 type Props = {
   label?: string;
@@ -42,7 +43,7 @@ const CodeSelect = ({
   icon,
   disabled = false,
   essential = false,
-  id,
+  id = uuidv4(),
   horizontal = false,
   validate,
   msgTooltip,

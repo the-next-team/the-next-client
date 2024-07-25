@@ -2,6 +2,7 @@ import "cleave.js/dist/addons/cleave-phone.us";
 import Cleave from "cleave.js/react";
 import { FocusEventHandler, HTMLInputTypeAttribute, useState } from "react";
 import Icon from "../icons/Icon";
+import { v4 as uuidv4 } from "uuid";
 
 type Props = {
   type?: HTMLInputTypeAttribute | undefined;
@@ -32,6 +33,7 @@ type Props = {
 };
 
 const TextInput = ({
+  id = uuidv4(),
   type,
   label,
   placeholder = "Add placeholder",
@@ -39,13 +41,13 @@ const TextInput = ({
   className = "",
   classGroup = "",
   register,
-  name,essential,
+  name,
+  essential,
   readonly = false,
   value,
   error,
   icon,
   disabled = false,
-  id,
   horizontal = false,
   validate,
   isMask = false,
@@ -93,8 +95,8 @@ const TextInput = ({
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
@@ -113,8 +115,8 @@ const TextInput = ({
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
@@ -136,8 +138,8 @@ const TextInput = ({
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             onFocus={onFocus}
             id={id}
@@ -156,8 +158,8 @@ const TextInput = ({
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             onFocus={onFocus}
             id={id}

@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { ChangeEvent, Fragment } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 type Props = {
   label?: string;
@@ -40,7 +41,7 @@ const Select = ({
   icon,
   disabled = false,
   essential = false,
-  id,
+  id = uuidv4(),
   horizontal = false,
   validate,
   msgTooltip,
