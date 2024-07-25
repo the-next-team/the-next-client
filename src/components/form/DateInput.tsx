@@ -86,10 +86,10 @@ export const DateInput = forwardRef(
                   error ? " has-error" : " "
                 } form-control text-xs py-1 border-slate-300 ${
                   readOnly
-                    ? "bg-slate-100"
+                    ? "!bg-slate-100"
                     : essential
-                    ? "bg-warning-100"
-                    : "bg-primary-50"
+                    ? "!bg-warning-100"
+                    : "!bg-primary-50"
                 }${className}`}
                 placeholder={placeholder}
                 readOnly={readOnly}
