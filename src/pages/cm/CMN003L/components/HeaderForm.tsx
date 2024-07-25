@@ -40,7 +40,6 @@ function HeaderForm({ onSubmit }: Props) {
             horizontal
             placeholder="2024-06-13"
             name="a"
-            id="a"
             register={register}
           />
           <CodeSelect
@@ -49,7 +48,6 @@ function HeaderForm({ onSubmit }: Props) {
             codeType="TST"
             placeholder={"전체"}
             name="b"
-            id="b"
             register={register}
           />
           <CodeSelect
@@ -58,7 +56,6 @@ function HeaderForm({ onSubmit }: Props) {
             codeType="TST"
             placeholder={"전체"}
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -67,7 +64,6 @@ function HeaderForm({ onSubmit }: Props) {
             horizontal
             placeholder=""
             name="d"
-            id="d"
             register={register}
           />
           <TextInput
@@ -76,7 +72,6 @@ function HeaderForm({ onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -85,7 +80,6 @@ function HeaderForm({ onSubmit }: Props) {
             horizontal
             placeholder=""
             name="f"
-            id="f"
             register={register}
           />
           <CodeSelect
@@ -94,7 +88,6 @@ function HeaderForm({ onSubmit }: Props) {
             codeType="TST"
             placeholder={"전체"}
             name="g"
-            id="g"
             register={register}
           />
         </div>

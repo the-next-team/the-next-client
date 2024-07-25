@@ -37,7 +37,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="a"
-            id="a"
             register={register}
           />
           <CodeSelect
@@ -47,7 +46,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="a"
-            id="a"
             register={register}
           />
           <CodeSelect
@@ -57,7 +55,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="a"
-            id="a"
             register={register}
           />
           <Select
@@ -74,7 +71,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
                 label: "N",
               },
             ]}
-            id="Y/N"
             name="Y/N"
             register={register}
           />

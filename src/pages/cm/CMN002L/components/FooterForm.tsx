@@ -52,7 +52,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="d"
-            id="d"
             placeholder=""
             register={register}
           />
@@ -63,7 +62,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <CodeSelect
@@ -73,7 +71,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"사용"}
             name="f"
-            id="f"
             register={register}
           />
           <CodeSelect
@@ -83,7 +80,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"선택"}
             name="g"
-            id="g"
             register={register}
           />
           <CodeSelect
@@ -93,7 +89,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"선택"}
             name="h"
-            id="h"
             register={register}
           />
           <CodeSelect
@@ -103,7 +98,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"DEFAULT"}
             name="i"
-            id="i"
             register={register}
           />
           <TextInput
@@ -112,7 +106,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="j"
-            id="j"
             register={register}
           />
           <TextInput
@@ -121,7 +114,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="k"
-            id="k"
             register={register}
           />
           <TextInput
@@ -130,7 +122,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="l"
-            id="l"
             register={register}
           />
           <TextInput
@@ -139,7 +130,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="m"
-            id="m"
             register={register}
           />
           <TextInput
@@ -148,7 +138,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="n"
-            id="n"
             register={register}
           />
           <div className="col-span-4">
@@ -159,7 +148,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               className="h-12"
               placeholder=""
               name="o"
-              id="o"
               register={register}
             />
           </div>

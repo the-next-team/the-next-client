@@ -28,7 +28,6 @@ function HeaderForm({ onSubmit }: Props) {
             codeType="TST"
             placeholder={"* 전체"}
             name="a"
-            id="a"
             register={register}
           />
           <TextInput
@@ -37,7 +36,6 @@ function HeaderForm({ onSubmit }: Props) {
             horizontal
             placeholder=""
             name="b"
-            id="b"
             register={register}
           />
           <CodeSelect
@@ -46,7 +44,6 @@ function HeaderForm({ onSubmit }: Props) {
             codeType="TST"
             placeholder={"* 전체"}
             name="c"
-            id="c"
             register={register}
           />
         </div>

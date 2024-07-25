@@ -29,7 +29,6 @@ function HeaderForm({ onSubmit }: Props) {
             type="text"
             horizontal
             name="a"
-            id="a"
             placeholder=""
             register={register}
           />
@@ -39,7 +38,6 @@ function HeaderForm({ onSubmit }: Props) {
             codeType="TST"
             placeholder={"* 전체"}
             name="b"
-            id="b"
             register={register}
           />
         </div>

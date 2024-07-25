@@ -41,7 +41,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               type="text"
               horizontal
               name="a"
-              id="a"
               placeholder=""
               register={register}
             />
@@ -52,7 +51,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"사용"}
             name="b"
-            id="b"
             register={register}
           />
           <TextInput
@@ -61,7 +59,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder="10"
             name="c"
-            id="c"
             register={register}
           />
           <div className="col-span-2">
@@ -71,7 +68,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               horizontal
               placeholder=""
               name="d"
-              id="d"
               register={register}
             />
           </div>
@@ -81,7 +77,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"매일"}
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -90,7 +85,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="f"
-            id="f"
             register={register}
           />
           <div className="col-span-4">
@@ -101,7 +95,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               placeholder=""
               className="h-12 mb-1"
               name="g"
-              id="g"
               register={register}
             />
           </div>

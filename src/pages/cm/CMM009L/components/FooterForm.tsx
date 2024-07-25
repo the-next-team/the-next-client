@@ -40,7 +40,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               type="text"
               horizontal
               name="a"
-              id="a"
               placeholder=""
               register={register}
             />
@@ -51,7 +50,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               type="text"
               horizontal
               name="a"
-              id="a"
               placeholder=""
               register={register}
             />
@@ -62,7 +60,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -71,7 +68,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -80,7 +76,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -89,7 +84,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -98,7 +92,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -107,7 +100,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -116,7 +108,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -125,7 +116,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -134,7 +124,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -143,7 +132,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -152,7 +140,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -161,7 +148,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -170,7 +156,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -179,7 +164,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <div className="col-span-2">
@@ -189,7 +173,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               horizontal
               placeholder=""
               name="c"
-              id="c"
               register={register}
             />
           </div>

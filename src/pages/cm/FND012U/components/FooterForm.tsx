@@ -51,7 +51,6 @@ function FooterForm({ onSubmit }: Props) {
               codeType="TST"
               placeholder={"* 전체"}
               name="a1"
-              id="a1"
               register={register}
             />
             <TextInput
@@ -60,7 +59,6 @@ function FooterForm({ onSubmit }: Props) {
               type="text"
               horizontal
               name="b1"
-              id="b1"
               placeholder=""
               register={register}
             />
@@ -70,7 +68,6 @@ function FooterForm({ onSubmit }: Props) {
               type="text"
               horizontal
               name="c1"
-              id="c1"
               placeholder=""
               register={register}
             />
@@ -80,7 +77,6 @@ function FooterForm({ onSubmit }: Props) {
               type="text"
               horizontal
               name="d1"
-              id="d1"
               placeholder=""
               register={register}
             />
@@ -90,7 +86,6 @@ function FooterForm({ onSubmit }: Props) {
               type="text"
               horizontal
               name="e1"
-              id="e1"
               placeholder=""
               register={register}
             />
@@ -100,7 +95,6 @@ function FooterForm({ onSubmit }: Props) {
               type="text"
               horizontal
               name="f1"
-              id="f1"
               placeholder=""
               register={register}
             />
@@ -111,7 +105,6 @@ function FooterForm({ onSubmit }: Props) {
                 type="text"
                 horizontal
                 name="g1"
-                id="g1"
                 placeholder=""
                 register={register}
               />
@@ -125,7 +118,6 @@ function FooterForm({ onSubmit }: Props) {
               codeType="TST"
               placeholder={"* 전체"}
               name="h1"
-              id="h1"
               register={register}
             />
             <TextInput
@@ -133,7 +125,6 @@ function FooterForm({ onSubmit }: Props) {
               type="text"
               horizontal
               name="i1"
-              id="i1"
               placeholder=""
               register={register}
             />
@@ -142,7 +133,6 @@ function FooterForm({ onSubmit }: Props) {
               type="text"
               horizontal
               name="j1"
-              id="j1"
               placeholder=""
               register={register}
             />

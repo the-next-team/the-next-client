@@ -47,7 +47,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="c"
-            id="c"
             placeholder=""
             register={register}
           />
@@ -58,7 +57,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="d"
-            id="d"
             register={register}
           />
           <TextInput
@@ -67,7 +65,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <CodeSelect
@@ -77,7 +74,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"* 전체"}
             name="f"
-            id="f"
             register={register}
           />
           <CodeSelect
@@ -87,7 +83,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"* 전체"}
             name="g"
-            id="g"
             register={register}
           />
           <div className="col-span-4">
@@ -98,7 +93,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               placeholder=""
               className="h-12"
               name="h"
-              id="h"
               register={register}
             />
           </div>
