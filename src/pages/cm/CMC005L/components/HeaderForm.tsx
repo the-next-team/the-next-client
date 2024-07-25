@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import TextInput from "../../../../components/form/TextInput";
 import Button from "../../../../components/button/Button";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
-  a: string;
+  date: string;
 };
 
 type Props = {
@@ -14,6 +14,7 @@ type Props = {
 function HeaderForm({ onSubmit, onExcelClick }: Props) {
   const {
     register,
+    control,
     handleSubmit,
     setError,
     reset,
@@ -21,7 +22,7 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      a: "",
+      date: new Date().toISOString().split("T")[0],
     },
   });
 
@@ -29,15 +30,13 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
         <div className="grid flex-grow grid-cols-2 pr-14 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
-          <TextInput
+          <DateInput
             label="• 기준일자"
-            type="text"
             horizontal
-            name="a"
-            id="a"
+            name="date"
             placeholder=""
             essential
-            register={register}
+            control={control}
           />
         </div>
         <div>
