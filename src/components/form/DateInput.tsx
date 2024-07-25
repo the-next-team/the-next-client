@@ -20,15 +20,17 @@ type Props = {
   readOnly?: boolean;
   value?: string;
   disabled?: boolean;
+  enableTime?: boolean;
   id?: string;
   cols?: number;
   className?: string | undefined;
   rows?: number;
   essential?: boolean;
   onChange?: (dates: Date[], currentDateString: string) => void;
+  dateFormat?: "Y-m-d" | "Y-m-d H:i"; // 외부에서 날짜 형식을 받을 수 있게 추가
 };
 
-export const DateInput = forwardRef(
+const DateInput = forwardRef(
   (
     {
       label,
@@ -39,6 +41,7 @@ export const DateInput = forwardRef(
       control,
       name,
       readOnly = false,
+      enableTime = false,
       error,
       icon,
       disabled = false,
@@ -51,6 +54,7 @@ export const DateInput = forwardRef(
       cols,
       rows = 3,
       onChange,
+      dateFormat = "Y-m-d", // 기본 날짜 형식
       ...rest
     }: Props,
     ref: ForwardedRef<HTMLInputElement>
@@ -77,11 +81,12 @@ export const DateInput = forwardRef(
           <Controller
             name={name}
             control={control}
-            defaultValue={new Date().toISOString().split('T')[0]}
+            defaultValue={new Date().toISOString().split("T")[0]}
             render={({ field }) => (
               <Flatpickr
                 {...field}
                 {...rest}
+                options={{ dateFormat, enableTime: enableTime }} // 날짜 형식을 Flatpickr 옵션으로 설정
                 className={`${
                   error ? " has-error" : " "
                 } form-control text-xs py-1 border-slate-300 ${
