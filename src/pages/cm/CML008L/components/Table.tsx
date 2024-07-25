@@ -16,30 +16,30 @@ function Table() {
     gv.setDataSource(dp);
     dp.setFields([
       {
-        fieldName: "id",
+        fieldName: "prtId",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "department",
+        fieldName: "prtDtm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "name",
+        fieldName: "brCode",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "datetime",
+        fieldName: "prtUserNm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "output",
+        fieldName: "prtNm",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "id",
-        fieldName: "id",
+        name: "prtId",
+        fieldName: "prtId",
         type: "data",
         styles: {
           textAlignment: "center",
@@ -47,7 +47,7 @@ function Table() {
         header: "출력자ID",
       },
       {
-        name: "department",
+        name: "brCode",
         fieldName: "department",
         type: "data",
         styles: {
@@ -56,8 +56,8 @@ function Table() {
         header: "출력자 부서",
       },
       {
-        name: "name",
-        fieldName: "name",
+        name: "prtUserNm",
+        fieldName: "prtUserNm",
         type: "data",
         styles: {
           textAlignment: "center",
@@ -65,8 +65,8 @@ function Table() {
         header: "출력자명",
       },
       {
-        name: "datetime",
-        fieldName: "datetime",
+        name: "prtDtm",
+        fieldName: "prtDtm",
         type: "data",
         styles: {
           textAlignment: "center",
@@ -74,8 +74,8 @@ function Table() {
         header: "출력일시",
       },
       {
-        name: "output",
-        fieldName: "output",
+        name: "prtNm",
+        fieldName: "prtNm",
         type: "data",
         styles: {
           textAlignment: "center",
