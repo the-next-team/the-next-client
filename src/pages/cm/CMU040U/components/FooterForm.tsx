@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   a: string;
@@ -25,6 +26,7 @@ type Props = {
 function FooterForm({ initialValues, onSubmit }: Props) {
   const {
     register,
+    control,
     handleSubmit,
     setError,
     watch,
@@ -122,21 +124,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name="a"
             register={register}
           />
-          <TextInput
+          <DateInput
             label="비밀번호 변경일"
-            type="text"
             horizontal
-            name=""
-            placeholder=""
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
-          <TextInput
+          <DateInput
             label="비밀번호 만료일"
-            type="text"
             horizontal
-            name=""
-            placeholder=""
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
           <TextInput
             label="비밀번호 오류횟수"
@@ -154,21 +154,21 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             placeholder="시스템"
             register={register}
           />
-          <TextInput
+          <DateInput
             label="등록일시"
-            type="text"
             horizontal
-            name=""
-            placeholder="2024-00-00 00:00"
-            register={register}
+            name="date"
+            dateFormat="Y-m-d H:i"
+            enableTime
+            control={control}
           />
-          <TextInput
+          <DateInput
             label="최종 로그인일시"
-            type="text"
             horizontal
-            name=""
-            placeholder=""
-            register={register}
+            name="date"
+            dateFormat="Y-m-d H:i"
+            enableTime
+            control={control}
           />
           <div className="col-span-2">
             <TextInput
@@ -188,13 +188,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             placeholder=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="변경일시"
-            type="text"
             horizontal
-            name=""
-            placeholder=""
-            register={register}
+            name="date"
+            dateFormat="Y-m-d H:i"
+            enableTime
+            control={control}
           />
         </div>
       </div>
