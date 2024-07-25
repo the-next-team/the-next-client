@@ -43,7 +43,6 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
             placeholder=""
             essential
             name="a"
-            id="a"
             register={register}
           />
           <TextInput
@@ -52,7 +51,6 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="b"
-            id="b"
             register={register}
           />
           <TextInput
@@ -61,7 +59,6 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="b"
-            id="b"
             register={register}
           />
           <TextInput
@@ -70,7 +67,6 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="b"
-            id="b"
             register={register}
           />
           <div className="col-span-2">
@@ -81,7 +77,6 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
               className="h-12"
               placeholder=""
               name="c"
-              id="c"
               register={register}
             />
           </div>

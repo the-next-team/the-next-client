@@ -33,7 +33,6 @@ function HeaderForm({ onSubmit }: Props) {
             type="text"
             horizontal
             name="b"
-            id="b"
             placeholder=""
             register={register}
           />

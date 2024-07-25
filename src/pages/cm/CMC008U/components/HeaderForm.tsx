@@ -36,7 +36,6 @@ function HeaderForm({ onSubmit }: Props) {
             placeholder={"* 전체"}
             essential
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -44,7 +43,6 @@ function HeaderForm({ onSubmit }: Props) {
             type="text"
             horizontal
             name="a"
-            id="a"
             placeholder=""
             register={register}
           />

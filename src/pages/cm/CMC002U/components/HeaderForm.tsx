@@ -37,7 +37,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
               placeholder={"* 전체"}
               essential
               name="brCode"
-              id="brCode"
               register={register}
             />
           </div>
@@ -58,7 +57,11 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
               text="초기화"
               className="w-12 btn-primary btn-sm"
             />
-            <Button onClick={onExcelClick} text="엑셀" className="w-12 btn-primary btn-sm" />
+            <Button
+              onClick={onExcelClick}
+              text="엑셀"
+              className="w-12 btn-primary btn-sm"
+            />
           </div>
         </div>
       </div>

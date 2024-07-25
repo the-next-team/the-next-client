@@ -48,7 +48,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="a"
-            id="a"
             placeholder=""
             register={register}
           />
@@ -58,7 +57,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="b"
-            id="b"
             register={register}
           />
           <CheckboxGroup horizontal label="사용">
@@ -75,7 +73,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="d"
-            id="d"
             register={register}
           />
           <div className="col-span-4">
@@ -86,7 +83,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               placeholder=""
               className="h-12 mb-1"
               name="e"
-              id="e"
               register={register}
             />
           </div>

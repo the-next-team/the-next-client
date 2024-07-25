@@ -46,7 +46,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             placeholder={"* 선택"}
             name="a"
             essential
-            id="a"
             register={register}
           />
           <CodeSelect
@@ -56,7 +55,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"* 선택"}
             name="a"
-            id="a"
             register={register}
           />
           <CodeSelect
@@ -66,7 +64,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="TST"
             placeholder={"* 선택"}
             name="a"
-            id="a"
             register={register}
           />
           <TextInput
@@ -74,7 +71,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="b"
-            id="b"
             defaultValue={"1"}
             placeholder=""
             register={register}
@@ -86,7 +82,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             defaultValue={"BCM93OL"}
             placeholder=""
             name="c"
-            id="c"
             register={register}
           />
           <TextInput
@@ -96,7 +91,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             placeholder=""
             defaultValue={"민원내역"}
             name="d"
-            id="d"
             register={register}
           />
           <TextInput
@@ -106,7 +100,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             placeholder=""
             defaultValue={"bc::BCM93OL xfdl"}
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -115,7 +108,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="f"
-            id="f"
             register={register}
           />
           <div className="col-span-4">
@@ -126,7 +118,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               placeholder=""
               className="h-12"
               name="f"
-              id="f"
               register={register}
             />
           </div>
@@ -138,7 +129,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               placeholder=""
               className="h-12"
               name="f"
-              id="f"
               register={register}
             />
           </div>
@@ -149,7 +139,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             placeholder=""
             defaultValue={"시스템기본"}
             name="f"
-            id="f"
             register={register}
           />
           <TextInput
@@ -159,7 +148,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             defaultValue={"2024-00-00 00:00:00"}
             placeholder=""
             name="f"
-            id="f"
             register={register}
           />
         </div>

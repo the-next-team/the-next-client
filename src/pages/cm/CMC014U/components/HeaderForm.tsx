@@ -38,7 +38,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="a"
-            id="a"
             register={register}
           />
           <TextInput
@@ -46,7 +45,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             type="text"
             horizontal
             name="b"
-            id="b"
             placeholder=""
             register={register}
           />
@@ -65,7 +63,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
                 label: "N",
               },
             ]}
-            id="Y/N"
             name="Y/N"
             register={register}
           />
@@ -74,7 +71,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             type="text"
             horizontal
             name="b"
-            id="b"
             placeholder=""
             register={register}
           />
@@ -83,7 +79,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             type="text"
             horizontal
             name="b"
-            id="b"
             placeholder=""
             register={register}
           />

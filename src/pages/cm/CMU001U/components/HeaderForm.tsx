@@ -35,7 +35,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             type="text"
             horizontal
             name="a"
-            id="a"
             placeholder=""
             essential
             register={register}
@@ -46,7 +45,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             horizontal
             essential
             name="b"
-            id="b"
             placeholder=""
             register={register}
           />
@@ -57,7 +55,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="c"
-            id="c"
             register={register}
           />
           <CodeSelect
@@ -67,7 +64,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="d"
-            id="d"
             register={register}
           />
 
@@ -78,7 +74,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="e"
-            id="e"
             register={register}
           />
           <CodeSelect
@@ -88,7 +83,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             placeholder={"* 전체"}
             essential
             name="f"
-            id="f"
             register={register}
           />
         </div>

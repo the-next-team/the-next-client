@@ -61,7 +61,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="a"
-            id="a"
             placeholder=""
             register={register}
           />
@@ -71,7 +70,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="b"
-            id="b"
             register={register}
           />
           <RadioGroup horizontal label={"사용여부"}>
@@ -96,7 +94,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
               horizontal
               placeholder=""
               name="e"
-              id="e"
               register={register}
             />
           </div>
@@ -106,7 +103,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <RadioGroup horizontal label={"사용여부1"}>
@@ -157,7 +153,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -166,7 +161,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -175,7 +169,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -184,7 +177,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -193,7 +185,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -202,7 +193,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -211,7 +201,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -220,7 +209,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -229,7 +217,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <div className="col-span-2">
@@ -239,7 +226,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
               horizontal
               placeholder=""
               name="e"
-              id="e"
               register={register}
             />
           </div>
@@ -249,7 +235,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
           <TextInput
@@ -258,7 +243,6 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="e"
-            id="e"
             register={register}
           />
         </div>

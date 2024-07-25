@@ -40,7 +40,6 @@ function SystemFooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="a"
-            id="a"
             placeholder=""
             defaultValue="HM"
             register={register}
@@ -52,7 +51,6 @@ function SystemFooterForm({ initialValues, onSubmit }: Props) {
             placeholder=""
             defaultValue="HOME"
             name="b"
-            id="b"
             register={register}
           />
           <div className="col-span-2">
@@ -63,7 +61,6 @@ function SystemFooterForm({ initialValues, onSubmit }: Props) {
               className="h-12"
               placeholder=""
               name="c"
-              id="c"
               register={register}
             />
           </div>
@@ -74,7 +71,6 @@ function SystemFooterForm({ initialValues, onSubmit }: Props) {
               horizontal
               placeholder=""
               name="d"
-              id="d"
               register={register}
             />
           </div>

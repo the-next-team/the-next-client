@@ -35,7 +35,6 @@ function HeaderForm({ onSubmit }: Props) {
             type="text"
             horizontal
             name="b"
-            id="b"
             placeholder=""
             register={register}
           />
@@ -44,7 +43,6 @@ function HeaderForm({ onSubmit }: Props) {
             type="text"
             horizontal
             name="b"
-            id="b"
             placeholder=""
             register={register}
           />
@@ -62,7 +60,6 @@ function HeaderForm({ onSubmit }: Props) {
                 label: "N",
               },
             ]}
-            id="Y/N"
             name="Y/N"
             register={register}
           />
@@ -73,7 +70,6 @@ function HeaderForm({ onSubmit }: Props) {
             placeholder={"* 전체"}
             essential
             name="a"
-            id="a"
             register={register}
           />
         </div>

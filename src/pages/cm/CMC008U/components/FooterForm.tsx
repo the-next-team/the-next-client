@@ -51,7 +51,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             codeType="HAC"
             placeholder={"* 선택"}
             name="code"
-            id="code"
             register={register}
           />
           <TextInput
@@ -59,7 +58,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             type="text"
             horizontal
             name="jobCode"
-            id="jobCode"
             placeholder=""
             register={register}
           />
@@ -69,7 +67,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name="jobName"
-            id="jobName"
             register={register}
           />
 
@@ -79,7 +76,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
           <TextInput
@@ -88,7 +84,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
           <TextInput
@@ -97,7 +92,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
           <TextInput
@@ -106,7 +100,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
           <DateInput
@@ -122,7 +115,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
           <TextInput
@@ -131,7 +123,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
           <TextInput
@@ -140,7 +131,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
           <TextInput
@@ -149,7 +139,6 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             horizontal
             placeholder=""
             name=""
-            id=""
             register={register}
           />
         </div>

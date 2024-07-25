@@ -71,7 +71,6 @@ function FooterForm({
             codeType="NBR"
             placeholder={"* 선택"}
             name="brCode"
-            id="brCode"
             register={register}
           />
           <TextInput
@@ -79,7 +78,6 @@ function FooterForm({
             type="text"
             horizontal
             name="depCode"
-            id="depCode"
             placeholder=""
             register={register}
           />
@@ -89,7 +87,6 @@ function FooterForm({
             horizontal
             placeholder=""
             name="depNm"
-            id="depNm"
             register={register}
           />
           <TextInput
@@ -98,7 +95,6 @@ function FooterForm({
             horizontal
             placeholder=""
             name="viewSeq"
-            id="viewSeq"
             register={register}
           />
           <TextInput
@@ -107,7 +103,6 @@ function FooterForm({
             horizontal
             placeholder=""
             name="useYn"
-            id="useYn"
             register={register}
           />
           <TextInput
@@ -116,7 +111,6 @@ function FooterForm({
             horizontal
             placeholder=""
             name="depTelno"
-            id="depTelno"
             register={register}
           />
           <TextInput
@@ -125,7 +119,6 @@ function FooterForm({
             horizontal
             placeholder=""
             name="depFaxno"
-            id="depFaxno"
             register={register}
           />
           <TextInput
@@ -134,7 +127,6 @@ function FooterForm({
             horizontal
             placeholder=""
             name="depWebFaxno"
-            id="depWebFaxno"
             register={register}
           />
           <TextInput
@@ -142,7 +134,6 @@ function FooterForm({
             type="text"
             horizontal
             name="i"
-            id="i"
             placeholder=""
             register={register}
           />
@@ -150,7 +141,6 @@ function FooterForm({
             label="중앙회팀파트코드"
             type="text"
             name="j"
-            id="j"
             horizontal
             placeholder=""
             register={register}
