@@ -4,6 +4,7 @@ import TextInput from "../../../../components/form/TextInput";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import Checkbox from "../../../../components/checkbox/Checkbox";
 import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   a: string;
@@ -22,7 +23,7 @@ type Props = {
 };
 
 function FooterForm({ initialValues, onSubmit }: Props) {
-  const { register, handleSubmit, watch } = useForm<FormValues>({
+  const { register, handleSubmit, watch, control } = useForm<FormValues>({
     defaultValues: {
       a: "",
       b: "",
@@ -108,21 +109,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name="a"
             register={register}
           />
-          <TextInput
+          <DateInput
             label="입사일자"
-            type="text"
             horizontal
-            placeholder=""
-            name="c"
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
-          <TextInput
+          <DateInput
             label="퇴사일자"
-            type="text"
             horizontal
-            placeholder=""
-            name="c"
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
           <TextInput
             label="모집인패스워드"
@@ -154,13 +153,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name="c"
             register={register}
           />
-          <TextInput
+          <DateInput
             label="최종접속일시"
-            type="text"
             horizontal
-            placeholder=""
-            name="c"
-            register={register}
+            dateFormat="Y-m-d H:i"
+            enableTime
+            name="date"
+            control={control}
           />
           <CodeSelect
             label="로그인제한사유"
@@ -196,13 +195,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name="c"
             register={register}
           />
-          <TextInput
+          <DateInput
             label="등록일시"
-            type="text"
             horizontal
-            placeholder=""
-            name="c"
-            register={register}
+            dateFormat="Y-m-d H:i"
+            enableTime
+            name="date"
+            control={control}
           />
           <TextInput
             label="변경자"
@@ -212,13 +211,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name="c"
             register={register}
           />
-          <TextInput
+          <DateInput
             label="변경일시"
-            type="text"
             horizontal
-            placeholder=""
-            name="c"
-            register={register}
+            dateFormat="Y-m-d H:i"
+            enableTime
+            name="date"
+            control={control}
           />
         </div>
       </div>

@@ -4,6 +4,7 @@ import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
 import Checkbox from "../../../../components/checkbox/Checkbox";
 import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   a: string;
@@ -30,6 +31,7 @@ type Props = {
 function FooterForm({ initialValues, onSubmit }: Props) {
   const {
     register,
+    control,
     handleSubmit,
     setError,
     watch,
@@ -173,21 +175,19 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="제휴시작일"
-            type="text"
             horizontal
-            placeholder=""
-            name=""
-            register={register}
+            name="date"
+            dateFormat="Y-m-d"
+            control={control}
           />
-          <TextInput
+          <DateInput
             label="제휴종료일"
-            type="text"
             horizontal
-            placeholder=""
-            name=""
-            register={register}
+            name="date"
+            dateFormat="Y-m-d"
+            control={control}
           />
           <TextInput
             label="응답서버IP"
@@ -213,13 +213,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="등록일시"
-            type="text"
             horizontal
-            placeholder=""
-            name=""
-            register={register}
+            name="date"
+            dateFormat="Y-m-d H:i"
+            enableTime
+            control={control}
           />
           <TextInput
             label="설명"
@@ -237,13 +237,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="변경일시"
-            type="text"
             horizontal
-            placeholder=""
-            name=""
-            register={register}
+            name="date"
+            dateFormat="Y-m-d H:i"
+            enableTime
+            control={control}
           />
           <TextInput
             label="수수료계좌번호"

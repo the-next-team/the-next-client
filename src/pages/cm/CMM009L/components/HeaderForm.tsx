@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   a: string;
@@ -14,7 +15,7 @@ type Props = {
 };
 
 function HeaderForm({ onSubmit }: Props) {
-  const { register, handleSubmit } = useForm<FormValues>({
+  const { register, handleSubmit, control } = useForm<FormValues>({
     defaultValues: {
       a: "",
       b: "",
@@ -26,13 +27,12 @@ function HeaderForm({ onSubmit }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="p-2 bg-white rounded">
       <div className="flex">
         <div className="grid grid-cols-2 pr-10 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-          <TextInput
+          <DateInput
             label="• 기준일"
             horizontal
-            type="text"
-            placeholder={"2024-06-12 수"}
-            name="a"
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
           <CodeSelect
             label="• 처리상태"

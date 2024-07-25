@@ -3,6 +3,7 @@ import Button from "../../../../components/button/Button";
 import TextInput from "../../../../components/form/TextInput";
 import Checkbox from "../../../../components/checkbox/Checkbox";
 import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   a: string;
@@ -26,6 +27,7 @@ type Props = {
 function FooterForm({ initialValues, onSubmit }: Props) {
   const {
     register,
+    control,
     handleSubmit,
     watch,
     setError,
@@ -67,13 +69,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
               {...register("checkbox")}
             />
           </CheckboxGroup>
-          <TextInput
+          <DateInput
             label="등록일시"
-            type="text"
             horizontal
-            placeholder=""
-            name="d"
-            register={register}
+            name="date"
+            dateFormat="Y-m-d H:i"
+            enableTime
+            control={control}
           />
           <div className="col-span-4">
             <TextInput
