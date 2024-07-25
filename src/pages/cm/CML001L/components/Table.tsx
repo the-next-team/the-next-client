@@ -20,15 +20,15 @@ function Table() {
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "loginDate",
+        fieldName: "crtDtm",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "successYn",
+        fieldName: "succYn",
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "logType",
+        fieldName: "logTy",
         dataType: ValueType.TEXT,
       },
       {
@@ -36,7 +36,7 @@ function Table() {
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "logout",
+        fieldName: "logoutDtm",
         dataType: ValueType.TEXT,
       },
       {
@@ -44,7 +44,7 @@ function Table() {
         dataType: ValueType.TEXT,
       },
       {
-        fieldName: "host",
+        fieldName: "hostNm",
         dataType: ValueType.TEXT,
       },
     ]);
@@ -59,8 +59,8 @@ function Table() {
         header: "사용자ID",
       },
       {
-        name: "loginDate",
-        fieldName: "loginDate",
+        name: "crtDtm",
+        fieldName: "crtDtm",
         type: "data",
         styles: {
           textAlignment: "center",
@@ -68,8 +68,8 @@ function Table() {
         header: "로그인일시",
       },
       {
-        name: "successYn",
-        fieldName: "successYn",
+        name: "succYn",
+        fieldName: "succYn",
         type: "data",
         styles: {
           textAlignment: "center",
@@ -77,8 +77,8 @@ function Table() {
         header: "성공여부",
       },
       {
-        name: "logType",
-        fieldName: "logType",
+        name: "logTy",
+        fieldName: "logTy",
         type: "data",
         styles: {
           textAlignment: "center",
@@ -95,8 +95,8 @@ function Table() {
         header: "LOGIN IP",
       },
       {
-        name: "logout",
-        fieldName: "logout",
+        name: "logoutDtm",
+        fieldName: "logoutDtm",
         type: "data",
         styles: {
           textAlignment: "center",
@@ -113,8 +113,8 @@ function Table() {
         header: "비고",
       },
       {
-        name: "host",
-        fieldName: "host",
+        name: "hostNm",
+        fieldName: "hostNm",
         type: "data",
         styles: {
           textAlignment: "center",
