@@ -34,7 +34,6 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             label="• 기준일자"
             horizontal
             name="date"
-            placeholder=""
             essential
             control={control}
           />
