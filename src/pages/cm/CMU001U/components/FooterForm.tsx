@@ -4,6 +4,7 @@ import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
 import Checkbox from "../../../../components/checkbox/Checkbox";
 import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   a: string;
@@ -27,6 +28,7 @@ type Props = {
 function FooterForm({ initialValues, onSubmit }: Props) {
   const {
     register,
+    control,
     handleSubmit,
     setError,
     watch,
@@ -131,14 +133,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="최종로그인일시"
-            type="text"
+            dateFormat="Y-m-d H:i"
+            enableTime
             horizontal
-            placeholder=""
-            name=""
-            id=""
-            register={register}
+            name="date"
+            control={control}
           />
           <TextInput
             label="이기종사번"
@@ -247,14 +248,12 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="입사일자"
-            type="text"
             horizontal
-            placeholder=""
-            name=""
-            id=""
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
           <CodeSelect
             label="직급"
@@ -292,14 +291,12 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="퇴사일자"
-            type="text"
             horizontal
-            placeholder=""
-            name=""
-            id=""
-            register={register}
+            dateFormat="Y-m-d"
+            name="date"
+            control={control}
           />
           <CodeSelect
             label="여신상품그룹코드"
@@ -310,14 +307,13 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="로그인오류일시"
-            type="text"
+            dateFormat="Y-m-d H:i"
+            enableTime
             horizontal
-            placeholder=""
-            name=""
-            id=""
-            register={register}
+            name="date"
+            control={control}
           />
           <CheckboxGroup horizontal label="권한설정" className="col-span-4">
             <Checkbox

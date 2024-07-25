@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
 import CodeSelect from "../../../../components/form/CodeSelect";
 import TextInput from "../../../../components/form/TextInput";
+import DateInput from "../../../../components/form/DateInput";
 
 type FormValues = {
   code: string;
@@ -26,6 +27,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   const {
     register,
     handleSubmit,
+    control,
     setError,
     watch,
     reset,
@@ -107,14 +109,12 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             id=""
             register={register}
           />
-          <TextInput
+          <DateInput
             label="등록일"
-            type="text"
+            dateFormat="Y-m-d"
             horizontal
-            placeholder=""
-            name=""
-            id=""
-            register={register}
+            name="date"
+            control={control}
           />
           <TextInput
             label="부가세 업종코드"
