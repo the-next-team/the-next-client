@@ -1,8 +1,8 @@
 import "cleave.js/dist/addons/cleave-phone.us";
 import Cleave from "cleave.js/react";
 import { FocusEventHandler, HTMLInputTypeAttribute, useState } from "react";
-import Icon from "../icons/Icon";
 import { v4 as uuidv4 } from "uuid";
+import Icon from "../icons/Icon";
 
 type Props = {
   type?: HTMLInputTypeAttribute | undefined;
@@ -74,7 +74,7 @@ const TextInput = ({
       {label && (
         <label
           htmlFor={id}
-          className={`block capitalize ${classLabel} ${
+          className={`block capitalize break-keep ${classLabel} ${
             horizontal
               ? "flex-0 ml-2 mr-2 text-xs text-right md:w-[100px] w-[60px] break-words"
               : ""

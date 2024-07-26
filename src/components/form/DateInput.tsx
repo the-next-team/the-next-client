@@ -68,7 +68,7 @@ const DateInput = forwardRef(
         {label && (
           <label
             htmlFor={id}
-            className={`block capitalize ${classLabel} ${
+            className={`block capitalize break-keep ${classLabel} ${
               horizontal
                 ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words"
                 : ""

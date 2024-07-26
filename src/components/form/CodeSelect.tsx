@@ -1,8 +1,8 @@
 import { Icon } from "@iconify/react";
 import { ChangeEvent, useEffect } from "react";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
-import { codeSelector, codeState } from "../../states/code/codeAtom";
 import { v4 as uuidv4 } from "uuid";
+import { codeSelector, codeState } from "../../states/code/codeAtom";
 
 type Props = {
   label?: string;
@@ -72,7 +72,7 @@ const CodeSelect = ({
       {label && (
         <label
           htmlFor={id}
-          className={`block capitalize ${classLabel}  ${
+          className={`block capitalize break-keep ${classLabel}  ${
             horizontal
               ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words"
               : ""

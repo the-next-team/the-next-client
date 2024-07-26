@@ -25,7 +25,7 @@ function CheckboxGroup({
     >
       {label && (
         <label
-          className={`block cursor-pointer ${classLabel} ${
+          className={`block cursor-pointer break-keep ${classLabel} ${
             horizontal ? "ml-2 mr-2 text-right md:w-[100px] w-[60px]" : "mb-1"
           }`}
         >

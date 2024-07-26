@@ -35,7 +35,7 @@ const Switch = ({
     <div>
       <label
         className={
-          `flex items-center ${
+          `flex items-center break-keep ${
             disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
           }` +
           "" +

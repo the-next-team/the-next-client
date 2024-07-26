@@ -34,7 +34,7 @@ const Radio = (
     <div>
       <label
         htmlFor={id}
-        className={`flex items-center ${
+        className={`flex items-center break-keep ${
           disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
         } ${wrapperClass}`}
       >
