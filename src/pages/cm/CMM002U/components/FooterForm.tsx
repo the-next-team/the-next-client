@@ -154,7 +154,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
         </div>
       </div>
       <div className="flex justify-end">
-        <div className="space-xy-5">
+        <div className="flex gap-2">
           <Button text="초기화" className="w-12 btn-primary btn-sm" />
           <Button text="등록" className="w-12 btn-primary btn-sm" disabled />
           <Button text="수정" className="w-12 btn-primary btn-sm" />

@@ -173,36 +173,34 @@ function CMM002U() {
   return (
     <div className="flex flex-col gap-2 relative h-full">
       {/* Header */}
+      <HeaderForm
+        onSubmit={(data) => {
+          console.log(data);
+        }}
+        onExcelClick={() => {
+          realGridRef.current?.excelExport();
+        }}
+      />
+
+      {/* <Card> */}
+      <div className="flex-grow">
+        <RealGridTable
+          ref={realGridRef}
+          fields={fields}
+          columns={columns}
+          onCellDblClicked={(grid, data) => {
+            console.log("onCellDblClicked", data.itemIndex);
+          }}
+        />
+      </div>
+
+      {/* Footer */}
       <div>
-        <HeaderForm
+        <FooterForm
           onSubmit={(data) => {
             console.log(data);
           }}
-          onExcelClick={() => {
-            realGridRef.current?.excelExport();
-          }}
         />
-
-        {/* <Card> */}
-        <div className="flex-grow">
-          <RealGridTable
-            ref={realGridRef}
-            fields={fields}
-            columns={columns}
-            onCellDblClicked={(grid, data) => {
-              console.log("onCellDblClicked", data.itemIndex);
-            }}
-          />
-        </div>
-
-        {/* Footer */}
-        <div>
-          <FooterForm
-            onSubmit={(data) => {
-              console.log(data);
-            }}
-          />
-        </div>
       </div>
     </div>
   );
