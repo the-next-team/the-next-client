@@ -15,7 +15,7 @@ function CMC001U() {
   const [selected, setSelected] = useState<ICode | null>(null); // 선택된 코드
 
   return (
-    <div>
+    <div className="relative flex flex-col h-full gap-2">
       {/* Header */}
       <div className="my-2">
         <HeaderForm
@@ -26,8 +26,8 @@ function CMC001U() {
       </div>
 
       {/* 대분류 */}
-      <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
-        <div>
+      <div className="grid flex-grow grid-cols-2 gap-3">
+        <div className="relative flex flex-col h-full">
           <div className="flex items-center mb-1 space-x-2 text-sm font-medium text-slate-900">
             <span className="h-[6px] w-[6px] bg-slate-900 rounded-full inline-block" />
             <span>대분류코드</span>
@@ -45,7 +45,7 @@ function CMC001U() {
         </div>
 
         {/* 소분류 */}
-        <div className="">
+        <div className="relative flex flex-col h-full">
           <div className="flex items-center mb-1 space-x-2 text-sm font-medium text-slate-900">
             <span className="h-[6px] w-[6px] bg-slate-900 rounded-full inline-block" />
             <span>소분류코드</span>
