@@ -40,14 +40,22 @@ function CodeItemTable({ item, onClick }: Props) {
         dataType: ValueType.TEXT,
       },
       {
+        fieldName: "updatedDate",
+        dataType: ValueType.TEXT,
+      },
+      {
+        fieldName: "priority",
+        dataType: ValueType.TEXT,
+      },
+      {
         fieldName: "createdDate",
         dataType: ValueType.TEXT,
       },
     ]);
     gv.setColumns([
       {
-        name: "kind",
-        fieldName: "kind",
+        name: "code",
+        fieldName: "code",
         type: "data",
         width: "80",
         styles: {
@@ -76,8 +84,8 @@ function CodeItemTable({ item, onClick }: Props) {
         },
       },
       {
-        name: "useYn",
-        fieldName: "useYn",
+        name: "priority",
+        fieldName: "priority",
         type: "data",
         width: "80",
         styles: {
@@ -86,8 +94,8 @@ function CodeItemTable({ item, onClick }: Props) {
         header: "보기순서",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "useYn",
+        fieldName: "useYn",
         type: "data",
         width: "80",
         styles: {
@@ -96,8 +104,8 @@ function CodeItemTable({ item, onClick }: Props) {
         header: "사용여부",
       },
       {
-        name: "",
-        fieldName: "",
+        name: "updatedDate",
+        fieldName: "updatedDate",
         type: "data",
         width: "220",
         styles: {
