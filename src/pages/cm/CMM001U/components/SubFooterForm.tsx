@@ -34,7 +34,7 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
-      <div className="p-2 mb-2 bg-white rounded">
+      <div className="p-2 my-2 bg-white rounded">
         <div className="grid grid-cols-2 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
           <CodeSelect
             label="시스템명"
@@ -82,8 +82,8 @@ function SubFooterForm({ initialValues, onSubmit }: Props) {
           </div>
         </div>
       </div>
-      <div className="flex justify-end mt-2">
-        <div className="space-xy-5">
+      <div className="flex justify-end">
+        <div className="flex gap-2">
           <Button text="초기화" className="w-12 btn-primary btn-sm" />
           <Button text="등록" className="w-12 btn-primary btn-sm" />
           <Button text="수정" className="w-12 btn-primary btn-sm" disabled />
