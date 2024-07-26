@@ -5,18 +5,19 @@
  */
 import { useState } from "react";
 // import Card from "../../components/card/Card";
-import { IMenu1Depth } from "../../../api/services/menuService";
+import { ITopMenu } from "../../../api/services/menuService";
 import Button from "../../../components/button/Button";
 import ItemTable from "../../cm/CMM001U/components/ItemTable";
 import SubFooterForm from "../../cm/CMM001U/components/SubFooterForm";
 import SystemFooterForm from "../../cm/CMM001U/components/SystemFooterForm";
+import CodeItemTable from "./components/CodeItemTable";
 // import Table from "./components/Table";
 
 function CMM001U() {
-  const [selected, setSelected] = useState<IMenu1Depth | null>(null); // 선택된 코드
+  const [selected, setSelected] = useState<ITopMenu | null>(null); // 선택된 코드
 
   return (
-    <div>
+    <div className="relative flex flex-col h-full gap-2">
       <div className="flex justify-end">
         <div className="flex gap-2 mb-2">
           <Button text="조회" className="w-12 btn-primary btn-sm" />
@@ -24,22 +25,17 @@ function CMM001U() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
-        <div>
-          <div className="flex items-center space-x-2 text-base text-slate-900 dark:text-slate-300 rtl:space-x-reverse">
-            <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
+      <div className="grid flex-grow grid-cols-2 gap-3">
+        <div className="relative flex flex-col h-full">
+          <div className="flex items-center mb-1 space-x-2 text-sm font-medium text-slate-900">
+            <span className="h-[6px] w-[6px] bg-slate-900 rounded-full inline-block" />
             <span>시스템메뉴</span>
           </div>
-
-          <div className="mb-2">
-            <ItemTable
-              item={selected}
-              onClick={(item) => {
-                console.log("item", item);
-              }}
-            />
-          </div>
-
+          <ItemTable
+            onClick={(item) => {
+              setSelected(item);
+            }}
+          />
           {/* Footer */}
           <SystemFooterForm
             onSubmit={(data) => {
@@ -48,21 +44,17 @@ function CMM001U() {
           />
         </div>
 
-        <div className="">
-          <div className="flex items-center space-x-2 text-base text-slate-900 dark:text-slate-300 rtl:space-x-reverse">
-            <span className="h-[6px] w-[6px] bg-slate-900 dark:bg-slate-400 rounded-full inline-block"></span>
+        <div className="relative flex flex-col h-full">
+          <div className="flex items-center mb-1 space-x-2 text-sm font-medium text-slate-900">
+            <span className="h-[6px] w-[6px] bg-slate-900 rounded-full inline-block" />
             <span>서브메뉴</span>
           </div>
-
-          <div className="mb-2">
-            <ItemTable
-              item={selected}
-              onClick={(item) => {
-                console.log("item", item);
-              }}
-            />
-          </div>
-
+          <CodeItemTable
+            item={selected}
+            onClick={(item) => {
+              console.log("item", item);
+            }}
+          />
           {/* Footer */}
           <SubFooterForm
             onSubmit={(data) => {
