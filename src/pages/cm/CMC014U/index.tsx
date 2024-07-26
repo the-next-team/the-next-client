@@ -4,7 +4,6 @@
  * CMC014U
  */
 import React, { useEffect, useRef, useState } from "react";
-import Table from "./components/Table";
 import HeaderForm from "./components/HeaderForm";
 import FooterForm from "./components/FooterForm";
 import { ValueType } from "realgrid";

@@ -8,7 +8,6 @@ import {
   IMessageModel,
   MessageService,
 } from "../../../api/services/messageService";
-import MessageListTable from "./components/MessageListTable";
 import HeaderForm from "./components/HeaderForm";
 import { ValueType } from "realgrid";
 import { useEffect, useRef, useState } from "react";

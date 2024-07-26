@@ -5,7 +5,6 @@
  */
 import { ValueType } from "realgrid";
 import HeaderForm from "./components/HeaderForm";
-import Table from "./components/Table";
 import { useEffect, useRef, useState } from "react";
 import RealGridTable, {
   RealGridHandle,

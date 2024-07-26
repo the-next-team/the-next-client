@@ -3,7 +3,6 @@
  * 시스템 > 중개사관리 > 중개사조직관리
  * CMC022U
  */
-import Table from "./components/Table";
 import HeaderForm from "./components/HeaderForm";
 import { ValueType } from "realgrid";
 import { useRef } from "react";

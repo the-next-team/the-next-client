@@ -5,7 +5,6 @@
  */
 import HeaderForm from "./components/HeaderForm";
 import FooterForm from "./components/FooterForm";
-import Table from "./components/Table";
 import { ValueType } from "realgrid";
 import { useRef } from "react";
 import RealGridTable, {

@@ -6,7 +6,6 @@
 import { ValueType } from "realgrid";
 import Button from "../../../components/button/Button";
 import FooterForm from "./components/FooterForm";
-import Table from "./components/Table";
 import { useEffect, useRef, useState } from "react";
 import RealGridTable, {
   RealGridHandle,
