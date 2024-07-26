@@ -24,6 +24,7 @@ function CodeItemTable({ item, onClick }: Props) {
     gv.setEditOptions({
       editable: false,
     });
+    gv.setDataSource(dp);
     dp.setFields([
       {
         fieldName: "sysCd",
@@ -67,7 +68,7 @@ function CodeItemTable({ item, onClick }: Props) {
         name: "viewSeq",
         fieldName: "viewSeq",
         type: "data",
-        width: "80",
+        width: "150",
         styles: {
           textAlignment: "center",
         },
@@ -82,7 +83,6 @@ function CodeItemTable({ item, onClick }: Props) {
     gv.onCellDblClicked = () => {
       console.log("onCellDblClicked");
     };
-    dp.setRows(items);
 
     return () => {
       dp.clearRows();
@@ -92,11 +92,7 @@ function CodeItemTable({ item, onClick }: Props) {
   }, [item]);
 
   useEffect(() => {
-    if (item) {
-      findAll();
-    } else {
-      setItems([]);
-    }
+    findAll();
   }, [item]);
 
   const findAll = async () => {
@@ -105,6 +101,7 @@ function CodeItemTable({ item, onClick }: Props) {
         menuCd: item?.menuCd.toLowerCase() ?? "",
       });
       if (response.status === ApiResponseStats.OK) {
+        dp.setRows(response.data);
         setItems(response.data);
       }
     } catch (errer) {}
