@@ -55,14 +55,14 @@ const Select = ({
   options = options || Array(3).fill("option");
   return (
     <div
-      className={`fromGroup relative ${error ? "has-error" : ""}  ${
+      className={`fromGroup relative ${error ? "has-error" : ""} ${
         horizontal ? "flex items-baseline" : ""
-      }  ${validate ? "is-valid" : ""} `}
+      } ${validate ? "is-valid" : ""}`}
     >
       {label && (
         <label
           htmlFor={id}
-          className={`block capitalize break-keep ${classLabel}  ${
+          className={`block capitalize break-keep ${classLabel} ${
             horizontal
               ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words"
               : ""
@@ -77,8 +77,8 @@ const Select = ({
             onChange={onChange}
             {...register(name)}
             className={`${
-              error ? " has-error" : " "
-            } form-control py-1 text-xs  appearance-none border-slate-300 ${
+              error ? "has-error" : ""
+            } form-control py-1 text-xs appearance-none border-slate-300 ${
               readonly
                 ? "bg-slate-100"
                 : essential
@@ -116,8 +116,8 @@ const Select = ({
           <select
             onChange={onChange}
             className={`${
-              error ? " has-error" : " "
-            } form-control py-1 appearance-none border-slate-300 ${
+              error ? "has-error" : ""
+            } form-control py-1 text-xs appearance-none border-slate-300 ${
               readonly
                 ? "bg-slate-100"
                 : essential
@@ -169,10 +169,10 @@ const Select = ({
       {/* error and success message*/}
       {error && (
         <div
-          className={` mt-2 ${
+          className={`mt-2 ${
             msgTooltip
-              ? " inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-danger-500 block text-sm"
+              ? "inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded"
+              : "text-danger-500 block text-sm"
           }`}
         >
           {error.message}
@@ -181,10 +181,10 @@ const Select = ({
       {/* validated and success message*/}
       {validate && (
         <div
-          className={` mt-2 ${
+          className={`mt-2 ${
             msgTooltip
-              ? " inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-success-500 block text-sm"
+              ? "inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded"
+              : "text-success-500 block text-sm"
           }`}
         >
           {validate}
