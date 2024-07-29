@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LogoWhite from "../../assets/images/logo/logo-white.svg";
-import Logo from "../../assets/images/logo/logo.png";
+import LogoWhite from "../../assets/images/logo/smart-next.png";
+import Logo from "../../assets/images/logo/smart-next-black.png";
 import useDarkMode from "../../hooks/layout/useDarkMode";
 
 function Loading() {
