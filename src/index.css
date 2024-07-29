@@ -13,7 +13,8 @@
     height: 100%;
   }
   html {
-    font-family: "Pretendard";
+    /* font-family: "Pretendard"; */
+    font-family: "Noto Sans KR", sans-serif;
   }
   body {
     @apply bg-custom-blue-100;
@@ -101,4 +102,59 @@
   font-family: "Pretendard";
   font-weight: 900;
   src: url("assets/fonts/Pretendard-Black.woff");
+}
+
+/* Noto Sans KR */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 100;
+  src: url("assets/fonts/NotoSansKR-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 200;
+  src: url("assets/fonts/NotoSansKR-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 300;
+  src: url("assets/fonts/NotoSansKR-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 400;
+  src: url("assets/fonts/NotoSansKR-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  src: url("assets/fonts/NotoSansKR-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 600;
+  src: url("assets/fonts/NotoSansKR-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 700;
+  src: url("assets/fonts/NotoSansKR-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 800;
+  src: url("assets/fonts/NotoSansKR-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 900;
+  src: url("assets/fonts/NotoSansKR-Black.ttf") format("truetype");
 }
