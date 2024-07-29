@@ -79,7 +79,13 @@ const meta = {
       description: "값 변경시 발생 이벤트",
     },
   },
-  decorators: [(Story: any) => <Story />],
+  decorators: [
+    (Story) => (
+      <div className="w-40">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -108,12 +114,7 @@ export const Default: Story = {
 
 // Basic
 export const Basic: Story = () => (
-  <Select
-    label="Basic Select"
-    options={options}
-    onChange={() => {}}
-    value={"option1"}
-  />
+  <Select label="Basic Select" options={options} />
 );
 Basic.args = {
   ...Basic.args,
@@ -125,7 +126,6 @@ export const Disabled: Story = () => (
     label="Disabled Select"
     options={options}
     onChange={() => {}}
-    value={"option1"}
     disabled
   />
 );
@@ -135,13 +135,7 @@ Disabled.args = {
 
 // Size
 export const Size: Story = () => (
-  <Select
-    label="Size Select"
-    options={options}
-    onChange={() => {}}
-    value={"option1"}
-    size={5}
-  />
+  <Select label="Size Select" options={options} size={5} />
 );
 Size.args = {
   ...Size.args,
