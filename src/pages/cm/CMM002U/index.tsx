@@ -6,10 +6,12 @@
 import { ValueType } from "realgrid";
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import RealGridTable, {
   RealGridHandle,
 } from "../../../components/table/RealGridTable";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
+import { IMenu, ProgramService } from "../../../api/services/programService";
 
 const fields = [
   {
@@ -169,6 +171,29 @@ const columns = [
 
 function CMM002U() {
   const realGridRef = useRef<RealGridHandle>(null);
+  const [items, setItems] = useState<IMenu[]>([]);
+
+  useEffect(() => {
+    findAll();
+  }, []);
+
+  const findAll = async () => {
+    try {
+      const response = await ProgramService.fetchProgramMenuInquiry({
+        menuCd: "",
+        sysCd: "",
+        grpSeq: "",
+        prgId: "",
+        prgNm: "",
+        prgTy: "",
+        useYn: "",
+      });
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+        realGridRef.current?.setRows(response.data);
+      }
+    } catch (error) {}
+  };
 
   return (
     <div className="flex flex-col gap-2 relative h-full">
