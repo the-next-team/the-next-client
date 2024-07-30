@@ -26,68 +26,55 @@ const Switch = ({
   disabled = false,
   value = false,
   onChange,
-  activeClass = "bg-slate-900 dark:bg-slate-900",
-  wrapperClass = " ",
-  labelClass = "text-slate-500 dark:text-slate-400 text-sm leading-6",
+  activeClass = "bg-slate-900",
+  wrapperClass = "",
+  labelClass = "text-slate-500 text-xs",
   badge = false,
 }: Props) => {
   return (
-    <div>
-      <label
-        className={
-          `flex items-center break-keep ${
-            disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
-          }` +
-          "" +
-          wrapperClass
-        }
-        htmlFor={id}
+    <label
+      className={`flex items-center gap-1 break-keep ${
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+      } ${wrapperClass}`}
+      htmlFor={id}
+    >
+      <input
+        type="checkbox"
+        className="hidden"
+        checked={value}
+        onChange={onChange}
+        id={id}
+        disabled={disabled}
+      />
+      <div
+        className={`relative inline-flex h-5 w-[38px] items-center rounded-full transition-all duration-150 ${value ? activeClass : "bg-secondary-500"}`}
       >
-        <input
-          type="checkbox"
-          className="hidden"
-          checked={value}
-          onChange={onChange}
-          id={id}
-          disabled={disabled}
+        {badge && value && (
+          <span className="absolute justify-center flex items-center left-1 top-1/2 -translate-y-1/2 font-semibold text-white">
+            {prevIcon ? (
+              <Icon icon={prevIcon} width={12} />
+            ) : (
+              <span className="text-[9px]">on</span>
+            )}
+          </span>
+        )}
+        {badge && !value && (
+          <span className="absolute justify-center flex items-center right-1 top-1/2 -translate-y-1/2 font-semibold text-slate-900">
+            {nextIcon ? (
+              <Icon icon={nextIcon} width={12} />
+            ) : (
+              <span className="text-[9px]">Off</span>
+            )}
+          </span>
+        )}
+        <span
+          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-all duration-150 ${
+            value ? "translate-x-5" : "translate-x-[2px]"
+          }`}
         />
-        <div
-          className={`relative inline-flex h-6 w-[46px] mr-3 rtl:ml-3 items-center rounded-full transition-all duration-150
-			  ${value ? activeClass : "bg-secondary-500"}
-			  `}
-        >
-          {badge && value && (
-            <span className="absolute leading-[1px] left-1 top-1/2 -translate-y-1/2 capitalize font-bold text-white tracking-[1px]">
-              {prevIcon ? (
-                <Icon icon={prevIcon} />
-              ) : (
-                <span className="text-[9px] ">on</span>
-              )}
-            </span>
-          )}
-          {badge && !value && (
-            <span className="absolute right-1 leading-[1px] top-1/2 -translate-y-1/2 capitalize font-bold text-slate-900 tracking-[1px]">
-              {nextIcon ? (
-                <Icon icon={nextIcon} />
-              ) : (
-                <span className="text-[9px]">Off</span>
-              )}
-            </span>
-          )}
-
-          <span
-            className={`inline-block h-5 w-5 transform rounded-full bg-white transition-all duration-150
-			  ${
-          value
-            ? "translate-x-6 rtl:-translate-x-6"
-            : "translate-x-[2px] rtl:-translate-x-[2px]"
-        }
-			  `}
-          />
-        </div>
-        {label && <span className={labelClass}>{label}</span>}
-      </label>
-    </div>
+      </div>
+      {label && <span className={labelClass}>{label}</span>}
+    </label>
   );
 };
 
