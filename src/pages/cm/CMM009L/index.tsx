@@ -6,10 +6,15 @@
 import HeaderForm from "./components/HeaderForm";
 import FooterForm from "./components/FooterForm";
 import { ValueType } from "realgrid";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import RealGridTable, {
   RealGridHandle,
 } from "../../../components/table/RealGridTable";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
+import {
+  batchService,
+  IBatchHistory,
+} from "../../../api/services/batchService";
 
 const fields = [
   {
@@ -136,6 +141,24 @@ const columns = [
 
 function CMM009L() {
   const realGridRef = useRef<RealGridHandle>(null);
+  const [items, setItems] = useState<IBatchHistory[]>([]);
+
+  useEffect(() => {
+    findAll();
+  }, []);
+
+  const findAll = async () => {
+    try {
+      const response = await batchService.fetchBatchInquiryHistory({
+        procSt: "",
+        runDt: "",
+      });
+      if (response.status === ApiResponseStats.OK) {
+        setItems(response.data);
+        realGridRef.current?.setRows(response.data);
+      }
+    } catch (errer) {}
+  };
 
   return (
     <div className="flex flex-col gap-2 relative h-full">

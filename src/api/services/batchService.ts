@@ -38,7 +38,6 @@ export const batchService = {
   fetchBatchInquiryHistory: async (params: {
     procSt: string;
     runDt: string;
-    useYn: string;
   }): Promise<ApiResponse<IBatchHistory[]>> => {
     return Get(`/api/common/batch/history/inquiry`, {
       params: params,
