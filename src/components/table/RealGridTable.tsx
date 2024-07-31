@@ -133,7 +133,7 @@ function RealGridTable(
       gridView.destroy();
       dataProvider.destroy();
     };
-  }, [fields, columns, onCellClicked, onCellDblClicked]);
+  }, [fields, columns]);
 
   function setDataCellContextMenu(grid: GridBase) {
     var contextMenu = [
