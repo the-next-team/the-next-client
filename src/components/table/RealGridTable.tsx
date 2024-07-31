@@ -56,6 +56,7 @@ function RealGridTable(
     gridView.onCellClicked = (grid, clickData) => {
       onCellClicked && onCellClicked(grid, clickData);
     };
+    gridView.displayOptions.useFocusClass = true;
 
     var toggle = false;
     function setContextMenu(grid: any) {
