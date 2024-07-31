@@ -65,30 +65,30 @@ function RealGridTable(
         item: any,
         clickData: any
       ) {
-        if (item.tag == "excel") {
+        if (item.tag === "excel") {
           exportExcel();
-        } else if (item.tag == "filter" && clickData.column) {
+        } else if (item.tag === "filter" && clickData.column) {
           createColumnFilter(grid, clickData.column);
-        } else if (item.tag == "visibleTrue") {
-          var columns = grid.getColumns();
+        } else if (item.tag === "visibleTrue") {
+          const columns = grid.getColumns();
 
           for (var i in columns) {
             grid.setColumnProperty(columns[i].name, "visible", true);
           }
           toggle = false;
           setHeaderCellContextMenu(grid, toggle);
-        } else if (item.tag == "visibleFalse") {
+        } else if (item.tag === "visibleFalse") {
           grid.setColumnProperty(clickData.column, "visible", false);
 
           toggle = true;
           setHeaderCellContextMenu(grid, toggle);
-        } else if (item.tag == "fixedCol") {
-          var count = grid.layoutByColumn(clickData.column).root.vindex + 1;
+        } else if (item.tag === "fixedCol") {
+          const count = grid.layoutByColumn(clickData.column).root.vindex + 1;
           grid.setFixedOptions({ colCount: count });
-        } else if (item.tag == "fixedRow") {
-          var count = clickData.itemIndex + 1;
+        } else if (item.tag === "fixedRow") {
+          const count = clickData.itemIndex + 1;
           grid.setFixedOptions({ rowCount: count });
-        } else if (item.tag == "fixedCancel") {
+        } else if (item.tag === "fixedCancel") {
           grid.setFixedOptions({ colCount: 0, rowCount: 0 });
         }
       };
@@ -119,7 +119,7 @@ function RealGridTable(
       for (var i = 0; i < distinctValues.length; i++) {
         filters.push({
           name: distinctValues[i],
-          criteria: "value = " + "'" + distinctValues[i] + "'",
+          criteria: `value = ${distinctValues[i]}`,
         });
       }
 
@@ -133,7 +133,7 @@ function RealGridTable(
       gridView.destroy();
       dataProvider.destroy();
     };
-  }, [fields, columns]);
+  }, [fields, columns, onCellClicked, onCellDblClicked]);
 
   function setDataCellContextMenu(grid: GridBase) {
     var contextMenu = [

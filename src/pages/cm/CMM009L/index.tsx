@@ -3,18 +3,18 @@
  * 시스템 > 배치관리 > 배치수행이력
  * CMM009L
  */
-import HeaderForm from "./components/HeaderForm";
-import FooterForm from "./components/FooterForm";
-import { ValueType } from "realgrid";
 import { useEffect, useRef, useState } from "react";
-import RealGridTable, {
-  RealGridHandle,
-} from "../../../components/table/RealGridTable";
+import { ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 import {
   batchService,
   IBatchHistory,
 } from "../../../api/services/batchService";
+import RealGridTable, {
+  RealGridHandle,
+} from "../../../components/table/RealGridTable";
+import FooterForm from "./components/FooterForm";
+import HeaderForm from "./components/HeaderForm";
 
 const fields = [
   {
@@ -161,7 +161,7 @@ function CMM009L() {
   };
 
   return (
-    <div className="flex flex-col gap-2 relative h-full">
+    <div className="relative flex flex-col h-full gap-2">
       {/* Header */}
       <div>
         <HeaderForm
