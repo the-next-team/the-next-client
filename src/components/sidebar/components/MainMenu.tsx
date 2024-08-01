@@ -31,7 +31,6 @@ function MainMenu() {
   useEffect(() => {
     let menuIndex = findMenuIndex(menus, activeTab);
     if (menuIndex != null && selectedMenu?.code !== menus[menuIndex].code) {
-      console.log(menus[menuIndex].code);
       setSelectedMenu(menus[menuIndex]);
     }
   }, [activeTab, menus]);
@@ -70,8 +69,8 @@ function MainMenu() {
                 findMenuIndex(selectedMenu?.items, activeTab) === i
                   ? "bg-primary bg-opacity-[0.07]"
                   : isActive
-                  ? "bg-gray-100"
-                  : "hover:bg-gray-100"
+                    ? "bg-gray-100"
+                    : "hover:bg-gray-100"
               }`}
               onClick={() => {
                 if (isActive) {
