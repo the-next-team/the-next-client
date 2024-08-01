@@ -59,9 +59,6 @@ function Dashboard() {
         </Card>
       </div>
       <div className="w-full space-y-2">
-        <Card title="경기도 성남시 인구 현황">
-          <RealChartTest />
-        </Card>
         <Card title="리테일금융 실적현황">
           <div className="grid col-span-1 gap-3 2xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1">
             <PerformanceStatusGroup />
@@ -83,6 +80,9 @@ function Dashboard() {
             <ProfitAndLossStatusChart />
           </Card>
         </div>
+        <Card title="손익현황 (RealChart)">
+          <RealChartTest />
+        </Card>
         <Card title="여.수신월별잔액">
           <MonthlyBalanceChart />
         </Card>

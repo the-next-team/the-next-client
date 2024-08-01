@@ -8,39 +8,61 @@ const RealChartTest = () => {
 
   const config: object = {
     title: false,
+    subtitle: {
+      visible: true,
+      text: "(단위: 백만원)",
+      align: "right",
+    },
     legend: true,
     xAxis: {
-      title: "수정구",
       grid: true,
+      categories: [
+        "1월",
+        "2월",
+        "3월",
+        "4월",
+        "5월",
+        "6월",
+        "7월",
+        "8월",
+        "9월",
+        "10월",
+        "11월",
+        "12월",
+      ],
     },
     yAxis: {
-      title: "전체 인구수",
+      title: "손익금액",
     },
-    series: {
-      pointLabel: {
-        visible: true,
-        effect: "outline",
-        style: {},
+    options: {
+      palette: "#000000",
+    },
+    series: [
+      {
+        type: "bar",
+        name: "2023 손익",
+        style: {
+          fill: "#4669fa",
+          stroke: "#4669fa",
+        },
+        data: [4, 37, 37, 115, 202, 290, 397, 462, 573, 641, 717, 789],
+        pointLabel: {
+          visible: true,
+        },
       },
-      data: [
-        ["신흥1동", 12904],
-        ["신흥2동", 19796],
-        ["신흥3동", 10995],
-        ["태평1동", 14625],
-        ["태평2동", 14627],
-        ["태평3동", 12649],
-        ["태평4동", 12279],
-      ],
-      data2: [
-        [1, 7],
-        [2, 11],
-        [3, 9],
-        [4, 10],
-        [5, 14.3],
-        [6, 13],
-        [7, 12.5],
-      ],
-    },
+      {
+        type: "bar",
+        name: "2024 손익",
+        style: {
+          fill: "#FA916B",
+          stroke: "#FA916B",
+        },
+        data: [-36, 73, 184, 229, 0, 0, 0, 0, 0, 0, 0, 0],
+        pointLabel: {
+          visible: true,
+        },
+      },
+    ],
   };
 
   useEffect(() => {
