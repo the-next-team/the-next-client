@@ -13,6 +13,7 @@ import MonthlyBalanceChart from "./components/chart/MonthlyBalanceChart";
 import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
 import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
 import { Icon } from "@iconify/react";
+import RealChartTest from "./components/RealChartTest";
 
 const Card = ({
   title,
@@ -58,6 +59,9 @@ function Dashboard() {
         </Card>
       </div>
       <div className="w-full space-y-2">
+        <Card title="경기도 성남시 인구 현황">
+          <RealChartTest />
+        </Card>
         <Card title="리테일금융 실적현황">
           <div className="grid col-span-1 gap-3 2xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1">
             <PerformanceStatusGroup />
