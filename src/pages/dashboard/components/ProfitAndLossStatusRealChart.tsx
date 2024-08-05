@@ -1,21 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import RealChart from "realchart";
 
-const RealChartTest = () => {
+const ProfitAndLossStatusRealChart = () => {
   const isMounted = useRef(false);
   const [chart, setChart] = useState<any>(null);
   const chartRef = useRef<any>(null);
 
   const config: object = {
     title: false,
+    type: "bar",
     subtitle: {
       visible: true,
       text: "(단위: 백만원)",
       align: "right",
     },
-    legend: true,
     xAxis: {
-      grid: true,
       categories: [
         "1월",
         "2월",
@@ -34,12 +33,8 @@ const RealChartTest = () => {
     yAxis: {
       title: "손익금액",
     },
-    options: {
-      palette: "#000000",
-    },
     series: [
       {
-        type: "bar",
         name: "2023 손익",
         style: {
           fill: "#4669fa",
@@ -51,7 +46,6 @@ const RealChartTest = () => {
         },
       },
       {
-        type: "bar",
         name: "2024 손익",
         style: {
           fill: "#FA916B",
@@ -94,4 +88,4 @@ const RealChartTest = () => {
   );
 };
 
-export default RealChartTest;
+export default ProfitAndLossStatusRealChart;

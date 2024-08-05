@@ -13,7 +13,8 @@ import MonthlyBalanceChart from "./components/chart/MonthlyBalanceChart";
 import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
 import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
 import { Icon } from "@iconify/react";
-import RealChartTest from "./components/RealChartTest";
+import ProfitAndLossStatusRealChart from "./components/ProfitAndLossStatusRealChart";
+import BalanceDelayRealChart from "./components/BalanceDelayRealChart";
 
 const Card = ({
   title,
@@ -76,13 +77,18 @@ function Dashboard() {
           <Card title="채널별 잔액/연체 분표도">
             <BalanceDelayChart />
           </Card>
+          <Card title="채널별 잔액/연체 분표도 (RealChart)">
+            <BalanceDelayRealChart />
+          </Card>
+        </div>
+        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="손익현황">
             <ProfitAndLossStatusChart />
           </Card>
+          <Card title="손익현황 (RealChart)">
+            <ProfitAndLossStatusRealChart />
+          </Card>
         </div>
-        <Card title="손익현황 (RealChart)">
-          <RealChartTest />
-        </Card>
         <Card title="여.수신월별잔액">
           <MonthlyBalanceChart />
         </Card>
