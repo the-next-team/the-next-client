@@ -181,7 +181,7 @@ const columns = [
     name: "inqMode",
     fieldName: "inqMode",
     type: "data",
-    width: "50",
+    width: "200",
     styles: {
       textAlignment: "center",
     },
