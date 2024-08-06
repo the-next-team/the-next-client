@@ -4,17 +4,13 @@
  * CMN003L
  */
 import { useQuery } from "@tanstack/react-query";
-import {
-  IMessageModel,
-  MessageService,
-} from "../../../api/services/messageService";
+import { MessageService } from "../../../api/services/messageService";
 import HeaderForm from "./components/HeaderForm";
 import { ValueType } from "realgrid";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import RealGridTable, {
   RealGridHandle,
 } from "../../../components/table/RealGridTable";
-import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 
 const fields = [
   {
@@ -211,11 +207,10 @@ const columns = [
 
 function CMN003L() {
   const realGridRef = useRef<RealGridHandle>(null);
-  const [items, setItems] = useState<IMessageModel[]>([]);
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["messageList"],
-    queryFn: () => {
-      return MessageService.getMessages({
+    queryFn: async () => {
+      const res = await MessageService.getMessages({
         previousDt: "",
         currentDt: "",
         hostId: "",
@@ -224,22 +219,10 @@ function CMN003L() {
         reqId: "",
         status: "",
       });
+      return res.data;
     },
+    select: (data) => realGridRef.current?.setRows(data),
   });
-
-  useEffect(() => {
-    findAll();
-  }, []);
-
-  const findAll = async () => {
-    try {
-      const response = await MessageService.getMessages(data);
-      if (response.status === ApiResponseStats.OK) {
-        setItems(response.data);
-        realGridRef.current?.setRows(response.data);
-      }
-    } catch (error) {}
-  };
 
   if (isLoading) return <>Loading...</>;
   if (isError) return <>{error.message}</>;
@@ -247,13 +230,11 @@ function CMN003L() {
   return (
     <div className="flex flex-col gap-2 relative h-full">
       {/* Header */}
-      <div>
-        <HeaderForm
-          onSubmit={(data) => {
-            console.log(data);
-          }}
-        />
-      </div>
+      <HeaderForm
+        onSubmit={(data) => {
+          console.log(data);
+        }}
+      />
 
       {/* Table */}
       <div className="flex-grow">
