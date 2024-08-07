@@ -15,6 +15,9 @@ import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChar
 import { Icon } from "@iconify/react";
 import ProfitAndLossStatusRealChart from "./components/ProfitAndLossStatusRealChart";
 import BalanceDelayRealChart from "./components/BalanceDelayRealChart";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import ko from "date-fns/locale/ko";
 
 const Card = ({
   title,
@@ -28,10 +31,10 @@ const Card = ({
   className?: string;
 }) => (
   <div className={`bg-white rounded p-3 ${className}`}>
-    <div className="mb-3 flex items-center justify-between border-b border-slate-200 pb-1">
+    <div className="flex items-center justify-between pb-1 mb-3 border-b border-slate-200">
       <p className="font-semibold text-custom-black">{title}</p>
       {more && (
-        <div className="hover:cursor-pointer select-none text-slate-700 duration-100 hover:text-primary-800 flex items-center">
+        <div className="flex items-center duration-100 select-none hover:cursor-pointer text-slate-700 hover:text-primary-800">
           <Icon icon="heroicons:plus-small-20-solid" />
           <p className="text-xs">더보기</p>
         </div>
@@ -43,10 +46,40 @@ const Card = ({
 
 function Dashboard() {
   const { show } = useNotification();
+  const [date, setDate] = useState<Date | null>(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [endDate, setEndDate] = useState<Date | null>(new Date());
+
   return (
     <div className="flex gap-2 overflow-x-hidden">
-      <div className="w-80 space-y-2">
+      <div className="space-y-2 w-80">
         <Profile />
+        <Card title="react-datepicker 예시" className="flex flex-col gap-1">
+          <DatePicker
+            className="w-52"
+            locale={ko}
+            dateFormat="yyyy.MM.dd"
+            shouldCloseOnSelect
+            minDate={new Date()}
+            maxDate={new Date("2030-12-31")}
+            selected={date}
+            onChange={(date) => setDate(date)}
+          />
+          <DatePicker
+            className="w-52"
+            locale={ko}
+            dateFormat="yyyy.MM.dd"
+            selected={startDate}
+            onChange={(dates) => {
+              const [start, end] = dates;
+              setStartDate(start ?? null);
+              setEndDate(end);
+            }}
+            startDate={startDate ?? undefined}
+            endDate={endDate ?? undefined}
+            selectsRange
+          />
+        </Card>
         {/* TO-DO List */}
         <Card title="TO-DO List">
           <div className="pb-3">

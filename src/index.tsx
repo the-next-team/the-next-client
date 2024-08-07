@@ -5,6 +5,8 @@ import "./index.css";
 // RealGrid Style
 import "./components/table/style/realgrid-custom-style.css";
 import "./styles/realchart/realchart-style.css";
+import "react-datepicker/dist/react-datepicker.css";
+
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
