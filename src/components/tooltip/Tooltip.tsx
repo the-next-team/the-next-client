@@ -47,7 +47,7 @@ function Tooltip({
   duration = 200,
 }: Props) {
   return (
-    <div className="custom-tippy">
+    <div className="">
       <Tippy
         content={content}
         placement={placement}
