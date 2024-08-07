@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
-import DocumentationTemplate from "./DocumentationTemplate.mdx";
 import "../src/index.css";
+import DocumentationTemplate from "./DocumentationTemplate.mdx";
 
 const preview: Preview = {
   parameters: {
@@ -22,7 +22,10 @@ const preview: Preview = {
         method: "alphabetical",
         includeNames: true,
         order: [
-          "가이드",
+          "Introduction",
+          ["*", ["Docs", "Default", "AllTypes"]],
+          "Docs Overview",
+          ["*", ["Docs", "Default", "AllTypes"]],
           "Foundations",
           ["*", ["Docs", "Default", "AllTypes"]],
           "Components",
