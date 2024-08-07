@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
+import CodeDropdown from "../../../../components/form/CodeDropdown";
 import CodeSelect from "../../../../components/form/CodeSelect";
 
 type FormValues = {
@@ -38,6 +39,37 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
               essential
               name="brCode"
               register={register}
+            />
+            <CodeDropdown
+              label="• 부서(지점)"
+              horizontal
+              essential
+              placeholder={"* 전체"}
+              name="brCode"
+              options={[
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+                { label: "asdf", value: "sadf" },
+              ]}
+              onChange={(value) => {}}
             />
           </div>
         </div>
