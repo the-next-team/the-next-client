@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { v4 as uuidv4 } from "uuid";
 import { ICodeItem } from "../../api/services/codeService";
 import { codeSelector, codeState } from "../../states/code/codeAtom";
+import { Icon } from "@iconify/react";
 
 // Option 인터페이스 정의
 export interface Option {
@@ -132,7 +133,7 @@ const CodeDropdown: React.FC<Props> = ({
         top: `${menuPosition.top}px`,
         left: `${menuPosition.left}px`,
         width: `${menuPosition.width}px`,
-        overflowY: 'auto',
+        overflowY: "auto",
         maxHeight: `200px`,
       }}
       className="w-full overflow-hidden border rounded shadow"
@@ -192,19 +193,11 @@ const CodeDropdown: React.FC<Props> = ({
               : placeholder}
           </span>
           {/* 아이콘 렌더링 */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="8"
-            height="7"
-            viewBox="0 0 8 7"
-            fill="none"
+          <Icon
+            icon="heroicons:chevron-down"
+            width={16}
             className="absolute right-2"
-          >
-            <path
-              d="M4.49041 6.72C4.27245 7.09333 3.72755 7.09333 3.50959 6.72L0.0767116 0.839999C-0.141249 0.466666 0.131202 -3.76869e-08 0.567123 0L7.43288 5.93569e-07C7.8688 6.31256e-07 8.14125 0.466667 7.92329 0.840001L4.49041 6.72Z"
-              fill="#282828"
-            />
-          </svg>
+          />
         </div>
       </div>
       {/* 드롭다운 메뉴를 Portal을 사용하여 렌더링 */}
