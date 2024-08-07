@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { ChangeEvent, useEffect } from "react";
+import { ChangeEvent, forwardRef, useEffect } from "react";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { v4 as uuidv4 } from "uuid";
 import { codeSelector, codeState } from "../../states/code/codeAtom";
@@ -27,33 +27,36 @@ type Props = {
   codeType: string;
   defaultValue?: string;
   size?: number;
-};
+} & React.ComponentPropsWithoutRef<"select">;
 
-const CodeSelect = ({
-  label,
-  placeholder = "선택",
-  classLabel = "form-label",
-  className = "",
-  classGroup = "",
-  register,
-  name,
-  readonly,
-  value,
-  error,
-  icon,
-  disabled = false,
-  essential = false,
-  id = uuidv4(),
-  horizontal = false,
-  validate,
-  msgTooltip,
-  description,
-  onChange,
-  codeType,
-  defaultValue,
-  size,
-  ...rest
-}: Props) => {
+const CodeSelect = (
+  {
+    label,
+    placeholder = "선택",
+    classLabel = "form-label",
+    className = "",
+    classGroup = "",
+    register,
+    name,
+    readonly,
+    value,
+    error,
+    icon,
+    disabled = false,
+    essential = false,
+    id = uuidv4(),
+    horizontal = false,
+    validate,
+    msgTooltip,
+    description,
+    onChange,
+    codeType,
+    defaultValue,
+    size,
+    ...rest
+  }: Props,
+  ref: React.ForwardedRef<HTMLSelectElement>
+) => {
   const [options, setOptions] = useRecoilState(codeState(codeType));
   const codeLoadable = useRecoilValueLoadable(codeSelector(codeType));
 
@@ -82,66 +85,34 @@ const CodeSelect = ({
         </label>
       )}
       <div className={`relative ${horizontal ? "flex-1" : ""}`}>
-        {name && (
-          <select
-            onChange={onChange}
-            {...register(name)}
-            className={`${
-              error ? " has-error" : " "
-            } form-control py-1 text-xs appearance-none border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
-                : essential
-                  ? "bg-warning-100"
-                  : "bg-primary-50"
-            } ${className}`}
-            placeholder={placeholder}
-            readOnly={readonly}
-            disabled={disabled}
-            id={id}
-            value={value}
-            size={size}
-            defaultValue={defaultValue}
-            {...rest}
-          >
-            <option value="" disabled>
-              {placeholder}
+        <select
+          ref={ref}
+          id={id}
+          className={`${
+            error ? " has-error" : " "
+          } form-control py-1 text-xs appearance-none border-slate-300 ${
+            readonly
+              ? "bg-slate-100"
+              : essential
+              ? "bg-warning-100"
+              : "bg-primary-50"
+          } ${className}`}
+          disabled={disabled}
+          value={value}
+          size={size}
+          defaultValue={defaultValue}
+          //   onChange={onChange}
+          {...rest}
+        >
+          <option value="" disabled>
+            {placeholder}
+          </option>
+          {options.map((option, i) => (
+            <option key={i} value={option.code}>
+              {option.name}
             </option>
-            {options.map((option, i) => (
-              <option key={i} value={option.code}>
-                {option.name}
-              </option>
-            ))}
-          </select>
-        )}
-        {!name && (
-          <select
-            onChange={onChange}
-            className={`${
-              error ? " has-error" : " "
-            } form-control py-1 text-xs appearance-none border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
-                : essential
-                  ? "bg-warning-100"
-                  : "bg-primary-50"
-            } ${className}`}
-            disabled={disabled}
-            id={id}
-            value={value}
-            size={size}
-            defaultValue={defaultValue}
-          >
-            <option value="" disabled>
-              {placeholder}
-            </option>
-            {options.map((option, i) => (
-              <option key={i} value={option.code}>
-                {option.name}
-              </option>
-            ))}
-          </select>
-        )}
+          ))}
+        </select>
 
         {/* icon */}
         <div className="flex text-xl absolute right-[14px] top-1/2 -translate-y-1/2 space-x-1 pointer-events-none">
@@ -190,4 +161,4 @@ const CodeSelect = ({
   );
 };
 
-export default CodeSelect;
+export default forwardRef(CodeSelect);
