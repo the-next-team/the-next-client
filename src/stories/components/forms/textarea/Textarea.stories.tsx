@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Textarea from "../../../components/form/Textarea";
+import Textarea from "../../../../components/form/Textarea";
 
 const meta = {
-  title: "Forms/Textarea",
+  title: "Components/Forms/Textarea",
   component: Textarea,
   parameters: {
     layout: "centered",

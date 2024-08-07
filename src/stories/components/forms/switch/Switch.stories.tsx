@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Switch from "../../../components/form/Switch";
+import Switch from "../../../../components/form/Switch";
 
 const meta = {
-  title: "Forms/Switch",
+  title: "Components/Forms/Switch",
   component: Switch,
   parameters: {
     layout: "centered",

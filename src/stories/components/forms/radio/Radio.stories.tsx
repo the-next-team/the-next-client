@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Radio from "../../../components/form/Radio";
+import Radio from "../../../../components/form/Radio";
 
 const meta = {
-  title: "Forms/Radio",
+  title: "Components/Forms/Radio",
   component: Radio,
   parameters: {
     layout: "centered",
