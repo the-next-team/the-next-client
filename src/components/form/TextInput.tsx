@@ -1,6 +1,11 @@
 import "cleave.js/dist/addons/cleave-phone.us";
 import Cleave from "cleave.js/react";
-import { FocusEventHandler, HTMLInputTypeAttribute, useState } from "react";
+import {
+  FocusEventHandler,
+  forwardRef,
+  HTMLInputTypeAttribute,
+  useState,
+} from "react";
 import { v4 as uuidv4 } from "uuid";
 import Icon from "../icons/Icon";
 
@@ -26,40 +31,43 @@ type Props = {
   value?: any;
   hasicon?: boolean;
   register?: any;
-  onChange?: any;
+  //   onChange?: any;
   options?: any;
   onFocus?: FocusEventHandler | undefined;
   defaultValue?: string | number | readonly string[] | undefined;
-};
+} & React.ComponentPropsWithoutRef<"input">;
 
-const TextInput = ({
-  id = uuidv4(),
-  type,
-  label,
-  placeholder = "Add placeholder",
-  classLabel = "form-label",
-  className = "",
-  classGroup = "",
-  register,
-  name,
-  essential,
-  readonly = false,
-  value,
-  error,
-  icon,
-  disabled = false,
-  horizontal = false,
-  validate,
-  isMask = false,
-  msgTooltip = false,
-  description,
-  hasicon = false,
-  onChange,
-  options,
-  onFocus,
-  defaultValue,
-  ...rest
-}: Props) => {
+const TextInput = (
+  {
+    id = uuidv4(),
+    type,
+    label,
+    placeholder = "Add placeholder",
+    classLabel = "form-label",
+    className = "",
+    classGroup = "",
+    register,
+    name,
+    essential,
+    readonly = false,
+    value,
+    error,
+    icon,
+    disabled = false,
+    horizontal = false,
+    validate,
+    isMask = false,
+    msgTooltip = false,
+    description,
+    hasicon = false,
+    // onChange,
+    options,
+    onFocus,
+    defaultValue,
+    ...rest
+  }: Props,
+  ref: React.ForwardedRef<HTMLInputElement>
+) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
@@ -84,52 +92,32 @@ const TextInput = ({
         </label>
       )}
       <div className={`relative ${horizontal ? "flex-1" : ""}`}>
-        {name && !isMask && (
+        {!isMask && (
           <input
+            ref={ref}
+            id={id}
             type={type === "password" && open === true ? "text" : type}
-            {...register(name)}
+            className={`${
+              error ? " has-error" : ""
+            } form-control text-xs py-1 border-slate-300 ${
+              readonly
+                ? "bg-slate-100"
+                : essential
+                ? "bg-warning-100"
+                : "bg-primary-50"
+            } ${className}`}
+            placeholder={placeholder}
+            readOnly={readonly}
+            defaultValue={defaultValue}
+            disabled={disabled}
+            // onChange={onChange}
             {...rest}
-            className={`${
-              error ? " has-error" : ""
-            } form-control text-xs py-1 border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
-                : essential
-                  ? "bg-warning-100"
-                  : "bg-primary-50"
-            } ${className}`}
-            placeholder={placeholder}
-            readOnly={readonly}
-            defaultValue={defaultValue}
-            disabled={disabled}
-            id={id}
-            onChange={onChange}
           />
         )}
-        {!name && !isMask && (
-          <input
-            type={type === "password" && open === true ? "text" : type}
-            className={`${
-              error ? " has-error" : ""
-            } form-control text-xs py-1 border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
-                : essential
-                  ? "bg-warning-100"
-                  : "bg-primary-50"
-            } ${className}`}
-            placeholder={placeholder}
-            readOnly={readonly}
-            disabled={disabled}
-            defaultValue={defaultValue}
-            onChange={onChange}
-            id={id}
-          />
-        )}
-        {name && isMask && (
+        {isMask && (
           <Cleave
-            {...register(name)}
-            {...rest}
+            // ref={ref}
+            id={id}
             placeholder={placeholder}
             options={options}
             className={`${
@@ -138,34 +126,14 @@ const TextInput = ({
               readonly
                 ? "bg-slate-100"
                 : essential
-                  ? "bg-warning-100"
-                  : "bg-primary-50"
+                ? "bg-warning-100"
+                : "bg-primary-50"
             } ${className}`}
             onFocus={onFocus}
-            id={id}
             readOnly={readonly}
             disabled={disabled}
-            onChange={onChange}
-          />
-        )}
-        {!name && isMask && (
-          <Cleave
-            placeholder={placeholder}
-            options={options}
-            className={`${
-              error ? " has-error" : ""
-            } form-control text-xs py-1 border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
-                : essential
-                  ? "bg-warning-100"
-                  : "bg-primary-50"
-            } ${className}`}
-            onFocus={onFocus}
-            id={id}
-            readOnly={readonly}
-            disabled={disabled}
-            onChange={onChange}
+            // onChange={onChange}
+            {...rest}
           />
         )}
         {/* icon */}
@@ -226,4 +194,4 @@ const TextInput = ({
   );
 };
 
-export default TextInput;
+export default forwardRef(TextInput);
