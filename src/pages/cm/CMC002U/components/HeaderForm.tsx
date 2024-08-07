@@ -46,29 +46,7 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
               essential
               placeholder={"* 전체"}
               name="brCode"
-              options={[
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-                { label: "asdf", value: "sadf" },
-              ]}
+              codeType="NBR"
               onChange={(value) => {}}
             />
           </div>

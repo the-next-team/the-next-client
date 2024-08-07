@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { v4 as uuidv4 } from "uuid";
+import { ICodeItem } from "../../api/services/codeService";
+import { codeSelector, codeState } from "../../states/code/codeAtom";
 
 // Option 인터페이스 정의
 export interface Option {
@@ -12,10 +15,8 @@ export interface Option {
 type Props = {
   label?: string;
   placeholder?: any;
-  options: Option[];
   classLabel?: string;
   onChange: (value: string | number) => void;
-  defaultValue?: string | number;
   className?: string;
   maxVisibleOptions?: number;
   zIndex?: number;
@@ -27,15 +28,14 @@ type Props = {
   id?: string;
   horizontal?: boolean;
   validate?: string;
+  codeType: string;
 };
 
 const CodeDropdown: React.FC<Props> = ({
   label,
   placeholder = "선택",
-  options,
   classLabel = "form-label",
   onChange,
-  defaultValue,
   className,
   id = uuidv4(),
   maxVisibleOptions = 5,
@@ -46,12 +46,19 @@ const CodeDropdown: React.FC<Props> = ({
   validate,
   error,
   zIndex = 20,
+  codeType,
 }) => {
+  const [options, setOptions] = useRecoilState(codeState(codeType));
+  const codeLoadable = useRecoilValueLoadable(codeSelector(codeType));
+
+  useEffect(() => {
+    if (codeLoadable.state === "hasValue") {
+      setOptions(codeLoadable.contents);
+    }
+  }, [codeLoadable, setOptions]);
   // 토글 상태와 선택된 값을 관리하는 state
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(
-    defaultValue || options[0].value
-  );
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
   // 드롭다운 메뉴의 위치를 관리하는 state
   const [menuPosition, setMenuPosition] = useState({
@@ -69,9 +76,9 @@ const CodeDropdown: React.FC<Props> = ({
   };
 
   // 옵션 클릭 핸들러
-  const handleOptionClick = (option: Option) => {
-    setSelectedValue(option.value);
-    onChange(option.value);
+  const handleOptionClick = (option: ICodeItem) => {
+    setSelectedValue(option.code);
+    onChange(option.code);
     setIsOpen(false);
   };
 
@@ -113,8 +120,8 @@ const CodeDropdown: React.FC<Props> = ({
 
   // 기본 값 설정 이펙트
   useEffect(() => {
-    setSelectedValue(defaultValue || options[0].value);
-  }, [defaultValue, options]);
+    setSelectedValue(null);
+  }, [options]);
 
   // 드롭다운 메뉴 렌더링
   const overflowY = options.length <= maxVisibleOptions ? "hidden" : "scroll";
@@ -136,11 +143,11 @@ const CodeDropdown: React.FC<Props> = ({
       </div>
       {options.map((option) => (
         <div
-          key={option.value}
+          key={option.code}
           className="px-1 py-1 text-xs bg-white cursor-pointer dropdown-option hover:bg-gray-200"
           onClick={() => handleOptionClick(option)}
         >
-          {option.label}
+          {option.name}
         </div>
       ))}
     </div>
@@ -181,7 +188,9 @@ const CodeDropdown: React.FC<Props> = ({
                 : "bg-primary-50"
             } ${className}`}
           >
-            {options.find((option) => option.value === selectedValue)?.label}
+            {selectedValue
+              ? options.find((option) => option.code === selectedValue)?.name
+              : placeholder}
           </span>
           {/* 아이콘 렌더링 */}
           <svg
