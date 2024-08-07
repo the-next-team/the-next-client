@@ -43,10 +43,10 @@ function HeaderForm({ onSubmit, onExcelClick }: Props) {
             <CodeDropdown
               label="• 부서(지점)"
               horizontal
-              essential
-              placeholder={"* 전체"}
-              name="brCode"
               codeType="NBR"
+              placeholder={"* 전체"}
+              essential
+              name="brCode"
               onChange={(value) => {}}
             />
           </div>

@@ -124,7 +124,6 @@ const CodeDropdown: React.FC<Props> = ({
   }, [options]);
 
   // 드롭다운 메뉴 렌더링
-  const overflowY = options.length <= maxVisibleOptions ? "hidden" : "scroll";
   const dropdown = isOpen && (
     <div
       style={{
@@ -133,7 +132,7 @@ const CodeDropdown: React.FC<Props> = ({
         top: `${menuPosition.top}px`,
         left: `${menuPosition.left}px`,
         width: `${menuPosition.width}px`,
-        overflowY: overflowY,
+        overflowY: 'auto',
         maxHeight: `200px`,
       }}
       className="w-full overflow-hidden border rounded shadow"
