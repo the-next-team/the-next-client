@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Checkbox from "../../../../components/checkbox/Checkbox";
+import { useState } from "storybook/internal/preview-api";
 
 const meta = {
   title: "Components/Forms/Checkbox",
@@ -126,4 +127,54 @@ export const Color: Story = () => (
 );
 Color.args = {
   ...Color.args,
+};
+
+// Using Options Array
+export const Array: Story = {
+  args: {
+    ...Default.args,
+  },
+  render: function Render(args) {
+    const [selected, setSelected] = useState<
+      { value: string; label: string }[]
+    >([]);
+    const options: { value: string; label: string }[] = [
+      {
+        value: "orange",
+        label: "Orange",
+      },
+      {
+        value: "apple",
+        label: "Apple",
+      },
+      {
+        value: "banana",
+        label: "Banana",
+      },
+    ];
+    return (
+      <div className="space-y-4">
+        {options.map((option, i) => (
+          <Checkbox
+            key={i}
+            name="jorina"
+            label={option.label}
+            checked={selected.some((s) => s.value === option.value)}
+            onChange={() => {
+              if (selected.some((s) => s.value === option.value)) {
+                setSelected(selected.filter((s) => s.value !== option.value));
+              } else {
+                setSelected([...selected, option]);
+              }
+            }}
+          />
+        ))}
+        {selected.length > 0 && (
+          <div className="text-sm text-slate-900">
+            Selected: [{selected.map((e) => e.value).join(", ")}]
+          </div>
+        )}
+      </div>
+    );
+  },
 };
