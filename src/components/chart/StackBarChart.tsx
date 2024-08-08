@@ -44,7 +44,7 @@ const StackBarChart = ({ height = 410 }) => {
         // height: 6,
         offsetY: 0,
         offsetX: -5,
-        radius: 12,
+        // radius: 12,
       },
       itemMargin: {
         horizontal: 18,

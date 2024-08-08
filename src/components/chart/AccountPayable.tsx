@@ -45,7 +45,7 @@ const AccountPayable = ({ height = 300 }) => {
       strokeColors: colors.primary,
       strokeWidth: 2,
       shape: "circle",
-      radius: 2,
+      // radius: 2,
       hover: {
         sizeOffset: 1,
       },

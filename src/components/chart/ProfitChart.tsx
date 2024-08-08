@@ -40,7 +40,7 @@ const ProfitChart = ({
       strokeColors: color,
       strokeWidth: 2,
       shape: "circle",
-      radius: 2,
+      // radius: 2,
       hover: {
         sizeOffset: 1,
       },

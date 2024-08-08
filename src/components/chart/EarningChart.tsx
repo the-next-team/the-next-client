@@ -25,7 +25,7 @@ const EarningChart = ({
         // height: 8,
         offsetY: 0,
         offsetX: -5,
-        radius: 12,
+        // radius: 12,
       },
       itemMargin: {
         horizontal: 18,

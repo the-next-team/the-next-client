@@ -44,7 +44,7 @@ const RevenueBarChart = ({ height = 400 }) => {
         // height: 8,
         offsetY: -1,
         offsetX: -5,
-        radius: 12,
+        // radius: 12,
       },
       labels: {
         colors: isDark ? "#CBD5E1" : "#475569",

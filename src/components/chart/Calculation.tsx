@@ -27,7 +27,7 @@ const Calculation = ({ height = 335 }) => {
         // height: 6,
         offsetY: -1,
         offsetX: -5,
-        radius: 12,
+        // radius: 12,
       },
       itemMargin: {
         horizontal: 10,
