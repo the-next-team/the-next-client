@@ -11,7 +11,7 @@ const meta = {
     componentSubtitle: "alert",
     docs: {
       description: {
-        component: "사용자와 상호작용하고 기능을 실행할 때 사용합니다.",
+        component: "사용자에게 알림이 왔을때 사용합니다.",
       },
     },
   },
@@ -26,13 +26,13 @@ const meta = {
       description: "추가 아이콘",
     },
     text: {
-      description: "버튼 라벨",
+      description: "alert 라벨",
     },
     onClick: {
       description: "클릭시 이벤트",
     },
     type: {
-      description: "버튼 타입",
+      description: "alert 타입",
     },
   },
   tags: ["autodocs"],
