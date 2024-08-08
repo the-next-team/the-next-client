@@ -62,18 +62,18 @@ function FileInput({
 
             {multiple && (
               <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
-                {selectedFiles.length > 0 && (
+                {selectedFiles?.length > 0 && (
                   <span
                     className={
                       badge ? " badge-title" : "text-slate-900 dark:text-white"
                     }
                   >
-                    {selectedFiles.length > 0
-                      ? selectedFiles.length + " files selected"
+                    {selectedFiles?.length > 0
+                      ? selectedFiles?.length + " files selected"
                       : ""}
                   </span>
                 )}
-                {selectedFiles.length === 0 && (
+                {selectedFiles?.length === 0 && (
                   <span className="text-slate-400">{placeholder}</span>
                 )}
               </span>
@@ -91,7 +91,7 @@ function FileInput({
               />
             </div>
           )}
-          {multiple && preview && selectedFiles.length > 0 && (
+          {multiple && preview && selectedFiles?.length > 0 && (
             <div className="flex flex-wrap space-x-5 rtl:space-x-reverse">
               {selectedFiles.map((file: any, index: number) => (
                 <div
