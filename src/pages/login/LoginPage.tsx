@@ -34,13 +34,11 @@ function LoginPage() {
   const onSubmit = async (values: FormValues) => {
     try {
       showLoading();
-      const data = {
+      const response = await UserService.login({
         username: values.username,
         password: values.password,
-      };
-      const response = await UserService.login(data);
+      });
       hideLoading();
-
       if (response.status === ApiResponseStats.OK) {
         localStorage.setItem(storageKey.user, JSON.stringify(response.data));
         localStorage.setItem(storageKey.accessToken, response.data.accessToken);
@@ -49,7 +47,6 @@ function LoginPage() {
           response.data.refreshToken
         );
         await fetchUser();
-
         navigate("/dashboard", {
           replace: true,
         });
@@ -80,19 +77,23 @@ function LoginPage() {
             id="username"
             type="text"
             label="아이디"
-            className="w-full py-2"
+            className="w-full py-2 bg-transparent"
             placeholder="아이디"
             // error={{ message: "아이디를 입력해 주세요." }}
-            register={register}
+            {...register("username", {
+              required: "아이디를 입력해 주세요.",
+            })}
           />
           <TextInput
             id="password"
             type="password"
             label="비밀번호"
-            className="w-full py-2"
+            className="w-full py-2 bg-transparent"
             placeholder="비밀번호"
             // error={{ message: "비밀번호를 입력해 주세요." }}
-            register={register}
+            {...register("password", {
+              required: "비밀번호를 입력해 주세요.",
+            })}
           />
         </div>
         <button className="w-full py-2 rounded-[2px] hover:animate-gradient-primary bg-custom-black">

@@ -15,7 +15,6 @@ type Props = {
   classLabel?: string | undefined;
   className?: string | undefined;
   classGroup?: string | undefined;
-  name?: string | undefined;
   label?: string | undefined;
   icon?: string | undefined;
   id?: string | undefined;
@@ -47,7 +46,6 @@ const TextInput = (
     className = "",
     classGroup = "",
     register,
-    name,
     essential,
     readonly = false,
     value,
@@ -64,7 +62,7 @@ const TextInput = (
     options,
     onFocus,
     defaultValue,
-    ...rest
+    ...props
   }: Props,
   ref: React.ForwardedRef<HTMLInputElement>
 ) => {
@@ -103,15 +101,15 @@ const TextInput = (
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
             defaultValue={defaultValue}
             disabled={disabled}
             // onChange={onChange}
-            {...rest}
+            {...props}
           />
         )}
         {isMask && (
@@ -126,14 +124,14 @@ const TextInput = (
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
             onFocus={onFocus}
             readOnly={readonly}
             disabled={disabled}
             // onChange={onChange}
-            {...rest}
+            {...props}
           />
         )}
         {/* icon */}
