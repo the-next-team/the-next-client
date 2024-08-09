@@ -13,7 +13,7 @@ import Error500Page from "./pages/error/Error500Page";
 import AppRouter from "./routes";
 
 // Duplicate atom key 체크 false
-RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
+RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
 const queryClient = new QueryClient();
 
@@ -23,11 +23,13 @@ function App() {
   const { notifications, showNotification } = useLocalNotification();
 
   useEffect(() => {
-    connect();
+    if (!isConnected) {
+      connect();
+    }
     return () => {
       disconnect();
     };
-  }, [connect, disconnect]);
+  }, [connect, disconnect, isConnected]);
 
   useEffect(() => {
     let subscription: StompSubscription | null = null;
