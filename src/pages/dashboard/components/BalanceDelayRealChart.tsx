@@ -15,9 +15,14 @@ const BalanceDelayRealChart = () => {
     },
     xAxis: {
       grid: true,
+      title: "대출잔액",
     },
     yAxis: {
+      grid: true,
       title: "연체액",
+      tick: {
+        stepInterval: 20,
+      },
     },
     type: "scatter",
     templates: {

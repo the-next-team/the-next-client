@@ -32,6 +32,12 @@ const ProfitAndLossStatusRealChart = () => {
     },
     yAxis: {
       title: "손익금액",
+      grid: true,
+      //   strictMax: 1000,
+      //   strictMin: -200,
+      tick: {
+        stepInterval: 100,
+      },
     },
     series: [
       {
