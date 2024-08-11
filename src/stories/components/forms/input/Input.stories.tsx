@@ -216,6 +216,31 @@ Valid.args = {
   ...Valid.args,
 };
 
+// States
+export const States: Story = () => (
+  <div className="flex flex-col gap-4">
+    <TextInput
+      label="Valid State"
+      id="ValidState"
+      type="text"
+      placeholder="Valid"
+      validate="This is valid state."
+    />
+    <TextInput
+      label="Invalid State"
+      id="InvalidState"
+      type="text"
+      placeholder="Invalid"
+      error={{
+        message: "This is invalid state",
+      }}
+    />
+  </div>
+);
+States.args = {
+  ...States.args,
+};
+
 // Mask
 export const Mask: Story = () => (
   <div className="grid grid-cols-2 gap-6">
