@@ -308,13 +308,13 @@
     @apply text-white;
   }
   .badge {
-    @apply py-1 px-2 text-xs  capitalize font-semibold rounded-[.358rem] whitespace-nowrap  align-baseline inline-flex;
+    @apply inline-flex px-2 py-1 text-xs align-baseline rounded-sm whitespace-nowrap;
   }
   .badge.pill {
-    @apply rounded-[999px];
+    @apply rounded-full;
   }
   .form-label {
-    @apply block w-full mb-1 text-sm font-medium leading-6 capitalize cursor-pointer text-slate-600 rtl:text-right rtl:block;
+    @apply block w-full mb-1 text-sm cursor-pointer text-slate-600;
   }
   .form-control {
     @apply block w-full px-2 text-sm transition duration-300 ease-in-out bg-white border rounded border-slate-200 focus:ring-1 focus:ring-slate-600 focus:outline-none focus:ring-opacity-90 placeholder:text-slate-400 text-slate-900 placeholder:font-normal;
@@ -338,7 +338,7 @@
     @apply cursor-not-allowed bg-slate-50 text-slate-800 placeholder:text-opacity-60;
   }
   .file-control {
-    @apply text-sm transition duration-300 ease-in-out bg-transparent border rounded border-slate-200 focus:ring-1 focus:ring-slate-900 focus:outline-none focus:ring-opacity-90 ltr:pl-3 rtl:pr-3 placeholder:font-normal;
+    @apply pl-3 text-sm transition duration-300 ease-in-out bg-transparent border rounded border-slate-200 focus:ring-1 focus:ring-slate-900 focus:outline-none focus:ring-opacity-90 placeholder:font-normal;
   }
   .badge-title {
     @apply bg-slate-900 text-white px-2 py-[3px] rounded text-sm;

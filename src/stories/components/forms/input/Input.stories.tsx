@@ -67,9 +67,6 @@ const meta = {
     isMask: {
       description: "입력 패턴 지정 여부",
     },
-    msgTooltip: {
-      description: "하단 메시지 툴팁 스타일 적용 여부",
-    },
     description: {
       description: "설명",
     },
@@ -89,7 +86,7 @@ const meta = {
       description: "기본값",
     },
   },
-  decorators: [(Story: any) => <Story />],
+  decorators: [(Story) => <Story />],
 } satisfies Meta<typeof TextInput>;
 
 export default meta;
@@ -102,25 +99,24 @@ export const Default: Story = {
 // Basic Inputs
 export const Basic: Story = () => (
   <div className="flex flex-col gap-4">
+    <TextInput type="text" label="Defult(기본)" placeholder="defult" />
     <TextInput
-      label="Project Name*"
-      id="pn"
       type="text"
-      placeholder="Management dashboard "
+      label="Essential(필수)"
+      placeholder="essential"
+      essential
     />
     <TextInput
-      label="Readonly Input"
-      id="pn2"
+      type="text"
+      label="Readonly(읽기전용)"
       readonly
-      type="text"
-      placeholder="You can't update me :P"
+      placeholder="readonly"
     />
     <TextInput
-      label="Disabled Input"
-      id="pn3"
-      placeholder=" Disabled Input"
-      disabled
       type="text"
+      label="Disabled(비활성화)"
+      disabled
+      placeholder="disabled"
     />
   </div>
 );
@@ -128,112 +124,20 @@ Basic.args = {
   ...Basic.args,
 };
 
-// Sizing Options
-export const Size: Story = () => (
-  <div className="flex flex-col gap-4">
-    <TextInput
-      label="Large"
-      id="largesize"
-      type="text"
-      placeholder="Large Input"
-      className="h-[52px]"
-    />
-    <TextInput
-      label="Default"
-      id="defaultsize"
-      type="text"
-      placeholder="Default Input"
-    />
-    <TextInput
-      label="Small"
-      id="smallsize"
-      type="text"
-      placeholder="Small Input"
-      className="h-[32px] text-sm"
-    />
-  </div>
-);
-Size.args = {
-  ...Size.args,
-};
-
-// Horizontal Sizing Options
-export const HorizontalSize: Story = () => (
-  <div className="flex flex-col gap-4">
-    <TextInput
-      label="Large"
-      id="largesize2"
-      type="text"
-      placeholder="Large Input"
-      className="h-[52px]"
-      horizontal
-    />
-    <TextInput
-      label="Default"
-      id="defaultsize2"
-      type="text"
-      placeholder="Default Input"
-      horizontal
-    />
-    <TextInput
-      label="Small"
-      id="smallsize2"
-      type="text"
-      placeholder="Small Input"
-      className="h-[32px] text-sm"
-      horizontal
-    />
-  </div>
-);
-HorizontalSize.args = {
-  ...HorizontalSize.args,
-};
-
-// Valid
-export const Valid: Story = () => (
-  <div className="flex flex-col gap-4">
-    <TextInput
-      label="Valid State"
-      id="ValidState"
-      type="text"
-      placeholder="Valid"
-      validate="This is valid state."
-      msgTooltip
-    />
-    <TextInput
-      label="Invalid State"
-      id="InvalidState"
-      type="text"
-      placeholder="Invalid"
-      error={{
-        message: "This is invalid state",
-      }}
-      msgTooltip
-    />
-  </div>
-);
-Valid.args = {
-  ...Valid.args,
-};
-
 // States
 export const States: Story = () => (
   <div className="flex flex-col gap-4">
     <TextInput
       label="Valid State"
-      id="ValidState"
       type="text"
       placeholder="Valid"
       validate="This is valid state."
     />
     <TextInput
       label="Invalid State"
-      id="InvalidState"
       type="text"
       placeholder="Invalid"
-      error={{
-        message: "This is invalid state",
-      }}
+      error="This is invalid state"
     />
   </div>
 );
@@ -245,57 +149,50 @@ States.args = {
 export const Mask: Story = () => (
   <div className="grid grid-cols-2 gap-6">
     <TextInput
-      label="Credit Card"
+      label="Credit Card(신용카드)"
       isMask
       options={{ creditCard: true }}
       placeholder="0000 0000 0000 0000"
     />
     <InputGroup
-      label="Phone Number"
+      label="Phone Number(휴대폰번호)"
       prepend="MY (+6)"
       placeholder="Phone Number"
-      id="phoneNumber"
       options={{ phone: true, phoneRegionCode: "US" }}
       isMask
     />
     <TextInput
-      label="Date"
-      id="date"
+      label="Date(날짜)"
       options={{ date: true, datePattern: ["Y", "m", "d"] }}
       placeholder="YYYY-MM-DD"
       isMask
     />
     <TextInput
-      label="Time"
-      id="time"
+      label="Time(시간)"
       options={{ time: true, timePattern: ["h", "m", "s"] }}
       placeholder="HH:MM:SS"
       isMask
     />
     <TextInput
-      label="Numeral Formatting"
-      id="nu"
+      label="Numeral Formatting(숫자)"
       options={{ numeral: true }}
       placeholder="10,000"
       isMask
     />
     <TextInput
       label="Blocks"
-      id="block"
       options={{ blocks: [4, 3, 3], uppercase: true }}
       placeholder="Block[1,4,7]"
       isMask
     />
     <TextInput
       label="Delimiters"
-      id="delimiters"
       options={{ delimiter: "·", blocks: [3, 3, 3], uppercase: true }}
       placeholder="Delimiter: '.'"
       isMask
     />
     <TextInput
       label="Custom Delimiters"
-      id="customDelimiter"
       options={{
         delimiters: [".", ".", "-"],
         blocks: [3, 3, 3, 2],
@@ -306,7 +203,6 @@ export const Mask: Story = () => (
     />
     <TextInput
       label="prefix"
-      id="prefix"
       options={{
         prefix: "+88",
         blocks: [3, 3, 3, 4],

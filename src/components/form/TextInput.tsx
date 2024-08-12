@@ -24,7 +24,6 @@ type Props = {
   validate?: string | undefined;
   horizontal?: boolean;
   isMask?: boolean;
-  msgTooltip?: boolean;
   essential?: boolean;
   error?: any;
   value?: any;
@@ -41,8 +40,8 @@ const TextInput = (
     id = uuidv4(),
     type,
     label,
-    placeholder = "Add placeholder",
-    classLabel = "form-label",
+    placeholder = "",
+    classLabel = "mb-1 text-xs cursor-pointer text-slate-600",
     className = "",
     classGroup = "",
     register,
@@ -55,7 +54,6 @@ const TextInput = (
     horizontal = false,
     validate,
     isMask = false,
-    msgTooltip = false,
     description,
     hasicon = false,
     // onChange,
@@ -135,59 +133,32 @@ const TextInput = (
           />
         )}
         {/* icon */}
-        <div className="flex text-xl absolute right-[14px] top-1/2 -translate-y-1/2 space-x-1">
+        <div className="absolute flex space-x-1 -translate-y-1/2 right-2 top-1/2">
           {hasicon && (
             <span
               className="cursor-pointer text-secondary-500"
               onClick={handleOpen}
             >
               {open && type === "password" && (
-                <Icon icon="heroicons-outline:eye" />
+                <Icon icon="heroicons-outline:eye" width={16} />
               )}
               {!open && type === "password" && (
-                <Icon icon="heroicons-outline:eye-off" />
+                <Icon icon="heroicons-outline:eye-off" width={16} />
               )}
             </span>
           )}
-
           {error && (
             <span className="text-danger-500">
-              <Icon icon="heroicons-outline:information-circle" />
+              <Icon icon="heroicons-outline:information-circle" width={16} />
             </span>
           )}
           {validate && (
             <span className="text-success-500">
-              <Icon icon="bi:check-lg" />
+              <Icon icon="bi:check-lg" width={16} />
             </span>
           )}
         </div>
       </div>
-      {/* error and success message*/}
-      {error && (
-        <div
-          className={`mt-1 ${
-            msgTooltip
-              ? "inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded"
-              : "text-danger-500 block text-xs"
-          }`}
-        >
-          {error.message}
-        </div>
-      )}
-      {/* validated and success message*/}
-      {validate && (
-        <div
-          className={`mt-1 ${
-            msgTooltip
-              ? "inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded"
-              : "text-success-500 block text-xs"
-          }`}
-        >
-          {validate}
-        </div>
-      )}
-      {/* only description */}
-      {description && <span className="input-description">{description}</span>}
     </div>
   );
 };
