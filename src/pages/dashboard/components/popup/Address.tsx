@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
+import Button from "../../../../components/button/Button";
 import Radio from "../../../../components/form/Radio";
 import RadioGroup from "../../../../components/form/RadioGroup";
 import TextInput from "../../../../components/form/TextInput";
-import Button from "../../../../components/button/Button";
 
 type Props = {
   onSubmit: () => void;
@@ -32,16 +32,18 @@ function Address({ onSubmit }: Props) {
             />
           </RadioGroup>
         </div>
-        <div className="flex gap-2 mb-2">
-          <TextInput
-            label="도로명"
-            type="text"
-            className=""
-            horizontal
-            placeholder=""
-            name="b"
-            register={register}
-          />
+        <div className="flex gap-2 mb-2 ">
+          <div className="flex-grow">
+            <TextInput
+              label="도로명"
+              type="text"
+              className=""
+              horizontal
+              placeholder=""
+              name="b"
+              register={register}
+            />
+          </div>
           <Button
             onClick={() => {
               handleSubmit(onSubmit)();
