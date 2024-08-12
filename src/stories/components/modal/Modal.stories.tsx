@@ -17,26 +17,7 @@ const meta = {
       },
     },
   },
-  argTypes: {
-    className: {
-      description: "스타일",
-    },
-    disabled: {
-      description: "비활성화 여부",
-    },
-    icon: {
-      description: "추가 아이콘",
-    },
-    text: {
-      description: "modal 라벨",
-    },
-    onClick: {
-      description: "클릭시 이벤트",
-    },
-    type: {
-      description: "modal 타입",
-    },
-  },
+  argTypes: {},
   tags: ["autodocs"],
   decorators: [
     (Story: any) => (
