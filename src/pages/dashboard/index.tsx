@@ -135,7 +135,7 @@ function Dashboard() {
           <PopupButton
             width={500}
             height={700}
-            path={"/Address"}
+            path={"/address"}
             children={<p>address popup</p>}
           />
           <Button
