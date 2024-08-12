@@ -132,6 +132,12 @@ function Dashboard() {
             path={"/audit?inspNo=3384222342011"}
             children={<p>open popup</p>}
           />
+          <PopupButton
+            width={500}
+            height={700}
+            path={"/Address"}
+            children={<p>open popup</p>}
+          />
           <Button
             className="btn-sm btn-primary"
             onClick={() => {

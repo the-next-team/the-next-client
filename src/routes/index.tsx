@@ -4,6 +4,7 @@ import Layout from "../layout/Layout";
 import AuditPage from "../pages/audit/AuditPage";
 import PrivateRoute from "./PrivateRoute";
 import Error404Page from "../pages/error/Error404Page";
+import Address from "../pages/dashboard/components/popup/Address";
 
 const Login = lazy(() => import("../pages/login/LoginPage"));
 
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/audit" element={<AuditPage />} />
           <Route path="/*" element={<Layout />} />
+          <Route path="/Address" element={<Address onSubmit={() => {}} />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error404Page />} />
