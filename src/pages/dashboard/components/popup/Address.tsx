@@ -9,6 +9,7 @@ import RealGridTable, {
   RealGridHandle,
 } from "../../../../components/table/RealGridTable";
 import { useRef } from "react";
+import Header from "./components/Header";
 
 type Props = {
   onSubmit: () => void;
@@ -66,96 +67,39 @@ function Address({ onSubmit }: Props) {
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="flex flex-col gap-2 relative h-full p-2">
       {/* Header */}
-      <div className="p-4 m-2 bg-white rounded">
-        <div className="mb-2">
-          <RadioGroup horizontal label={"주소구분"}>
-            <Radio
-              label="지번주소"
-              value="r1-1"
-              checked={watch("r1") === "r1-1"}
-              {...register("r1")}
-            />
-            <Radio
-              label="도로명주소"
-              value="r1-2"
-              checked={watch("r1") === "r1-2"}
-              {...register("r1")}
-            />
-          </RadioGroup>
-        </div>
-        <div className="flex gap-2 mb-2 ">
-          <div className="flex-grow">
-            <TextInput
-              label="도로명"
-              type="text"
-              className=""
-              horizontal
-              placeholder=""
-              name="b"
-              register={register}
-            />
-          </div>
-          <Button
-            onClick={() => {
-              handleSubmit(onSubmit)();
-            }}
-            text="조회"
-            className="w-12 btn-primary btn-sm"
-          />
-        </div>
-        <div className="flex gap-2">
-          <div className="flex-grow">
-            <TextInput
-              label="상세주소"
-              type="text"
-              horizontal
-              placeholder=""
-              name="b"
-              register={register}
-            />
-          </div>
-          <Button
-            onClick={() => {
-              handleSubmit(onSubmit)();
-            }}
-            text="검증"
-            className="w-12 btn-primary btn-sm"
-          />
-        </div>
-      </div>
+
+      <Header onSubmit={() => {}} />
 
       {/* Body */}
-      <div className="flex flex-col gap-2 relative h-full p-2">
-        <div className="flex-grow">
-          <RealGridTable
-            ref={realGridRef}
-            fields={fields}
-            columns={columns}
-            onCellDblClicked={(grid, data) => {
-              console.log("onCellDblClicked", data.itemIndex);
-            }}
-          />
-        </div>
-        <div className="flex justify-end gap-2">
-          <Button
-            onClick={() => {
-              handleSubmit(onSubmit)();
-            }}
-            text="이전"
-            className="w-12 btn-primary btn-sm"
-          />
-          <Button
-            onClick={() => {
-              handleSubmit(onSubmit)();
-            }}
-            text="다음"
-            className="w-12 btn-primary btn-sm"
-          />
-        </div>
+      <div className="flex-grow">
+        <RealGridTable
+          ref={realGridRef}
+          fields={fields}
+          columns={columns}
+          onCellDblClicked={(grid, data) => {
+            console.log("onCellDblClicked", data.itemIndex);
+          }}
+        />
       </div>
-    </form>
+      <div className="flex justify-end gap-2 mb-2">
+        <Button
+          onClick={() => {
+            handleSubmit(onSubmit)();
+          }}
+          text="이전"
+          className="w-12 btn-primary btn-sm"
+        />
+        <Button
+          onClick={() => {
+            handleSubmit(onSubmit)();
+          }}
+          text="다음"
+          className="w-12 btn-primary btn-sm"
+        />
+      </div>
+    </div>
   );
 }
 
