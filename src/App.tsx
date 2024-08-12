@@ -1,6 +1,6 @@
 import { IMessage, StompSubscription } from "@stomp/stompjs";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { HashRouter } from "react-router-dom";
 import { RecoilEnv, RecoilRoot } from "recoil";
@@ -18,22 +18,24 @@ RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 const queryClient = new QueryClient();
 
 function App() {
-  const { connect, disconnect, subscribe, isConnected } = useStompClient();
-
+  const { connect, disconnect, subscribe, isConnected, isConnecting, isError } = useStompClient();
   const { notifications, showNotification } = useLocalNotification();
+  const subscriptionRef = useRef<StompSubscription | null>(null);
 
   useEffect(() => {
-    if (!isConnected) {
+    if (!isConnected && !isConnecting && !isError) {
       connect();
     }
     return () => {
+      if (subscriptionRef.current) {
+        subscriptionRef.current.unsubscribe();
+        subscriptionRef.current = null;
+      }
       disconnect();
     };
-  }, [connect, disconnect, isConnected]);
+  }, [connect, disconnect, isConnected, isConnecting, isError]);
 
   useEffect(() => {
-    let subscription: StompSubscription | null = null;
-
     const handleMessage = (message: IMessage) => {
       const {
         type,
@@ -42,23 +44,23 @@ function App() {
       showNotification({ title, body: body });
     };
 
-    if (isConnected) {
-      subscription = subscribe("/topic/notification", handleMessage);
+    if (isConnected && !subscriptionRef.current) {
+      subscriptionRef.current = subscribe("/topic/notification", handleMessage);
     }
 
     return () => {
-      if (subscription) {
-        subscription.unsubscribe();
+      if (subscriptionRef.current) {
+        subscriptionRef.current.unsubscribe();
+        subscriptionRef.current = null;
       }
     };
-  }, [isConnected, subscribe]);
+  }, [isConnected, subscribe, showNotification]);
 
   return (
     <ErrorBoundary FallbackComponent={Error500Page}>
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
           <div className="flex flex-col h-full">
-            {/* <TitleBar /> */}
             <div className="flex flex-col flex-grow overflow-hidden">
               <HashRouter>
                 <AppRouter />

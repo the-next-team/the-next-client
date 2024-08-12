@@ -1,4 +1,4 @@
-import { ActivationState, Client, Message, StompConfig, StompSubscription } from '@stomp/stompjs';
+import { ActivationState, Client, IMessage, StompConfig, StompSubscription } from '@stomp/stompjs';
 import { useCallback, useState } from 'react';
 import { storageKey } from '../constants';
 
@@ -6,6 +6,8 @@ let client: Client | null = null;
 
 const useStompClient = () => {
   const [isConnected, setIsConnected] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const connect = useCallback(() => {
     const accessToken = localStorage.getItem(storageKey.accessToken);
@@ -27,11 +29,15 @@ const useStompClient = () => {
       client.onConnect = () => {
         console.log('Connected');
         setIsConnected(true);
+        setIsConnecting(false);
+        setIsError(false);
       };
 
       client.onStompError = (frame: any) => {
         console.error('Broker reported error: ' + frame.headers['message']);
         console.error('Additional details: ' + frame.body);
+        setIsError(true);
+        setIsConnecting(false);
       };
 
       client.onDisconnect = () => {
@@ -40,10 +46,11 @@ const useStompClient = () => {
       };
     }
 
-    if (client.state !== ActivationState.ACTIVE) {
+    if (client.state !== ActivationState.ACTIVE && !isConnecting) {
+      setIsConnecting(true);
       client.activate();
     }
-  }, []);
+  }, [isConnecting]);
 
   const disconnect = useCallback(() => {
     if (client && client.state === ActivationState.ACTIVE) {
@@ -53,7 +60,7 @@ const useStompClient = () => {
     }
   }, []);
 
-  const subscribe = (destination: string, callback: (message: Message) => void): StompSubscription | null => {
+  const subscribe = (destination: string, callback: (message: IMessage) => void): StompSubscription | null => {
     if (isConnected && client) {
       return client.subscribe(destination, callback);
     }
@@ -65,6 +72,8 @@ const useStompClient = () => {
     disconnect,
     subscribe,
     isConnected,
+    isConnecting,
+    isError,
   };
 };
 
