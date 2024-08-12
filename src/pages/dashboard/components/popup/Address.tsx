@@ -1,9 +1,5 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
-import Radio from "../../../../components/form/Radio";
-import RadioGroup from "../../../../components/form/RadioGroup";
-import TextInput from "../../../../components/form/TextInput";
-import Table from "./components/Table";
 import { ValueType } from "realgrid";
 import RealGridTable, {
   RealGridHandle,
@@ -62,7 +58,7 @@ const columns = [
 function Address({ onSubmit }: Props) {
   const realGridRef = useRef<RealGridHandle>(null);
 
-  const { register, handleSubmit, watch } = useForm({
+  const { handleSubmit } = useForm({
     defaultValues: { r1: "r1-1", r2: "r2-1", r3: "r3-1", r4: "r4-1" },
   });
 
