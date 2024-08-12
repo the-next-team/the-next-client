@@ -31,7 +31,7 @@ function Header({ onSubmit }: Props) {
             {...register("r1")}
           />
         </RadioGroup>
-        <div className="flex-grow pl-2">
+        <div className="flex-grow ">
           <CodeSelect
             label="시/도"
             horizontal
