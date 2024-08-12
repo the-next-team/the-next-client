@@ -10,7 +10,7 @@ type Props = {
   classGroup?: string;
   register?: any;
   name?: string;
-  readonly?: any;
+  readOnly?: any;
   value?: string;
   error?: any;
   icon?: string;
@@ -35,7 +35,7 @@ const Select = ({
   classGroup = "",
   register,
   name,
-  readonly,
+  readOnly,
   value,
   error,
   icon,
@@ -79,14 +79,14 @@ const Select = ({
             className={`${
               error ? "has-error" : ""
             } form-control py-1 text-xs appearance-none border-slate-300 ${
-              readonly
+              readOnly
                 ? "bg-slate-100"
                 : essential
                   ? "bg-warning-100"
                   : "bg-primary-50"
             } ${className}`}
             placeholder={placeholder}
-            readOnly={readonly}
+            readOnly={readOnly}
             disabled={disabled}
             id={id}
             value={value}
@@ -118,8 +118,8 @@ const Select = ({
             className={`${
               error ? "has-error" : ""
             } form-control py-1 text-xs appearance-none border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
+              readOnly
+                ? "bg-white"
                 : essential
                   ? "bg-warning-100"
                   : "bg-primary-50"

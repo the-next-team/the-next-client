@@ -19,7 +19,7 @@ type Props = {
   icon?: string | undefined;
   id?: string | undefined;
   description?: string | undefined;
-  readonly?: boolean;
+  readOnly?: boolean;
   disabled?: boolean;
   validate?: string | undefined;
   horizontal?: boolean;
@@ -46,7 +46,7 @@ const TextInput = (
     classGroup = "",
     register,
     essential,
-    readonly = false,
+    readOnly = false,
     value,
     error,
     icon,
@@ -96,14 +96,14 @@ const TextInput = (
             className={`${
               error ? " has-error" : ""
             } form-control text-xs py-1 border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
+              readOnly
+                ? "!bg-white"
                 : essential
                   ? "bg-warning-100"
                   : "bg-primary-50"
             } ${className}`}
             placeholder={placeholder}
-            readOnly={readonly}
+            readOnly={readOnly}
             defaultValue={defaultValue}
             disabled={disabled}
             // onChange={onChange}
@@ -119,14 +119,14 @@ const TextInput = (
             className={`${
               error ? " has-error" : ""
             } form-control text-xs py-1 border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
+              readOnly
+                ? "!bg-white"
                 : essential
                   ? "bg-warning-100"
                   : "bg-primary-50"
             } ${className}`}
             onFocus={onFocus}
-            readOnly={readonly}
+            readOnly={readOnly}
             disabled={disabled}
             // onChange={onChange}
             {...props}

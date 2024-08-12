@@ -40,7 +40,7 @@ const meta = {
     name: {
       description: "인풋명",
     },
-    readonly: {
+    readOnly: {
       description: "읽기전용 여부",
     },
     value: {
@@ -109,7 +109,7 @@ export const Basic: Story = () => (
     <TextInput
       type="text"
       label="Readonly(읽기전용)"
-      readonly
+      readOnly
       placeholder="readonly"
     />
     <TextInput

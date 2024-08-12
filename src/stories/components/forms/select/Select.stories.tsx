@@ -48,7 +48,7 @@ const meta = {
     classGroup: {
       description: "",
     },
-    readonly: {
+    readOnly: {
       description: "읽기전용 여부",
     },
     validate: {

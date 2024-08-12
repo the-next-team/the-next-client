@@ -23,7 +23,7 @@ type Props = {
   zIndex?: number;
   error?: any;
   name?: string;
-  readonly?: any;
+  readOnly?: any;
   disabled?: boolean;
   essential?: boolean;
   multiple?: boolean;
@@ -41,7 +41,7 @@ const CodeDropdown: React.FC<Props> = ({
   className,
   id = uuidv4(),
   maxVisibleOptions = 5,
-  readonly,
+  readOnly,
   disabled = false,
   essential = false,
   horizontal = false,
@@ -167,10 +167,7 @@ const CodeDropdown: React.FC<Props> = ({
           {multiple && (
             <span className="flex items-center justify-center w-4 border rounded shrink-0 aspect-square dropdown-option">
               {(selectedValue as string[]).find((f) => f === option.code) && (
-                <Icon
-                  icon="heroicons:check"
-                  width={12}
-                />
+                <Icon icon="heroicons:check" width={12} />
               )}
             </span>
           )}
@@ -208,8 +205,8 @@ const CodeDropdown: React.FC<Props> = ({
             className={`${
               error ? " has-error" : " "
             } form-control text-clip overflow-hidden line-clamp-1 cursor-pointer py-1 text-xs appearance-none border-slate-300 ${
-              readonly
-                ? "bg-slate-100"
+              readOnly
+                ? "bg-white"
                 : essential
                   ? "bg-warning-100"
                   : "bg-primary-50"
