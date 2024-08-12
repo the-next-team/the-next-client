@@ -2,9 +2,9 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../layout/Layout";
 import AuditPage from "../pages/audit/AuditPage";
-import PrivateRoute from "./PrivateRoute";
-import Error404Page from "../pages/error/Error404Page";
 import Address from "../pages/dashboard/components/popup/Address";
+import Error404Page from "../pages/error/Error404Page";
+import PrivateRoute from "./PrivateRoute";
 
 const Login = lazy(() => import("../pages/login/LoginPage"));
 
@@ -15,7 +15,7 @@ const AppRouter = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/audit" element={<AuditPage />} />
           <Route path="/*" element={<Layout />} />
-          <Route path="/Address" element={<Address onSubmit={() => {}} />} />
+          <Route path="/address" element={<Address onSubmit={() => {}} />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error404Page />} />
