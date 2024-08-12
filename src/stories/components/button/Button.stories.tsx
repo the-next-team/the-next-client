@@ -285,3 +285,21 @@ export const Block: Story = () => (
 Block.args = {
   ...Block.args,
 };
+
+// Loading
+export const Loading: Story = () => (
+  <div className="flex flex-wrap items-center justify-center gap-2">
+    <Button text="primary" className="btn-primary " isLoading />
+    <Button text="secondary" className=" btn-secondary" isLoading />
+    <Button text="success" className=" btn-success" isLoading />
+    <Button text="info" className=" btn-info" isLoading />
+    <Button text="warning" className=" btn-warning" isLoading />
+    <Button text="danger" className=" btn-danger" isLoading />
+    <Button text="Dark" className=" btn-dark" isLoading />
+    <Button text="Light" className=" btn-light" isLoading />
+    <Button text="White" className="bg-white text-slate-900" isLoading />
+  </div>
+);
+Loading.args = {
+  ...Loading.args,
+};
