@@ -1,10 +1,10 @@
+import { Icon } from "@iconify/react";
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { v4 as uuidv4 } from "uuid";
 import { ICodeItem } from "../../api/services/codeService";
 import { codeSelector, codeState } from "../../states/code/codeAtom";
-import { Icon } from "@iconify/react";
 
 // Option 인터페이스 정의
 export interface Option {
@@ -17,7 +17,7 @@ type Props = {
   label?: string;
   placeholder?: any;
   classLabel?: string;
-  onChange: (value: string | number) => void;
+  onChange: (value: string | string[] | number) => void;
   className?: string;
   maxVisibleOptions?: number;
   zIndex?: number;
@@ -26,6 +26,7 @@ type Props = {
   readonly?: any;
   disabled?: boolean;
   essential?: boolean;
+  multiple?: boolean;
   id?: string;
   horizontal?: boolean;
   validate?: string;
@@ -44,6 +45,7 @@ const CodeDropdown: React.FC<Props> = ({
   disabled = false,
   essential = false,
   horizontal = false,
+  multiple = false,
   validate,
   error,
   zIndex = 20,
@@ -59,7 +61,9 @@ const CodeDropdown: React.FC<Props> = ({
   }, [codeLoadable, setOptions]);
   // 토글 상태와 선택된 값을 관리하는 state
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  const [selectedValue, setSelectedValue] = useState<string | string[] | null>(
+    multiple ? [] : null
+  );
 
   // 드롭다운 메뉴의 위치를 관리하는 state
   const [menuPosition, setMenuPosition] = useState({
@@ -78,9 +82,22 @@ const CodeDropdown: React.FC<Props> = ({
 
   // 옵션 클릭 핸들러
   const handleOptionClick = (option: ICodeItem) => {
-    setSelectedValue(option.code);
-    onChange(option.code);
-    setIsOpen(false);
+    if (multiple) {
+      setSelectedValue((prevSelectedValue) => {
+        const prev = prevSelectedValue as string[];
+        console.log(prev);
+        const updatedSelectedValue = prev.includes(option.code)
+          ? prev.filter((code) => code !== option.code)
+          : [...prev, option.code];
+
+        onChange(updatedSelectedValue);
+        return updatedSelectedValue;
+      });
+    } else {
+      setSelectedValue(option.code);
+      onChange(option.code);
+      setIsOpen(false);
+    }
   };
 
   // 외부 클릭을 감지하여 드롭다운을 닫는 이펙트
@@ -121,7 +138,7 @@ const CodeDropdown: React.FC<Props> = ({
 
   // 기본 값 설정 이펙트
   useEffect(() => {
-    setSelectedValue(null);
+    setSelectedValue(multiple ? [] : null);
   }, [options]);
 
   // 드롭다운 메뉴 렌더링
@@ -144,10 +161,20 @@ const CodeDropdown: React.FC<Props> = ({
       {options.map((option) => (
         <div
           key={option.code}
-          className="px-1 py-1 text-xs bg-white cursor-pointer dropdown-option hover:bg-gray-200"
+          className="flex items-center gap-2 px-1 py-1 text-xs bg-white cursor-pointer dropdown-option hover:bg-gray-200"
           onClick={() => handleOptionClick(option)}
         >
-          {option.name}
+          {multiple && (
+            <span className="flex items-center justify-center w-4 border rounded shrink-0 aspect-square dropdown-option">
+              {(selectedValue as string[]).find((f) => f === option.code) && (
+                <Icon
+                  icon="heroicons:check"
+                  width={12}
+                />
+              )}
+            </span>
+          )}
+          <p className="dropdown-option">{option.name}</p>
         </div>
       ))}
     </div>
@@ -162,7 +189,7 @@ const CodeDropdown: React.FC<Props> = ({
       {label && (
         <label
           htmlFor={id}
-          className={`block capitalize break-keep ${classLabel}  ${
+          className={`block shrink-0 capitalize break-keep ${classLabel}  ${
             horizontal
               ? "flex-0 ml-2 text-xs text-right mr-2 md:w-[100px] w-[60px] break-words"
               : ""
@@ -177,21 +204,29 @@ const CodeDropdown: React.FC<Props> = ({
         ref={containerRef}
       >
         <div className="relative flex items-center">
-          <span
+          <p
             className={`${
               error ? " has-error" : " "
-            } form-control cursor-pointer py-1 text-xs appearance-none border-slate-300 ${
+            } form-control text-clip overflow-hidden line-clamp-1 cursor-pointer py-1 text-xs appearance-none border-slate-300 ${
               readonly
                 ? "bg-slate-100"
                 : essential
-                ? "bg-warning-100"
-                : "bg-primary-50"
+                  ? "bg-warning-100"
+                  : "bg-primary-50"
             } ${className}`}
           >
-            {selectedValue
-              ? options.find((option) => option.code === selectedValue)?.name
-              : placeholder}
-          </span>
+            {multiple
+              ? Array.isArray(selectedValue) && selectedValue.length > 0
+                ? selectedValue
+                    .map(
+                      (f) => options.find((option) => option.code === f)?.name
+                    )
+                    .join(",")
+                : placeholder
+              : selectedValue
+                ? options.find((option) => option.code === selectedValue)?.name
+                : placeholder}
+          </p>
           {/* 아이콘 렌더링 */}
           <Icon
             icon="heroicons:chevron-down"
