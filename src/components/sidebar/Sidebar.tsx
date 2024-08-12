@@ -2,7 +2,6 @@ import Toolbar from "./components/Toolbar";
 import Bookmark from "./components/Bookmark";
 import MainMenu from "./components/MainMenu";
 import SearchBar from "./components/SearchBar";
-import SampleMenu from "./components/SampleMenu";
 import Todo from "./components/Todo";
 
 function Sidebar() {
@@ -21,9 +20,6 @@ function Sidebar() {
 
       {/* 투두 */}
       {/* <Todo /> */}
-
-      {/* 샘플 */}
-      <SampleMenu />
     </div>
   );
 }

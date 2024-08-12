@@ -43,14 +43,6 @@ function Toolbar() {
     },
   ];
 
-  if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {
-    toolMenus.push({
-      name: "sample",
-      icon: "heroicons:rectangle-stack",
-    });
-  }
-
-
   return (
     <div className="flex flex-col items-center justify-between h-full gap-2 px-2 py-3 w-11">
       <div className="flex flex-col items-center h-full gap-2">
