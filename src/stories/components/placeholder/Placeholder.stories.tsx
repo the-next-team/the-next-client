@@ -1,6 +1,6 @@
 import { StoryObj } from "@storybook/react/*";
-import { HashRouter } from "react-router-dom";
 import SkeletionTable from "../../../components/skeleton/SkeletonTable";
+import SkeletonListLoading from "../../../components/skeleton/SkeletonListLoading";
 
 const meta = {
   title: "Components/Placeholder",
@@ -30,13 +30,7 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-  decorators: [
-    (Story: any) => (
-      <HashRouter>
-        <Story />
-      </HashRouter>
-    ),
-  ],
+  decorators: [(Story: any) => <Story />],
 };
 
 export default meta;
@@ -49,11 +43,19 @@ export const Default: Story = {
 };
 
 // Example One
-export const ExampleOne: Story = () => (
-  <div className="flex flex-wrap items-center justify-center gap-2">
-    <SkeletionTable count={3} />
-  </div>
-);
+export const ExampleOne: Story = () => <SkeletionTable count={3} />;
 ExampleOne.args = {
   ...ExampleOne.args,
+};
+
+// Example Two
+export const ExampleTwo: Story = () => <SkeletionTable count={3} />;
+ExampleTwo.args = {
+  ...ExampleTwo.args,
+};
+
+// Example Three
+export const ExampleThree: Story = () => <SkeletonListLoading count={3} />;
+ExampleThree.args = {
+  ...ExampleThree.args,
 };

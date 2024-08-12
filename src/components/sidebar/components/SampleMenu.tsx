@@ -35,10 +35,6 @@ export const sampleMenuItems: MenuItemType[] = [
         childtitle: "Carousel",
         childlink: "example/components/carousel/CarouselPage",
       },
-      {
-        childtitle: "Placeholder",
-        childlink: "example/components/placeholder/PlaceholderPage",
-      },
     ],
   },
   {
