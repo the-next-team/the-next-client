@@ -9,7 +9,7 @@
 }
 @layer components {
   .progress {
-    @apply h-2 bg-slate-900 dark:bg-slate-700;
+    @apply h-2 bg-slate-900;
   }
   .progress .progress-bar.stripes {
     background-image: linear-gradient(
@@ -130,67 +130,53 @@
     @apply border border-slate-900 text-slate-900;
   }
   .card-title {
-    @apply font-medium  capitalize md:text-xl md:leading-[28px] text-lg leading-[24px]  text-slate-900 dark:text-white;
+    @apply font-medium  capitalize md:text-xl md:leading-[28px] text-lg leading-[24px]  text-slate-900;
   }
   .card-subtitle {
-    @apply mt-1 text-sm font-medium leading-5 text-slate-600 dark:text-slate-300;
+    @apply mt-1 text-sm font-medium leading-5 text-slate-600;
   }
   .card-header {
     @apply flex items-center justify-between px-6 pt-6;
   }
   .card-header:not(.no-border) {
-    @apply pb-5 border-b border-slate-200 dark:border-slate-700;
+    @apply pb-5 border-b border-slate-200;
   }
   .card-footer {
-    @apply flex items-center justify-between px-6 pt-6 pb-5 border-t border-slate-200 dark:border-slate-700;
+    @apply flex items-center justify-between px-6 pt-6 pb-5 border-t border-slate-200;
   }
   .card-height-auto .card {
     @apply h-min;
   }
-  .btn {
-    @apply relative px-4 py-2 text-sm font-medium leading-6 capitalize whitespace-normal transition-all duration-150 rounded-sm md:px-6 md:py-3 md:whitespace-nowrap;
-  }
-  .btn.btn-xl {
-    @apply text-[16px] md:px-10 px-7 md:py-4 py-3;
-  }
-  .btn.btn-sm {
-    @apply px-3 py-1 text-xs md:px-4;
-  }
-  .btn.block-btn {
-    @apply block w-full text-center;
-  }
-  .btn.block-btn span {
-    @apply justify-center;
-  }
+  /* ==================== btn ==================== */
   .btn-dark {
-    @apply text-white bg-slate-900 dark:bg-slate-900 dark:hover:bg-opacity-70 hover:ring-2 hover:ring-opacity-80 ring-black-900 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply text-white bg-slate-900 hover:ring-2 hover:ring-opacity-80 ring-black-900 hover:ring-offset-1;
   }
   .btn-primary {
-    @apply text-white bg-primary-800 dark:hover:bg-opacity-70 hover:ring-2 hover:ring-opacity-80 ring-primary-800 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply text-white bg-primary-800 hover:ring-2 hover:ring-opacity-80 ring-primary-800 hover:ring-offset-1;
   }
   .btn-secondary {
-    @apply text-white bg-secondary-500 dark:hover:bg-opacity-70 hover:ring-2 hover:ring-opacity-80 ring-secondary-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply text-white bg-secondary-500 hover:ring-2 hover:ring-opacity-80 ring-secondary-500 hover:ring-offset-1;
   }
   .btn-success {
-    @apply text-white bg-success-500 dark:hover:bg-opacity-70 hover:ring-2 hover:ring-opacity-80 ring-success-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply text-white bg-success-500 hover:ring-2 hover:ring-opacity-80 ring-success-500 hover:ring-offset-1;
   }
   .btn-info {
-    @apply bg-[#0CE7FA] dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-[#0CE7FA] hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply bg-[#0CE7FA]  text-white hover:ring-2 hover:ring-opacity-80 ring-[#0CE7FA] hover:ring-offset-1;
   }
   .btn-warning {
-    @apply bg-[#FA916B] dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-[#FA916B] hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply bg-[#FA916B]  text-white hover:ring-2 hover:ring-opacity-80 ring-[#FA916B] hover:ring-offset-1;
   }
   .btn-danger {
-    @apply text-white bg-danger-500 dark:hover:bg-opacity-70 hover:ring-2 hover:ring-opacity-80 ring-danger-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply text-white bg-danger-500 hover:ring-2 hover:ring-opacity-80 ring-danger-500 hover:ring-offset-1;
   }
   .btn-light {
-    @apply bg-slate-100 dark:hover:bg-opacity-70  text-slate-900 hover:ring-2 hover:ring-opacity-80 ring-[#E0EAFF] hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+    @apply bg-slate-100  text-slate-900 hover:ring-2 hover:ring-opacity-80 ring-[#E0EAFF] hover:ring-offset-1;
   }
   .btn-outline-dark {
-    @apply bg-transparent border text-slate-900 dark:text-slate-300 border-black-500 dark:border-slate-600 hover:border-black-500 hover:bg-slate-900 hover:bg-opacity-5;
+    @apply bg-transparent border text-slate-900 border-black-500 hover:border-black-500 hover:bg-slate-900 hover:bg-opacity-5;
   }
   .btn-outline-dark.active {
-    @apply text-white bg-slate-900 dark:bg-slate-900 dark:text-slate-300;
+    @apply text-white bg-slate-900;
   }
   [aria-expanded="true"] > .btn-outline-dark {
     @apply text-white bg-slate-900;
@@ -250,7 +236,7 @@
     @apply text-white bg-danger-500;
   }
   .btn-outline-light {
-    @apply bg-transparent  border border-[#E0EAFF] dark:text-white hover:border-[#E0EAFF] text-slate-900 hover:bg-[#E0EAFF] hover:bg-opacity-5;
+    @apply bg-transparent  border border-[#E0EAFF] hover:border-[#E0EAFF] text-slate-900 hover:bg-[#E0EAFF] hover:bg-opacity-5;
   }
   .btn-outline-light.active {
     @apply bg-[#E0EAFF] text-slate-900;
@@ -258,29 +244,29 @@
   [aria-expanded="true"] > .btn-outline-light {
     @apply bg-[#E0EAFF] text-slate-900;
   }
-  .btn.light {
-    @apply bg-opacity-[15%]  ring-opacity-30 dark:hover:bg-opacity-10;
+  .light {
+    @apply bg-opacity-[15%] ring-opacity-30;
   }
   .btn-primary.light {
-    @apply text-primary-500 dark:hover:bg-opacity-10;
+    @apply text-primary-500;
   }
   .btn-secondary.light {
-    @apply text-secondary-500 dark:hover:bg-opacity-10;
+    @apply text-secondary-500;
   }
   .btn-success.light {
-    @apply text-success-500 dark:hover:bg-opacity-10;
+    @apply text-success-500;
   }
   .btn-info.light {
-    @apply text-[#0CE7FA] dark:hover:bg-opacity-10;
+    @apply text-[#0CE7FA];
   }
   .btn-warning.light {
-    @apply text-[#FA916B] dark:hover:bg-opacity-10;
+    @apply text-[#FA916B];
   }
   .btn-danger.light {
-    @apply text-danger-500 dark:hover:bg-opacity-10;
+    @apply text-danger-500;
   }
   .btn-light.light {
-    @apply text-opacity-80 dark:text-slate-300 dark:hover:bg-opacity-10;
+    @apply text-opacity-80;
   }
   .split-btngroup .btn {
     @apply ltr:rounded-r-none rtl:rounded-l-none hover:ring-0;
@@ -316,16 +302,10 @@
     @apply focus:text-slate-600 last:border-[#E0EAFF];
   }
   .btn-link {
-    @apply text-sm font-medium underline text-slate-900 dark:text-white;
+    @apply text-sm font-medium underline text-slate-900;
   }
   .btn-link.white {
     @apply text-white;
-  }
-  .action-btn {
-    @apply flex flex-col items-center justify-center w-6 h-6 border rounded border-slate-200 dark:border-slate-700;
-  }
-  .invocie-btn {
-    @apply mb-4 mr-3 hover:bg-slate-900 hover:text-slate-100 dark:hover:bg-slate-600;
   }
   .badge {
     @apply py-1 px-2 text-xs  capitalize font-semibold rounded-[.358rem] whitespace-nowrap  align-baseline inline-flex;
@@ -333,79 +313,11 @@
   .badge.pill {
     @apply rounded-[999px];
   }
-  h1 {
-    @apply text-6xl font-semibold text-slate-900 dark:text-slate-300;
-  }
-  h2 {
-    @apply text-5xl font-semibold text-slate-900 dark:text-slate-300;
-  }
-  h3 {
-    @apply text-4xl font-medium text-slate-900 dark:text-slate-300;
-  }
-  h4 {
-    @apply text-3xl font-medium text-slate-900 dark:text-slate-300;
-  }
-  h5 {
-    @apply text-2xl font-medium text-slate-900 dark:text-slate-300;
-  }
-  h6 {
-    @apply text-xl leading-[20px] font-medium text-slate-900 dark:text-slate-300;
-  }
-  .display-1 {
-    @apply text-[70px] leading-[80px] text-slate-900 dark:text-slate-300 font-semibold;
-  }
-  .display-2 {
-    @apply text-[48px] leading-[58px] text-slate-900 dark:text-slate-300 font-semibold;
-  }
-  .display-3 {
-    @apply text-[40px] leading-[48px] text-slate-900 dark:text-slate-300 font-semibold;
-  }
-  .display-4 {
-    @apply text-[40px] leading-[48px] text-slate-900 dark:text-slate-300 font-normal;
-  }
-  blockquote {
-    @apply pl-5 text-xl italic border-l-2 border-gray-500;
-  }
-  .custom-list {
-    @apply relative pl-4 -mx-1;
-    list-style: none;
-  }
-  .custom-list li {
-    @apply relative;
-  }
-  .custom-list li::before {
-    @apply absolute ltr:left-0 rtl:right-0;
-  }
-  ol.custom-list ol,
-  ul.custom-list ul {
-    @apply mt-3;
-  }
-  ol.custom-list ol li,
-  ul.custom-list ul li {
-    @apply ltr:pl-6 rtl:pr-6;
-  }
-  .lits-by-numbaring {
-    counter-reset: listitem;
-  }
-  .lits-by-numbaring li {
-    @apply ltr:pl-[1.3em] rtl:pr-[1.3em] relative -mx-1;
-  }
-  .lits-by-numbaring li::before {
-    counter-increment: listitem;
-    content: counters(listitem, ".") ".";
-  }
-  .lits-by-slash li {
-    @apply relative pl-4;
-  }
-  .lits-by-slash li::before {
-    left: 6px;
-    content: "-";
-  }
   .form-label {
-    @apply block w-full mb-1 text-sm font-medium leading-6 capitalize cursor-pointer text-slate-600 dark:text-slate-300 rtl:text-right rtl:block;
+    @apply block w-full mb-1 text-sm font-medium leading-6 capitalize cursor-pointer text-slate-600 rtl:text-right rtl:block;
   }
   .form-control {
-    @apply block w-full px-2 text-sm transition duration-300 ease-in-out bg-white border rounded dark:bg-slate-900 border-slate-200 dark:border-slate-700 dark:text-slate-300 focus:ring-1 focus:ring-slate-600 dark:focus:ring-slate-900 focus:outline-none focus:ring-opacity-90 placeholder:text-slate-400 text-slate-900 placeholder:font-normal dark:placeholder:text-slate-400;
+    @apply block w-full px-2 text-sm transition duration-300 ease-in-out bg-white border rounded border-slate-200 focus:ring-1 focus:ring-slate-600 focus:outline-none focus:ring-opacity-90 placeholder:text-slate-400 text-slate-900 placeholder:font-normal;
   }
   .input-description {
     @apply block mt-2 text-xs font-light leading-4 text-secondary-500;
@@ -420,19 +332,19 @@
     @apply border-success-500 focus:ring-success-500 focus:ring-opacity-90 focus:ring-1;
   }
   .form-control[readonly] {
-    @apply cursor-pointer bg-slate-200 text-slate-400 dark:bg-slate-600 placeholder:text-slate-400;
+    @apply cursor-pointer bg-slate-200 text-slate-400 placeholder:text-slate-400;
   }
   .form-control[disabled] {
-    @apply cursor-not-allowed bg-slate-50 text-slate-800 placeholder:text-opacity-60 dark:bg-slate-600;
+    @apply cursor-not-allowed bg-slate-50 text-slate-800 placeholder:text-opacity-60;
   }
   .file-control {
-    @apply text-sm transition duration-300 ease-in-out bg-transparent border rounded dark:bg-slate-900 dark:text-white border-slate-200 dark:border-slate-700 focus:ring-1 focus:ring-slate-900 dark:focus:ring-slate-900 focus:outline-none focus:ring-opacity-90 ltr:pl-3 rtl:pr-3 placeholder:font-normal;
+    @apply text-sm transition duration-300 ease-in-out bg-transparent border rounded border-slate-200 focus:ring-1 focus:ring-slate-900 focus:outline-none focus:ring-opacity-90 ltr:pl-3 rtl:pr-3 placeholder:font-normal;
   }
   .badge-title {
     @apply bg-slate-900 text-white px-2 py-[3px] rounded text-sm;
   }
   .input-group-control {
-    @apply px-3 text-sm transition duration-300 ease-in-out bg-white border rounded dark:bg-slate-900 dark:placeholder:text-slate-400 border-slate-200 dark:border-slate-700 focus:ring-0 focus:outline-none placeholder:text-slate-400 text-slate-900 placeholder:font-light focus:border-slate-600 dark:focus:border-slate-900 dark:text-white;
+    @apply px-3 text-sm transition duration-300 ease-in-out bg-white border rounded border-slate-200 focus:ring-0 focus:outline-none placeholder:text-slate-400 text-slate-900 placeholder:font-light focus:border-slate-600;
   }
   .fromGroup2.has-error .input-group-control {
     @apply border-danger-500 focus:ring-danger-500 focus:ring-opacity-90 focus:ring-1;
@@ -441,31 +353,31 @@
     @apply border-success-500 focus:ring-success-500 focus:ring-opacity-90 focus:ring-1;
   }
   .input-group-control[readonly] {
-    @apply bg-slate-200 text-slate-400 dark:bg-slate-600;
+    @apply bg-slate-200 text-slate-400;
   }
   .input-group-control[disabled] {
-    @apply cursor-not-allowed bg-slate-50 text-slate-400 placeholder:text-opacity-60 dark:bg-slate-600;
+    @apply cursor-not-allowed bg-slate-50 text-slate-400 placeholder:text-opacity-60;
   }
   .input-group-text {
-    @apply flex items-center justify-center px-3 text-base font-light transition duration-300 ease-in-out bg-white border dark:bg-slate-900 border-slate-200 dark:border-slate-700 ltr:rounded-tl rtl:rounded-tr rtl:rounded-br ltr:rounded-bl text-slate-400;
+    @apply flex items-center justify-center px-3 text-base font-light transition duration-300 ease-in-out bg-white border border-slate-200 ltr:rounded-tl rtl:rounded-tr rtl:rounded-br ltr:rounded-bl text-slate-400;
   }
   .inputGroup.has-prepend .input-group-control {
     @apply ltr:border-l-0 rtl:border-r-0 ltr:rounded-tl-[0] rtl:rounded-tr-[0] ltr:rounded-bl-[0] rtl:rounded-br-[0];
   }
   .inputGroup.has-prepend-slot .input-group-control {
-    @apply ltr:border-l-0 rtl:border-r-0 ltr:rounded-tl-[0] rtl:rounded-tr-[0] ltr:rounded-bl-[0] rtl:rounded-br-[0] focus:ring-0 focus:border-slate-600 dark:focus:border-slate-700;
+    @apply ltr:border-l-0 rtl:border-r-0 ltr:rounded-tl-[0] rtl:rounded-tr-[0] ltr:rounded-bl-[0] rtl:rounded-br-[0] focus:ring-0 focus:border-slate-600;
   }
   .inputGroup.has-append-slot .input-group-control {
-    @apply ltr:border-r-0 rtl:border-l-0 ltr:rounded-tr-[0] rtl:rounded-tl-[0] ltr:rounded-br-[0] rtl:rounded-bl-[0] focus:ring-0 focus:border-slate-600 dark:focus:border-slate-700;
+    @apply ltr:border-r-0 rtl:border-l-0 ltr:rounded-tr-[0] rtl:rounded-tl-[0] ltr:rounded-br-[0] rtl:rounded-bl-[0] focus:ring-0 focus:border-slate-600;
   }
   .inputGroup.has-append .input-group-control {
     @apply ltr:border-r-0 rtl:border-l-0 ltr:rounded-tr-[0] rtl:rounded-tl-[0] rounded-br-[0] rtl:rounded-bl-[0];
   }
   .inputGroup.has-append .input-group-addon.right .input-group-text {
-    @apply ltr:rounded-tl-[0] ltr:rounded-bl-[0] ltr:rounded-tr ltr:rounded-br rtl:rounded-tl  rtl:rounded-bl rtl:rounded-tr-[0] rtl:rounded-br-[0];
+    @apply ltr:rounded-tl-[0] ltr:rounded-bl-[0] ltr:rounded-tr ltr:rounded-br;
   }
   .inputGroup:focus-within .input-group-text {
-    @apply border-black-500 dark:border-slate-900;
+    @apply border-black-500;
   }
   .inputGroup.is-invalid .input-group-text {
     @apply border-danger-500;
@@ -507,12 +419,12 @@
   .pagination li a,
   .pagination li div,
   .pagination li .page-link {
-    @apply bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-slate-900 text-sm font-normal rounded leading-[16px] flex h-6 w-6 items-center justify-center transition-all duration-150;
+    @apply bg-slate-100 text-slate-900 text-sm font-normal rounded leading-[16px] flex h-6 w-6 items-center justify-center transition-all duration-150;
   }
   .pagination li a.active,
   .pagination li div.active,
   .pagination li .page-link.active {
-    @apply font-medium text-white bg-slate-900 dark:bg-slate-600 dark:text-slate-200;
+    @apply font-medium text-white bg-slate-900;
   }
   .pagination.bordered {
     @apply border border-[#D8DEE6] rounded-[3px] py-1 px-2;
@@ -543,11 +455,11 @@
   .pagination.border-group li a,
   .pagination.border-group li div,
   .pagination.border-group li .page-link {
-    @apply w-auto h-auto bg-transparent text-slate-500 dark:text-white;
+    @apply w-auto h-auto bg-transparent text-slate-500;
   }
   .pagination.border-group li a.active,
   .pagination.border-group li div.active,
   .pagination.border-group li .page-link.active {
-    @apply text-lg text-slate-900 dark:text-white;
+    @apply text-lg text-slate-900;
   }
 }

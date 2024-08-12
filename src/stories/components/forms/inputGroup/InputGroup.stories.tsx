@@ -214,7 +214,6 @@ export const WithDropdown: Story = () => (
               className="btn-dark"
               icon="heroicons-outline:chevron-right"
               iconPosition="right"
-              div
               iconClass="text-lg"
             />
           }
@@ -254,7 +253,6 @@ export const WithDropdown: Story = () => (
               className="btn-outline-dark btn-sm"
               icon="heroicons-outline:chevron-right"
               iconPosition="right"
-              div
               iconClass="text-lg"
             />
           }
