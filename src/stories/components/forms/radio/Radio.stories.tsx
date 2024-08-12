@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Radio from "../../../../components/form/Radio";
+import { useState } from "storybook/internal/preview-api";
+import { ChangeEvent } from "react";
 
 const meta = {
   title: "Components/Forms/Radio",
@@ -161,4 +163,53 @@ export const Disabled: Story = () => (
 );
 Disabled.args = {
   ...Disabled.args,
+};
+
+// Radio Group Options Array
+export const Array: Story = {
+  args: {
+    ...Default.args,
+  },
+  render: function Render(args) {
+    const [selectOption, setSelectOption] = useState("orange");
+    const options: { value: string; label: string }[] = [
+      {
+        value: "orange",
+        label: "Orange",
+      },
+      {
+        value: "apple",
+        label: "Apple",
+      },
+      {
+        value: "banana",
+        label: "Banana",
+      },
+    ];
+    const handleOption = (e: ChangeEvent<HTMLInputElement>) => {
+      setSelectOption(e.target.value);
+    };
+    return (
+      <div>
+        <div className="flex flex-wrap space-xy-5">
+          {options.map((option, index) => (
+            <Radio
+              key={index}
+              label={option.label}
+              name="option"
+              value={option.value}
+              checked={selectOption === option.value}
+              onChange={handleOption}
+            />
+          ))}
+        </div>
+        {selectOption && (
+          <div className="mt-3">
+            <span className="text-sm text-gray-500">Selected Option: </span>
+            <span className="text-sm text-gray-700">{selectOption}</span>
+          </div>
+        )}
+      </div>
+    );
+  },
 };
