@@ -2,61 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-  body {
-    @apply h-full overflow-x-hidden font-normal dark:text-slate-300 text-slate-600;
-  }
-  body.light,
-  body.skin--default {
-    @apply bg-slate-100;
-  }
-  body.lght,
-  body.skin--bordered {
-    @apply bg-transparent;
-  }
-  body.dark {
-    @apply bg-[#0f172a] text-slate-300;
-  }
   html,
   body {
     @apply h-full;
   }
-  .space-xy-5 > div,
-  .space-xy-5 > button,
-  .space-xy-5 > a,
-  .space-xy-5 label,
-  .space-xy-5 > * {
-    @apply mb-2 mr-2;
-  }
-  .space-xy-6 > div,
-  .space-xy-6 > button,
-  .space-xy-6 > a,
-  .space-xy-6 label,
-  .space-xy-6 > * {
-    @apply mb-2 mr-4;
-  }
-  html[dir="rtl"] .recharts-wrapper {
-    direction: rtl;
-  }
-  html[dir="rtl"] .recharts-yAxis .recharts-text {
-    text-anchor: start;
-  }
 }
 @layer components {
-  .table-th {
-    @apply px-2 py-2 text-xs font-semibold uppercase text-slate-600 dark:text-slate-300 ltr:text-left rtl:text-right;
-  }
-  .table-td {
-    @apply px-2 py-2 text-sm font-normal capitalize text-slate-600 dark:text-slate-300 border-slate-100 dark:border-slate-700;
-  }
-  .table-checkbox {
-    @apply relative before:flex before:flex-col before:items-center before:justify-center
-  before:w-[18px] before:h-[18px] before:m-[-0.7px] before:bg-slate-100 dark:before:bg-slate-500  before:absolute
-    before:inset-0 before:rounded w-4 h-4 rounded checked:before:bg-slate-900
-    checked:before:content-[url("https://api.iconify.design/heroicons-outline/check.svg?color=white")] checked:before:leading-[10px]
-    checked:before:ring-2 checked:before:ring-black-500
-    checked:before:ring-offset-2 checked:before:dark:ring-slate-700
-    checked:before:dark:ring-offset-0;
-  }
   .progress {
     @apply h-2 bg-slate-900 dark:bg-slate-700;
   }
@@ -516,8 +467,6 @@
   .inputGroup:focus-within .input-group-text {
     @apply border-black-500 dark:border-slate-900;
   }
-  /* .merged .inputGroup:focus-within .input-group-text {
-  } */
   .inputGroup.is-invalid .input-group-text {
     @apply border-danger-500;
   }
@@ -548,15 +497,6 @@
   }
   .merged .input-group-addon.right .input-group-text {
     @apply ltr:border-l-0 rtl:border-r-0 ltr:border-r rtl:border-l ltr:pr-3 rtl:pl-3 ltr:pl-0 rtl:pr-0;
-  }
-  .select-borderless .select__control {
-    border: 0;
-  }
-  .select-borderless .select__control .select__indicators {
-    display: none;
-  }
-  html[dir="rtl"] .select__control .select__loading-indicator {
-    flex-direction: row-reverse;
   }
   .pagination {
     @apply flex flex-wrap items-center space-x-4 rtl:space-x-reverse;
@@ -609,208 +549,5 @@
   .pagination.border-group li div.active,
   .pagination.border-group li .page-link.active {
     @apply text-lg text-slate-900 dark:text-white;
-  }
-  .breadcrumbs {
-    @apply flex items-center space-x-2 text-sm;
-  }
-  .breadcrumbs li {
-    @apply relative flex items-center space-x-2 font-normal capitalize rtl:space-x-reverse;
-  }
-  .breadcrumbs li .breadcrumbs-icon {
-    @apply text-lg text-secondary-500 dark:text-slate-500;
-  }
-  .legend-ring2
-    .apexcharts-legend-series:nth-child(1)
-    .apexcharts-legend-marker {
-    @apply ring-4 ring-info-500 ring-opacity-30 rtl:ml-4;
-  }
-  .legend-ring2
-    .apexcharts-legend-series:nth-child(2)
-    .apexcharts-legend-marker {
-    @apply ring-4 ring-warning-500 ring-opacity-30 rtl:ml-4;
-  }
-  .legend-ring4
-    .apexcharts-legend-series:nth-child(1)
-    .apexcharts-legend-marker {
-    @apply ring-4 ring-primary-500 ring-opacity-30 rtl:ml-4;
-  }
-  .legend-ring4
-    .apexcharts-legend-series:nth-child(2)
-    .apexcharts-legend-marker {
-    @apply ring-4 ring-warning-500 ring-opacity-30 rtl:ml-4;
-  }
-  [dir="rtl"] .charts .apexcharts-legend-marker {
-    margin-left: 10px !important;
-  }
-  .app_height {
-    height: calc(var(--vh, 1vh) * 100 - 12.1rem);
-  }
-  .msg-height {
-    height: calc(100% - 0px);
-  }
-  .parent-height {
-    height: calc(100% - 200px);
-  }
-  .dark .ql-snow .ql-stroke {
-    @apply stroke-slate-300;
-  }
-  .dark .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
-    @apply bg-slate-700;
-  }
-  .dark .ql-snow.ql-toolbar button:hover,
-  .dark .ql-snow .ql-toolbar button:hover,
-  .dark .ql-snow.ql-toolbar button:focus,
-  .dark .ql-snow .ql-toolbar button:focus,
-  .dark .ql-snow.ql-toolbar .ql-picker-label:hover,
-  .dark .ql-snow .ql-toolbar .ql-picker-label:hover,
-  .dark .ql-snow.ql-toolbar .ql-picker-item:hover,
-  .dark .ql-snow .ql-toolbar .ql-picker-item:hover {
-    @apply bg-slate-700;
-  }
-  .dark .ql-picker-label {
-    @apply text-slate-300;
-  }
-  .dark .ql-snow .ql-picker.ql-expanded .ql-picker-label {
-    @apply bg-slate-300 border-slate-700;
-  }
-  .icon-lists li {
-    margin-right: 12px;
-    margin-bottom: 12px;
-  }
-  .date-range-custom {
-    @apply relative w-[140px];
-  }
-  .date-range-custom .input-class {
-    @apply opacity-0 cursor-pointer;
-  }
-  .date-range-custom .container-class {
-    @apply w-full h-[44px] bg-white dark:bg-slate-800 before:px-3  before:text-sm before:text-slate-900 rounded cursor-pointer;
-  }
-  .date-range-custom .container-class:before {
-    content: "Weekly";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    left: calc(50% + 10px);
-  }
-  .date-range-custom .container-class:after {
-    content: url("https://api.iconify.design/heroicons/calendar.svg?width=18&height=18");
-    height: 20px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    left: calc(50% - 30px);
-  }
-  .date-range-custom .container-class > button {
-    @apply hidden;
-  }
-  .date-range-custom2 {
-    @apply relative w-[160px];
-  }
-  .date-range-custom2 .input-class {
-    @apply opacity-0 cursor-pointer;
-  }
-  .date-range-custom2 .container-class {
-    @apply w-full h-[44px] bg-white dark:bg-slate-800 before:px-3  before:text-sm before:text-slate-900 rounded cursor-pointer;
-  }
-  .date-range-custom2 .container-class:before {
-    content: "Select date";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    padding-left: 30px;
-    width: 100%;
-    text-align: center;
-  }
-  .date-range-custom2 .container-class:after {
-    content: url("https://api.iconify.design/heroicons-outline/filter.svg?width=18&height=18");
-    height: 20px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    left: calc(50% - 43px);
-  }
-  .date-range-custom2 .container-class > button {
-    @apply hidden;
-  }
-  .dark .date-range-custom .container-class::before,
-  .dark .date-range-custom .container-class::after,
-  .dark .date-range-custom2 .container-class::before,
-  .dark .date-range-custom2 .container-class::after {
-    @apply text-slate-300;
-  }
-  .dark .date-range-custom .container-class:after {
-    content: url("https://api.iconify.design/heroicons/calendar.svg?color=white&width=18&height=18");
-  }
-  .dark .date-range-custom2 .container-class:after {
-    content: url("https://api.iconify.design/heroicons-outline/filter.svg?color=white&width=18&height=18");
-  }
-  .dark .fc-col-header-cell .fc-scrollgrid-sync-inner {
-    @apply bg-slate-700 text-slate-300;
-  }
-  .dark .fc-daygrid-day-top {
-    @apply text-slate-300;
-  }
-  .dark .fc .fc-day-other .fc-daygrid-day-top {
-    @apply opacity-70;
-  }
-  .dark .fc .fc-button-primary {
-    @apply border-slate-600 text-slate-300;
-  }
-  .dark .fc-theme-standard td,
-  .dark .fc-theme-standard th {
-    @apply border-slate-700;
-  }
-  .dark .fc .fc-toolbar-title {
-    @apply text-slate-300;
-  }
-  .dark .fc .fc-button-primary:not(:disabled):active,
-  .dark .fc .fc-button-primary:not(:disabled).fc-button-active,
-  .dark .fc .fc-button-primary:hover {
-    background: #0f172a !important;
-  }
-  .dark .fc .fc-button-primary:disabled {
-    background: #334155 !important;
-    border-color: #334155 !important;
-  }
-  .dark .fc .fc-daygrid-day.fc-day-today {
-    background: #334155 !important;
-  }
-  .dark .fc-theme-standard .fc-scrollgrid {
-    border-color: #334155 !important;
-  }
-  .dashcode-calender .primary {
-    @apply bg-[#4669FA] border-none text-white text-center px-2 font-medium text-sm;
-  }
-  .dashcode-calender .secondary {
-    @apply bg-[#A0AEC0] border-none text-white text-center px-2 font-medium text-sm;
-  }
-  .dashcode-calender .danger {
-    @apply bg-[#F1595C] border-none text-white text-center px-2 font-medium text-sm;
-  }
-  .dashcode-calender .info {
-    @apply bg-[#0CE7FA] border-none text-white text-center px-2 font-medium text-sm;
-  }
-  .dashcode-calender .warning {
-    @apply bg-[#FA916B] border-none text-white text-center px-2 font-medium text-sm;
-  }
-  .dashcode-calender .success {
-    @apply bg-[#50C793] border-none text-white text-center px-2 font-medium text-sm;
-  }
-  .dashcode-calender .dark {
-    @apply bg-[#222] border-none text-white text-center px-2 font-medium text-sm;
-  }
-  @media print {
-    .invocie-btn {
-      display: none;
-    }
-    .site-footer,
-    .shadow-deep {
-      @apply hidden;
-    }
-    .content-wrapper {
-      @apply w-full ml-0;
-    }
   }
 }
