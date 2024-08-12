@@ -136,7 +136,7 @@ function Dashboard() {
             width={500}
             height={700}
             path={"/Address"}
-            children={<p>open popup</p>}
+            children={<p>address popup</p>}
           />
           <Button
             className="btn-sm btn-primary"
