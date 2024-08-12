@@ -39,10 +39,6 @@ export const sampleMenuItems: MenuItemType[] = [
         childtitle: "Placeholder",
         childlink: "example/components/placeholder/PlaceholderPage",
       },
-      {
-        childtitle: "Video",
-        childlink: "example/components/video/VideoPage",
-      },
     ],
   },
   {
