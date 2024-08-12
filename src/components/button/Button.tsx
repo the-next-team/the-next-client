@@ -22,7 +22,7 @@ function Button({
   type = "button",
   isLoading = false,
   disabled = false,
-  className = "text-white bg-primary-500",
+  className = "text-white bg-primary-500 hover:ring-2 hover:ring-opacity-80 ring-primary-500 hover:ring-offset-1",
   children,
   icon,
   loadingClass = "",
@@ -47,7 +47,7 @@ function Button({
           <span className="flex items-center">
             {icon && (
               <span
-                className={`${iconPosition === "right" ? "order-1 ml-2" : ""} ${
+                className={`${text && iconPosition === "right" ? "order-1 ml-2" : ""} ${
                   text && iconPosition === "left" ? "mr-2" : ""
                 } ${iconClass}`}
               >

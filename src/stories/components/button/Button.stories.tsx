@@ -23,6 +23,9 @@ const meta = {
     icon: {
       description: "추가 아이콘",
     },
+    iconPosition: {
+      description: "추가 아이콘 위치",
+    },
     text: {
       description: "버튼 라벨",
     },
@@ -43,101 +46,32 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     text: "Button",
-    className: "btn-primary",
   },
-};
-
-// Basic
-export const Basic: Story = () => (
-  <div className="flex flex-wrap items-center justify-center gap-2">
-    <Button text="primary" className="btn-primary" />
-    <Button text="secondary" className="btn-secondary" />
-    <Button text="success" className="btn-success" />
-    <Button text="info" className="btn-info" />
-    <Button text="warning" className="btn-warning" />
-    <Button text="danger" className="btn-danger" />
-    <Button text="Dark" className="btn-dark" />
-    <Button text="Light" className="btn-light" />
-    <Button text="White" className="bg-white text-slate-900" />
-  </div>
-);
-Basic.args = {
-  ...Basic.args,
-};
-
-// Outline
-export const Outline: Story = () => (
-  <div className="flex flex-wrap items-center justify-center gap-2">
-    <Button text="primary" className="btn-outline-primary" />
-    <Button text="secondary" className="btn-outline-secondary" />
-    <Button text="success" className="btn-outline-success" />
-    <Button text="info" className="btn-outline-info" />
-    <Button text="warning" className="btn-outline-warning" />
-    <Button text="danger" className="btn-outline-danger" />
-    <Button text="dark" className="btn-outline-dark" />
-    <Button text="light" className="btn-outline-light" />
-  </div>
-);
-Outline.args = {
-  ...Outline.args,
-};
-
-// Light Color
-export const LightColor: Story = () => (
-  <div className="flex flex-wrap items-center justify-center gap-2">
-    <Button text="primary" className="btn-primary light" />
-    <Button text="secondary" className="btn-secondary light" />
-    <Button text="success" className="btn-success light" />
-    <Button text="info" className="btn-info light" />
-    <Button text="warning" className="btn-warning light" />
-    <Button text="danger" className="btn-danger light" />
-    <Button text="Dark" className="btn-dark light" />
-    <Button text="Light" className="btn-light light" />
-  </div>
-);
-LightColor.args = {
-  ...LightColor.args,
 };
 
 // Icon
 export const Icon: Story = () => (
   <div className="flex flex-wrap items-center justify-center gap-2">
-    <Button
-      icon="heroicons-outline:newspaper"
-      text="Left Icon"
-      className="btn-primary"
-    />
-    <Button
-      icon="heroicons-outline:newspaper"
-      text="Left Icon"
-      className="btn-outline-primary"
-    />
+    <Button icon="heroicons-outline:newspaper" text="Left Icon" />
     <Button
       icon="heroicons-outline:newspaper"
       text="Right Icon"
-      className="btn-primary"
+      iconPosition="right"
     />
-    <Button
-      icon="heroicons-outline:newspaper"
-      text="Right Icon"
-      className="btn-outline-primary"
-    />
-    <Button
-      icon="heroicons-outline:newspaper"
-      className="btn-outline-primary"
-    />
-    <Button icon="heroicons-outline:newspaper" className="btn-primary" />
+    <Button icon="heroicons-outline:newspaper" />
+    <Button icon="heroicons-outline:newspaper" iconPosition="right" />
   </div>
 );
 Icon.args = {
   ...Icon.args,
 };
+
 // Size
 export const Size: Story = () => (
   <div className="flex flex-wrap items-center justify-center gap-2">
-    <Button text="Auto" className="btn-primary" size="auto" />
-    <Button text="Normal" className="btn-primary" size="normal" />
-    <Button text="Large" className="btn-primary" size="large" />
+    <Button text="Auto" size="auto" />
+    <Button text="Normal" size="normal" />
+    <Button text="Large" size="large" />
   </div>
 );
 Size.args = {
@@ -145,37 +79,13 @@ Size.args = {
 };
 
 // Disabled
-export const Disabled: Story = () => (
-  <div className="flex flex-wrap items-center justify-center gap-2">
-    <Button text="primary" className="btn-primary " disabled />
-    <Button text="secondary" className="btn-secondary" disabled />
-    <Button text="success" className="btn-success" disabled />
-    <Button text="info" className="btn-info" disabled />
-    <Button text="warning" className="btn-warning" disabled />
-    <Button text="danger" className="btn-danger" disabled />
-    <Button text="Dark" className="btn-dark" disabled />
-    <Button text="Light" className="btn-light" disabled />
-    <Button text="White" className="bg-white text-slate-900" disabled />
-  </div>
-);
+export const Disabled: Story = () => <Button text="Disabled" disabled />;
 Disabled.args = {
   ...Disabled.args,
 };
 
 // Loading
-export const Loading: Story = () => (
-  <div className="flex flex-wrap items-center justify-center gap-2">
-    <Button text="primary" className="btn-primary " isLoading />
-    <Button text="secondary" className="btn-secondary" isLoading />
-    <Button text="success" className="btn-success" isLoading />
-    <Button text="info" className="btn-info" isLoading />
-    <Button text="warning" className="btn-warning" isLoading />
-    <Button text="danger" className="btn-danger" isLoading />
-    <Button text="Dark" className="btn-dark" isLoading />
-    <Button text="Light" className="btn-light" isLoading />
-    <Button text="White" className="bg-white text-slate-900" isLoading />
-  </div>
-);
+export const Loading: Story = () => <Button text="Loading" isLoading />;
 Loading.args = {
   ...Loading.args,
 };
