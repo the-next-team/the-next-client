@@ -16,10 +16,11 @@ import { Meta, Title, Subtitle } from "@storybook/blocks";
     * [파일 인코딩 UTF8](#파일-인코딩은-utf-8)
     * [새줄 문자는 LF](#새줄-문자는-lf)
     * [파일의 마지막에는 새줄](#파일의-마지막에는-새줄)
-* [들여쓰기](#들여쓰기)
 * [명명 규칙](#명명-규칙)
     * [패키지](#패키지)
     * [클래스/인터페이스](#클래스/인터페이스)
+* [선언](#선언)
+
 
 ### 파일 공통 요건
 ##### **파일 인코딩은 UTF-8**
@@ -47,12 +48,51 @@ Git을 쓴다면 `.gitattributes` 파일 안에 정책을 선언해서 지정된
 ##### **파일의 마지막에는 새줄**
 파일의 마지막은 새줄 문자 LF로 끝나야 한다.
 
-### 들여쓰기
-##### **space와 tab을 섞어서 사용하지 않는다.**
+### 선언
+클래스, 필드, 메서드, 변수값, import문 등의 소스 구성요소를 선언할 때 고려해야할 규칙이다.
 
-사용하는 개발환경에따라 탭 또는 스페이스의 들여쓰기가 다르게 보일수 있기때문에 이를 통일하지 않으면 가독성이 떨어진다. 따라서 프로젝트를 시작할 때 반드시 공백 문자와 탭 문자 둘 중 하나를 선택해야 한다. 이는 프로젝트의 성격에 따라 선택이 가능한 부분이며, 공백 문자를 사용할 경우 공백 문자 2개 또는 4개를 사용한다. 들여쓰기 규칙이 합의되면 편집기에 합의된 규칙을 적용하여 사용하길 권장한다.
+##### **소스파일당 1개의 탑레벨 클래스를 담기**
+탑레벨 클래스(Top level class)는 소스 파일에 1개만 존재해야 한다.
+> ( 탑레벨 클래스 선언의 컴파일타임 에러 체크에 대해서는 [Java Language Specification 7.6](https://docs.oracle.com/javase/specs/jls/se7/html/jls-7.html#jls-7.6) 참조 )
+```
+// Bad
+public class LogParser {
+}
 
-> 참고 NEXT팀은 공백 문자 2개를 사용한다.
+class LogType {
+}
+
+// Good
+public class LogParser {
+    // 굳이 한 파일안에 선언해야 한다면 내부 클래스로 선언
+    class LogType {
+    }
+}
+```
+
+##### **static import에만 와일드 카드 허용**
+클래스를 import할때는 와일드카드(*) 없이 모든 클래스명을 다 쓴다. static import에서는 와일드카드를 허용한다.
+```
+// Bad
+import java.util.*;
+
+// Good
+import java.util.List;
+import java.util.ArrayList;
+```
+
+##### ** 제한자 선언의 순서**
+클래스/메서드/멤버변수의 제한자는 Java Language Specification에서 명시한 아래의 순서로 쓴다.
+> public protected private abstract static final transient volatile synchronized native strictfp\
+( [Java Language Specification - Chapter 18. Syntax](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) 참조)
+```
+// Bad
+import java.util.*;
+
+// Good
+import java.util.List;
+import java.util.ArrayList;
+```
 
 ### 명명 규칙
 ##### **식별자에는 영문/숫자/언더스코어만 허용**
