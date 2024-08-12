@@ -46,8 +46,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    id: "defaultCheckbox",
-    label: "체크박스입니다.",
+    label: "checkbox",
     checked: true,
   },
 };
@@ -82,51 +81,6 @@ export const Disabled: Story = () => (
 );
 Disabled.args = {
   ...Disabled.args,
-};
-
-// Color
-export const Color: Story = () => (
-  <div className="flex flex-wrap gap-4">
-    <Checkbox
-      label="Primary"
-      checked={true}
-      activeClass="ring-primary-500 bg-primary-500"
-      onChange={() => {}}
-    />
-    <Checkbox
-      label="Secondary"
-      checked={true}
-      activeClass="ring-secondary-500 bg-secondary-500"
-      onChange={() => {}}
-    />
-    <Checkbox
-      label="Success"
-      checked={true}
-      activeClass="ring-success-500 bg-success-500"
-      onChange={() => {}}
-    />
-    <Checkbox
-      label="Danger"
-      checked={true}
-      activeClass="ring-danger-500 bg-danger-500"
-      onChange={() => {}}
-    />
-    <Checkbox
-      label="Warning"
-      checked={true}
-      activeClass="ring-warning-500 bg-warning-500"
-      onChange={() => {}}
-    />
-    <Checkbox
-      label="Info"
-      checked={true}
-      activeClass="ring-info-500 bg-info-500"
-      onChange={() => {}}
-    />
-  </div>
-);
-Color.args = {
-  ...Color.args,
 };
 
 // Using Options Array

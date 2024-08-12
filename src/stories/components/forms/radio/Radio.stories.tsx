@@ -87,59 +87,6 @@ Basic.args = {
   ...Basic.args,
 };
 
-const colors = [
-  {
-    value: "primary-500",
-    label: "Primary",
-    activeClass: "ring-primary-500 border-primary-500",
-  },
-  {
-    value: "secondary-500",
-    label: "Secondary",
-    activeClass: "ring-secondary-500 border-secondary-500",
-  },
-  {
-    value: "success-500",
-    label: "Success",
-    activeClass: "ring-success-500 border-success-500",
-  },
-  {
-    value: "danger-500",
-    label: "Danger",
-    activeClass: "ring-danger-500 border-danger-500",
-  },
-  {
-    value: "warning-500",
-    label: "Warning",
-    activeClass: "ring-warning-500 border-warning-500",
-  },
-  {
-    value: "info-500",
-    label: "Info",
-    activeClass: "ring-info-500 border-info-500",
-  },
-];
-
-// Theme
-export const Theme: Story = () => (
-  <div className="flex flex-wrap justify-center gap-6">
-    {colors.map((color, index) => (
-      <Radio
-        key={index}
-        label={color.label}
-        name="color"
-        value={color.value}
-        checked={true}
-        onChange={() => {}}
-        activeClass={color.activeClass}
-      />
-    ))}
-  </div>
-);
-Theme.args = {
-  ...Theme.args,
-};
-
 // Disabled
 export const Disabled: Story = () => (
   <div className="flex flex-wrap justify-center gap-6">
@@ -191,7 +138,7 @@ export const Array: Story = {
     };
     return (
       <div>
-        <div className="flex flex-wrap space-xy-5">
+        <div className="space-y-4">
           {options.map((option, index) => (
             <Radio
               key={index}
