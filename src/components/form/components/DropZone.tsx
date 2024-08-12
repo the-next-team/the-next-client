@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
-import uploadSvgImage from "../../../../../assets/images/svg/upload.svg";
+import uploadSvgImage from "../../../assets/images/svg/upload.svg";
 
 const DropZone = () => {
   const [files, setFiles] = useState<any>([]);
