@@ -24,16 +24,6 @@ export const sampleMenuItems: MenuItemType[] = [
     title: "Pages",
   },
   {
-    title: "Components",
-    icon: "heroicons-outline:collection",
-    child: [
-      {
-        childtitle: "Card",
-        childlink: "example/components/card/CardPage",
-      },
-    ],
-  },
-  {
     title: "Chart",
     icon: "heroicons-outline:chart-bar",
     child: [

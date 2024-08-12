@@ -1,5 +1,3 @@
-import useSkin from "../../hooks/layout/useSkin";
-
 type Props = {
   className?: string | undefined;
   title?: string | undefined;
@@ -21,16 +19,8 @@ function Card({
   children,
   bodyClass = "p-6",
 }: Props) {
-  const [skin] = useSkin();
-
   return (
-    <div
-      className={`${className} card rounded-md ${
-        skin === "bordered"
-          ? " border border-slate-200 dark:border-slate-700"
-          : "shadow-base"
-      }`}
-    >
+    <div className={`${className} card rounded-md shadow-base`}>
       {(title || subtitle) && (
         <header className={`card-header ${noborder ? "no-border" : ""}`}>
           <div>
