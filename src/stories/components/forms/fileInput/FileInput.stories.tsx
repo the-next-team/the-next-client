@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import FileInput from "../../../../components/form/FileInput";
-import DropZone from "../../../../pages/example/form/file/components/DropZone";
+import DropZone from "../../../../components/form/components/DropZone";
 import { useState } from "storybook/internal/preview-api";
 
 const meta = {
