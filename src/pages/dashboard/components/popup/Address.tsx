@@ -59,7 +59,7 @@ function Address({ onSubmit }: Props) {
   const realGridRef = useRef<RealGridHandle>(null);
 
   const { handleSubmit } = useForm({
-    defaultValues: { r1: "r1-1", r2: "r2-1", r3: "r3-1", r4: "r4-1" },
+    defaultValues: {},
   });
 
   return (

@@ -4,6 +4,7 @@ import Radio from "../../../../../components/form/Radio";
 import TextInput from "../../../../../components/form/TextInput";
 import { useForm } from "react-hook-form";
 import Button from "../../../../../components/button/Button";
+import CodeSelect from "../../../../../components/form/CodeSelect";
 
 type Props = {
   onSubmit: () => void;
@@ -15,7 +16,7 @@ function Header({ onSubmit }: Props) {
   });
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-4 bg-white rounded">
-      <div className="mb-2">
+      <div className="mb-2 flex">
         <RadioGroup horizontal label={"주소구분"}>
           <Radio
             label="지번주소"
@@ -30,6 +31,17 @@ function Header({ onSubmit }: Props) {
             {...register("r1")}
           />
         </RadioGroup>
+        <div className="flex-grow pl-2">
+          <CodeSelect
+            label="시/도"
+            horizontal
+            codeType="TST"
+            placeholder={"* 전체"}
+            essential
+            name="a"
+            register={register}
+          />
+        </div>
       </div>
       <div className="flex gap-2 mb-2 ">
         <div className="flex-grow">
