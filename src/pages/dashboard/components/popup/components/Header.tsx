@@ -43,7 +43,7 @@ function Header({ onSubmit }: Props) {
           />
         </div>
       </div>
-      <div className="flex gap-2 mb-2 ">
+      <div className="flex gap-2 mb-2">
         <div className="flex-grow">
           <TextInput
             label="도로명"

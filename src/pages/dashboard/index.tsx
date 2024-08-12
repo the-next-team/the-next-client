@@ -133,7 +133,7 @@ function Dashboard() {
             children={<p>open popup</p>}
           />
           <PopupButton
-            width={500}
+            width={1000}
             height={700}
             path={"/address"}
             children={<p>address popup</p>}
