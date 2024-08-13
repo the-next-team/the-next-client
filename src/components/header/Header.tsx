@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import NextLoge from "../../assets/images/logo/the-next-icon.png";
-import Logo from "../../assets/images/logo/smart-next@x4.png";
+import Logo from "../../assets/images/logo/smart-sfis-logo-wh@3x.png";
 import useUser from "../../hooks/useUser";
 import {
   CurrentSideMenu,
@@ -35,7 +35,7 @@ function Header() {
           <img className="h-[30px] rounded-sm" src={NextLoge} alt="" />
         </div>
         <div className="flex items-center w-[195px]">
-          <img className="h-4" src={Logo} alt="" />
+          <img className="h-5" src={Logo} alt="" />
         </div>
         <TopMenu />
       </div>
