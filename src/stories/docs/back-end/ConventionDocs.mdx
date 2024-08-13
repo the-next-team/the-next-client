@@ -20,7 +20,11 @@ import { Meta, Title, Subtitle } from "@storybook/blocks";
     * [패키지](#패키지)
     * [클래스/인터페이스](#클래스/인터페이스)
 * [선언](#선언)
-
+* [들여쓰기](#들여쓰기)
+* [중괄호](#중괄호)
+* [줄바꿈](#줄바꿈)
+* [빈 줄](#빈-줄)
+* [공백](#공백)
 
 ### 파일 공통 요건
 ##### **파일 인코딩은 UTF-8**
@@ -47,52 +51,6 @@ Git을 쓴다면 `.gitattributes` 파일 안에 정책을 선언해서 지정된
 
 ##### **파일의 마지막에는 새줄**
 파일의 마지막은 새줄 문자 LF로 끝나야 한다.
-
-### 선언
-클래스, 필드, 메서드, 변수값, import문 등의 소스 구성요소를 선언할 때 고려해야할 규칙이다.
-
-##### **소스파일당 1개의 탑레벨 클래스를 담기**
-탑레벨 클래스(Top level class)는 소스 파일에 1개만 존재해야 한다.
-> ( 탑레벨 클래스 선언의 컴파일타임 에러 체크에 대해서는 [Java Language Specification 7.6](https://docs.oracle.com/javase/specs/jls/se7/html/jls-7.html#jls-7.6) 참조 )
-```
-// Bad
-public class LogParser {
-}
-
-class LogType {
-}
-
-// Good
-public class LogParser {
-    // 굳이 한 파일안에 선언해야 한다면 내부 클래스로 선언
-    class LogType {
-    }
-}
-```
-
-##### **static import에만 와일드 카드 허용**
-클래스를 import할때는 와일드카드(*) 없이 모든 클래스명을 다 쓴다. static import에서는 와일드카드를 허용한다.
-```
-// Bad
-import java.util.*;
-
-// Good
-import java.util.List;
-import java.util.ArrayList;
-```
-
-##### ** 제한자 선언의 순서**
-클래스/메서드/멤버변수의 제한자는 Java Language Specification에서 명시한 아래의 순서로 쓴다.
-> public protected private abstract static final transient volatile synchronized native strictfp\
-( [Java Language Specification - Chapter 18. Syntax](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) 참조)
-```
-// Bad
-import java.util.*;
-
-// Good
-import java.util.List;
-import java.util.ArrayList;
-```
 
 ### 명명 규칙
 ##### **식별자에는 영문/숫자/언더스코어만 허용**
@@ -125,12 +83,12 @@ HTTP + API + URL 의 클래스 이름의 경우
 
 ```
 // Bad
-package com.navercorp.apiGateway
+package com.n2soft.apiGateway
 
-package com.navercorp.api_gateway
+package com.n2soft.api_gateway
 
 // Good
-package com.navercorp.apigateway
+package com.n2soft.apigateway
 ```
 
 ##### **클래스/인터페이스 이름에 대문자 카멜표기법 적용**
@@ -208,4 +166,525 @@ HtmlParser p = new HtmlParser();
 
 // Good
 HtmlParser parser = new HtmlParser();
+```
+
+### 선언
+클래스, 필드, 메서드, 변수값, import문 등의 소스 구성요소를 선언할 때 고려해야할 규칙이다.
+
+##### **소스파일당 1개의 탑레벨 클래스를 담기**
+탑레벨 클래스(Top level class)는 소스 파일에 1개만 존재해야 한다.
+> ( 탑레벨 클래스 선언의 컴파일타임 에러 체크에 대해서는 [Java Language Specification 7.6](https://docs.oracle.com/javase/specs/jls/se7/html/jls-7.html#jls-7.6) 참조 )
+```
+// Bad
+public class LogParser {
+}
+
+class LogType {
+}
+
+// Good
+public class LogParser {
+    // 굳이 한 파일안에 선언해야 한다면 내부 클래스로 선언
+    class LogType {
+    }
+}
+```
+
+##### **static import에만 와일드 카드 허용**
+클래스를 import할때는 와일드카드(*) 없이 모든 클래스명을 다 쓴다. static import에서는 와일드카드를 허용한다.
+```
+// Bad
+import java.util.*;
+
+// Good
+import java.util.List;
+import java.util.ArrayList;
+```
+
+##### **제한자 선언의 순서**
+클래스/메서드/멤버변수의 제한자는 Java Language Specification에서 명시한 아래의 순서로 쓴다.
+> public protected private abstract static final transient volatile synchronized native strictfp\
+( [Java Language Specification - Chapter 18. Syntax](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) 참조)
+```
+// Bad
+import java.util.*;
+
+// Good
+import java.util.List;
+import java.util.ArrayList;
+```
+
+##### **애너테이션 선언 후 새줄 사용**
+클래스, 인터페이스, 메서드, 생성자에 붙는 애너테이션은 선언 후 새줄을 사용한다. 이 위치에서도 파라미터가 없는 애너테이션 1개는 같은 줄에 선언할 수 있다.
+```
+// Good
+@RequestMapping("/guests")
+public void findGuests() {}
+
+// Good
+@Override public void destroy() {}
+```
+
+##### **한 줄에 한 문장**
+문장이 끝나는 `;` 뒤에는 새줄을 삽입한다. 한 줄에 여러 문장을 쓰지 않는다.
+```
+// Bad
+int base = 0; int weight = 2;
+
+// Good
+int base = 0;
+int weight = 2;
+```
+
+##### **하나의 선언문에는 하나의 변수만**
+변수 선언문은 한 문장에서 하나의 변수만을 다룬다.
+```
+// Bad
+int base, weight;
+
+// Good
+int base;
+int weight;
+```
+
+##### **배열에서 대괄호는 타입 뒤에 선언**
+배열 선언에 오는 대괄호(`[]`)는 타입의 바로 뒤에 붙인다. 변수명 뒤에 붙이지 않는다.
+```
+// Bad
+String names[];
+
+// Good
+String[] names;
+```
+
+##### **`long`형 값의 마지막에 `L`붙이기**
+long형의 숫자에는 마지막에 대문자 'L’을 붙인다. 소문자 'l’보다 숫자 '1’과의 차이가 커서 가독성이 높아진다.
+```
+// Bad
+long base = 54423234211l;
+
+// Good
+long base = 54423234211L;
+```
+
+##### **특수 문자의 전용 선언 방식을 활용**
+\b, \f, \n,\r,\t, `\", \\ 와 같이 특별히 정의된 선언 방식이 있는 특수 문자가 있다. 이런 문자들은 숫자를 이용한 \008 이나 `\u0008`와 같은 숫자를 넣은 선언보다 전용 방식을 활용한다.
+```
+// Bad
+System.out.println("---\012---");
+
+// Good
+System.out.println("---\n---");
+```
+
+### 들여쓰기
+들여쓰기는 코드의 계층을 구분하기 위해 추가하는 문자이다.
+
+##### **하드탭 사용**
+탭(tab) 문자를 사용하여 들여쓴다. 탭 대신 스페이스를 사용하지 않는다. 이를 잘 준수하기 위해서 스페이스와 탭을 구별해서 보여주도록 에디터를 설정한다.
+
+##### **탭의 크기는 4개의 스페이스**
+1개의 탭의 크기는 스페이스 4개와 같도록 에디터에서 설정한다.
+
+##### **블럭 들여쓰기**
+클래스, 메서드, 제어문 등의 코드 블럭이 생길 때마다 1단계를 더 들여쓴다.
+
+### 중괄호
+중괄호(`{,}`) 는 클래스, 메서드, 제어문의 블럭을 구분한다.
+
+##### **K&R 스타일로 중괄호 선언**
+클래스 선언, 메서드 선언, 조건/반복문 등의 코드 블럭을 감싸는 중괄호에 적용되는 규칙이다. 중괄호 선언은 K&R 스타일(Kernighan and Ritchie style)을 따른다. 줄의 마지막에서 시작 중괄호`{`를 쓰고 열고 새줄을 삽입한다. 블럭을 마친후에는 새줄 삽입 후 중괄호를 닫는다.
+```
+// Bad
+public class SearchConditionParser
+{
+    public boolean isValidExpression(String exp)
+    {
+
+        if (exp == null)
+        {
+            return false;
+        }
+
+        for (char ch : exp.toCharArray())
+        {
+             ....
+        }
+
+        return true;
+    }
+}
+
+// Good
+public class SearchConditionParser {
+    public boolean isValidExpression(String exp) {
+
+        if (exp == null) {
+            return false;
+        }
+
+        for (char ch : exp.toCharArray()) {
+            ....
+        }
+
+        return true;
+    }
+}
+```
+
+##### **닫는 중괄호와 같은 줄에 `else`, `catch`, `finally`, `while` 선언**
+아래의 키워드는 닫는 중괄호(`}`) 와 같은 줄에 쓴다.
+
+- else
+- catch, finaly
+- do-while 문에서의 while
+```
+// Bad
+if (line.startWith(WARNING_PREFIX)) {
+    return LogPattern.WARN;
+}
+else if (line.startWith(DANGER_PREFIX)) {
+    return LogPattern.DANGER;
+}
+else {
+    return LogPattern.NORMAL;
+}
+
+// Good
+if (line.startWith(WARNING_PREFIX)) {
+    return LogPattern.WARN;
+} else if (line.startWith(DANGER_PREFIX)) {
+    return LogPattern.NORMAL;
+} else {
+    return LogPattern.NORMAL;
+}
+
+// Bad
+try {
+    writeLog();
+}
+catch (IOException ioe) {
+    reportFailure(ioe);
+}
+finally {
+    writeFooter();
+}
+
+// Good
+try {
+    writeLog();
+} catch (IOException ioe) {
+    reportFailure(ioe);
+} finally {
+    writeFooter();
+}
+
+// Bad
+do {
+    write(line);
+    line = readLine();
+}
+while (line != null);
+
+// Good
+do {
+    write(line);
+    line = readLine();
+} while (line != null);
+```
+
+##### **빈 블럭에 새줄 없이 중괄호 닫기 허용**
+내용이 없는 블럭을 선언할 때는 같은 줄에서 중괄호를 닫는 것을 허용한다.
+```
+// Good
+public void close() {}
+```
+
+##### **조건/반복문에 중괄호 필수 사용**
+조건, 반복문이 한 줄로 끝더라도 중괄호를 활용한다. 이 문서에 언급된 중괄호의 전후의 공백, 제어문 앞 뒤의 새줄 규칙도 함께 고려한다.
+```
+// Bad
+if (exp == null) return false;
+
+for (char ch : exp.toCharArray()) if (ch == 0) return false;
+
+// Good
+if (exp == null) {
+    return false;
+}
+
+for (char ch : exp.toCharArray()) {
+
+    if (ch == 0) {
+        return false;
+    }
+
+}
+```
+
+### 줄바꿈
+줄바꿈은 작성한 명령어가 줄 너비를 초과했을 경우 코드 가독성을 위해서 강제로 줄을 바꾸는 것을 말한다.
+
+##### **`package`,`import` 선언문은 한 줄로**
+`package`,`import` 선언문 중간에서는 줄을 바꾸지 않는다. 최대 줄수를 초과하더라도 한 줄로 쓴다.
+
+##### **줄바꿈 후 추가 들여쓰기**
+줄바꿈 이후 이어지는 줄에서는 최초 시작한 줄에서보다 적어도 1단계의 들여쓰기를 더 추가한다.
+
+```
+// Good
+AbstractAggregateRootTest.AggregateRoot proxyAggregateRoot =
+        em.getReference(AbstractAggregateRootTest.AggregateRoot.class, aggregateRoot.getId());
+```
+
+##### **줄바꿈 허용 위치**
+가독성을 위해 줄을 바꾸는 위치는 다음 중의 하나로 한다.
+- extends 선언 후
+- implements 선언 후
+- throws 선언 후
+- 시작 소괄호(`(`) 선언 후
+- 콤마(`,`) 후
+- . 전
+- 연산자 전
+    - `+`, `-`, `*`, `/`, `%`
+    - `==`, `!=`, `>=`, `>`, `⇐`, `<`, `&&`, `||`
+    - `&`, `|`, `^`, `>>>`, `>>`, `<<`, `?`
+    - `instanceof`
+```
+// Good
+public boolen isAbnormalAccess (
+    User user, AccessLog log) {
+
+    String message = user.getId() + "|" | log.getPrefix()
+        + "|" + SUFFIX;
+}
+```
+
+### 빈줄
+빈 줄은 명령문 그룹의 영역을 표시하기 위하여 사용한다.
+
+##### **`package` 선언 후 빈 줄 삽입**
+```
+// Good
+package com.n2soft.common.util;
+
+import java.util.Date;
+```
+
+##### **`import` 선언의 순서와 빈 줄 삽입**
+`import` 구절은 아래와 같은 순서로 그룹을 묶어서 선언한다.
+
+1. static imports
+2. java.
+3. javax.
+4. org.
+5. net.
+6. 8~10을 제외한 com.*
+7. 1~6, 8을 제외한 패키지에 있는 클래스
+8 com.n2soft.
+각 그룹 사이에는 빈줄을 삽입한다. 같은 그룹 내에서는 알파벳 순으로 정렬한다.
+```
+// Good
+import java.util.Date;
+import java.util.List;
+
+import javax.naming.NamingException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.util.Assert;
+
+import com.google.common.base.Function;
+
+import com.n2soft.common.util.StringUtil;
+```
+이 규칙은 대부분 IDE에서 자동으로 정리해주는 대로 쓰기 때문에 IDE 설정을 일치시키는데 신경을 써야 한다.
+
+##### **메소드 사이에 빈 줄 삽입**
+메서드의 선언이 끝난 후 다음 메서드 선언이 시작되기 전에 빈줄을 삽입한다.
+```
+// Good
+public void setId(int id) {
+    this.id = id;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+```
+
+
+
+### 공백
+##### **공백으로 줄을 끝내지 않음**
+빈줄을 포함하여 모든 줄은 탭이나 공백으로 끝내지 않는다.
+
+##### **대괄호 뒤에 공백 삽입**
+닫는 대괄호(`]`) 뒤에 `;`으로 문장이 끝나지 않고 다른 선언이 올 경우 공백을 삽입한다.
+```
+// Bad
+int[]masks = new int[]{0, 1, 1};
+
+// Good
+int[] masks = new int[] {0, 1, 1};
+```
+
+##### **중괄호의 시작 전, 종료 후에 공백 삽입**
+여는 중괄호(`{`) 앞에는 공백을 삽입한다. 닫는 중괄호(`}`) 뒤에 `else` ,`catch` 등의 키워드가 있을 경우 중괄호와 키워드 사이에 공백을 삽입한다.
+```
+// Good
+public void printWarnMessage(String line) {
+    if (line.startsWith(WARN_PREFIX)) {
+        ...
+    } else {
+        ...
+    }
+}
+```
+
+##### **제어문 키워드와 여는 소괄호 사이에 공백 삽입**
+`if`, `for`, `while`, `catch`, `synchronized`, `switch`와 같은 제어문 키워드의 뒤에 소괄호(`(,)`)를 선언하는 경우, 시작 소괄호 앞에 공백을 삽입한다.
+```
+// Good
+if (maxLine > LIMITED) {
+    return false;
+}
+```
+
+##### **식별자와 여는 소괄호 사이에 공백 미삽입**
+식별자와 여는 소괄호(`(`) 사이에는 공백을 삽입하지 않는다. 생성자와 메서드의 선언, 호출, 애너테이션 선언 뒤에 쓰이는 소괄호가 그에 해당한다.
+```
+// Bad
+public StringProcessor () {} // 생성자
+
+@Cached ("local")
+public String removeEndingDot (String original) {
+    assertNotNull (original);
+    ...
+}
+
+// Good
+public StringProcessor() {} // 생성자
+
+@Cached("local")
+public String removeEndingDot(String original) {
+    assertNotNull(original);
+    ...
+}
+```
+
+##### **타입 캐스팅에 쓰이는 소괄호 내부 공백 미삽입**
+타입캐스팅을 위해 선언한 소괄호의 내부에는 공백을 삽입하지 않는다.
+```
+// Bad
+String message = ( String ) rawLine;
+
+// Good
+String message = (String)rawLine;
+```
+
+##### **제네릭스 산괄호의 공백 규칙**
+제네릭스(Generics) 선언에 쓰이는 산괄호(`<`,`>`) 주위의 공백은 다음과 같이 처리한다.
+- 제네릭스 메서드 선언 일 때만 `<` 앞에 공백을 삽입한다.
+- `<` 뒤에 공백을 삽입하지 않는다.
+- `>` 앞에 공백을 삽입하지 않는다.
+- 아래의 경우를 제외하고는 `>`뒤에 공백을 삽입한다.
+    - 메서드 레퍼런스가 바로 이어질 때
+    - 여는 소괄호(`(`)가 바로 이어질 때
+    - 메서드 이름이 바로 이어질 때
+
+```
+// Good
+public static <A extends Annotation> A find(AnnotatedElement elem, Class<A> type) { // 제네릭스 메서드 선언
+    List<Integer> l1 = new ArrayList<>(); // '(' 가 바로 이어질때
+    List<String> l2 = ImmutableList.Builder<String>::new; // 메서드 레퍼런스가 바로 이어질 때
+    int diff = Util.<Integer, String>compare(l1, l2); // 메서드 이름이 바로 이어질 때
+}
+```
+
+##### **콤마/구분자 세미콜론의 뒤에만 공백 삽입**
+콤마(`,`)와 반복문(`while`, `for`)의 구분자로 쓰이는 세미콜론(`;`)에는 뒤에만 공백을 삽입한다.
+
+```
+// Bad
+for (int i = 0;i < length;i++) {
+    display(level,message,i)
+}
+
+// Good
+for (int i = 0; i < length; i++) {
+    display(level, message, i)
+}
+```
+
+##### **콜론의 앞 뒤에 공백 삽입**
+반복문과 삼항연산자에서 콜론(`:`)의 앞 뒤에는 공백을 삽입한다. 라벨 선언 뒤에는 아무런 문자열이 없으므로 앞에만 공백을 삽입한다.
+
+```
+// Good
+for (Customer customer : visitedCustomers) {
+    AccessPattern pattern = isAbnormal(accessLog) ? AccessPattern.ABUSE : AccessPattern.NORMAL;
+    int grade = evaluate(customer, pattern);
+
+    switch (grade) {
+        case GOLD :
+            sendSms(customer);
+        case SILVER :
+            sendEmail(customer);
+        default :
+            inreasePoint(customer)
+    }
+}
+```
+
+##### **이항/삼항 연산자의 앞 뒤에 공백 삽입**
+이항/삼항 연산자의 앞 뒤에는 공백을 삽입한다.
+
+```
+// Good
+if (pattern == Access.ABNORMAL) {
+    return 0;
+}
+
+finalScore += weight * rawScore - absentCount;
+
+if (finalScore > MAX_LIMIT) {
+    return MAX_LIMIT;
+}
+```
+
+##### **단항 연산자와 연산 대상 사이에 공백을 미삽입**
+단항 연산자와 연산 대상의 사이에는 공백을 삽입하지 않는다.
+
+- 전위 연산자 : 연산자 뒤에 공백을 삽입하지 않는다.
+    - 전위 증감/감소 연산자 : `++`,`--`
+    - 부호로 쓰이는 `+`, `-`
+    - NOT 연산자 : `~`, `!`
+- 후위 연산자 : 연산자 앞에 공백을 삽입하지 않는다.
+    - 후위 증감/감소 연산자 : `++`,`--`
+
+```
+// Bad
+int point = score[++ index] * rank -- * - 1;
+
+// Good
+int point = score[++index] * rank-- * -1;
+```
+
+##### **주석문 기호 전후의 공백 삽입**
+주석의 전후에는 아래와 같이 공백을 삽입한다.
+- 명령문과 같은 줄에 주석을 붙일 때 `//` 앞
+- 주석 시작 기호 `//` 뒤
+- 주석 시작 기호 `/*` 뒤
+- 블록 주석을 한 줄로 작성시 종료 기호 `*/` 앞
+
+```
+// Good
+/*
+ * 공백 후 주석내용 시작
+ */
+
+System.out.print(true); // 주석 기호 앞 뒤로 공백
+
+/* 주석내용 앞에 공백, 뒤에도 공백 */
 ```
