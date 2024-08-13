@@ -18,6 +18,8 @@ import BalanceDelayRealChart from "./components/BalanceDelayRealChart";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import ko from "date-fns/locale/ko";
+import LoanPerformanceRealChart from "./components/LoanPerformanceRealChart";
+import LoanAmountRealChart from "./components/LoanAmountRealChart";
 
 const Card = ({
   title,
@@ -101,9 +103,11 @@ function Dashboard() {
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="채널별 대출실적">
             <LoanPerformanceChart />
+            <LoanPerformanceRealChart />
           </Card>
           <Card title="기간별 대출금액 현황">
             <LoanAmountChart />
+            <LoanAmountRealChart />
           </Card>
         </div>
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
