@@ -19,7 +19,7 @@ function CMM001U() {
   return (
     <div className="relative flex flex-col h-full gap-2">
       <div className="flex justify-end">
-        <div className="flex gap-2 mb-2">
+        <div className="flex gap-2">
           <Button text="조회" className="w-12 btn-primary btn-sm" />
           <Button text="초기화" className="w-12 btn-primary btn-sm" />
         </div>
