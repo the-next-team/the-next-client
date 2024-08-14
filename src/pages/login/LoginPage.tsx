@@ -1,69 +1,103 @@
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { ApiResponseStats } from "../../api/models/common/apiResponseStats";
 import { UserService } from "../../api/services/userService";
-import Input from "../../components/form/input/Input";
+import NextLoge from "../../assets/images/logo/the-next.png";
+import TextInput from "../../components/form/TextInput";
 import { storageKey } from "../../constants";
-import { userState } from "../../states/user/userAtom";
-import Logo from "../../assets/images/logo/logo-smartsb-02.png";
+import useLoading from "../../hooks/useLoading";
+import useUser from "../../hooks/useUser";
+
+type FormValues = {
+  username: string;
+  password: string;
+};
 
 function LoginPage() {
   const navigate = useNavigate();
-  const setUserState = useSetRecoilState(userState);
-  // const { showLoading, hideLoading } = useLoading();
+  const { fetchUser } = useUser();
+  const { showLoading, hideLoading } = useLoading();
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    clearErrors,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
+    defaultValues: {
+      username: "nTree",
+      password: "1",
+    },
+  });
 
+  const onSubmit = async (values: FormValues) => {
     try {
-      // showLoading();
+      showLoading();
       const response = await UserService.login({
-        // username: data.username,
-        // password: data.password,
-        username: "nTree",
-        password: "1",
+        username: values.username,
+        password: values.password,
       });
-      // hideLoading();
-
-      if (response.status === "OK") {
+      hideLoading();
+      if (response.status === ApiResponseStats.OK) {
         localStorage.setItem(storageKey.user, JSON.stringify(response.data));
         localStorage.setItem(storageKey.accessToken, response.data.accessToken);
         localStorage.setItem(
           storageKey.refreshToken,
           response.data.refreshToken
         );
-
-        setUserState(response.data);
-
-        navigate("/", {
+        await fetchUser();
+        navigate("/dashboard", {
           replace: true,
         });
+      } else {
+        console.log(response.error);
+        alert("[" + response.error.code + "] " + response.error.message);
       }
     } catch (error) {
-      // hideLoading();
-      // setError("fail", {
-      //   type: "custom",
-      //   message: "아이디 또는 비밀번호가 올바르지 않아요.",
-      // });
+      hideLoading();
+      console.log(error);
+      //      setError("fail", {
+      //        type: "custom",
+      //        message: "아이디 또는 비밀번호가 올바르지 않아요.",
+      //      });
     }
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-screen bg-white">
-      <form onSubmit={onSubmit}>
-        <div className="mb-6">
-          <p className="text-2xl font-semibold text-center text-custom-black">
-            Sign In
-          </p>
+    <div className="flex items-center justify-center w-full h-full bg-white">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-8">
+          <div>
+            <img className="" src={NextLoge} alt="" />
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <Input label="username" placeholder="username" value={"nTree"} />
-          <Input label="password" placeholder="password" value={"1"} />
+        <div className="flex flex-col gap-4 mb-6">
+          <TextInput
+            id="username"
+            type="text"
+            label="아이디"
+            className="w-full py-2 bg-transparent"
+            placeholder="아이디"
+            // error={{ message: "아이디를 입력해 주세요." }}
+            {...register("username", {
+              required: "아이디를 입력해 주세요.",
+            })}
+          />
+          <TextInput
+            id="password"
+            type="password"
+            label="비밀번호"
+            className="w-full py-2 bg-transparent"
+            placeholder="비밀번호"
+            // error={{ message: "비밀번호를 입력해 주세요." }}
+            {...register("password", {
+              required: "비밀번호를 입력해 주세요.",
+            })}
+          />
         </div>
-        <button
-          type="submit"
-          className="w-full py-1 rounded-[2px] hover:animate-gradient-primary mt-4 bg-custom-black"
-        >
-          <p className="text-sm text-white">로그인</p>
+        <button className="w-full py-2 rounded-[2px] hover:animate-gradient-primary bg-custom-black">
+          <p className="text-white">로그인</p>
         </button>
       </form>
     </div>

@@ -1,12 +1,11 @@
 import { useRecoilValue } from "recoil";
+import useTabMenu from "../../../hooks/useTabMenu";
 import {
   CurrentSideMenu,
   FavMenu,
   currentSideMenuState,
   favMenuState,
 } from "../../../states/sidebar/sidebarAtom";
-import useTabMenu from "../../../hooks/useTabMenu";
-import TabMenuUtil from "../../../utils/tabMenuUtil";
 
 function Bookmark() {
   const { activeTab, handleTabOpen } = useTabMenu();
@@ -24,13 +23,12 @@ function Bookmark() {
           <li
             key={index}
             className={`flex items-center justify-between px-4 py-2 cursor-pointer ${
-              activeTab === fav.href ? "bg-primary bg-opacity-[0.07]" : ""
+              activeTab === fav.href ? "bg-primary-800 bg-opacity-[0.07]" : ""
             }`}
             onClick={() => {
               handleTabOpen({
                 name: fav.name ?? "",
                 href: fav.href ?? "",
-                component: TabMenuUtil.findElement(fav.href),
               });
             }}
           >

@@ -21,17 +21,17 @@ function useUser() {
   };
 
   const logout = () => {
-    localStorage.removeItem(storageKey.user);
-    localStorage.removeItem(storageKey.accessToken);
-    localStorage.removeItem(storageKey.refreshToken);
+    localStorage.clear();
     _setUser(null);
-    navigate("/login");
+    navigate("/login", {
+      replace: true,
+    });
   };
 
   return {
     user,
     setUser,
-    fetch,
+    fetchUser: fetch,
     logout,
   };
 }

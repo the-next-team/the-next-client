@@ -1,5 +1,5 @@
 import { Post } from "..";
-import { ApiResponse } from "../models/common/apiError";
+import { ApiResponse } from "../models/common/apiResponse";
 
 export interface IMessageModel {
   id: number;

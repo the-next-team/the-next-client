@@ -1,5 +1,5 @@
 import { Get, Post } from "..";
-import { ApiResponse } from "../models/common/apiError";
+import { ApiResponse } from "../models/common/apiResponse";
 
 export const CodeType = {};
 
@@ -56,7 +56,7 @@ export const CodeService = {
     return Get(`/api/common/code/job`);
   },
   getCodeByKind: async (kind: string): Promise<ApiResponse<ICodeItem[]>> => {
-    return Get(`/api/common/code/${kind}`);
+    return Get(`/api/common/code/input-code/${kind}`);
   },
   getCodeByValues: async (
     data: ICodeInputValues

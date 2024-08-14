@@ -1,4 +1,8 @@
 @tailwind base;
+
+@import "./styles/noise-anim.css";
+@import "./theme.css";
+
 @tailwind components;
 @tailwind utilities;
 
@@ -9,7 +13,8 @@
     height: 100%;
   }
   html {
-    font-family: "Pretendard";
+    /* font-family: "Pretendard"; */
+    font-family: "Noto Sans KR", sans-serif;
   }
   body {
     @apply bg-custom-blue-100;
@@ -18,29 +23,29 @@
 
 @layer components {
   ::selection {
-    @apply text-white bg-primary;
+    @apply text-white bg-main;
   }
 
   /* ScrollBar */
   /* width */
   ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-primary/30;
+    @apply bg-main/30;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply rounded-md bg-primary;
+    @apply rounded-md bg-main;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/70;
+    @apply bg-main/70;
   }
 }
 
@@ -97,4 +102,138 @@
   font-family: "Pretendard";
   font-weight: 900;
   src: url("assets/fonts/Pretendard-Black.woff");
+}
+
+/* Noto Sans KR */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 100;
+  src: url("assets/fonts/NotoSansKR-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 200;
+  src: url("assets/fonts/NotoSansKR-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 300;
+  src: url("assets/fonts/NotoSansKR-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 400;
+  src: url("assets/fonts/NotoSansKR-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  src: url("assets/fonts/NotoSansKR-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 600;
+  src: url("assets/fonts/NotoSansKR-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 700;
+  src: url("assets/fonts/NotoSansKR-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 800;
+  src: url("assets/fonts/NotoSansKR-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 900;
+  src: url("assets/fonts/NotoSansKR-Black.ttf") format("truetype");
+}
+
+/* react-datepicker input 영역 */
+
+.react-datepicker__input-container input {
+  @apply px-1 py-0.5 text-sm border rounded border-slate-200 text-slate-900 outline-none focus:border-warning-400 !important;
+}
+
+/* react-datepicker 달력 영역 */
+
+.react-datepicker__triangle {
+  @apply hidden !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+  @apply bg-[#FA916B] text-white !important;
+}
+.react-datepicker__day--selected:hover,
+.react-datepicker__day--in-selecting-range:hover,
+.react-datepicker__day--in-range:hover,
+.react-datepicker__month-text--selected:hover,
+.react-datepicker__month-text--in-selecting-range:hover,
+.react-datepicker__month-text--in-range:hover,
+.react-datepicker__quarter-text--selected:hover,
+.react-datepicker__quarter-text--in-selecting-range:hover,
+.react-datepicker__quarter-text--in-range:hover,
+.react-datepicker__year-text--selected:hover,
+.react-datepicker__year-text--in-selecting-range:hover,
+.react-datepicker__year-text--in-range:hover {
+  @apply bg-[#FCB298] !important;
+}
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  @apply bg-[#FDD2C3] text-[#000000] !important;
+}
+.react-datepicker__day--keyboard-selected:hover,
+.react-datepicker__month-text--keyboard-selected:hover,
+.react-datepicker__quarter-text--keyboard-selected:hover,
+.react-datepicker__year-text--keyboard-selected:hover {
+  @apply bg-[#FCB298] !important;
+}
+.react-datepicker__day--in-selecting-range:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__month-text--in-range,
+    .react-datepicker__quarter-text--in-range,
+    .react-datepicker__year-text--in-range
+  ),
+.react-datepicker__month-text--in-selecting-range:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__month-text--in-range,
+    .react-datepicker__quarter-text--in-range,
+    .react-datepicker__year-text--in-range
+  ),
+.react-datepicker__quarter-text--in-selecting-range:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__month-text--in-range,
+    .react-datepicker__quarter-text--in-range,
+    .react-datepicker__year-text--in-range
+  ),
+.react-datepicker__year-text--in-selecting-range:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__month-text--in-range,
+    .react-datepicker__quarter-text--in-range,
+    .react-datepicker__year-text--in-range
+  ) {
+  @apply bg-[#FA916B] bg-opacity-50 !important;
 }

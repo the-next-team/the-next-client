@@ -7,16 +7,16 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    '@storybook/addon-a11y',
   ],
   framework: {
     name: "@storybook/react-webpack5",
-	options: {
-		builder: {
-		  useSWC: true,
-		},
-	  },
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
   },
   docs: {
     autodocs: "tag",

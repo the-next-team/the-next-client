@@ -1,0 +1,29 @@
+# 베이스 이미지로 node 사용
+FROM node:18 AS build
+
+# 작업 디렉토리 설정
+WORKDIR /app
+
+# package.json 및 yarn.lock 파일 복사
+COPY package.json yarn.lock ./
+
+# 의존성 설치
+RUN yarn install
+
+# 소스 파일 복사
+COPY . .
+
+# Storybook 빌드
+RUN yarn build-storybook -o storybook-static
+
+# Nginx를 사용하여 빌드된 Storybook을 서빙
+FROM nginx:alpine
+
+# 빌드된 Storybook 파일을 Nginx 웹 디렉토리로 복사
+COPY --from=build /app/storybook-static /usr/share/nginx/html
+
+# Nginx 포트 설정
+EXPOSE 80
+
+# Nginx 실행
+CMD ["nginx", "-g", "daemon off;"]

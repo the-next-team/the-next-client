@@ -1,24 +1,32 @@
-import { Icon } from "@iconify/react";
+import Icon from "../icons/Icon";
 
 type Props = {
-  text?: string;
+  className?: string | undefined;
+  label?: string | null;
   icon?: string;
-} & React.HTMLAttributes<HTMLDivElement>;
+  children?: React.ReactNode;
+};
 
 const Badge = ({
-  text,
+  className = "text-white bg-danger-500",
+  label,
   icon,
-  className = "text-white bg-custom-black",
-  ...props
+  children,
 }: Props) => {
   return (
-    <div
-      className={`${className} flex items-center gap-1 rounded-[2px] px-1`}
-      {...props}
-    >
-      <p className="text-sm select-none">{text}</p>
-      {icon && <Icon icon={icon} className="" />}
-    </div>
+    <span className={`badge ${className}`}>
+      {!children && (
+        <span className="inline-flex items-center">
+          {icon && (
+            <span className="inline-block mr-1 rtl:ml-1">
+              <Icon icon={icon} />
+            </span>
+          )}
+          {label}
+        </span>
+      )}
+      {children && <span className="inline-flex items-center">{children}</span>}
+    </span>
   );
 };
 

@@ -1,31 +1,20 @@
-import { Client, Stomp } from "@stomp/stompjs";
-import { useCallback, useEffect, useState } from "react";
-import { storageKey } from "../constants";
+import { ActivationState, Client, IMessage, StompConfig, StompSubscription } from '@stomp/stompjs';
+import { useCallback, useState } from 'react';
+import { storageKey } from '../constants';
 
 let client: Client | null = null;
 
 const useStompClient = () => {
   const [isConnected, setIsConnected] = useState(false);
-
-  useEffect(() => {
-    connect();
-    return () => {
-      disconnect();
-    };
-  }, []);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const connect = useCallback(() => {
-    const accessToken = localStorage.getItem(
-      storageKey.accessToken
-    );
+    const accessToken = localStorage.getItem(storageKey.accessToken);
 
     if (!client) {
-      client = Stomp.over(() => {
-
-      })
-      client = new Client({
-        // webSocketFactory: () => new SockJS(`${process.env.REACT_APP_API_URL!}/ws-stomp`),
-        brokerURL: `${process.env.REACT_APP_SOCKET_URL!}/ws-stomp`,
+      const stompConfig: StompConfig = {
+        brokerURL: `${process.env.REACT_APP_SOCKET_URL}/ws-stomp`,
         debug: (str) => console.log(str),
         reconnectDelay: 5000,
         heartbeatIncoming: 4000,
@@ -33,44 +22,58 @@ const useStompClient = () => {
         connectHeaders: {
           Authorization: `Bearer ${accessToken}`,
         },
-      });
+      };
 
-      client.onConnect = onConnect;
-      client.onStompError = onError;
+      client = new Client(stompConfig);
+
+      client.onConnect = () => {
+        console.log('Connected');
+        setIsConnected(true);
+        setIsConnecting(false);
+        setIsError(false);
+      };
+
+      client.onStompError = (frame: any) => {
+        console.error('Broker reported error: ' + frame.headers['message']);
+        console.error('Additional details: ' + frame.body);
+        setIsError(true);
+        setIsConnecting(false);
+      };
+
       client.onDisconnect = () => {
-        console.log("Disconnected from STOMP");
+        console.log('Disconnected from STOMP');
         setIsConnected(false);
       };
     }
 
-    if (!isConnected) {
+    if (client.state !== ActivationState.ACTIVE && !isConnecting) {
+      setIsConnecting(true);
       client.activate();
     }
-  }, [isConnected]);
-
-  const onConnect = (frame: any) => {
-    console.log("Connected: " + frame);
-    setIsConnected(true);
-  };
-
-  const onError = (frame: any) => {
-    console.log("Broker reported error: " + frame.headers["message"]);
-    console.log("Additional details: " + frame.body);
-  };
+  }, [isConnecting]);
 
   const disconnect = useCallback(() => {
-    if (client && isConnected) {
+    if (client && client.state === ActivationState.ACTIVE) {
       client.deactivate();
       client = null;
       setIsConnected(false);
     }
-  }, [isConnected]);
+  }, []);
+
+  const subscribe = (destination: string, callback: (message: IMessage) => void): StompSubscription | null => {
+    if (isConnected && client) {
+      return client.subscribe(destination, callback);
+    }
+    return null;
+  };
 
   return {
-    client,
     connect,
     disconnect,
+    subscribe,
     isConnected,
+    isConnecting,
+    isError,
   };
 };
 

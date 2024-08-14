@@ -1,7 +1,4 @@
-import { ApiError } from "./apiResponse";
-
-export interface ApiResponse<T> {
-  status: string;
-  data: T;
-  error: ApiError;
+export interface ApiError {
+  code: string;
+  message: string;
 }

@@ -1,15 +1,21 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Logo1 from "../../assets/images/logo/logo-smartsb-01.png";
-import Logo2 from "../../assets/images/logo/logo-smartsb-02.png";
+import { useSetRecoilState } from "recoil";
+import NextLoge from "../../assets/images/logo/the-next-icon.png";
+import Logo from "../../assets/images/logo/smart-sfis-logo-wh@3x.png";
 import useUser from "../../hooks/useUser";
+import {
+  CurrentSideMenu,
+  currentSideMenuState,
+} from "../../states/sidebar/sidebarAtom";
 import Toolbar from "./components/Toolbar";
+import TopMenu from "./components/TopMenu";
 
 function Header() {
+  const setCurrentSideMenu =
+    useSetRecoilState<CurrentSideMenu>(currentSideMenuState);
   const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
-  const { logout } = useUser();
+  const { user, logout } = useUser();
 
   const dropdown = [
     {
@@ -22,25 +28,39 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#111625] h-8 flex flex-none items-center px-[10px] justify-between">
-      <div className="flex items-center gap-[10px]">
-        <img className="w-6 h-6" src={Logo1} alt="" />
-        <img className="w-[87px] h-[19px]" src={Logo2} alt="" />
+    <header className="relative bg-[#082e5f] flex items-center justify-between px-2 gap-5">
+      {/* NEXT 로고 */}
+      <div className="flex items-center gap-5">
+        <div>
+          <img className="h-[30px] rounded-sm" src={NextLoge} alt="" />
+        </div>
+        <div className="flex items-center w-[195px]">
+          <img className="h-5" src={Logo} alt="" />
+        </div>
+        <TopMenu />
       </div>
       <div className="flex items-center gap-3">
         {/* 툴바 */}
-        <Toolbar />
+        <div className="hidden lg:block">
+          <Toolbar />
+        </div>
         {/* 검색바 */}
-        <div className="w-[230px] flex items-center gap-2 rounded bg-custom-gray-100 bg-opacity-20 px-[6px] py-1">
-          <Icon
-            icon="heroicons:magnifying-glass-solid"
-            width="16"
-            color="white"
-          />
-          <input
-            placeholder="통합 검색"
-            className="w-full text-xs text-white bg-transparent outline-none"
-          />
+        <div className="hidden xl:block">
+          <div
+            className="w-[230px] flex items-center gap-2 rounded cursor-pointer bg-custom-gray-100 bg-opacity-20 px-[6px] py-1"
+            onClick={() => setCurrentSideMenu("search")}
+          >
+            <Icon
+              icon="heroicons:magnifying-glass-solid"
+              width="16"
+              color="white"
+            />
+            <input
+              placeholder="통합 검색"
+              className="w-full text-xs text-white bg-transparent outline-none cursor-pointer"
+              readOnly
+            />
+          </div>
         </div>
         {/* 알림 */}
         <div className="cursor-pointer rounded-[6px] p-1 bg-custom-gray-100 bg-opacity-20 relative">
@@ -55,14 +75,14 @@ function Header() {
         </div>
         {/* 프로필 */}
         <div
-          className="relative flex items-center gap-1 text-white cursor-pointer"
+          className="relative flex items-center gap-1 text-white cursor-pointer break-keep"
           onClick={() => setVisible((prev) => !prev)}
         >
-          <p className="font-semibold">홍길동</p>
+          <p className="font-semibold">{user?.username}</p>
           <p className="text-sm font-light">님</p>
           <Icon icon="heroicons:chevron-down" width="16" color="white" />
           {visible && (
-            <div className="absolute right-0 w-32 py-1 bg-white rounded shadow-md top-8">
+            <div className="absolute right-0 z-10 w-32 py-1 bg-white rounded shadow-md top-8">
               {dropdown.map((menu, i) => (
                 <div
                   key={i}

@@ -1,0 +1,74 @@
+import { Meta, Title, Subtitle } from "@storybook/blocks";
+
+<Meta title="Docs Overview/front-end/환경 구성" />
+
+# 환경 구성
+
+### 목차
+
+---
+
+* [React](#react)
+* [Typescript](#typescript)
+* [Node](#node)
+* [Yarn](#yarn)
+* [Vite](#vite)
+* [Tailwindcss](#tailwindcss)
+* [ReactQuery](#reactquery)
+* [Recoil](#recoil)
+
+### React
+리액트(React, React.js 또는 ReactJS)는 자바스크립트 라이브러리의 하나로서 사용자 인터페이스를 만들기 위해 사용된다.
+
+### Typescript
+타입스크립트는 자바스크립트의 슈퍼셋인 오픈소스 프로그래밍 언어이다. 마이크로소프트에서 개발, 유지하고 있으며 엄격한 문법을 지원한다. C#의 리드 아키텍트이자 델파이, 터보 파스칼의 창시자인 Anders Hejlsberg가 개발에 참여한다. 클라이언트 사이드와 서버 사이드를 위한 개발에 사용할 수 있다. 타입스크립트는 자바스크립트 엔진을 사용하면서 커다란 애플리케이션을 개발할 수 있게 설계된 언어이다.자바스크립트의 슈퍼셋이기 때문에 자바스크립트로 작성된 프로그램이 타입스크립트 프로그램으로도 동작한다. 타입스크립트에서 자신이 원하는 타입을 정의하고 프로그래밍을 하면 자바스크립트로 컴파일되어 실행할 수 있다. 타입스크립트는 모든 운영 체제, 모든 브라우저, 모든 호스트에서 사용 가능한 오픈 소스이다.
+
+### Node
+Node.js는 확장성 있는 네트워크 애플리케이션(특히 서버 사이드) 개발에 사용되는 소프트웨어 플랫폼이다. 작성 언어로 자바스크립트를 활용하며 Non-blocking I/O와 단일 스레드 이벤트 루프를 통한 높은 처리 성능을 가지고 있다. 내장 HTTP 서버 라이브러리를 포함하고 있어 웹 서버에서 아파치 등의 별도의 소프트웨어 없이 동작하는 것이 가능하며 이를 통해 웹 서버의 동작에 있어 더 많은 통제를 가능케 한다.
+
+### Yarn
+**yarn** 은 **javascirpt** 의 **package manager** 이다. npm 의 **drop-in substitute** 로 사용할 수 있는 점이 초기 도입에도 큰 장점이다.
+패키지 설치 속도가 더 빠르고, 패키지 설치과정에서 패키지가 **code**를 **running** 하지 않도록 하여 더 보안상 안전하다.
+또한, 같은 **package.json** 에 의존하는 두개의 서로 다른 환경이 서로 다른 버전의 패키지 의존성을 가지는 것을 방지하기 위해, 버전의 **range** 가 아닌, 정확한 버전을 명시한 **yarn.lock** 파일을 사용한다.
+
+##### **명령어**
+```
+# npm install
+yarn install 또는 yarn
+
+# npm i <package> --save
+yarn add <package>
+
+# npm i <package> --save-dev
+yarn add <package> --dev : --dev 옵션은 -D 와 같다.
+
+# 패키지 삭제
+yarn remove <package>
+
+# dependencies와 devDependencies 모두 (package.json 에 명시된) version rule 에 따라 최신 버전으로 업그레이드.
+# 만약 어떤 패키지가 semantic versioning([segVer](https://github.com/semver/semver/blob/master/semver.md))를
+# 따르지 않는다면, version rule이 무색해져 하위 호환성이 보장되지 않는 업그레이드일 수도 있다.
+yarn upgrade
+
+# 특정 패키지를 특정 버전으로 업그레이드
+yarn upgrade <package>@<version>
+
+# 목록들 중에서 원하는 패키지만 최신버전으로 업그레이드하는 interactive terminal ui 를 제공한다.
+yarn upgrade-interactive
+
+# production 환경서 필요한 dependencies 만 설치
+NODE_ENV=production yarn install 또는 yarn install --production
+```
+
+### Vite
+Vite(프랑스어로 "빠르다(Quick)"를 의미하며, 발음은 "veet"와 비슷한 /vit/ 입니다.)는 빠르고 간결한 모던 웹 프로젝트 개발 경험에 초점을 맞춰 탄생한 빌드 도구이며, 두 가지 컨셉을 중심으로 하고 있습니다.
+
+### Tailwindcss
+Tailwind CSS는 ‘utility-first’라는 목적 하에 만들어진 CSS 프레임워크이다. 별도의 CSS 파일이나 style 태그를 사용하지 않고 HTML의 class 속성에 입력되는 내용에 따라 스타일링이 적용되기 때문에 굉장히 간단하고 직관적으로 코드를 작성할 수 있다.
+
+### ReactQuery
+fetching, caching, 서버 데이터와의 동기화를 지원해주는 라이브러리이다.
+복잡하고 장황한 코드가 필요하지 않고 React Component 내부에서 간단하고 직관적으로 API를 사용할 수 있다.
+
+### Recoil
+페이스북이 2020년 5월에 소개한 React 전용으로 나온 상태 관리 라이브러리다. Recoil을 통해 전역 상태를 관리하면 코드가 굉장히 간결해진다

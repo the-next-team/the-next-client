@@ -24,14 +24,13 @@ const NestedMenu = ({
           handleTabOpen({
             name: item.multiTitle,
             href: item.multiLink,
-            component: item.multiElement ?? null,
           });
         }}
       >
         <p
           className={`${
             item.multiLink && item.multiLink === activeTab
-              ? "text-primary"
+              ? "text-primary-800"
               : "text-custom-gray-200"
           } text-sm`}
         >

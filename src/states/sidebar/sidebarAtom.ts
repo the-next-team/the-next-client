@@ -18,3 +18,11 @@ export const currentSideMenuState = atom<CurrentSideMenu>({
   default: "menu",
   effects_UNSTABLE: [persistAtom],
 });
+
+// 현재 열린 사이드메뉴
+export type activeSubmenu = number | null;
+export const activeSubmenuState = atom<activeSubmenu>({
+  key: "activeSubmenuState",
+  default: null,
+  effects_UNSTABLE: [persistAtom],
+});
