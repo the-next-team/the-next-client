@@ -40,9 +40,9 @@ function LoginPage() {
       });
       hideLoading();
       if (response.status === ApiResponseStats.OK) {
-        localStorage.setItem(storageKey.user, JSON.stringify(response.data));
-        localStorage.setItem(storageKey.accessToken, response.data.accessToken);
-        localStorage.setItem(
+        sessionStorage.setItem(storageKey.user, JSON.stringify(response.data));
+        sessionStorage.setItem(storageKey.accessToken, response.data.accessToken);
+        sessionStorage.setItem(
           storageKey.refreshToken,
           response.data.refreshToken
         );
