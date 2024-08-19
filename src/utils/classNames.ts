@@ -28,7 +28,7 @@ type ClassValue =
     console.log(classNames('foo', [false, 'bar'], { baz: true }, null, ['qux', ['quux']])); // "foo bar baz qux quux"
 
    * @param args
-   * @returns
+   * @return {string}
    */
 function classNames(...args: ClassValue[]): string {
   const classes: string[] = [];
