@@ -10,6 +10,7 @@ const log = require("electron-log");
 const path = require("path");
 
 const loadUrl = "http://localhost:3000";
+const iconPath = path.join(__dirname, '../src/assets/icons/png/64x64.png')
 let windowCount = 0;
 
 // Local Update TEST
@@ -55,6 +56,7 @@ const createUpdateWindow = () => {
     width: 300,
     height: 300,
     frame: false,
+    icon: iconPath,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -62,6 +64,11 @@ const createUpdateWindow = () => {
 
   updateWindow.loadFile(path.join(__dirname, "../build/version.html"));
   updateWindow.webContents.openDevTools({ mode: "detach" });
+
+  // macOS의 Dock 아이콘 설정
+  if (process.platform === 'darwin') {
+    app.dock.setIcon(iconPath);
+  }
 };
 
 const createWindow = () => {
