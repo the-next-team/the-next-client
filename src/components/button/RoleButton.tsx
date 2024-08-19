@@ -16,6 +16,11 @@ type Props = {
   onClick?: () => void;
 } & React.ComponentPropsWithoutRef<"button">;
 
+/**
+ * 사용자 권한에 따른 버튼 활성/비활성 처리
+ * @param param0
+ * @returns
+ */
 function RoleButton({
   text,
   size = "auto",
