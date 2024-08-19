@@ -160,12 +160,44 @@
 }
 
 /* react-datepicker input 영역 */
+.react-datepicker {
+  @apply rounded border-slate-300 !important;
+}
 
-.react-datepicker__input-container input {
-  @apply px-1 py-0.5 text-sm border rounded border-slate-200 text-slate-900 outline-none focus:border-warning-400 !important;
+.react-datepicker-popper {
+  @apply fixed !important;
+}
+
+.react-datepicker__calendar-icon {
+  @apply static p-0 mt-[1px] !important;
+}
+
+.react-datepicker__input-container {
+  @apply flex items-center gap-1 px-2 py-0.5 text-sm border rounded border-slate-200 text-slate-900 outline-none focus:border-warning-400 !important;
+}
+
+/* react-datepicker header 영역 */
+.react-datepicker__header {
+  @apply bg-white p-0 border-none !important;
+}
+
+.react-datepicker__day-names div {
+  @apply font-medium !important;
 }
 
 /* react-datepicker 달력 영역 */
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  @apply text-slate-800 !important;
+}
+
+.react-datepicker__day--disabled,
+.react-datepicker__month-text--disabled,
+.react-datepicker__quarter-text--disabled,
+.react-datepicker__year-text--disabled {
+  @apply text-slate-300 !important;
+}
 
 .react-datepicker__triangle {
   @apply hidden !important;

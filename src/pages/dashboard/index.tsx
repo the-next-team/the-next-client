@@ -15,11 +15,9 @@ import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChar
 import { Icon } from "@iconify/react";
 import ProfitAndLossStatusRealChart from "./components/ProfitAndLossStatusRealChart";
 import BalanceDelayRealChart from "./components/BalanceDelayRealChart";
-import { useState } from "react";
-import DatePicker from "react-datepicker";
-import ko from "date-fns/locale/ko";
 import LoanPerformanceRealChart from "./components/LoanPerformanceRealChart";
 import LoanAmountRealChart from "./components/LoanAmountRealChart";
+import ReactDatePicker from "./components/ReactDatePicker";
 
 const Card = ({
   title,
@@ -48,39 +46,13 @@ const Card = ({
 
 function Dashboard() {
   const { show } = useNotification();
-  const [date, setDate] = useState<Date | null>(new Date());
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
-  const [endDate, setEndDate] = useState<Date | null>(new Date());
 
   return (
     <div className="flex gap-2 overflow-x-hidden">
       <div className="space-y-2 w-80">
         <Profile />
         <Card title="react-datepicker 예시" className="flex flex-col gap-1">
-          <DatePicker
-            className="w-52"
-            locale={ko}
-            dateFormat="yyyy.MM.dd"
-            shouldCloseOnSelect
-            minDate={new Date()}
-            maxDate={new Date("2030-12-31")}
-            selected={date}
-            onChange={(date) => setDate(date)}
-          />
-          <DatePicker
-            className="w-52"
-            locale={ko}
-            dateFormat="yyyy.MM.dd"
-            selected={startDate}
-            onChange={(dates) => {
-              const [start, end] = dates;
-              setStartDate(start ?? null);
-              setEndDate(end);
-            }}
-            startDate={startDate ?? undefined}
-            endDate={endDate ?? undefined}
-            selectsRange
-          />
+          <ReactDatePicker />
         </Card>
         {/* TO-DO List */}
         <Card title="TO-DO List">
