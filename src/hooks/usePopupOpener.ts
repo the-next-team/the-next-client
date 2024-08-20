@@ -43,7 +43,7 @@ export function usePopupOpener() {
       // 웹 환경에서 팝업 열기
       const left = window.screenX + (window.outerWidth - width) / 2;
       const top = window.screenY + (window.outerHeight - height) / 2;
-      const windowFeatures = `width=${width},height=${height},left=${left},top=${top}`;
+      const windowFeatures = `width=${width},height=${height},left=${left},top=${top},toolbar=no,menubar=no,location=no,status=no,scrollbars=no,resizable=no`;
       const popup = window.open(route, "_blank", windowFeatures);
 
       if (popup) {
