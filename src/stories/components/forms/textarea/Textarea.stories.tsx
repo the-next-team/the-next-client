@@ -93,30 +93,6 @@ DisplayedRows.args = {
   ...DisplayedRows.args,
 };
 
-// Horizontal Sizing
-export const HorizontalSizing: Story = () => (
-  <div className="flex flex-col gap-6">
-    <Textarea
-      label="Large"
-      id="largesize2"
-      placeholder="Large Input"
-      rows={4}
-      horizontal
-    />
-    <Textarea label="Default" id="df" placeholder="Default Input" horizontal />
-    <Textarea
-      label="Small"
-      id="smallsize2"
-      placeholder="Small Input"
-      rows={2}
-      horizontal
-    />
-  </div>
-);
-HorizontalSizing.args = {
-  ...HorizontalSizing.args,
-};
-
 // States
 export const States: Story = () => (
   <div className="flex flex-col gap-6">
@@ -138,29 +114,4 @@ export const States: Story = () => (
 );
 States.args = {
   ...States.args,
-};
-
-// States With Tootltips
-export const StatesWithTootltips: Story = () => (
-  <div className="flex flex-col gap-6">
-    <Textarea
-      label="Valid State"
-      id="ValidState"
-      placeholder="Valid"
-      validate="This is valid state."
-      msgTooltip
-    />
-    <Textarea
-      label="Invalid State"
-      id="InvalidState"
-      placeholder="Invalid"
-      error={{
-        message: "This is invalid state",
-      }}
-      msgTooltip
-    />
-  </div>
-);
-StatesWithTootltips.args = {
-  ...StatesWithTootltips.args,
 };

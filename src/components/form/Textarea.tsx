@@ -116,21 +116,21 @@ export const Textarea = forwardRef(
           )}
 
           {/* icon */}
-          <div className="flex text-xl absolute right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2 space-x-1 rtl:space-x-reverse">
+          <div className="absolute flex space-x-1 -translate-y-1/2 right-2 top-1/2">
             {error && (
               <span className="text-danger-500">
-                <Icon icon="heroicons-outline:information-circle" />
+                <Icon icon="heroicons-outline:information-circle" width={16} />
               </span>
             )}
             {validate && (
               <span className="text-success-500">
-                <Icon icon="bi:check-lg" />
+                <Icon icon="bi:check-lg" width={16} />
               </span>
             )}
           </div>
         </div>
         {/* error and success message*/}
-        {error && (
+        {/* {error && (
           <div
             className={`mt-1 ${
               msgTooltip
@@ -140,9 +140,9 @@ export const Textarea = forwardRef(
           >
             {error.message}
           </div>
-        )}
+        )} */}
         {/* validated and success message*/}
-        {validate && (
+        {/* {validate && (
           <div
             className={`mt-1 ${
               msgTooltip
@@ -152,11 +152,11 @@ export const Textarea = forwardRef(
           >
             {validate}
           </div>
-        )}
+        )} */}
         {/* only description */}
-        {description && (
+        {/* {description && (
           <span className="input-description">{description}</span>
-        )}
+        )} */}
       </div>
     );
   }
