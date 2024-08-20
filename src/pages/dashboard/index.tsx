@@ -114,6 +114,12 @@ function Dashboard() {
             path={"/address"}
             children={<p>address popup</p>}
           />
+          <PopupButton
+            width={1000}
+            height={700}
+            path={"/samplePage"}
+            children={<p>sample popup</p>}
+          />
           <Button
             className="btn-sm btn-primary"
             onClick={() => {
