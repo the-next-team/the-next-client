@@ -16,12 +16,12 @@ function useUser() {
   };
 
   const setUser = (data: UserState) => {
-    localStorage.setItem(storageKey.user, JSON.stringify(data));
+    sessionStorage.setItem(storageKey.user, JSON.stringify(data));
     _setUser(data);
   };
 
   const logout = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     _setUser(null);
     navigate("/login", {
       replace: true,

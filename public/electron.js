@@ -4,6 +4,7 @@ const {
   BrowserWindow,
   dialog,
   ipcMain,
+  session,
 } = require("electron");
 const { autoUpdater } = require("electron-updater");
 const log = require("electron-log");
@@ -43,7 +44,7 @@ log.info("App starting...");
 // that updates are working.
 //-------------------------------------------------------------------
 let updateWindow;
-let win;
+let win = null;
 
 function sendStatusToWindow(text) {
   log.info(text);
@@ -86,6 +87,7 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true, // 이 옵션을 true로 유지하는 것이 좋습니다.
+      session: session.defaultSession,
       preload: path.join(__dirname, "preload.js"),
     },
   });
@@ -158,8 +160,7 @@ autoUpdater.on("update-downloaded", () => {
   dialog
     .showMessageBox({
       title: "업데이트 설치",
-      message:
-        "업데이트가 다운로드되었습니다. 앱을 재시작하여 업데이트를 적용하시겠습니까?",
+      message: "업데이트가 다운로드되었습니다. 앱을 재시작하여 업데이트를 적용하시겠습니까?",
     })
     .then((result) => {
       if (result.response === 0) {
@@ -173,12 +174,39 @@ ipcMain.on("restart_app", () => {
   autoUpdater.quitAndInstall();
 });
 
+// 메인 창의 sessionStorage 데이터를 반환
+ipcMain.handle('get-session-data', () => {
+  log.info("get-session-data...");
+
+  const parentWindow = BrowserWindow.getFocusedWindow();
+
+  // 메인 창의 sessionStorage 데이터를 직렬화
+  parentWindow.webContents.executeJavaScript('JSON.stringify(sessionStorage)').then((sessionData) => {
+    log.info("NewWindow sessionData", sessionData);
+
+    // 데이터 전달 시 이스케이프 처리
+    const escapedSessionData = sessionData.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    return JSON.parse(escapedSessionData);
+
+    // 팝업 창에서 sessionStorage에 데이터 복원
+    // newWindow.webContents.executeJavaScript(`Object.assign(sessionStorage, JSON.parse('${escapedSessionData}'))`).catch((error) => {
+    //   log.error("Failed to assign sessionStorage in new window:", error);
+    // });
+  }).catch((error) => {
+    log.error("Failed to retrieve sessionStorage from parent window:", error);
+  });
+});
+
 ipcMain.on("open-new-window", (event, args) => {
   const { route, width, height } = args;
   log.info("open-new-window...", args);
+  log.info("win?.webContents.session...", win?.webContents.session);
+  log.info("session.defaultSession...", session.defaultSession);
 
   // 부모 창의 위치 가져오기
   const parentWindow = BrowserWindow.getFocusedWindow();
+  const parentSession = parentWindow.webContents.session;
+
   const [parentX, parentY] = parentWindow.getPosition();
 
   windowCount++;
@@ -190,13 +218,19 @@ ipcMain.on("open-new-window", (event, args) => {
     height: height || 800,
     x: parentX + offset, // x 위치
     y: parentY + offset, // y 위치
+    // parent: parentWindow,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
+      session: parentWindow.webContents.session,
+      preload: path.join(__dirname, 'popup-preload.js'),  // preload.js 경로 설정
     },
   });
 
   newWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
+  newWindow.webContents.on('did-finish-load', () => {
+
+  });
 
   newWindow.on("closed", () => {
     windowCount--;
