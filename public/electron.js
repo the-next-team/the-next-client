@@ -399,7 +399,6 @@ ipcMain.handle('get-session-data', () => {
   log.info("get-session-data...");
 
   return win?.webContents.executeJavaScript('JSON.stringify(sessionStorage)').then((sessionData) => {
-    log.info("NewWindow sessionData", sessionData);
     return JSON.parse(sessionData);
   }).catch((error) => {
     log.error("Failed to retrieve sessionStorage from parent window:", error);
@@ -411,7 +410,6 @@ ipcMain.handle('get-storage-data', () => {
   log.info("get-storage-data...");
 
   return win?.webContents.executeJavaScript('JSON.stringify(localStorage)').then((storageData) => {
-    log.info("NewWindow storageData", storageData);
     return JSON.parse(storageData);
   }).catch((error) => {
     log.error("Failed to retrieve localStorage from parent window:", error);
