@@ -46,7 +46,7 @@ const Checkbox = (
         {...props}
       />
       <span
-        className={`h-4 w-4 border flex-none border-slate-100 rounded inline-flex mr-2 relative transition-all duration-150 ${
+        className={`h-4 w-4 border flex-none shrink-0 border-slate-100 rounded inline-flex mr-2 relative transition-all duration-150 ${
           checked ? `${activeClass} ring-1 ring-offset-1` : "bg-slate-100"
         }`}
       >
