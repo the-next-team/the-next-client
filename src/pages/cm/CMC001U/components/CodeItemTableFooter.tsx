@@ -4,6 +4,8 @@ import Button from "../../../../components/button/Button";
 import Radio from "../../../../components/form/Radio";
 import RadioGroup from "../../../../components/form/RadioGroup";
 import TextInput from "../../../../components/form/TextInput";
+import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
+import Checkbox from "../../../../components/checkbox/Checkbox";
 
 type FormValues = {
   a: string;
@@ -16,10 +18,7 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
-  r1: string;
-  r2: string;
-  r3: string;
-  r4: string;
+  checkbox: Array<string>;
 };
 
 type Props = {
@@ -38,10 +37,8 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      r1: "r1-1",
-      r2: "r2-1",
-      r3: "r3-1",
-      r4: "r4-1",
+      a: "",
+      checkbox: [],
     },
   });
 
@@ -72,20 +69,13 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             name="b"
             register={register}
           />
-          <RadioGroup horizontal label={"사용여부"}>
-            <Radio
-              label="Yes"
-              value="r1-1"
-              checked={watch("r1") === "r1-1"}
-              {...register("r1")}
+          <CheckboxGroup horizontal label={"사용여부"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk1")}
+              value="chk1"
+              {...register("checkbox")}
             />
-            <Radio
-              label="No"
-              value="r1-2"
-              checked={watch("r1") === "r1-2"}
-              {...register("r1")}
-            />
-          </RadioGroup>
+          </CheckboxGroup>
           <div className="col-span-2">
             <TextInput
               essential
@@ -105,48 +95,27 @@ function CodeItemTableFooter({ initialValues, onSubmit }: Props) {
             name="e"
             register={register}
           />
-          <RadioGroup horizontal label={"사용여부1"}>
-            <Radio
-              label="Yes"
-              value="r2-1"
-              checked={watch("r2") === "r2-1"}
-              {...register("r2")}
+          <CheckboxGroup horizontal label={"사용여부1"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk2")}
+              value="chk2"
+              {...register("checkbox")}
             />
-            <Radio
-              label="No"
-              value="r2-2"
-              checked={watch("r2") === "r2-2"}
-              {...register("r2")}
+          </CheckboxGroup>
+          <CheckboxGroup horizontal label={"사용여부2"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk3")}
+              value="chk3"
+              {...register("checkbox")}
             />
-          </RadioGroup>
-          <RadioGroup horizontal label={"사용여부2"}>
-            <Radio
-              label="Yes"
-              value="r3-1"
-              checked={watch("r3") === "r3-1"}
-              {...register("r3")}
+          </CheckboxGroup>
+          <CheckboxGroup horizontal label={"사용여부3"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk4")}
+              value="chk4"
+              {...register("checkbox")}
             />
-            <Radio
-              label="No"
-              value="r3-2"
-              checked={watch("r3") === "r3-2"}
-              {...register("r3")}
-            />
-          </RadioGroup>
-          <RadioGroup horizontal label={"사용여부3"}>
-            <Radio
-              label="Yes"
-              value="r4-1"
-              checked={watch("r4") === "r4-1"}
-              {...register("r4")}
-            />
-            <Radio
-              label="No"
-              value="r4-2"
-              checked={watch("r4") === "r4-2"}
-              {...register("r4")}
-            />
-          </RadioGroup>
+          </CheckboxGroup>
           <TextInput
             label="정수1"
             type="text"
