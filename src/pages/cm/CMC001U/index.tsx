@@ -3,29 +3,24 @@
  * 시스템 > 코드관리 > 공통코드관리
  * CMC001U
  */
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
+import { ValueType } from "realgrid";
+import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
 import {
   CodeService,
-  ICode,
-  ICodeItem,
+  ICodeItem
 } from "../../../api/services/codeService";
-import CodeItemTable from "./components/CodeItemTable";
-import CodeItemTableFooter from "./components/CodeItemTableFooter";
-import CodeTable from "./components/CodeTable";
-import CodeTableFooter from "./components/CodeTableFooter";
-import HeaderForm from "./components/HeaderForm";
-import Modal from "../../../components/modal/ExampleModal";
 import Button from "../../../components/button/Button";
-import { ValueType } from "realgrid";
+import Modal from "../../../components/modal/ExampleModal";
 import RealGridTable, {
   RealGridHandle,
 } from "../../../components/table/RealGridTable";
-import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
+import CodeItemTableFooter from "./components/CodeItemTableFooter";
+import CodeTableFooter from "./components/CodeTableFooter";
+import HeaderForm from "./components/HeaderForm";
 
-type Props = {
-  item?: ICode | null;
-  onClick: (item: ICodeItem) => void;
-};
+type Props = {};
 
 const leftFields = [
   {
@@ -227,32 +222,39 @@ const rightColumns = [
   },
 ];
 
-function CMC001U({ item, onClick }: Props) {
-  const [selected, setSelected] = useState<ICode | null>(null); // 선택된 코드
-  const realGridRef = useRef<RealGridHandle>(null);
-  const [items, setItems] = useState<ICode[]>([]);
+function CMC001U({}: Props) {
+  const [selected, setSelected] = useState<number | null>(null); // 선택된 코드
+  const leftRealGridRef = useRef<RealGridHandle>(null);
+  const rightRealGridRef = useRef<RealGridHandle>(null);
+  const [subItems, setSubItems] = useState<ICodeItem[]>([]);
 
-  useEffect(() => {
-    findAll();
-  }, []);
-
-  useEffect(() => {
-    if (item) {
-      findAll();
-    } else {
-      setItems([]);
-    }
-  }, [item]);
-
-  const findAll = async () => {
-    try {
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["codeList"],
+    queryFn: async () => {
       const response = await CodeService.getCode();
       if (response.status === ApiResponseStats.OK) {
-        setItems(response.data);
-        realGridRef.current?.setRows(response.data);
+        leftRealGridRef.current?.setRows(response.data);
+        return response.data;
+      }
+      return [];
+    },
+  });
+
+  const findAllByKind = async (kind: string) => {
+    try {
+      const response = await CodeService.getCodeByKind(kind);
+      if (response.status === ApiResponseStats.OK) {
+        setSubItems(response.data);
+        rightRealGridRef.current?.setRows(response.data);
       }
     } catch (error) {}
   };
+
+  useEffect(() => {
+    if(data && selected) {
+      findAllByKind(data[selected].kind)
+    }
+  },[selected])
 
   return (
     <div className="relative flex flex-col h-full gap-2">
@@ -273,14 +275,14 @@ function CMC001U({ item, onClick }: Props) {
             <span>대분류코드</span>
           </div>
           <RealGridTable
-            ref={realGridRef}
+            ref={leftRealGridRef}
             fields={leftFields}
             columns={leftColumns}
-            // onCellClicked={(gird, data) => {
-            //   if (data.itemIndex) {
-            //     onClick(items[data.itemIndex]);
-            //   }
-            // }}
+            onCellClicked={(gird, data) => {
+              if (data.itemIndex) {
+                setSelected(data.itemIndex);
+              }
+            }}
           />
           <div className="flex justify-end mt-2">
             <div className="flex gap-2">
@@ -344,7 +346,7 @@ function CMC001U({ item, onClick }: Props) {
             <span>소분류코드</span>
           </div>
           <RealGridTable
-            ref={realGridRef}
+            ref={rightRealGridRef}
             fields={rightFields}
             columns={rightColumns}
             // onCellClicked={(grid, data) => {
