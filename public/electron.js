@@ -174,11 +174,9 @@ ipcMain.on("restart_app", () => {
   autoUpdater.quitAndInstall();
 });
 
-
-
-ipcMain.on("open-new-window", (event, args) => {
-  const { route, width, height } = args;
-  log.info("open-new-window...", args);
+ipcMain.on("open-popup", (event, args) => {
+  const { id, route, width, height } = args;
+  log.info("open-popup...", args);
 
   // 부모 창의 위치 가져오기
   const parentWindow = BrowserWindow.getFocusedWindow();
@@ -188,28 +186,44 @@ ipcMain.on("open-new-window", (event, args) => {
 
   windowCount++;
   let offset = windowCount * 20;
-  let newWindow = new BrowserWindow({
-    minWidth: 1200,
-    minHeight: 800,
+  let popupWindow = new BrowserWindow({
+    minWidth: 800,
+    minHeight: 600,
     width: width || 800,
-    height: height || 800,
+    height: height || 600,
     x: parentX + offset, // x 위치
     y: parentY + offset, // y 위치
-    // parent: parentWindow,
+    parent: parentWindow,
+    // modal: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
-      // session: parentWindow.webContents.session,
+      session: parentSession,
       preload: path.join(__dirname, 'popup-preload.js'),  // preload.js 경로 설정
     },
   });
 
-  newWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
-  newWindow.webContents.on('did-finish-load', () => {
+  popupWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
+  popupWindow.webContents.once('did-finish-load', () => {
 
   });
 
-  newWindow.on("closed", () => {
+  // 팝업 닫힘 이벤트
+  popupWindow.on('closed', () => {
+    // 부모 창으로 팝업이 닫혔다는 이벤트 전송
+    event.sender.send(`popup-closed-${id}`);
+
+    // 리스너 제거
+    ipcMain.removeAllListeners(`popup-result-${id}`);
+  });
+
+  // 팝업에서 응답 받기
+  ipcMain.on(`popup-result-${id}`, (event, data) => {
+    event.sender.send(`popup-result-${id}`, data);
+    popupWindow.close(); // 팝업 닫기
+  });
+
+  popupWindow.on("closed", () => {
     windowCount--;
   });
 });
