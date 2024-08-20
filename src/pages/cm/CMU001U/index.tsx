@@ -15,6 +15,7 @@ import RealGridTable, {
 } from "../../../components/table/RealGridTable";
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
+import Button from "../../../components/button/Button";
 
 const fields = [
   {
@@ -183,24 +184,42 @@ function CMU001U() {
       </div>
 
       {/* <Card> */}
-      <div className="flex-grow">
-        <RealGridTable
-          ref={realGridRef}
-          fields={fields}
-          columns={columns}
-          onCellClicked={(grid, data) => {
-            console.log("onCellClicked", data.itemIndex);
-          }}
-        />
-      </div>
+      <div className="flex-grow flex h-full gird-cols-2">
+        <div className="flex-grow">
+          <RealGridTable
+            ref={realGridRef}
+            fields={fields}
+            columns={columns}
+            onCellClicked={(grid, data) => {
+              console.log("onCellClicked", data.itemIndex);
+            }}
+          />
+        </div>
 
-      {/* Footer */}
-      <div>
-        <FooterForm
-          onSubmit={(data) => {
-            console.log(data);
-          }}
-        />
+        {/* Footer */}
+        <div className="w-[300px]">
+          <FooterForm
+            onSubmit={(data) => {
+              console.log(data);
+            }}
+          />
+          <div className="flex justify-end">
+            <div className="flex gap-2">
+              <Button text="초기화" className="w-12 btn-primary btn-sm" />
+              <Button text="등록" className="w-12 btn-primary btn-sm" />
+              <Button
+                text="수정"
+                className="w-12 btn-primary btn-sm"
+                disabled
+              />
+              <Button
+                text="삭제"
+                className="w-12 btn-primary btn-sm"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

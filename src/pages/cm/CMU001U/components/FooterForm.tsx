@@ -43,9 +43,9 @@ function FooterForm({ initialValues, onSubmit }: Props) {
   });
 
   return (
-    <form className="">
-      <div className="p-2 mb-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
+    <form className="h-full flex flex-col ml-2 relative ">
+      <div className="p-2 mb-2 bg-white rounded flex-grow overflow-y-auto">
+        <div className="grid grid-cols-1 gap-y-1">
           <TextInput
             label="사용자ID"
             type="text"
@@ -289,7 +289,7 @@ function FooterForm({ initialValues, onSubmit }: Props) {
             name="date"
             control={control}
           />
-          <CheckboxGroup horizontal label="권한설정" className="col-span-4">
+          <CheckboxGroup horizontal label="권한설정" className="">
             <Checkbox
               label="개인정보조회"
               checked={watch("checkbox").includes("chk1")}
@@ -363,14 +363,14 @@ function FooterForm({ initialValues, onSubmit }: Props) {
           />
         </div>
       </div>
-      <div className="flex justify-end">
-        <div className="flex gap-2 ">
+      {/* <div className="flex justify-end">
+        <div className="flex gap-2">
           <Button text="초기화" className="w-12 btn-primary btn-sm" />
           <Button text="등록" className="w-12 btn-primary btn-sm" />
           <Button text="수정" className="w-12 btn-primary btn-sm" disabled />
           <Button text="삭제" className="w-12 btn-primary btn-sm" disabled />
         </div>
-      </div>
+      </div> */}
     </form>
   );
 }
