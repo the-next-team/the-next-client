@@ -62,9 +62,9 @@ function FooterForm({
   }, [initialValues, reset]);
 
   return (
-    <form className="">
-      <div className="p-2 mb-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-y-1">
+    <form className="h-full flex flex-col ml-2">
+      <div className="p-2 mb-2 bg-white rounded flex-grow">
+        <div className="grid grid-cols-1 gap-y-1">
           <CodeSelect
             label="• 부서(지점)"
             horizontal

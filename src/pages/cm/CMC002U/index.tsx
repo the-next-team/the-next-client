@@ -210,38 +210,40 @@ function CMC002U() {
         />
       </div>
 
-      <div className="flex-grow">
-        <RealGridTable
-          ref={realGridRef}
-          fields={fields}
-          columns={columns}
-          onCellClicked={(grid, data) => {
-            console.log("onCellClicked", data.itemIndex);
-            if (data.itemIndex) {
-              setSelectedIndex(data.itemIndex);
-            }
-          }}
-        />
-      </div>
+      <div className="flex-grow flex grid-cols-2">
+        <div className="flex-grow">
+          <RealGridTable
+            ref={realGridRef}
+            fields={fields}
+            columns={columns}
+            onCellClicked={(grid, data) => {
+              console.log("onCellClicked", data.itemIndex);
+              if (data.itemIndex) {
+                setSelectedIndex(data.itemIndex);
+              }
+            }}
+          />
+        </div>
 
-      {/* Footer */}
-      <div className="">
-        <FooterForm
-          initialValues={selectedIndex ? items[selectedIndex] : null}
-          onAdd={(data) => {
-            console.log("onAdd", data);
-          }}
-          onEdit={(data) => {
-            console.log("onEdit", data);
-          }}
-          onReset={() => {
-            console.log("onReset");
-            setSelectedIndex(null);
-          }}
-          onDelete={() => {
-            console.log("onDelete");
-          }}
-        />
+        {/* Footer */}
+        <div className="">
+          <FooterForm
+            initialValues={selectedIndex ? items[selectedIndex] : null}
+            onAdd={(data) => {
+              console.log("onAdd", data);
+            }}
+            onEdit={(data) => {
+              console.log("onEdit", data);
+            }}
+            onReset={() => {
+              console.log("onReset");
+              setSelectedIndex(null);
+            }}
+            onDelete={() => {
+              console.log("onDelete");
+            }}
+          />
+        </div>
       </div>
     </div>
   );
