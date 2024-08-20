@@ -59,7 +59,7 @@ function PopupButton({
       const windowFeatures = `width=${width},height=${height},left=${left},top=${top}`;
       const popup = window.open(route, undefined, windowFeatures);
       if (popup) {
-        var timer = setInterval(() => {
+        const timer = setInterval(() => {
           if (popup.closed) {
             clearInterval(timer);
             if (onClose) {
