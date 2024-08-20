@@ -87,7 +87,7 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true, // 이 옵션을 true로 유지하는 것이 좋습니다.
-      session: session.defaultSession,
+      // session: session.defaultSession,
       preload: path.join(__dirname, "preload.js"),
     },
   });
@@ -174,34 +174,11 @@ ipcMain.on("restart_app", () => {
   autoUpdater.quitAndInstall();
 });
 
-// 메인 창의 sessionStorage 데이터를 반환
-ipcMain.handle('get-session-data', () => {
-  log.info("get-session-data...");
 
-  const parentWindow = BrowserWindow.getFocusedWindow();
-
-  // 메인 창의 sessionStorage 데이터를 직렬화
-  parentWindow.webContents.executeJavaScript('JSON.stringify(sessionStorage)').then((sessionData) => {
-    log.info("NewWindow sessionData", sessionData);
-
-    // 데이터 전달 시 이스케이프 처리
-    const escapedSessionData = sessionData.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-    return JSON.parse(escapedSessionData);
-
-    // 팝업 창에서 sessionStorage에 데이터 복원
-    // newWindow.webContents.executeJavaScript(`Object.assign(sessionStorage, JSON.parse('${escapedSessionData}'))`).catch((error) => {
-    //   log.error("Failed to assign sessionStorage in new window:", error);
-    // });
-  }).catch((error) => {
-    log.error("Failed to retrieve sessionStorage from parent window:", error);
-  });
-});
 
 ipcMain.on("open-new-window", (event, args) => {
   const { route, width, height } = args;
   log.info("open-new-window...", args);
-  log.info("win?.webContents.session...", win?.webContents.session);
-  log.info("session.defaultSession...", session.defaultSession);
 
   // 부모 창의 위치 가져오기
   const parentWindow = BrowserWindow.getFocusedWindow();
@@ -222,7 +199,7 @@ ipcMain.on("open-new-window", (event, args) => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
-      session: parentWindow.webContents.session,
+      // session: parentWindow.webContents.session,
       preload: path.join(__dirname, 'popup-preload.js'),  // preload.js 경로 설정
     },
   });
@@ -396,4 +373,33 @@ app.on("window-all-closed", () => {
 process.on("uncaughtException", (error) => {
   console.error("전역 예외 발생:", error);
   // 필요한 오류 처리 로직을 여기에 추가
+});
+
+
+
+/**
+ * Utility
+ */
+// 메인 창의 sessionStorage 데이터를 반환
+ipcMain.handle('get-session-data', () => {
+  log.info("get-session-data...");
+
+  return win?.webContents.executeJavaScript('JSON.stringify(sessionStorage)').then((sessionData) => {
+    log.info("NewWindow sessionData", sessionData);
+    return JSON.parse(sessionData);
+  }).catch((error) => {
+    log.error("Failed to retrieve sessionStorage from parent window:", error);
+  });
+});
+
+// 메인 창의 localStorage 데이터를 반환
+ipcMain.handle('get-storage-data', () => {
+  log.info("get-storage-data...");
+
+  return win?.webContents.executeJavaScript('JSON.stringify(localStorage)').then((storageData) => {
+    log.info("NewWindow storageData", storageData);
+    return JSON.parse(storageData);
+  }).catch((error) => {
+    log.error("Failed to retrieve localStorage from parent window:", error);
+  });
 });

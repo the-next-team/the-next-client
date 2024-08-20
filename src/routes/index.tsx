@@ -13,10 +13,10 @@ const AppRouter = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route element={<PrivateRoute />}>
+          <Route path="/audit" element={<AuditPage />} />
           <Route path="/*" element={<Layout />} />
           <Route path="/address" element={<Address onSubmit={() => {}} />} />
         </Route>
-        <Route path="/audit" element={<AuditPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error404Page />} />
       </Routes>
