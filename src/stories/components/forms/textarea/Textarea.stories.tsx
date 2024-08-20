@@ -87,7 +87,7 @@ export const Default: Story = {
 
 // Displayed Rows
 export const DisplayedRows: Story = () => (
-  <Textarea label="Textarea" id="pn4" placeholder="Textarea" rows={5} />
+  <Textarea label="Basic" id="pn4" placeholder="Textarea" rows={5} />
 );
 DisplayedRows.args = {
   ...DisplayedRows.args,
