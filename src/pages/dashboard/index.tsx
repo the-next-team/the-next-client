@@ -105,9 +105,13 @@ function Dashboard() {
           <PopupButton
             width={1600}
             height={1000}
-            path={"/audit?inspNo=3384222342011"}
+            path={"/audit"}
+            params={{ inspNo: "3384222342011" }}
             onClose={() => {
               console.log("onClose");
+            }}
+            onResult={(data: any) => {
+              console.log("onResult", data);
             }}
             children={<p>open popup</p>}
           />

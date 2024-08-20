@@ -11,7 +11,7 @@ const log = require("electron-log");
 const path = require("path");
 
 const loadUrl = "http://localhost:3000";
-const iconPath = path.join(__dirname, '../src/assets/icons/png/64x64.png')
+const iconPath = path.join(__dirname, "../src/assets/icons/png/64x64.png");
 let windowCount = 0;
 
 // Local Update TEST
@@ -67,7 +67,7 @@ const createUpdateWindow = () => {
   updateWindow.webContents.openDevTools({ mode: "detach" });
 
   // macOS의 Dock 아이콘 설정
-  if (process.platform === 'darwin') {
+  if (process.platform === "darwin") {
     app.dock.setIcon(iconPath);
   }
 };
@@ -101,8 +101,8 @@ const createWindow = () => {
   }
 
   win?.once("ready-to-show", () => win?.show());
-  win?.on('close', () => {
-    win.webContents.executeJavaScript('localStorage.clear();');
+  win?.on("close", () => {
+    win.webContents.executeJavaScript("localStorage.clear();");
   });
   win?.on("closed", () => {
     win = null;
@@ -160,7 +160,8 @@ autoUpdater.on("update-downloaded", () => {
   dialog
     .showMessageBox({
       title: "업데이트 설치",
-      message: "업데이트가 다운로드되었습니다. 앱을 재시작하여 업데이트를 적용하시겠습니까?",
+      message:
+        "업데이트가 다운로드되었습니다. 앱을 재시작하여 업데이트를 적용하시겠습니까?",
     })
     .then((result) => {
       if (result.response === 0) {
@@ -175,7 +176,7 @@ ipcMain.on("restart_app", () => {
 });
 
 ipcMain.on("open-popup", (event, args) => {
-  const { id, route, width, height } = args;
+  const { popupId, route, width, height } = args;
   log.info("open-popup...", args);
 
   // 부모 창의 위치 가져오기
@@ -199,32 +200,24 @@ ipcMain.on("open-popup", (event, args) => {
       nodeIntegration: true,
       contextIsolation: true,
       session: parentSession,
-      preload: path.join(__dirname, 'popup-preload.js'),  // preload.js 경로 설정
+      preload: path.join(__dirname, "popup-preload.js"), // preload.js 경로 설정
     },
   });
 
   popupWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
-  popupWindow.webContents.once('did-finish-load', () => {
-
-  });
-
-  // 팝업 닫힘 이벤트
-  popupWindow.on('closed', () => {
-    // 부모 창으로 팝업이 닫혔다는 이벤트 전송
-    event.sender.send(`popup-closed-${id}`);
-
-    // 리스너 제거
-    ipcMain.removeAllListeners(`popup-result-${id}`);
-  });
+  popupWindow.webContents.once("did-finish-load", () => {});
 
   // 팝업에서 응답 받기
-  ipcMain.on(`popup-result-${id}`, (event, data) => {
-    event.sender.send(`popup-result-${id}`, data);
-    popupWindow.close(); // 팝업 닫기
+  ipcMain.once(`popup-result-${popupId}`, (_, data) => {
+    event.sender.send(`popup-result-${popupId}`, data);
   });
 
+  // 팝업이 닫힐 때
   popupWindow.on("closed", () => {
     windowCount--;
+
+    // 부모 창으로 팝업이 닫혔다는 이벤트 전송
+    event.sender.send(`popup-closed-${popupId}`);
   });
 });
 
@@ -389,29 +382,33 @@ process.on("uncaughtException", (error) => {
   // 필요한 오류 처리 로직을 여기에 추가
 });
 
-
-
 /**
  * Utility
  */
 // 메인 창의 sessionStorage 데이터를 반환
-ipcMain.handle('get-session-data', () => {
+ipcMain.handle("get-session-data", () => {
   log.info("get-session-data...");
 
-  return win?.webContents.executeJavaScript('JSON.stringify(sessionStorage)').then((sessionData) => {
-    return JSON.parse(sessionData);
-  }).catch((error) => {
-    log.error("Failed to retrieve sessionStorage from parent window:", error);
-  });
+  return win?.webContents
+    .executeJavaScript("JSON.stringify(sessionStorage)")
+    .then((sessionData) => {
+      return JSON.parse(sessionData);
+    })
+    .catch((error) => {
+      log.error("Failed to retrieve sessionStorage from parent window:", error);
+    });
 });
 
 // 메인 창의 localStorage 데이터를 반환
-ipcMain.handle('get-storage-data', () => {
+ipcMain.handle("get-storage-data", () => {
   log.info("get-storage-data...");
 
-  return win?.webContents.executeJavaScript('JSON.stringify(localStorage)').then((storageData) => {
-    return JSON.parse(storageData);
-  }).catch((error) => {
-    log.error("Failed to retrieve localStorage from parent window:", error);
-  });
+  return win?.webContents
+    .executeJavaScript("JSON.stringify(localStorage)")
+    .then((storageData) => {
+      return JSON.parse(storageData);
+    })
+    .catch((error) => {
+      log.error("Failed to retrieve localStorage from parent window:", error);
+    });
 });
