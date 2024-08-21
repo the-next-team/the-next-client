@@ -82,9 +82,6 @@ const leftColumns = [
     fieldName: "kind",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
     header: {
       text: "코드",
       showTooltip: false,
@@ -99,9 +96,7 @@ const leftColumns = [
     fieldName: "name",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+    styleName: "text-left",
     header: {
       text: "코드명",
       showTooltip: false,
@@ -112,9 +107,6 @@ const leftColumns = [
     fieldName: "useYn",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
     header: "사용여부",
   },
   {
@@ -122,9 +114,6 @@ const leftColumns = [
     fieldName: "a",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
     header: "주요코드",
   },
   {
@@ -132,9 +121,6 @@ const leftColumns = [
     fieldName: "b",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
     header: "코드셋",
   },
   {
@@ -142,9 +128,6 @@ const leftColumns = [
     fieldName: "createdDate",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
     header: "생성일",
   },
 ];
@@ -155,9 +138,6 @@ const rightColumns = [
     fieldName: "code",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
     header: {
       text: "코드",
       showTooltip: false,
@@ -172,9 +152,6 @@ const rightColumns = [
     fieldName: "name",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
     header: {
       text: "코드명",
       showTooltip: false,
@@ -185,9 +162,6 @@ const rightColumns = [
     fieldName: "priority",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
     header: "보기순서",
   },
   {
@@ -195,9 +169,6 @@ const rightColumns = [
     fieldName: "useYn",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
     header: "사용여부",
   },
   {
@@ -205,9 +176,6 @@ const rightColumns = [
     fieldName: "updatedDate",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
     header: "등록일",
   },
   {
