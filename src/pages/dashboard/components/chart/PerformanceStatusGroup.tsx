@@ -1,11 +1,9 @@
-import React from "react";
 import Icon from "../../../../components/icons/Icon";
 
 import shade1 from "../../../../assets/images/all-img/shade-1.png";
 import shade2 from "../../../../assets/images/all-img/shade-2.png";
 import shade3 from "../../../../assets/images/all-img/shade-3.png";
 import shade4 from "../../../../assets/images/all-img/shade-4.png";
-import PerformanceStatusChart from "./PerformanceStatusChart";
 import PerformanceStatusRealChart from "../PerformanceStatusRealChart";
 const statistics = [
   {
@@ -18,26 +16,76 @@ const statistics = [
     img: shade1,
     percentClass: "text-danger-500",
     chart: (
-      <PerformanceStatusChart
-        series={[14, 5, 5, 5, 4, 4, 4, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1]}
-        labels={[
-          "핀다",
-          "이노핀",
-          "비바리퍼블리카",
-          "핀테크",
-          "코스콤",
-          "미래에셋증권",
-          "카카오페이",
-          "페이콕",
-          "카카오뱅크",
-          "마이뱅크",
-          "핀마트",
-          "부산은행",
-          "뱅크몰",
-          "토스증권",
-          "뱅크샐러드",
-          "신한은행",
-          "토스뱅크",
+      <PerformanceStatusRealChart
+        data={[
+          {
+            x: "핀다",
+            y: 14,
+          },
+          {
+            x: "이노핀",
+            y: 5,
+          },
+          {
+            x: "비바리퍼블리카",
+            y: 5,
+          },
+          {
+            x: "핀테크",
+            y: 5,
+          },
+          {
+            x: "코스콤",
+            y: 4,
+          },
+          {
+            x: "미래에셋증권",
+            y: 4,
+          },
+          {
+            x: "카카오페이",
+            y: 4,
+          },
+          {
+            x: "페이콕",
+            y: 3,
+          },
+          {
+            x: "카카오뱅크",
+            y: 3,
+          },
+          {
+            x: "마이뱅크",
+            y: 2,
+          },
+          {
+            x: "핀마트",
+            y: 1,
+          },
+          {
+            x: "부산은행",
+            y: 1,
+          },
+          {
+            x: "뱅크몰",
+            y: 1,
+          },
+          {
+            x: "토스증권",
+            y: 1,
+          },
+          {
+            x: "뱅크샐러드",
+            y: 1,
+          },
+          {
+            x: "신한은행",
+            y: 1,
+          },
+          {
+            x: "토스뱅크",
+            y: 1,
+          },
         ]}
       />
     ),
@@ -52,26 +100,76 @@ const statistics = [
     img: shade2,
     percentClass: "text-danger-500",
     chart: (
-      <PerformanceStatusChart
-        series={[14, 5, 5, 5, 4, 4, 4, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1]}
-        labels={[
-          "핀다",
-          "이노핀",
-          "비바리퍼블리카",
-          "핀테크",
-          "코스콤",
-          "미래에셋증권",
-          "카카오페이",
-          "페이콕",
-          "카카오뱅크",
-          "마이뱅크",
-          "핀마트",
-          "부산은행",
-          "뱅크몰",
-          "토스증권",
-          "뱅크샐러드",
-          "신한은행",
-          "토스뱅크",
+      <PerformanceStatusRealChart
+        data={[
+          {
+            x: "핀다",
+            y: 14,
+          },
+          {
+            x: "이노핀",
+            y: 5,
+          },
+          {
+            x: "비바리퍼블리카",
+            y: 5,
+          },
+          {
+            x: "핀테크",
+            y: 5,
+          },
+          {
+            x: "코스콤",
+            y: 4,
+          },
+          {
+            x: "미래에셋증권",
+            y: 4,
+          },
+          {
+            x: "카카오페이",
+            y: 4,
+          },
+          {
+            x: "페이콕",
+            y: 3,
+          },
+          {
+            x: "카카오뱅크",
+            y: 3,
+          },
+          {
+            x: "마이뱅크",
+            y: 2,
+          },
+          {
+            x: "핀마트",
+            y: 1,
+          },
+          {
+            x: "부산은행",
+            y: 1,
+          },
+          {
+            x: "뱅크몰",
+            y: 1,
+          },
+          {
+            x: "토스증권",
+            y: 1,
+          },
+          {
+            x: "뱅크샐러드",
+            y: 1,
+          },
+          {
+            x: "신한은행",
+            y: 1,
+          },
+          {
+            x: "토스뱅크",
+            y: 1,
+          },
         ]}
       />
     ),
@@ -86,26 +184,76 @@ const statistics = [
     img: shade3,
     percentClass: "text-primary-500",
     chart: (
-      <PerformanceStatusChart
-        series={[14, 5, 5, 5, 4, 4, 4, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1]}
-        labels={[
-          "핀다",
-          "이노핀",
-          "비바리퍼블리카",
-          "핀테크",
-          "코스콤",
-          "미래에셋증권",
-          "카카오페이",
-          "페이콕",
-          "카카오뱅크",
-          "마이뱅크",
-          "핀마트",
-          "부산은행",
-          "뱅크몰",
-          "토스증권",
-          "뱅크샐러드",
-          "신한은행",
-          "토스뱅크",
+      <PerformanceStatusRealChart
+        data={[
+          {
+            x: "핀다",
+            y: 14,
+          },
+          {
+            x: "이노핀",
+            y: 5,
+          },
+          {
+            x: "비바리퍼블리카",
+            y: 5,
+          },
+          {
+            x: "핀테크",
+            y: 5,
+          },
+          {
+            x: "코스콤",
+            y: 4,
+          },
+          {
+            x: "미래에셋증권",
+            y: 4,
+          },
+          {
+            x: "카카오페이",
+            y: 4,
+          },
+          {
+            x: "페이콕",
+            y: 3,
+          },
+          {
+            x: "카카오뱅크",
+            y: 3,
+          },
+          {
+            x: "마이뱅크",
+            y: 2,
+          },
+          {
+            x: "핀마트",
+            y: 1,
+          },
+          {
+            x: "부산은행",
+            y: 1,
+          },
+          {
+            x: "뱅크몰",
+            y: 1,
+          },
+          {
+            x: "토스증권",
+            y: 1,
+          },
+          {
+            x: "뱅크샐러드",
+            y: 1,
+          },
+          {
+            x: "신한은행",
+            y: 1,
+          },
+          {
+            x: "토스뱅크",
+            y: 1,
+          },
         ]}
       />
     ),
@@ -221,7 +369,7 @@ const PerformanceStatusGroup = () => {
             <div>
               <div className="flex gap-1">
                 <Icon icon={item.icon} className={`${item.text}`} />
-                <span className={`text-xs block ${item.percentClass} `}>
+                <span className={`text-xs block ${item.percentClass}`}>
                   {item.percent}
                 </span>
               </div>
