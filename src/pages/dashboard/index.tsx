@@ -3,17 +3,17 @@ import { NotificationService } from "../../api/services/notification/notificatio
 import Button from "../../components/button/Button";
 import PopupButton from "../../components/button/PopupButton";
 import useNotification from "../../hooks/useNotification";
-import BalanceDelayRealChart from "./components/BalanceDelayRealChart";
+import BalanceDelayRealChart from "./components/chart/BalanceDelayRealChart";
 import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
-import LoanAmountRealChart from "./components/LoanAmountRealChart";
-import LoanPerformanceRealChart from "./components/LoanPerformanceRealChart";
-import ProfitAndLossStatusRealChart from "./components/ProfitAndLossStatusRealChart";
-import ReactDatePicker from "./components/ReactDatePicker";
+import LoanAmountRealChart from "./components/chart/LoanAmountRealChart";
+import LoanPerformanceRealChart from "./components/chart/LoanPerformanceRealChart";
+import ProfitAndLossStatusRealChart from "./components/chart/ProfitAndLossStatusRealChart";
+import ReactDatePicker from "./components/widget/ReactDatePicker";
 import CalendarView from "./components/widget/CalendarView";
 import Profile from "./components/widget/profile";
 import RecentActivity from "./components/widget/recent-activity";
 import TaskLists from "./components/widget/task-list";
-import MonthlyBalanceRealChart from "./components/MonthlyBalanceRealChart";
+import MonthlyBalanceRealChart from "./components/chart/MonthlyBalanceRealChart";
 
 const Card = ({
   title,
@@ -85,7 +85,7 @@ function Dashboard() {
           </Card>
         </div>
         <Card title="여.수신월별잔액">
-          <MonthlyBalanceRealChart/>
+          <MonthlyBalanceRealChart />
         </Card>
         <div className="flex items-start gap-2">
           <PopupButton

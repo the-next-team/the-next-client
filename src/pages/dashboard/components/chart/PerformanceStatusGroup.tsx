@@ -4,7 +4,7 @@ import shade1 from "../../../../assets/images/all-img/shade-1.png";
 import shade2 from "../../../../assets/images/all-img/shade-2.png";
 import shade3 from "../../../../assets/images/all-img/shade-3.png";
 import shade4 from "../../../../assets/images/all-img/shade-4.png";
-import PerformanceStatusRealChart from "../PerformanceStatusRealChart";
+import PerformanceStatusRealChart from "./PerformanceStatusRealChart";
 const statistics = [
   {
     title: "대출금액",
