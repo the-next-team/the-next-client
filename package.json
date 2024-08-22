@@ -48,7 +48,6 @@
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.8.0",
-    "react-tailwindcss-datepicker": "^1.6.6",
     "reactstrap": "^8.4.1",
     "realchart": "^1.1.6",
     "realgrid": "^2.8.2",
