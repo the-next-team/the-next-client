@@ -7,10 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { ValueType } from "realgrid";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
-import {
-  CodeService,
-  ICodeItem
-} from "../../../api/services/codeService";
+import { CodeService, ICodeItem } from "../../../api/services/codeService";
 import Button from "../../../components/button/Button";
 import Modal from "../../../components/modal/ExampleModal";
 import RealGridTable, {
@@ -152,6 +149,7 @@ const rightColumns = [
     fieldName: "name",
     type: "data",
     width: "150",
+    styleName: "text-left",
     header: {
       text: "코드명",
       showTooltip: false,
@@ -183,9 +181,6 @@ const rightColumns = [
     fieldName: "createdDate",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
     header: "변경일",
   },
 ];
@@ -219,10 +214,10 @@ function CMC001U({}: Props) {
   };
 
   useEffect(() => {
-    if(data && selected) {
-      findAllByKind(data[selected].kind)
+    if (data && selected) {
+      findAllByKind(data[selected].kind);
     }
-  },[selected])
+  }, [selected]);
 
   return (
     <div className="relative flex flex-col h-full gap-2">

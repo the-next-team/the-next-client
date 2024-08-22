@@ -59,9 +59,7 @@ const columns = [
     fieldName: "jobName",
     type: "data",
     width: "300",
-    styles: {
-      textAlignment: "left",
-    },
+    styleName: "text-left",
     header: {
       text: "직업명",
       showTooltip: false,

@@ -66,9 +66,7 @@ const columns = [
     fieldName: "brNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+    styleName: "text-left",
     header: {
       text: "부점명",
       showTooltip: false,
