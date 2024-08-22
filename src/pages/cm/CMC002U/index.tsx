@@ -28,7 +28,7 @@ const fields = [
   },
   {
     fieldName: "depNm",
-    dataType: ValueType.NUMBER,
+    dataType: ValueType.TEXT,
   },
   {
     fieldName: "viewSeq",
