@@ -28,7 +28,7 @@ ipcRenderer.invoke("get-session-data").then((sessionData) => {
 
 // 메인 프로세스로부터 데이터를 받음
 ipcRenderer.invoke("get-storage-data").then((storageData) => {
-  // 세션 스토리지에 데이터를 설정
+  // 로컬 스토리지에 데이터를 설정
   Object.keys(storageData).forEach((key) => {
     localStorage.setItem(key, storageData[key]);
   });
