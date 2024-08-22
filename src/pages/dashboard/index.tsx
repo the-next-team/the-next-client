@@ -4,12 +4,7 @@ import Button from "../../components/button/Button";
 import PopupButton from "../../components/button/PopupButton";
 import useNotification from "../../hooks/useNotification";
 import BalanceDelayRealChart from "./components/BalanceDelayRealChart";
-import BalanceDelayChart from "./components/chart/BalanceDelayChart";
-import LoanAmountChart from "./components/chart/LoanAmountChart";
-import LoanPerformanceChart from "./components/chart/LoanPerformanceChart";
-import MonthlyBalanceChart from "./components/chart/MonthlyBalanceChart";
 import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
-import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
 import LoanAmountRealChart from "./components/LoanAmountRealChart";
 import LoanPerformanceRealChart from "./components/LoanPerformanceRealChart";
 import ProfitAndLossStatusRealChart from "./components/ProfitAndLossStatusRealChart";
@@ -18,6 +13,7 @@ import CalendarView from "./components/widget/CalendarView";
 import Profile from "./components/widget/profile";
 import RecentActivity from "./components/widget/recent-activity";
 import TaskLists from "./components/widget/task-list";
+import MonthlyBalanceRealChart from "./components/MonthlyBalanceRealChart";
 
 const Card = ({
   title,
@@ -74,32 +70,22 @@ function Dashboard() {
         </Card>
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="채널별 대출실적">
-            <LoanPerformanceChart />
             <LoanPerformanceRealChart />
           </Card>
           <Card title="기간별 대출금액 현황">
-            <LoanAmountChart />
             <LoanAmountRealChart />
           </Card>
         </div>
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="채널별 잔액/연체 분표도">
-            <BalanceDelayChart />
-          </Card>
-          <Card title="채널별 잔액/연체 분표도 (RealChart)">
             <BalanceDelayRealChart />
           </Card>
-        </div>
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="손익현황">
-            <ProfitAndLossStatusChart />
-          </Card>
-          <Card title="손익현황 (RealChart)">
             <ProfitAndLossStatusRealChart />
           </Card>
         </div>
         <Card title="여.수신월별잔액">
-          <MonthlyBalanceChart />
+          <MonthlyBalanceRealChart/>
         </Card>
         <div className="flex items-start gap-2">
           <PopupButton
