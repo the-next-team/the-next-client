@@ -33,6 +33,10 @@
     height: 6px;
   }
 
+  .tabMenu::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Track */
   ::-webkit-scrollbar-track {
     @apply bg-main/30;
