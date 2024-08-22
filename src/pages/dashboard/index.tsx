@@ -8,7 +8,6 @@ import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
 import LoanAmountRealChart from "./components/chart/LoanAmountRealChart";
 import LoanPerformanceRealChart from "./components/chart/LoanPerformanceRealChart";
 import ProfitAndLossStatusRealChart from "./components/chart/ProfitAndLossStatusRealChart";
-import ReactDatePicker from "./components/widget/ReactDatePicker";
 import CalendarView from "./components/widget/CalendarView";
 import Profile from "./components/widget/profile";
 import RecentActivity from "./components/widget/recent-activity";
@@ -47,9 +46,6 @@ function Dashboard() {
     <div className="flex gap-2 overflow-x-hidden">
       <div className="space-y-2 w-80">
         <Profile />
-        <Card title="react-datepicker 예시" className="flex flex-col gap-1">
-          <ReactDatePicker />
-        </Card>
         {/* TO-DO List */}
         <Card title="TO-DO List">
           <div className="pb-3">

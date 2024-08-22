@@ -1,146 +1,142 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
-import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/themes/material_green.css";
+import Datepicker from "../../../../components/form/Datepicker";
+import { useState } from "storybook/internal/preview-api";
+import "react-datepicker/dist/react-datepicker.css";
 
-const DatePicker = ({ ...props }) => {
-  const [picker, setPicker] = useState(new Date());
-
-  return (
-    <Flatpickr
-      value={picker}
-      onChange={([date]) => setPicker(date)}
-      {...props}
+const CustomTimeInput = ({ date, value, onChange }: any) => (
+  <div>
+    <input
+      type="time"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
     />
-  );
-};
+  </div>
+);
 
+// 날짜 (년.월.일)
+// 시간 (시.분.초)
+// 기간 (년.월.일 - 년.월.일)
+// 날짜+시간 (년.월.일 시.분.초)
 const meta = {
   title: "Components/Forms/DatePicker",
-  component: DatePicker,
+  component: Datepicker,
   parameters: {
     layout: "centered",
-    componentSubtitle: "데이트피커",
+    componentSubtitle: "달력",
     docs: {
       description: {
-        component: "사용자가 날짜 또는 시간을 선택할 때 사용합니다.",
+        component:
+          "사용자가 날짜 또는 기간을 선택할 때 사용합니다.\n\n참조 : https://reactdatepicker.com/",
       },
     },
+    disableZoom: true,
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof DatePicker>;
+} satisfies Meta<typeof Datepicker>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  render: function Render() {
+    const [date, setDate] = useState<Date | null>(new Date());
+
+    return (
+      <Datepicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        dateFormat="yyyy.MM.dd"
+      />
+    );
+  },
 };
 
-// Basic
-export const Basic: Story = () => (
-  <Flatpickr className="py-2 form-control" id="default-picker" />
-);
-Basic.args = {
-  ...Basic.args,
-};
+export const Basic: Story = {
+  render: function Render() {
+    const [date, setDate] = useState<Date | null>(new Date());
 
-// Date & Time
-export const DateAndTime: Story = () => (
-  <Flatpickr
-    data-enable-time
-    id="date-time-picker"
-    className="py-2 form-control"
-  />
-);
-DateAndTime.args = {
-  ...DateAndTime.args,
+    return (
+      <Datepicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        dateFormat="yyyy.MM.dd"
+      />
+    );
+  },
 };
 
 // Range
-export const Range: Story = () => (
-  <Flatpickr
-    id="range-picker"
-    className="py-2 form-control"
-    options={{
-      mode: "range",
-      defaultDate: ["2020-02-01", "2020-02-15"],
-    }}
-  />
-);
-Range.args = {
-  ...Range.args,
+export const Range: Story = {
+  render: function Render(args) {
+    const [startDate, setStartDate] = useState<Date | null>(new Date());
+    const [endDate, setEndDate] = useState<Date | null>(new Date());
+
+    return (
+      <Datepicker
+        selected={startDate}
+        onChange={(dates) => {
+          const [start, end] = dates;
+          setStartDate(start ?? null);
+          setEndDate(end);
+        }}
+        startDate={startDate ?? undefined}
+        endDate={endDate ?? undefined}
+        selectsRange
+        dateFormat="yyyy.MM.dd"
+      />
+    );
+  },
 };
 
-// Disabled Range
-export const DisabledRange: Story = () => (
-  <Flatpickr
-    id="disabled-picker"
-    className="py-2 form-control"
-    options={{
-      dateFormat: "Y-m-d",
-      disable: [
-        {
-          from: new Date(),
-          to: new Date(new Date().getTime() + 120 * 60 * 60 * 1000),
-        },
-      ],
-    }}
-  />
-);
-DisabledRange.args = {
-  ...DisabledRange.args,
+// Date & Time
+export const DateAndTime: Story = {
+  render: function Render(args) {
+    const [date, setDate] = useState<Date | null>(new Date());
+
+    return (
+      <Datepicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        showTimeInput
+        timeInputLabel=""
+        customTimeInput={<CustomTimeInput />}
+        dateFormat="yyyy.MM.dd HH:mm"
+      />
+    );
+  },
 };
 
-// Basic 24hrs
-export const Basic24hrs: Story = () => (
-  <Flatpickr
-    className="py-2 form-control"
-    id="timepicker"
-    options={{
-      enableTime: true,
-      noCalendar: true,
-      dateFormat: "H:i",
-      time_24hr: true,
-    }}
-  />
-);
-Basic24hrs.args = {
-  ...Basic24hrs.args,
-};
+// Time
+export const Time: Story = {
+  render: function Render(args) {
+    const [date, setDate] = useState<Date | null>(new Date());
 
-// Multiple Dates
-export const MultipleDates: Story = () => (
-  <Flatpickr
-    id="multi-dates-picker"
-    className="py-2 form-control"
-    options={{ mode: "multiple" }}
-  />
-);
-MultipleDates.args = {
-  ...MultipleDates.args,
-};
-
-// Human Friendly
-export const HumanFriendly: Story = () => (
-  <Flatpickr
-    id="hf-picker"
-    className="py-2 form-control"
-    options={{
-      altInput: true,
-      altFormat: "F j, Y",
-      dateFormat: "Y-m-d",
-    }}
-  />
-);
-HumanFriendly.args = {
-  ...HumanFriendly.args,
+    return (
+      <Datepicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        dateFormat="HH:mm"
+        showTimeInput
+        showTimeSelectOnly
+        timeInputLabel=""
+        customTimeInput={<CustomTimeInput />}
+      />
+    );
+  },
 };
 
 // Inline
-export const Inline: Story = () => (
-  <Flatpickr className="py-2 form-control" options={{ inline: true }} />
-);
-Inline.args = {
-  ...Inline.args,
+export const Inline: Story = {
+  render: function Render(args) {
+    const [date, setDate] = useState<Date | null>(new Date());
+
+    return (
+      <Datepicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        dateFormat="yyyy.MM.dd"
+        inline
+      />
+    );
+  },
 };
