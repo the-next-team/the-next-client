@@ -81,23 +81,23 @@ function Header() {
           <p className="font-semibold">{user?.username}</p>
           <p className="text-sm font-light">님</p>
           <Icon icon="heroicons:chevron-down" width="16" color="white" />
-          {visible && (
-            <div className="absolute z-10 py-1 bg-white rounded-md shadow-md w-28 right-1 top-9">
-              {dropdown.map((menu, i) => (
-                <div
-                  key={i}
-                  className="flex items-center w-full gap-2 px-4 py-0.5 hover:bg-slate-50"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    menu.onClick && menu.onClick();
-                  }}
-                >
-                  <Icon icon={menu.icon} width="16" color="#111625" />
-                  <p className="text-sm text-custom-black">{menu.name}</p>
-                </div>
-              ))}
-            </div>
-          )}
+          <div
+            className={`absolute z-20 py-1 bg-white rounded-md shadow-md w-28 right-1 top-9 ${visible ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          >
+            {dropdown.map((menu, i) => (
+              <div
+                key={i}
+                className="flex items-center w-full gap-2 px-4 py-0.5 hover:bg-slate-50"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  menu.onClick && menu.onClick();
+                }}
+              >
+                <Icon icon={menu.icon} width="16" color="#111625" />
+                <p className="text-sm text-custom-black">{menu.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </header>
