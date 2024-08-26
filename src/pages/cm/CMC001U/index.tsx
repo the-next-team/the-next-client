@@ -227,6 +227,9 @@ function CMC001U({}: Props) {
           onSubmit={(data) => {
             console.log(data);
           }}
+          onExcelClick={() => {
+            rightRealGridRef.current?.excelExport();
+          }}
         />
       </div>
 
