@@ -6,12 +6,13 @@
 import { ValueType } from "realgrid";
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import RealGridTable, {
   RealGridHandle,
 } from "../../../components/table/RealGridTable";
 import { CodeService, IJobCode } from "../../../api/services/codeService";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
+import { useQuery } from "@tanstack/react-query";
 
 const fields = [
   {
@@ -101,19 +102,18 @@ function CMC008U() {
   const realGridRef = useRef<RealGridHandle>(null);
   const [items, setItems] = useState<IJobCode[]>([]);
 
-  useEffect(() => {
-    findAll();
-  }, []);
-
-  const findAll = async () => {
-    try {
+  const { data } = useQuery({
+    queryKey: ["jobList"],
+    queryFn: async () => {
       const response = await CodeService.getJobCode();
       if (response.status === ApiResponseStats.OK) {
         setItems(response.data);
         realGridRef.current?.setRows(response.data);
+        return response.data;
       }
-    } catch (error) {}
-  };
+      return [];
+    },
+  });
 
   return (
     <div className="flex flex-col gap-2 relative h-full ">
