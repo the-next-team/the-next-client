@@ -70,80 +70,68 @@ function FooterForm({
             horizontal
             codeType="NBR"
             placeholder={"* 선택"}
-            name="brCode"
-            register={register}
+            {...register("brCode")}
           />
           <TextInput
             label="팀(파트)코드"
             type="text"
             horizontal
-            name="depCode"
             placeholder=""
-            register={register}
+            {...register("depCode")}
           />
           <TextInput
             label="팀(파트)명"
             type="text"
             horizontal
             placeholder=""
-            name="depNm"
-            register={register}
+            {...register("depNm")}
           />
           <TextInput
             label="보기순서"
             type="text"
             horizontal
             placeholder=""
-            name="viewSeq"
-            register={register}
+            {...register("viewSeq")}
           />
           <TextInput
             label="사용여부"
             type="text"
             horizontal
             placeholder=""
-            name="useYn"
-            register={register}
+            {...register("useYn")}
           />
           <TextInput
             label="대표번호"
             type="text"
             horizontal
             placeholder=""
-            name="depTelno"
-            register={register}
+            {...register("depTelno")}
           />
           <TextInput
             label="팩스번호"
             type="text"
             horizontal
             placeholder=""
-            name="depFaxno"
-            register={register}
+            {...register("depFaxno")}
           />
           <TextInput
             label="WEB팩스번호"
             type="text"
             horizontal
             placeholder=""
-            name="depWebFaxno"
-            register={register}
+            {...register("depWebFaxno")}
           />
           <TextInput
             label="인사시스템코드"
             type="text"
             horizontal
-            name="i"
             placeholder=""
-            register={register}
           />
           <TextInput
             label="중앙회팀파트코드"
             type="text"
-            name="j"
             horizontal
             placeholder=""
-            register={register}
           />
         </div>
       </div>
