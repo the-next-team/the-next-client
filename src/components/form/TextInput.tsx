@@ -111,6 +111,7 @@ const TextInput = (
             readOnly={readOnly}
             defaultValue={defaultValue}
             disabled={disabled}
+            name={name}
             // onChange={onChange}
             {...props}
           />
