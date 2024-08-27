@@ -44,7 +44,9 @@ function Toolbar() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-between h-full gap-2 px-2 py-3 w-11">
+    <div
+      className={`flex flex-col items-center justify-between h-full gap-2 px-2 py-3 w-11 ${currentSideMenu ? "shadow-md" : ""}`}
+    >
       <div className="flex flex-col items-center h-full gap-2">
         {toolMenus.map((menu, i) => (
           <div key={i}>

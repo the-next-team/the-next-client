@@ -25,14 +25,14 @@ function Layout() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full h-full bg-red-300">
+    <div className="flex flex-col w-full h-full">
       <Header />
 
-      <main className="flex flex-grow overflow-hidden bg-gray-100">
+      <main className="flex flex-grow overflow-hidden">
         <Sidebar />
-        <div className="flex flex-col flex-grow overflow-hidden bg-gray-100">
+        <div className="flex flex-col flex-grow overflow-hidden">
           <TabMenu />
-          <div className="flex flex-col flex-grow p-3 overflow-y-auto bg-gray-100">
+          <div className="flex flex-col flex-grow p-3 overflow-y-auto">
             {tabMenu.map((tab) => (
               <div
                 key={tab.href}

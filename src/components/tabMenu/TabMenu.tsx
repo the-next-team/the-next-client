@@ -29,7 +29,7 @@ const TabMenu = () => {
     <div className="relative z-10 select-none">
       <div
         ref={horizontalScrollRef}
-        className={`flex-none overflow-x-auto tabMenu bg-custom-gray-100 ${tabMenu.length > 1 ? "mr-[121px]" : ""}`}
+        className={`flex-none overflow-x-auto tabMenu bg-custom-gray-100 mr-[121px]`}
       >
         <div className="flex w-fit">
           {tabMenu.map((tab, index) => (
