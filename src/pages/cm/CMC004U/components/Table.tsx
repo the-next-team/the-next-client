@@ -48,10 +48,7 @@ function Table() {
         name: "agentId",
         fieldName: "agentId",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "중개사ID",
           showTooltip: false,
@@ -65,10 +62,7 @@ function Table() {
         name: "agentNm",
         fieldName: "agentNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "중개사명",
           showTooltip: false,
@@ -78,91 +72,64 @@ function Table() {
         name: "",
         fieldName: "",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "중개사명약어",
+        width: 150,
+        header: { text: "중개사명약어" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "관리부점",
+        width: 120,
+        header: { text: "관리부점" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "접수(광고)채널",
+        width: 180,
+        header: { text: "접수(광고)채널" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록자",
+        width: 120,
+        header: { text: "등록자" },
       },
       {
         name: "crtDtm",
         fieldName: "crtDtm",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록일시",
+        width: 180,
+        header: { text: "등록일시" },
       },
       {
         name: "acno",
         fieldName: "acno",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "계좌번호",
+        width: 180,
+        header: { text: "계좌번호" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "혁신금융",
+        width: 120,
+        header: { text: "혁신금융" },
       },
       {
         name: "replyUrl",
         fieldName: "replyUrl",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "응답URL",
+        width: 120,
+        header: { text: "응답URL" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "변경자",
+        width: 120,
+        header: { text: "변경자" },
       },
     ]);
 

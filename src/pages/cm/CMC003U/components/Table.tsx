@@ -57,10 +57,7 @@ function Table() {
         name: "adNo",
         fieldName: "adNo",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 220,
         header: {
           text: "접수(광고)채널번호",
           showTooltip: false,
@@ -74,10 +71,7 @@ function Table() {
         name: "adNm",
         fieldName: "adNm",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 180,
         header: {
           text: "접수채널명",
           showTooltip: false,
@@ -87,71 +81,50 @@ function Table() {
         name: "adSnm",
         fieldName: "adSnm",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "채널명(약어)",
+        width: 180,
+        header: { text: "채널명(약어)" },
       },
       {
         name: "adaNm",
         fieldName: "adaNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "접수경로",
+        width: 150,
+        header: { text: "접수경로" },
       },
       {
         name: "adbNm",
         fieldName: "adbNm",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "통계구분",
+        width: 180,
+        header: { text: "통계구분" },
       },
       {
         name: "invtId",
         fieldName: "invtId",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "권유자ID",
+        width: 150,
+        header: { text: "권유자ID" },
       },
       {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "사용여부",
+        width: 120,
+        header: { text: "사용여부" },
       },
       {
         name: "chgId",
         fieldName: "chgId",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록자",
+        width: 180,
+        header: { text: "등록자" },
       },
       {
         name: "chgDtm",
         fieldName: "chgDtm",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록일시",
+        width: 180,
+        header: { text: "등록일시" },
       },
     ]);
 

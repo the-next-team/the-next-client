@@ -36,9 +36,7 @@ const columns = [
     fieldName: "test1",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "입력항목",
       showTooltip: false,

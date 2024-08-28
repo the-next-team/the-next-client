@@ -54,9 +54,7 @@ const columns = [
     fieldName: "agentId",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "중개사ID",
       showTooltip: false,
@@ -71,9 +69,7 @@ const columns = [
     fieldName: "agentNm",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "중개사명",
       showTooltip: false,
@@ -84,9 +80,7 @@ const columns = [
     fieldName: "lpTreeCd",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "조직코드",
   },
 
@@ -95,9 +89,7 @@ const columns = [
     fieldName: "lpTreeStructure",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "중개조직 구조",
   },
   {
@@ -105,9 +97,7 @@ const columns = [
     fieldName: "crtId",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "모집인ID",
   },
   {
@@ -115,9 +105,7 @@ const columns = [
     fieldName: "lpNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "모집인명",
   },
   {
@@ -125,9 +113,7 @@ const columns = [
     fieldName: "lpaCd",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "권한",
   },
   {
@@ -135,9 +121,7 @@ const columns = [
     fieldName: "useYn",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용여부",
   },
 ];

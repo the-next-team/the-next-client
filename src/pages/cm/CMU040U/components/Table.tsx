@@ -48,10 +48,7 @@ function Table({ onClick }: Props) {
         name: "fsbEmpNm",
         fieldName: "fsbEmpNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "이기종사번",
           showTooltip: false,
@@ -65,10 +62,7 @@ function Table({ onClick }: Props) {
         name: "fsbNm",
         fieldName: "fsbNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "이기종사용자명",
           showTooltip: false,
@@ -78,71 +72,50 @@ function Table({ onClick }: Props) {
         name: "brNm",
         fieldName: "brNm",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "부서",
+        width: 120,
+        header: { text: "부서" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "용도",
+        width: 120,
+        header: { text: "용도" },
       },
       {
         name: "fsbCd",
         fieldName: "fsbCd",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "이기종 지점코드",
+        width: 120,
+        header: { text: "이기종 지점코드" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "이기종 팀코드",
+        width: 120,
+        header: { text: "이기종 팀코드" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "비밀번호변경일",
+        width: 220,
+        header: { text: "비밀번호변경일" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "비밀번호만료일",
+        width: 220,
+        header: { text: "비밀번호만료일" },
       },
       {
         name: "loginErrCnt",
         fieldName: "loginErrCnt",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "비밀번호오류횟수",
+        width: 120,
+        header: { text: "비밀번호오류횟수" },
       },
     ]);
 

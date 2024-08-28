@@ -60,10 +60,7 @@ function Table({ onClick }: Props) {
         name: "brCode",
         fieldName: "brCode",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "부점코드",
           showTooltip: true,
@@ -78,10 +75,7 @@ function Table({ onClick }: Props) {
         name: "brNm",
         fieldName: "brNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "부점명",
           showTooltip: false,
@@ -91,20 +85,14 @@ function Table({ onClick }: Props) {
         name: "depCode",
         fieldName: "depCode",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "팀(파트)코드",
+        width: 220,
+        header: { text: "팀(파트)코드" },
       },
       {
         name: "depNm",
         fieldName: "depNm",
         type: "data",
-        width: "130",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 130,
         header: {
           text: "팀(파트)명",
           showTooltip: false,
@@ -115,10 +103,7 @@ function Table({ onClick }: Props) {
         name: "viewSeq",
         fieldName: "viewSeq",
         type: "data",
-        width: "130",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 130,
         header: {
           text: "보기순서",
           showTooltip: false,
@@ -129,10 +114,7 @@ function Table({ onClick }: Props) {
         name: "depTelno",
         fieldName: "depTelno",
         type: "data",
-        width: "300",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 300,
         header: {
           text: "대표번호",
           showTooltip: false,
@@ -142,10 +124,7 @@ function Table({ onClick }: Props) {
         name: "depFaxno",
         fieldName: "depFaxno",
         type: "data",
-        width: "300",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 300,
         header: {
           text: "팩스번호",
           showTooltip: false,
@@ -155,10 +134,7 @@ function Table({ onClick }: Props) {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "사용여부",
           showTooltip: false,
@@ -190,7 +166,7 @@ function Table({ onClick }: Props) {
   const findAll = async () => {
     try {
       const response = await TeamService.getTeam({
-        brCode: ""
+        brCode: "",
       });
       if (response.status === ApiResponseStats.OK) {
         setTeamList(response.data);

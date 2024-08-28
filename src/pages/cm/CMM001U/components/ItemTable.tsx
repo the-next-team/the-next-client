@@ -38,11 +38,8 @@ function ItemTable({ onClick }: Props) {
         name: "menuCd",
         fieldName: "menuCd",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "시스템코드",
+        width: 150,
+        header: { text: "시스템코드" },
         renderer: {
           type: "text",
           showTooltip: true,
@@ -52,21 +49,15 @@ function ItemTable({ onClick }: Props) {
         name: "menuNm",
         fieldName: "menuNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "시스템명",
+        width: 150,
+        header: { text: "시스템명" },
       },
       {
         name: "viewSeq",
         fieldName: "viewSeq",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "보기순서",
+        width: 150,
+        header: { text: "보기순서" },
       },
     ]);
     gv.onCellClicked = (grid, data) => {

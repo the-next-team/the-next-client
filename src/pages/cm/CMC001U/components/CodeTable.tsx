@@ -45,10 +45,7 @@ function CodeTable({ onClick }: Props) {
         name: "kind",
         fieldName: "kind",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "코드",
           showTooltip: false,
@@ -62,10 +59,8 @@ function CodeTable({ onClick }: Props) {
         name: "name",
         fieldName: "name",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
+
         header: {
           text: "코드명",
           showTooltip: false,
@@ -75,41 +70,33 @@ function CodeTable({ onClick }: Props) {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "사용여부",
+        width: 80,
+
+        header: { text: "사용여부" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "주요코드",
+        width: 80,
+
+        header: { text: "주요코드" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "코드셋",
+        width: 80,
+
+        header: { text: "코드셋" },
       },
       {
         name: "createdDate",
         fieldName: "createdDate",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "생성일",
+        width: 220,
+
+        header: { text: "생성일" },
       },
     ]);
 
@@ -145,12 +132,7 @@ function CodeTable({ onClick }: Props) {
     } catch (errer) {}
   };
 
-  return (
-    <div
-      className="w-full h-full"
-      ref={realgridElement}
-    ></div>
-  );
+  return <div className="w-full h-full" ref={realgridElement}></div>;
 }
 
 export default CodeTable;

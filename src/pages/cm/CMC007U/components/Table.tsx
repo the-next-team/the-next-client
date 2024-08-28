@@ -51,10 +51,7 @@ function Table() {
         name: "brCode",
         fieldName: "brCode",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "부점코드",
           showTooltip: false,
@@ -68,10 +65,7 @@ function Table() {
         name: "brNm",
         fieldName: "brNm",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 120,
         header: {
           text: "부점명",
           showTooltip: false,
@@ -81,61 +75,43 @@ function Table() {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "부점약어",
+        width: 120,
+        header: { text: "부점약어" },
       },
       {
         name: "viewSeq",
         fieldName: "viewSeq",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "보기순서",
+        width: 80,
+        header: { text: "보기순서" },
       },
       {
         name: "brTelno",
         fieldName: "brTelno",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "대표번호",
+        width: 180,
+        header: { text: "대표번호" },
       },
       {
         name: "brFaxno",
         fieldName: "brFaxno",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "팩스번호",
+        width: 180,
+        header: { text: "팩스번호" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록자",
+        width: 180,
+        header: { text: "등록자" },
       },
       {
         name: "crtDtm",
         fieldName: "crtDtm",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록일시",
+        width: 220,
+        header: { text: "등록일시" },
       },
     ]);
 

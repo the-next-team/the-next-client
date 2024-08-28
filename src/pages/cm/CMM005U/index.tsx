@@ -48,9 +48,7 @@ const columns = [
     fieldName: "a",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "화면그룹코드",
   },
   {
@@ -58,9 +56,7 @@ const columns = [
     fieldName: "b",
     type: "data",
     width: "240",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "화면 그룹명",
   },
   {
@@ -68,9 +64,7 @@ const columns = [
     fieldName: "c",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "프로그램 명세",
   },
   {
@@ -78,9 +72,7 @@ const columns = [
     fieldName: "d",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용자 명세",
   },
   {
@@ -88,9 +80,7 @@ const columns = [
     fieldName: "e",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록자",
   },
   {
@@ -98,9 +88,7 @@ const columns = [
     fieldName: "f",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록일시",
   },
   {
@@ -108,9 +96,7 @@ const columns = [
     fieldName: "g",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용",
   },
 ];

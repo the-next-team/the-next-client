@@ -36,9 +36,7 @@ const columns = [
     fieldName: "postcode",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "우편번호",
       showTooltip: false,

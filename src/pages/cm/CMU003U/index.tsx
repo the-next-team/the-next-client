@@ -56,9 +56,7 @@ const columns = [
     fieldName: "a",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "사용자명세",
       showTooltip: false,
@@ -73,9 +71,7 @@ const columns = [
     fieldName: "b",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "객체권한코드",
       showTooltip: false,
@@ -86,9 +82,7 @@ const columns = [
     fieldName: "c",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "객체권한명",
   },
   {
@@ -96,9 +90,7 @@ const columns = [
     fieldName: "d",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용여부",
   },
   {
@@ -106,9 +98,7 @@ const columns = [
     fieldName: "e",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "보기순서",
   },
   {
@@ -116,9 +106,7 @@ const columns = [
     fieldName: "f",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록자",
   },
   {
@@ -126,9 +114,7 @@ const columns = [
     fieldName: "g",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록일시",
   },
   {
@@ -136,9 +122,7 @@ const columns = [
     fieldName: "h",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "변경자",
   },
   {
@@ -146,9 +130,7 @@ const columns = [
     fieldName: "i",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "변경일시",
   },
 ];

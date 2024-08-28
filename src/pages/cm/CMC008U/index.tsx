@@ -43,9 +43,7 @@ const columns = [
     fieldName: "jobCode",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "직업코드",
       showTooltip: false,
@@ -71,9 +69,7 @@ const columns = [
     fieldName: "jobLevel1",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "직업등급1",
   },
   {
@@ -81,9 +77,7 @@ const columns = [
     fieldName: "jobLevel2",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "직업등급2",
   },
   {
@@ -91,9 +85,7 @@ const columns = [
     fieldName: "acctJobCode",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "계정계 직업코드",
   },
 ];

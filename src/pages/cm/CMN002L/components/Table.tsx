@@ -53,64 +53,43 @@ function Table({ onClick }: Props) {
         name: "code",
         fieldName: "code",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "전문코드",
+        header: { text: "전문코드" },
       },
       {
         name: "name",
         fieldName: "name",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "전문명",
+        header: { text: "전문명" },
       },
       {
         name: "id",
         fieldName: "id",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "전문ID",
+        header: { text: "전문ID" },
       },
       {
         name: "hostName",
         fieldName: "hostName",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "호스트명",
+        header: { text: "호스트명" },
       },
       {
         name: "param1",
         fieldName: "param1",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "파라메타1",
+        header: { text: "파라메타1" },
       },
       {
         name: "param2",
         fieldName: "param2",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "파라메타2",
+        header: { text: "파라메타2" },
       },
       {
         name: "param3",
         fieldName: "param3",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "파라메타3",
+        header: { text: "파라메타3" },
       },
     ]);
 

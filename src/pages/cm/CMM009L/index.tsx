@@ -60,81 +60,63 @@ const columns = [
     name: "progId",
     fieldName: "progId",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "프로그램ID",
   },
   {
     name: "progName",
     fieldName: "progName",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "프로그램명",
   },
   {
     name: "procDate",
     fieldName: "procDate",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "처리일",
   },
   {
     name: "serialNo",
     fieldName: "serialNo",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "일련번호",
   },
   {
     name: "targetChk",
     fieldName: "targetChk",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "대상검수",
   },
   {
     name: "count",
     fieldName: "count",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "처리건수",
   },
   {
     name: "days",
     fieldName: "days",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "처리영업일",
   },
   {
     name: "param",
     fieldName: "param",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "파라메터",
   },
   {
     name: "status",
     fieldName: "status",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "처리상태",
   },
 ];

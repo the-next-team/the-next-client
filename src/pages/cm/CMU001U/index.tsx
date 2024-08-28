@@ -54,9 +54,7 @@ const columns = [
     fieldName: "userId",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "사용자ID",
       showTooltip: false,
@@ -71,9 +69,7 @@ const columns = [
     fieldName: "userNm",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "사용자명",
       showTooltip: false,
@@ -84,9 +80,7 @@ const columns = [
     fieldName: "empNo",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "시스템사번",
   },
   {
@@ -94,9 +88,7 @@ const columns = [
     fieldName: "saaNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "직급",
   },
   {
@@ -104,9 +96,7 @@ const columns = [
     fieldName: "empNo",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사번",
   },
   {
@@ -114,9 +104,7 @@ const columns = [
     fieldName: "sabNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "상태",
   },
   {
@@ -124,9 +112,7 @@ const columns = [
     fieldName: "brNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "부점",
   },
   {
@@ -134,9 +120,7 @@ const columns = [
     fieldName: "permission",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "화면권한",
   },
   {
@@ -144,9 +128,7 @@ const columns = [
     fieldName: "fsbEmpno",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "이기종ID",
   },
 ];

@@ -57,10 +57,7 @@ function CodeItemTable({ item, onClick }: Props) {
         name: "code",
         fieldName: "code",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "코드",
           showTooltip: false,
@@ -74,10 +71,7 @@ function CodeItemTable({ item, onClick }: Props) {
         name: "name",
         fieldName: "name",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "코드명",
           showTooltip: false,
@@ -87,41 +81,29 @@ function CodeItemTable({ item, onClick }: Props) {
         name: "priority",
         fieldName: "priority",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "보기순서",
+        width: 80,
+        header: { text: "보기순서" },
       },
       {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "사용여부",
+        width: 80,
+        header: { text: "사용여부" },
       },
       {
         name: "updatedDate",
         fieldName: "updatedDate",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록일",
+        width: 220,
+        header: { text: "등록일" },
       },
       {
         name: "createdDate",
         fieldName: "createdDate",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "변경일",
+        width: 220,
+        header: { text: "변경일" },
       },
     ]);
 
@@ -160,12 +142,7 @@ function CodeItemTable({ item, onClick }: Props) {
     } catch (errer) {}
   };
 
-  return (
-    <div
-      className="w-full h-full"
-      ref={realgridElement}
-    ></div>
-  );
+  return <div className="w-full h-full" ref={realgridElement}></div>;
 }
 
 export default CodeItemTable;
