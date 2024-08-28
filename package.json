@@ -36,8 +36,6 @@
     "leaflet": "^1.9.4",
     "lottie-web": "^5.12.2",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.4.0",
-    "react-bootstrap-typeahead": "^4.2.2",
     "react-datepicker": "^7.3.0",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.2.3",
@@ -49,7 +47,6 @@
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.8.0",
-    "reactstrap": "^8.4.1",
     "realchart": "^1.1.6",
     "realgrid": "^2.8.2",
     "recoil": "^0.7.7",
@@ -91,7 +88,6 @@
     ]
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.4.0",
     "@storybook/addon-a11y": "^8.2.8",
     "@storybook/addon-essentials": "^8.2.8",
     "@storybook/addon-interactions": "^8.2.8",
