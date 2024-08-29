@@ -20,9 +20,6 @@ const meta = {
     type: {
       description: "타입",
     },
-    label: {
-      description: "라벨",
-    },
     placeholder: {
       description: "필드 임시 메시지",
     },
@@ -90,31 +87,18 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    placeholder: "placeholder",
+  },
 };
 
 // Basic Inputs
 export const Basic: Story = () => (
   <div className="flex flex-col gap-4">
-    <TextInput type="text" label="Defult(기본)" placeholder="defult" />
-    <TextInput
-      type="text"
-      label="Essential(필수)"
-      placeholder="essential"
-      essential
-    />
-    <TextInput
-      type="text"
-      label="Readonly(읽기전용)"
-      readOnly
-      placeholder="readonly"
-    />
-    <TextInput
-      type="text"
-      label="Disabled(비활성화)"
-      disabled
-      placeholder="disabled"
-    />
+    <TextInput type="text" placeholder="defult" />
+    <TextInput type="text" placeholder="essential" essential />
+    <TextInput type="text" readOnly placeholder="readonly" />
+    <TextInput type="text" disabled placeholder="disabled" />
   </div>
 );
 Basic.args = {
@@ -125,16 +109,14 @@ Basic.args = {
 export const States: Story = () => (
   <div className="flex flex-col gap-4">
     <TextInput
-      label="Valid State"
       type="text"
       placeholder="Valid"
-      // validate="This is valid state."
+      validate="This is valid state."
     />
     <TextInput
-      label="Invalid State"
       type="text"
       placeholder="Invalid"
-      // error="This is invalid state"
+      error="This is invalid state"
     />
   </div>
 );
@@ -145,19 +127,15 @@ States.args = {
 // Mask
 export const Mask: Story = {
   render: function render() {
-    const {
-      control,
-      register,
-      formState: { errors },
-    } = useForm({
+    const { register } = useForm({
       mode: "onChange",
     });
 
     return (
       <div className="flex flex-col gap-6">
         <TextInput
-          label="주민번호"
-          placeholder="######-#######"
+          placeholder="(주민번호) ######-#######"
+          className="w-52"
           {...register("residentNumber", {
             onChange(e) {
               e.target.value = StringUtil.ResidentNumberFormat(e.target.value);
@@ -165,8 +143,7 @@ export const Mask: Story = {
           })}
         />
         <TextInput
-          label="휴대폰번호"
-          placeholder="###-####-####"
+          placeholder="(휴대폰번호) ###-####-####"
           {...register("phoneNumber", {
             onChange(e) {
               e.target.value = StringUtil.PhoneNumberFormat(e.target.value);
@@ -174,8 +151,7 @@ export const Mask: Story = {
           })}
         />
         <TextInput
-          label="신용카드"
-          placeholder="#### #### #### ####"
+          placeholder="(신용카드) #### #### #### ####"
           {...register("creditCard", {
             onChange(e) {
               e.target.value = StringUtil.CreditCardFormat(e.target.value);
