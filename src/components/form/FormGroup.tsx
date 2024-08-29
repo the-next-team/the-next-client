@@ -31,8 +31,8 @@ const FormGroup: React.FC<Props> = ({
       <div className="flex flex-col w-full gap-1">
         {children && children}
         <div className={`${classLabel} flex flex-col gap-1`}>
-          {valid && <p className="text-danger-500">{valid}</p>}
-          {invalid && <p className="text-success-500">{invalid}</p>}
+          {invalid && <p className="text-danger-500">{invalid}</p>}
+          {valid && <p className="text-success-500">{valid}</p>}
           {description && <p className="text-slate-500">{description}</p>}
         </div>
       </div>

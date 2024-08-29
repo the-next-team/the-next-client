@@ -34,11 +34,11 @@ export const Default: Story = {
 // States
 export const States: Story = () => (
   <div className="flex flex-col gap-4">
-    <FormGroup id="valid" label="Valid" valid="This field is required.">
-      <TextInput id="valid" error="This field is required." />
+    <FormGroup id="valid" label="Valid" valid="This field is valid.">
+      <TextInput id="valid" validate="This field is valid." />
     </FormGroup>
-    <FormGroup id="invalid" label="Invalid" invalid="This field is valid.">
-      <TextInput id="invalid" validate="This field is valid." />
+    <FormGroup id="invalid" label="Invalid" invalid="This field is required.">
+      <TextInput id="invalid" error="This field is required." />
     </FormGroup>
   </div>
 );
