@@ -6,12 +6,13 @@
 import { ValueType } from "realgrid";
 import FooterForm from "./components/FooterForm";
 import HeaderForm from "./components/HeaderForm";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import RealGridTable, {
   RealGridHandle,
 } from "../../../components/table/RealGridTable";
 import { CodeService, IJobCode } from "../../../api/services/codeService";
 import { ApiResponseStats } from "../../../api/models/common/apiResponseStats";
+import { useQuery } from "@tanstack/react-query";
 
 const fields = [
   {
@@ -42,9 +43,7 @@ const columns = [
     fieldName: "jobCode",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "직업코드",
       showTooltip: false,
@@ -59,9 +58,7 @@ const columns = [
     fieldName: "jobName",
     type: "data",
     width: "300",
-    styles: {
-      textAlignment: "left",
-    },
+    styleName: "text-left",
     header: {
       text: "직업명",
       showTooltip: false,
@@ -72,9 +69,7 @@ const columns = [
     fieldName: "jobLevel1",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "직업등급1",
   },
   {
@@ -82,9 +77,7 @@ const columns = [
     fieldName: "jobLevel2",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "직업등급2",
   },
   {
@@ -92,9 +85,7 @@ const columns = [
     fieldName: "acctJobCode",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "계정계 직업코드",
   },
 ];
@@ -103,19 +94,18 @@ function CMC008U() {
   const realGridRef = useRef<RealGridHandle>(null);
   const [items, setItems] = useState<IJobCode[]>([]);
 
-  useEffect(() => {
-    findAll();
-  }, []);
-
-  const findAll = async () => {
-    try {
+  const { data } = useQuery({
+    queryKey: ["jobList"],
+    queryFn: async () => {
       const response = await CodeService.getJobCode();
       if (response.status === ApiResponseStats.OK) {
         setItems(response.data);
         realGridRef.current?.setRows(response.data);
+        return response.data;
       }
-    } catch (error) {}
-  };
+      return [];
+    },
+  });
 
   return (
     <div className="flex flex-col gap-2 relative h-full ">

@@ -121,7 +121,7 @@ function MainMenu() {
 
   return (
     <div
-      className={`w-[215px] h-full overflow-y-auto shadow-md ${
+      className={`w-[215px] h-full overflow-y-auto ${
         currentSideMenu === "home" ||
         currentSideMenu === "menu" ||
         currentSideMenu === "search" ||

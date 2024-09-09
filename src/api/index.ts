@@ -55,7 +55,7 @@ const onRequest = (
   config: InternalAxiosRequestConfig
 ): InternalAxiosRequestConfig => {
   Logger.debug("interceptors request", config.url);
-  const accessToken = localStorage.getItem(storageKey.accessToken);
+  const accessToken = sessionStorage.getItem(storageKey.accessToken);
   if (accessToken) {
     config.headers["Authorization"] = `Bearer ${accessToken}`;
   }
@@ -66,10 +66,10 @@ const onResponse = (response: AxiosResponse): AxiosResponse => {
   Logger.debug("interceptors response.data", response.data);
 
   if (response.headers["access-token"]) {
-    localStorage.setItem(storageKey.accessToken, response.headers["access-token"]);
+    sessionStorage.setItem(storageKey.accessToken, response.headers["access-token"]);
   }
   if (response.headers["refresh-token"]) {
-    localStorage.setItem(storageKey.refreshToken, response.headers["refresh-token"]);
+    sessionStorage.setItem(storageKey.refreshToken, response.headers["refresh-token"]);
   }
   return response;
 };
@@ -89,12 +89,12 @@ const onResponseError = async (
             "Content-Type": `application/json`,
           },
           data: {
-            refreshToken: localStorage.getItem(storageKey.refreshToken),
+            refreshToken: sessionStorage.getItem(storageKey.refreshToken),
           },
         });
 
         const accessToken = response.headers["access-token"];
-        localStorage.setItem(storageKey.accessToken, accessToken);
+        sessionStorage.setItem(storageKey.accessToken, accessToken);
 
         originalConfig.headers["Authorization"] = `Bearer ${accessToken}`;
 

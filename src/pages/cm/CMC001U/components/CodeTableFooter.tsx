@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/button/Button";
-import Radio from "../../../../components/form/Radio";
-import RadioGroup from "../../../../components/form/RadioGroup";
 import TextInput from "../../../../components/form/TextInput";
+import CheckboxGroup from "../../../../components/checkbox/CheckboxGroup";
+import Checkbox from "../../../../components/checkbox/Checkbox";
 
 type FormValues = {
   a: string;
@@ -16,11 +16,7 @@ type FormValues = {
   h: string;
   i: string;
   j: string;
-  r1: string;
-  r2: string;
-  r3: string;
-  r4: string;
-  r5: string;
+  checkbox: Array<string>;
 };
 
 type Props = {
@@ -39,11 +35,8 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      r1: "r1-1",
-      r2: "r2-1",
-      r3: "r3-1",
-      r4: "r4-1",
-      r5: "r5-1",
+      a: "",
+      checkbox: [],
     },
   });
 
@@ -56,7 +49,7 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="p-2 my-2 bg-white rounded">
-        <div className="grid grid-cols-2 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-y-1">
+        <div className="grid grid-cols-2 gap-y-1">
           <TextInput
             essential
             label="코드"
@@ -75,20 +68,13 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
             name="b"
             register={register}
           />
-          <RadioGroup horizontal label={"사용여부"}>
-            <Radio
-              label="Yes"
-              value="r1-1"
-              checked={watch("r1") === "r1-1"}
-              {...register("r1")}
+          <CheckboxGroup horizontal label={"사용여부"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk1")}
+              value="chk1"
+              {...register("checkbox")}
             />
-            <Radio
-              label="No"
-              value="r1-2"
-              checked={watch("r1") === "r1-2"}
-              {...register("r1")}
-            />
-          </RadioGroup>
+          </CheckboxGroup>
           <div className="col-span-2">
             <TextInput
               essential
@@ -196,20 +182,14 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
             name="e"
             register={register}
           />
-          <RadioGroup horizontal label={"코드셋여부"}>
-            <Radio
-              label="Yes"
-              value="r2-1"
-              checked={watch("r2") === "r2-1"}
-              {...register("r2")}
+
+          <CheckboxGroup horizontal label={"코드셋여부"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk2")}
+              value="chk2"
+              {...register("checkbox")}
             />
-            <Radio
-              label="No"
-              value="r2-2"
-              checked={watch("r2") === "r2-2"}
-              {...register("r2")}
-            />
-          </RadioGroup>
+          </CheckboxGroup>
           <div className="col-span-2">
             <TextInput
               label="설명"
@@ -220,43 +200,30 @@ function CodeTableFooter({ initialValues, onSubmit }: Props) {
               register={register}
             />
           </div>
-          <RadioGroup horizontal label={"주요코드여부"}>
-            <Radio
-              label="Yes"
-              value="r4-1"
-              checked={watch("r4") === "r4-1"}
-              {...register("r4")}
+
+          <CheckboxGroup horizontal label={"주요코드여부"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk3")}
+              value="chk3"
+              {...register("checkbox")}
             />
-            <Radio
-              label="No"
-              value="r4-2"
-              checked={watch("r4") === "r4-2"}
-              {...register("r4")}
+          </CheckboxGroup>
+          <CheckboxGroup horizontal label={"시스템코드여부"}>
+            <Checkbox
+              checked={watch("checkbox").includes("chk4")}
+              value="chk4"
+              {...register("checkbox")}
             />
-          </RadioGroup>
-          <RadioGroup horizontal label={"시스템코드여부"}>
-            <Radio
-              label="Yes"
-              value="r5-1"
-              checked={watch("r5") === "r5-1"}
-              {...register("r5")}
-            />
-            <Radio
-              label="No"
-              value="r5-2"
-              checked={watch("r5") === "r5-2"}
-              {...register("r5")}
-            />
-          </RadioGroup>
+          </CheckboxGroup>
         </div>
       </div>
       <div className="flex justify-end">
-        <div className="flex gap-2 ">
+        {/* <div className="flex gap-2 ">
           <Button text="초기화" className="w-12 btn-primary btn-sm" />
           <Button text="등록" className="w-12 btn-primary btn-sm" disabled />
           <Button text="수정" className="w-12 btn-primary btn-sm" />
           <Button text="삭제" className="w-12 btn-primary btn-sm" />
-        </div>
+        </div> */}
       </div>
     </form>
   );

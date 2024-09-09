@@ -50,9 +50,7 @@ const columns = [
     fieldName: "PRG_ID",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "프로그램ID",
   },
   {
@@ -60,9 +58,7 @@ const columns = [
     fieldName: "PRG_NM",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "프로그램명",
   },
   {
@@ -70,9 +66,7 @@ const columns = [
     fieldName: "PROC_CYCL_DATA",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "수행주기",
   },
   {
@@ -80,9 +74,7 @@ const columns = [
     fieldName: "VIEW_SEQ",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "보기순서",
   },
   {
@@ -90,9 +82,7 @@ const columns = [
     fieldName: "USE_YN",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용여부",
   },
   {
@@ -100,9 +90,7 @@ const columns = [
     fieldName: "BF_PRG_ID",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "선수행배치",
   },
   {
@@ -110,9 +98,7 @@ const columns = [
     fieldName: "CRT_ID",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록자",
   },
 ];

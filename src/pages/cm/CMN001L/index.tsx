@@ -39,45 +39,35 @@ const columns = [
     name: "id",
     fieldName: "id",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "호스트ID",
   },
   {
     name: "name",
     fieldName: "name",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "호스트명",
   },
   {
     name: "word",
     fieldName: "word",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "약자",
   },
   {
     name: "mode",
     fieldName: "mode",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "조회모드",
   },
   {
     name: "useYn",
     fieldName: "useYn",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용여부",
   },
 ];

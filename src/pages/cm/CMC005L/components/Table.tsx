@@ -41,10 +41,7 @@ function Table() {
         name: "DATE",
         fieldName: "DATE",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "일자",
           showTooltip: false,
@@ -58,10 +55,7 @@ function Table() {
         name: "BIZ_YN",
         fieldName: "BIZ_YN",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "영업일여부",
           showTooltip: false,
@@ -71,31 +65,22 @@ function Table() {
         name: "YEAR_WEEK",
         fieldName: "YEAR_WEEK",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "년주차",
+        width: 120,
+        header: { text: "년주차" },
       },
       {
         name: "MONTH_WEEK",
         fieldName: "MONTH_WEEK",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "월주차",
+        width: 120,
+        header: { text: "월주차" },
       },
       {
         name: "DESCRIPTION",
         fieldName: "DESCRIPTION",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "비고",
+        width: 220,
+        header: { text: "비고" },
       },
     ]);
 

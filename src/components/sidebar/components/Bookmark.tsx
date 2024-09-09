@@ -14,7 +14,7 @@ function Bookmark() {
 
   return (
     <div
-      className={`w-[215px] h-full overflow-y-auto shadow-md ${
+      className={`w-[215px] h-full overflow-y-auto ${
         currentSideMenu === "bookmark" ? "block" : "hidden pointer-events-none"
       }`}
     >

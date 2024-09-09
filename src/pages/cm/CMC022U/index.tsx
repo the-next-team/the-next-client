@@ -55,9 +55,7 @@ const columns = [
     fieldName: "a",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "중개사ID",
       showTooltip: false,
@@ -72,9 +70,7 @@ const columns = [
     fieldName: "b",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "중개사명",
       showTooltip: false,
@@ -85,9 +81,7 @@ const columns = [
     fieldName: "c",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "조직코드",
   },
   {
@@ -95,9 +89,7 @@ const columns = [
     fieldName: "d",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "조직명",
   },
   {
@@ -105,9 +97,7 @@ const columns = [
     fieldName: "e",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "중개조직 구조",
   },
   {
@@ -115,9 +105,7 @@ const columns = [
     fieldName: "f",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "보기순서",
   },
   {
@@ -125,9 +113,7 @@ const columns = [
     fieldName: "g",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용여부",
   },
   {
@@ -135,9 +121,7 @@ const columns = [
     fieldName: "h",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록자",
   },
   {
@@ -145,9 +129,7 @@ const columns = [
     fieldName: "i",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록일시",
   },
 ];

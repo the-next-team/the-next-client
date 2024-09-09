@@ -37,10 +37,7 @@ function Table() {
         name: "kind",
         fieldName: "kind",
         type: "data",
-        width: "100",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 100,
         header: {
           text: "시스템명",
           showTooltip: false,
@@ -54,10 +51,7 @@ function Table() {
         name: "name",
         fieldName: "name",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 120,
         header: {
           text: "메뉴명",
           showTooltip: false,
@@ -67,81 +61,57 @@ function Table() {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "프로그램ID",
+        width: 120,
+        header: { text: "프로그램ID" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "200",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "프로그램명",
+        width: 200,
+        header: { text: "프로그램명" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "보기순서",
+        width: 120,
+        header: { text: "보기순서" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "DB로그",
+        width: 120,
+        header: { text: "DB로그" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "사용",
+        width: 120,
+        header: { text: "사용" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "종류",
+        width: 120,
+        header: { text: "종류" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "220",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "도움말",
+        width: 220,
+        header: { text: "도움말" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "그룹별화면설정",
+        width: 120,
+        header: { text: "그룹별화면설정" },
       },
     ]);
 

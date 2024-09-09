@@ -4,12 +4,14 @@ const {
   BrowserWindow,
   dialog,
   ipcMain,
+  session,
 } = require("electron");
 const { autoUpdater } = require("electron-updater");
 const log = require("electron-log");
 const path = require("path");
 
 const loadUrl = "http://localhost:3000";
+const iconPath = path.join(__dirname, "../src/assets/icons/png/64x64.png");
 let windowCount = 0;
 
 // Local Update TEST
@@ -42,7 +44,7 @@ log.info("App starting...");
 // that updates are working.
 //-------------------------------------------------------------------
 let updateWindow;
-let win;
+let win = null;
 
 function sendStatusToWindow(text) {
   log.info(text);
@@ -55,6 +57,7 @@ const createUpdateWindow = () => {
     width: 300,
     height: 300,
     frame: false,
+    icon: iconPath,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -62,6 +65,11 @@ const createUpdateWindow = () => {
 
   updateWindow.loadFile(path.join(__dirname, "../build/version.html"));
   updateWindow.webContents.openDevTools({ mode: "detach" });
+
+  // macOS의 Dock 아이콘 설정
+  if (process.platform === "darwin") {
+    app.dock.setIcon(iconPath);
+  }
 };
 
 const createWindow = () => {
@@ -79,6 +87,7 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true, // 이 옵션을 true로 유지하는 것이 좋습니다.
+      // session: session.defaultSession,
       preload: path.join(__dirname, "preload.js"),
     },
   });
@@ -92,8 +101,8 @@ const createWindow = () => {
   }
 
   win?.once("ready-to-show", () => win?.show());
-  win?.on('close', () => {
-    win.webContents.executeJavaScript('localStorage.clear();');
+  win?.on("close", () => {
+    win.webContents.executeJavaScript("localStorage.clear();");
   });
   win?.on("closed", () => {
     win = null;
@@ -166,33 +175,49 @@ ipcMain.on("restart_app", () => {
   autoUpdater.quitAndInstall();
 });
 
-ipcMain.on("open-new-window", (event, args) => {
-  const { route, width, height } = args;
-  log.info("open-new-window...", args);
+ipcMain.on("open-popup", (event, args) => {
+  const { popupId, route, width, height } = args;
+  log.info("open-popup...", args);
 
   // 부모 창의 위치 가져오기
   const parentWindow = BrowserWindow.getFocusedWindow();
+  const parentSession = parentWindow.webContents.session;
+
   const [parentX, parentY] = parentWindow.getPosition();
 
   windowCount++;
   let offset = windowCount * 20;
-  let newWindow = new BrowserWindow({
-    minWidth: 1200,
-    minHeight: 800,
+  let popupWindow = new BrowserWindow({
+    minWidth: 800,
+    minHeight: 600,
     width: width || 800,
-    height: height || 800,
+    height: height || 600,
     x: parentX + offset, // x 위치
     y: parentY + offset, // y 위치
+    parent: parentWindow,
+    // modal: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
+      session: parentSession,
+      preload: path.join(__dirname, "popup-preload.js"), // preload.js 경로 설정
     },
   });
 
-  newWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
+  popupWindow.loadURL(`${loadUrl}${route}`); // 새로운 창에 로드할 URL
+  popupWindow.webContents.once("did-finish-load", () => {});
 
-  newWindow.on("closed", () => {
+  // 팝업에서 응답 받기
+  ipcMain.once(`popup-result-${popupId}`, (_, data) => {
+    event.sender.send(`popup-result-${popupId}`, data);
+  });
+
+  // 팝업이 닫힐 때
+  popupWindow.on("closed", () => {
     windowCount--;
+
+    // 부모 창으로 팝업이 닫혔다는 이벤트 전송
+    event.sender.send(`popup-closed-${popupId}`);
   });
 });
 
@@ -355,4 +380,35 @@ app.on("window-all-closed", () => {
 process.on("uncaughtException", (error) => {
   console.error("전역 예외 발생:", error);
   // 필요한 오류 처리 로직을 여기에 추가
+});
+
+/**
+ * Utility
+ */
+// 메인 창의 sessionStorage 데이터를 반환
+ipcMain.handle("get-session-data", () => {
+  log.info("get-session-data...");
+
+  return win?.webContents
+    .executeJavaScript("JSON.stringify(sessionStorage)")
+    .then((sessionData) => {
+      return JSON.parse(sessionData);
+    })
+    .catch((error) => {
+      log.error("Failed to retrieve sessionStorage from parent window:", error);
+    });
+});
+
+// 메인 창의 localStorage 데이터를 반환
+ipcMain.handle("get-storage-data", () => {
+  log.info("get-storage-data...");
+
+  return win?.webContents
+    .executeJavaScript("JSON.stringify(localStorage)")
+    .then((storageData) => {
+      return JSON.parse(storageData);
+    })
+    .catch((error) => {
+      log.error("Failed to retrieve localStorage from parent window:", error);
+    });
 });

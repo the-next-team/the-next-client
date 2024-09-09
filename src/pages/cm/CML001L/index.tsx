@@ -55,72 +55,56 @@ const columns = [
     name: "userId",
     fieldName: "userId",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용자ID",
   },
   {
     name: "crtDtm",
     fieldName: "crtDtm",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "로그인일시",
   },
   {
     name: "succYn",
     fieldName: "succYn",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "성공여부",
   },
   {
     name: "logTy",
     fieldName: "logTy",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "로그타입",
   },
   {
     name: "loginIp",
     fieldName: "loginIp",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "LOGIN IP",
   },
   {
     name: "logoutDtm",
     fieldName: "logoutDtm",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "로그아웃일시",
   },
   {
     name: "note",
     fieldName: "note",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "비고",
   },
   {
     name: "hostNm",
     fieldName: "hostNm",
     type: "data",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "Host",
   },
 ];

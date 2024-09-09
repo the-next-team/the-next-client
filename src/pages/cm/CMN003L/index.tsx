@@ -61,9 +61,7 @@ const columns = [
     fieldName: "id",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "순번",
       showTooltip: true,
@@ -79,9 +77,7 @@ const columns = [
     fieldName: "-",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "요청번호",
       showTooltip: false,
@@ -92,9 +88,7 @@ const columns = [
     fieldName: "code",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "전문코드",
   },
   {
@@ -102,9 +96,7 @@ const columns = [
     fieldName: "name",
     type: "data",
     width: "200",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "전문명",
       showTooltip: false,
@@ -116,9 +108,7 @@ const columns = [
     fieldName: "requestId",
     type: "data",
     width: "130",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "요청아이디",
       showTooltip: false,
@@ -130,9 +120,7 @@ const columns = [
     fieldName: "requestAt",
     type: "data",
     width: "200",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "요청일시",
       showTooltip: false,
@@ -143,9 +131,7 @@ const columns = [
     fieldName: "responseAt",
     type: "data",
     width: "200",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "응답일시",
       showTooltip: false,
@@ -156,9 +142,7 @@ const columns = [
     fieldName: "status",
     type: "data",
     width: "50",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "상태",
       showTooltip: false,
@@ -169,9 +153,7 @@ const columns = [
     fieldName: "createdUserId",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "처리자",
       showTooltip: false,
@@ -182,9 +164,7 @@ const columns = [
     fieldName: "inqMode",
     type: "data",
     width: "200",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "조회모드",
       showTooltip: false,
@@ -195,9 +175,7 @@ const columns = [
     fieldName: "caller",
     type: "data",
     width: "200",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "호출정보",
       showTooltip: false,

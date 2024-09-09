@@ -44,9 +44,7 @@ const columns = [
     fieldName: "DATE",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "일자",
       showTooltip: false,
@@ -61,9 +59,7 @@ const columns = [
     fieldName: "BIZ_YN",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "영업일여부",
       showTooltip: false,
@@ -74,9 +70,7 @@ const columns = [
     fieldName: "YEAR_WEEK",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "년주차",
   },
   {
@@ -84,9 +78,7 @@ const columns = [
     fieldName: "MONTH_WEEK",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "월주차",
   },
   {
@@ -94,9 +86,7 @@ const columns = [
     fieldName: "DESCRIPTION",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "비고",
   },
 ];

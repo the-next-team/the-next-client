@@ -70,9 +70,7 @@ const columns = [
     fieldName: "agentId",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "중개사ID",
       showTooltip: false,
@@ -87,9 +85,7 @@ const columns = [
     fieldName: "agentNm",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "중개사명",
       showTooltip: false,
@@ -100,9 +96,7 @@ const columns = [
     fieldName: "agentSnm",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "중개사명약어",
   },
   {
@@ -110,9 +104,7 @@ const columns = [
     fieldName: "brNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "관리부점",
   },
   {
@@ -120,9 +112,7 @@ const columns = [
     fieldName: "adNm",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "접수(광고)채널",
   },
   {
@@ -130,9 +120,7 @@ const columns = [
     fieldName: "crtId",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록자",
   },
   {
@@ -140,9 +128,7 @@ const columns = [
     fieldName: "crtDtm",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록일시",
   },
   {
@@ -150,9 +136,7 @@ const columns = [
     fieldName: "acno",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "계좌번호",
   },
   {
@@ -160,9 +144,7 @@ const columns = [
     fieldName: "invtId",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "혁신금융",
   },
   {
@@ -170,9 +152,7 @@ const columns = [
     fieldName: "replyUrl",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "응답URL",
   },
   {
@@ -180,9 +160,7 @@ const columns = [
     fieldName: "chgId",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "변경자",
   },
 ];

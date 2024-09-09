@@ -53,73 +53,49 @@ function Table() {
         name: "userId",
         fieldName: "userId",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "사용자ID",
+        header: { text: "사용자ID" },
       },
       {
         name: "crtDtm",
         fieldName: "crtDtm",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "로그인일시",
+        header: { text: "로그인일시" },
       },
       {
         name: "succYn",
         fieldName: "succYn",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "성공여부",
+        header: { text: "성공여부" },
       },
       {
         name: "logTy",
         fieldName: "logTy",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "로그타입",
+        header: { text: "로그타입" },
       },
       {
         name: "loginIp",
         fieldName: "loginIp",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "LOGIN IP",
+        header: { text: "LOGIN IP" },
       },
       {
         name: "logoutDtm",
         fieldName: "logoutDtm",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "로그아웃일시",
+        header: { text: "로그아웃일시" },
       },
       {
         name: "note",
         fieldName: "note",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "비고",
+        header: { text: "비고" },
       },
       {
         name: "hostNm",
         fieldName: "hostNm",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "Host",
+        header: { text: "Host" },
       },
     ]);
 

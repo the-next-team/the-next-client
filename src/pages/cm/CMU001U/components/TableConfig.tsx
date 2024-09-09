@@ -33,10 +33,7 @@ const columns = [
     name: "",
     fieldName: "",
     type: "data",
-    width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+    width: 100,
     header: {
       text: "사용자ID",
       showTooltip: false,
@@ -50,10 +47,7 @@ const columns = [
     name: "userNm",
     fieldName: "userNm",
     type: "data",
-    width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+    width: 150,
     header: {
       text: "사용자명",
       showTooltip: false,
@@ -63,71 +57,50 @@ const columns = [
     name: "",
     fieldName: "",
     type: "data",
-    width: "120",
-    styles: {
-      textAlignment: "center",
-    },
-    header: "시스템사번",
+    width: 120,
+    header: { text: "시스템사번" },
   },
   {
     name: "",
     fieldName: "",
     type: "data",
-    width: "120",
-    styles: {
-      textAlignment: "center",
-    },
-    header: "직급",
+    width: 120,
+    header: { text: "직급" },
   },
   {
     name: "",
     fieldName: "",
     type: "data",
-    width: "120",
-    styles: {
-      textAlignment: "center",
-    },
-    header: "사번",
+    width: 120,
+    header: { text: "사번" },
   },
   {
     name: "sabNm",
     fieldName: "sabNm",
     type: "data",
-    width: "120",
-    styles: {
-      textAlignment: "center",
-    },
-    header: "상태",
+    width: 120,
+    header: { text: "상태" },
   },
   {
     name: "brNm",
     fieldName: "brNm",
     type: "data",
-    width: "120",
-    styles: {
-      textAlignment: "center",
-    },
-    header: "부점",
+    width: 120,
+    header: { text: "부점" },
   },
   {
     name: "",
     fieldName: "",
     type: "data",
-    width: "120",
-    styles: {
-      textAlignment: "center",
-    },
-    header: "화면권한",
+    width: 120,
+    header: { text: "화면권한" },
   },
   {
     name: "",
     fieldName: "",
     type: "data",
-    width: "120",
-    styles: {
-      textAlignment: "center",
-    },
-    header: "이기종ID",
+    width: 120,
+    header: { text: "이기종ID" },
   },
 ];
 

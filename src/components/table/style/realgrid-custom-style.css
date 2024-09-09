@@ -2587,3 +2587,14 @@ THEME : Realgrid light(Default)
 .rg-focused-row {
   background: rgba(242, 161, 110, 0.8);
 }
+
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,4 +1,4 @@
-import "cleave.js/dist/addons/cleave-phone.us";
+import "cleave.js/dist/addons/cleave-phone.kr";
 import Cleave from "cleave.js/react";
 import {
   FocusEventHandler,
@@ -8,6 +8,7 @@ import {
 } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Icon from "../icons/Icon";
+import { Control, Controller } from "react-hook-form";
 
 type Props = {
   type?: HTMLInputTypeAttribute | undefined;
@@ -24,6 +25,8 @@ type Props = {
   validate?: string | undefined;
   horizontal?: boolean;
   isMask?: boolean;
+  control?: Control<any>;
+  name?: string;
   essential?: boolean;
   error?: any;
   value?: any;
@@ -54,6 +57,8 @@ const TextInput = (
     horizontal = false,
     validate,
     isMask = false,
+    name,
+    control,
     description,
     hasicon = false,
     // onChange,
@@ -106,30 +111,38 @@ const TextInput = (
             readOnly={readOnly}
             defaultValue={defaultValue}
             disabled={disabled}
+            name={name}
             // onChange={onChange}
             {...props}
           />
         )}
-        {isMask && (
-          <Cleave
-            // ref={ref}
-            id={id}
-            placeholder={placeholder}
-            options={options}
-            className={`${
-              error ? " has-error" : ""
-            } form-control text-xs py-1 border-slate-300 ${
-              readOnly
-                ? "!bg-white"
-                : essential
-                  ? "bg-warning-100"
-                  : "bg-primary-50"
-            } ${className}`}
-            onFocus={onFocus}
-            readOnly={readOnly}
-            disabled={disabled}
-            // onChange={onChange}
-            {...props}
+        {isMask && name && control && (
+          <Controller
+            name={name}
+            control={control}
+            render={({ field }) => (
+              <Cleave
+                {...field}
+                id={id}
+                options={options}
+                className={`${
+                  error ? "has-error" : ""
+                } form-control text-xs py-1 border-slate-300 ${
+                  readOnly
+                    ? "!bg-white"
+                    : essential
+                      ? "bg-warning-100"
+                      : "bg-primary-50"
+                } ${className}`}
+                onFocus={onFocus}
+                placeholder={placeholder}
+                readOnly={readOnly}
+                defaultValue={defaultValue}
+                disabled={disabled}
+                // onChange={onChange}
+                {...props}
+              />
+            )}
           />
         )}
         {/* icon */}

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import TextInput from "../../../../components/form/TextInput";
-import InputGroup from "../../../../components/form/InputGroup";
+import { useForm } from "react-hook-form";
+import StringUtil from "../../../../utils/stringUtil";
 
 const meta = {
   title: "Components/Forms/Input",
@@ -18,9 +19,6 @@ const meta = {
   argTypes: {
     type: {
       description: "타입",
-    },
-    label: {
-      description: "라벨",
     },
     placeholder: {
       description: "필드 임시 메시지",
@@ -64,9 +62,6 @@ const meta = {
     validate: {
       description: "검증",
     },
-    isMask: {
-      description: "입력 패턴 지정 여부",
-    },
     description: {
       description: "설명",
     },
@@ -86,38 +81,24 @@ const meta = {
       description: "기본값",
     },
   },
-  decorators: [(Story) => <Story />],
 } satisfies Meta<typeof TextInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    placeholder: "placeholder",
+  },
 };
 
 // Basic Inputs
 export const Basic: Story = () => (
   <div className="flex flex-col gap-4">
-    <TextInput type="text" label="Defult(기본)" placeholder="defult" />
-    <TextInput
-      type="text"
-      label="Essential(필수)"
-      placeholder="essential"
-      essential
-    />
-    <TextInput
-      type="text"
-      label="Readonly(읽기전용)"
-      readOnly
-      placeholder="readonly"
-    />
-    <TextInput
-      type="text"
-      label="Disabled(비활성화)"
-      disabled
-      placeholder="disabled"
-    />
+    <TextInput type="text" placeholder="defult" />
+    <TextInput type="text" placeholder="essential" essential />
+    <TextInput type="text" readOnly placeholder="readonly" />
+    <TextInput type="text" disabled placeholder="disabled" />
   </div>
 );
 Basic.args = {
@@ -128,13 +109,11 @@ Basic.args = {
 export const States: Story = () => (
   <div className="flex flex-col gap-4">
     <TextInput
-      label="Valid State"
       type="text"
       placeholder="Valid"
       validate="This is valid state."
     />
     <TextInput
-      label="Invalid State"
       type="text"
       placeholder="Invalid"
       error="This is invalid state"
@@ -146,73 +125,43 @@ States.args = {
 };
 
 // Mask
-export const Mask: Story = () => (
-  <div className="grid grid-cols-2 gap-6">
-    <TextInput
-      label="Credit Card(신용카드)"
-      isMask
-      options={{ creditCard: true }}
-      placeholder="0000 0000 0000 0000"
-    />
-    <InputGroup
-      label="Phone Number(휴대폰번호)"
-      prepend="MY (+6)"
-      placeholder="Phone Number"
-      options={{ phone: true, phoneRegionCode: "US" }}
-      isMask
-    />
-    <TextInput
-      label="Date(날짜)"
-      options={{ date: true, datePattern: ["Y", "m", "d"] }}
-      placeholder="YYYY-MM-DD"
-      isMask
-    />
-    <TextInput
-      label="Time(시간)"
-      options={{ time: true, timePattern: ["h", "m", "s"] }}
-      placeholder="HH:MM:SS"
-      isMask
-    />
-    <TextInput
-      label="Numeral Formatting(숫자)"
-      options={{ numeral: true }}
-      placeholder="10,000"
-      isMask
-    />
-    <TextInput
-      label="Blocks"
-      options={{ blocks: [4, 3, 3], uppercase: true }}
-      placeholder="Block[1,4,7]"
-      isMask
-    />
-    <TextInput
-      label="Delimiters"
-      options={{ delimiter: "·", blocks: [3, 3, 3], uppercase: true }}
-      placeholder="Delimiter: '.'"
-      isMask
-    />
-    <TextInput
-      label="Custom Delimiters"
-      options={{
-        delimiters: [".", ".", "-"],
-        blocks: [3, 3, 3, 2],
-        uppercase: true,
-      }}
-      placeholder="Delimiter: ['.', '.', '-']"
-      isMask
-    />
-    <TextInput
-      label="prefix"
-      options={{
-        prefix: "+88",
-        blocks: [3, 3, 3, 4],
-        uppercase: true,
-      }}
-      placeholder="+88"
-      isMask
-    />
-  </div>
-);
+export const Mask: Story = {
+  render: function render() {
+    const { register } = useForm({
+      mode: "onChange",
+    });
+
+    return (
+      <div className="flex flex-col gap-6">
+        <TextInput
+          placeholder="(주민번호) ######-#######"
+          className="w-52"
+          {...register("residentNumber", {
+            onChange(e) {
+              e.target.value = StringUtil.ResidentNumberFormat(e.target.value);
+            },
+          })}
+        />
+        <TextInput
+          placeholder="(휴대폰번호) ###-####-####"
+          {...register("phoneNumber", {
+            onChange(e) {
+              e.target.value = StringUtil.PhoneNumberFormat(e.target.value);
+            },
+          })}
+        />
+        <TextInput
+          placeholder="(신용카드) #### #### #### ####"
+          {...register("creditCard", {
+            onChange(e) {
+              e.target.value = StringUtil.CreditCardFormat(e.target.value);
+            },
+          })}
+        />
+      </div>
+    );
+  },
+};
 Mask.args = {
   ...Mask.args,
 };

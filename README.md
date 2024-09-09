@@ -36,3 +36,7 @@ yarn start
 ##### dayjs
 - 날짜
 - https://day.js.org
+
+##### electron-icon-maker
+- npm install -g electron-icon-maker
+- electron-icon-maker --input={absolutePath}/sample-icon.png --output=./src/assets

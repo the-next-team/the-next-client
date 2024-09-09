@@ -58,9 +58,7 @@ const columns = [
     fieldName: "fsbEmpNo",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "이기종사번",
   },
   {
@@ -68,9 +66,7 @@ const columns = [
     fieldName: "fsbEmpNm",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "이기종사용자명",
   },
   {
@@ -78,9 +74,7 @@ const columns = [
     fieldName: "brNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "부서",
   },
   {
@@ -88,9 +82,7 @@ const columns = [
     fieldName: "fsbNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "용도",
   },
   {
@@ -98,9 +90,7 @@ const columns = [
     fieldName: "fsbCd",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "이기종 지점코드",
   },
   {
@@ -108,9 +98,7 @@ const columns = [
     fieldName: "fsbTeamCode",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "이기종 팀코드",
   },
   {
@@ -118,9 +106,7 @@ const columns = [
     fieldName: "pwChgDtm",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "비밀번호변경일",
   },
   {
@@ -128,9 +114,7 @@ const columns = [
     fieldName: "pwExprDtm",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "비밀번호만료일",
   },
   {
@@ -138,9 +122,7 @@ const columns = [
     fieldName: "loginErrCnt",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "비밀번호오류횟수",
   },
 ];

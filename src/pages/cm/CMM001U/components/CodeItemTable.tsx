@@ -44,11 +44,8 @@ function CodeItemTable({ item, onClick }: Props) {
         name: "sysCd",
         fieldName: "sysCd",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "화면그룹코드",
+        width: 150,
+        header: { text: "화면그룹코드" },
         renderer: {
           type: "text",
           showTooltip: true,
@@ -58,21 +55,15 @@ function CodeItemTable({ item, onClick }: Props) {
         name: "sysNm",
         fieldName: "sysNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "메뉴명",
+        width: 150,
+        header: { text: "메뉴명" },
       },
       {
         name: "viewSeq",
         fieldName: "viewSeq",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "보기순서",
+        width: 150,
+        header: { text: "보기순서" },
       },
     ]);
     gv.onCellClicked = (grid, data) => {

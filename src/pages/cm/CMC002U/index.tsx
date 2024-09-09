@@ -28,7 +28,7 @@ const fields = [
   },
   {
     fieldName: "depNm",
-    dataType: ValueType.NUMBER,
+    dataType: ValueType.TEXT,
   },
   {
     fieldName: "viewSeq",
@@ -54,9 +54,7 @@ const columns = [
     fieldName: "brCode",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "부점코드",
       showTooltip: true,
@@ -72,9 +70,7 @@ const columns = [
     fieldName: "brNm",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "부점명",
       showTooltip: false,
@@ -85,9 +81,7 @@ const columns = [
     fieldName: "depCode",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "팀(파트)코드",
   },
   {
@@ -95,9 +89,7 @@ const columns = [
     fieldName: "depNm",
     type: "data",
     width: "130",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "팀(파트)명",
       showTooltip: false,
@@ -109,9 +101,7 @@ const columns = [
     fieldName: "viewSeq",
     type: "data",
     width: "130",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "보기순서",
       showTooltip: false,
@@ -123,9 +113,7 @@ const columns = [
     fieldName: "depTelno",
     type: "data",
     width: "300",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "대표번호",
       showTooltip: false,
@@ -136,9 +124,7 @@ const columns = [
     fieldName: "depFaxno",
     type: "data",
     width: "300",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "팩스번호",
       showTooltip: false,
@@ -149,9 +135,7 @@ const columns = [
     fieldName: "useYn",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "사용여부",
       showTooltip: false,
@@ -210,38 +194,40 @@ function CMC002U() {
         />
       </div>
 
-      <div className="flex-grow">
-        <RealGridTable
-          ref={realGridRef}
-          fields={fields}
-          columns={columns}
-          onCellClicked={(grid, data) => {
-            console.log("onCellClicked", data.itemIndex);
-            if (data.itemIndex) {
-              setSelectedIndex(data.itemIndex);
-            }
-          }}
-        />
-      </div>
+      <div className="flex-grow flex grid-cols-2">
+        <div className="flex-grow">
+          <RealGridTable
+            ref={realGridRef}
+            fields={fields}
+            columns={columns}
+            onCellClicked={(grid, data) => {
+              console.log("onCellClicked", data.itemIndex);
+              if (data.itemIndex) {
+                setSelectedIndex(data.itemIndex);
+              }
+            }}
+          />
+        </div>
 
-      {/* Footer */}
-      <div className="">
-        <FooterForm
-          initialValues={selectedIndex ? items[selectedIndex] : null}
-          onAdd={(data) => {
-            console.log("onAdd", data);
-          }}
-          onEdit={(data) => {
-            console.log("onEdit", data);
-          }}
-          onReset={() => {
-            console.log("onReset");
-            setSelectedIndex(null);
-          }}
-          onDelete={() => {
-            console.log("onDelete");
-          }}
-        />
+        {/* Footer */}
+        <div className="">
+          <FooterForm
+            initialValues={selectedIndex ? items[selectedIndex] : null}
+            onAdd={(data) => {
+              console.log("onAdd", data);
+            }}
+            onEdit={(data) => {
+              console.log("onEdit", data);
+            }}
+            onReset={() => {
+              console.log("onReset");
+              setSelectedIndex(null);
+            }}
+            onDelete={() => {
+              console.log("onDelete");
+            }}
+          />
+        </div>
       </div>
     </div>
   );

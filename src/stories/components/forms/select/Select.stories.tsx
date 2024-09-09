@@ -113,21 +113,14 @@ export const Default: Story = {
 };
 
 // Basic
-export const Basic: Story = () => (
-  <Select label="Basic Select" options={options} />
-);
+export const Basic: Story = () => <Select label="Basic" options={options} />;
 Basic.args = {
   ...Basic.args,
 };
 
 // Disabled
 export const Disabled: Story = () => (
-  <Select
-    label="Disabled Select"
-    options={options}
-    onChange={() => {}}
-    disabled
-  />
+  <Select label="Disabled" options={options} onChange={() => {}} disabled />
 );
 Disabled.args = {
   ...Disabled.args,

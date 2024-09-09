@@ -61,9 +61,7 @@ const columns = [
     fieldName: "adNo",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "접수(광고)채널번호",
       showTooltip: false,
@@ -78,9 +76,7 @@ const columns = [
     fieldName: "adNm",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "접수채널명",
       showTooltip: false,
@@ -91,9 +87,7 @@ const columns = [
     fieldName: "adSnm",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "채널명(약어)",
   },
   {
@@ -101,9 +95,7 @@ const columns = [
     fieldName: "adaNm",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "접수경로",
   },
   {
@@ -111,9 +103,7 @@ const columns = [
     fieldName: "adbNm",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "통계구분",
   },
   {
@@ -121,9 +111,7 @@ const columns = [
     fieldName: "invtId",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "권유자ID",
   },
   {
@@ -131,9 +119,7 @@ const columns = [
     fieldName: "useYn",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용여부",
   },
   {
@@ -141,9 +127,7 @@ const columns = [
     fieldName: "chgId",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록자",
   },
   {
@@ -151,9 +135,7 @@ const columns = [
     fieldName: "chgDtm",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록일시",
   },
 ];

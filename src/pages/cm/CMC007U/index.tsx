@@ -49,9 +49,7 @@ const columns = [
     fieldName: "brCode",
     type: "data",
     width: "150",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "부점코드",
       showTooltip: false,
@@ -66,9 +64,7 @@ const columns = [
     fieldName: "brNm",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+    styleName: "text-left",
     header: {
       text: "부점명",
       showTooltip: false,
@@ -79,9 +75,7 @@ const columns = [
     fieldName: "",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "부점약어",
   },
   {
@@ -89,9 +83,7 @@ const columns = [
     fieldName: "viewSeq",
     type: "data",
     width: "80",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "보기순서",
   },
   {
@@ -99,9 +91,7 @@ const columns = [
     fieldName: "brTelno",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "대표번호",
   },
   {
@@ -109,9 +99,7 @@ const columns = [
     fieldName: "brFaxno",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "팩스번호",
   },
   {
@@ -119,9 +107,7 @@ const columns = [
     fieldName: "",
     type: "data",
     width: "180",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록자",
   },
   {
@@ -129,9 +115,7 @@ const columns = [
     fieldName: "crtDtm",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "등록일시",
   },
 ];

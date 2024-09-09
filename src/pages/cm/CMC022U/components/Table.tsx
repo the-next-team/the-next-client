@@ -37,10 +37,7 @@ function Table() {
         name: "kind",
         fieldName: "kind",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "중개사ID",
           showTooltip: false,
@@ -54,10 +51,7 @@ function Table() {
         name: "name",
         fieldName: "name",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "중개사명",
           showTooltip: false,
@@ -67,71 +61,50 @@ function Table() {
         name: "number",
         fieldName: "number",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "조직코드",
+        width: 150,
+        header: { text: "조직코드" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "조직명",
+        width: 120,
+        header: { text: "조직명" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "중개조직 구조",
+        width: 180,
+        header: { text: "중개조직 구조" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "보기순서",
+        width: 120,
+        header: { text: "보기순서" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "사용여부",
+        width: 120,
+        header: { text: "사용여부" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록자",
+        width: 180,
+        header: { text: "등록자" },
       },
       {
         name: "",
         fieldName: "",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "등록일시",
+        width: 180,
+        header: { text: "등록일시" },
       },
     ]);
 

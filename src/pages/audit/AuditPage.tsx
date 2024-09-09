@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import { usePopupChild } from "../../hooks/usePopupChild";
 import useQueryParams from "../../hooks/useQueryParams";
 
 function AuditPage() {
@@ -7,6 +8,13 @@ function AuditPage() {
 
   // URLSearchParams를 사용하여 파라미터 읽기
   const inspNo = params.get("inspNo");
+
+  const { sendResultToParent, closePopup , popupId} = usePopupChild();
+
+  const handleSubmit = () => {
+    const result = { message: "Task completed!" };
+    sendResultToParent(result);  // 부모 창으로 데이터 전달 후 닫기
+  };
 
   const [select, setSelect] = useState<number>(0);
   const tab = [
@@ -24,6 +32,8 @@ function AuditPage() {
   return (
     <div className="w-full h-full text-custom-black">
       {/* header */}
+      <button onClick={handleSubmit}>TEST {popupId} 응답</button>
+      <button onClick={closePopup}>TEST {popupId} 닫기</button>
       <div className="flex items-center h-12 gap-1 px-4 overflow-x-auto text-sm bg-white break-keep">
         <div className="flex gap-1">
           <p className="text-[8px]">▶︎</p>

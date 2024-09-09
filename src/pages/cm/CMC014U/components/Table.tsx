@@ -53,10 +53,7 @@ function Table() {
         name: "agentId",
         fieldName: "agentId",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "중개사ID",
           showTooltip: false,
@@ -70,10 +67,7 @@ function Table() {
         name: "agentNm",
         fieldName: "agentNm",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "중개사명",
           showTooltip: false,
@@ -83,62 +77,44 @@ function Table() {
         name: "lpTreeCd",
         fieldName: "lpTreeCd",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "조직코드",
+        width: 150,
+        header: { text: "조직코드" },
       },
 
       {
         name: "lpTreeStructure",
         fieldName: "lpTreeStructure",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "중개조직 구조",
+        width: 180,
+        header: { text: "중개조직 구조" },
       },
       {
         name: "crtId",
         fieldName: "crtId",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "모집인ID",
+        width: 120,
+        header: { text: "모집인ID" },
       },
       {
         name: "lpNm",
         fieldName: "lpNm",
         type: "data",
-        width: "120",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "모집인명",
+        width: 120,
+        header: { text: "모집인명" },
       },
       {
         name: "lpaCd",
         fieldName: "lpaCd",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "권한",
+        width: 180,
+        header: { text: "권한" },
       },
       {
         name: "useYn",
         fieldName: "useYn",
         type: "data",
-        width: "180",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "사용여부",
+        width: 180,
+        header: { text: "사용여부" },
       },
     ]);
 

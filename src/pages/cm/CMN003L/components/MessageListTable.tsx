@@ -64,10 +64,7 @@ function MessageListTable({ items }: Props) {
         name: "id",
         fieldName: "id",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "순번",
           showTooltip: true,
@@ -82,10 +79,7 @@ function MessageListTable({ items }: Props) {
         name: "-",
         fieldName: "-",
         type: "data",
-        width: "150",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 150,
         header: {
           text: "요청번호",
           showTooltip: false,
@@ -95,20 +89,14 @@ function MessageListTable({ items }: Props) {
         name: "code",
         fieldName: "code",
         type: "data",
-        width: "100",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "전문코드",
+        width: 100,
+        header: { text: "전문코드" },
       },
       {
         name: "name",
         fieldName: "name",
         type: "data",
-        width: "200",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 200,
         header: {
           text: "전문명",
           showTooltip: false,
@@ -119,10 +107,7 @@ function MessageListTable({ items }: Props) {
         name: "requestId",
         fieldName: "requestId",
         type: "data",
-        width: "130",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 130,
         header: {
           text: "요청아이디",
           showTooltip: false,
@@ -133,10 +118,7 @@ function MessageListTable({ items }: Props) {
         name: "requestAt",
         fieldName: "requestAt",
         type: "data",
-        width: "200",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 200,
         header: {
           text: "요청일시",
           showTooltip: false,
@@ -146,10 +128,7 @@ function MessageListTable({ items }: Props) {
         name: "responseAt",
         fieldName: "responseAt",
         type: "data",
-        width: "200",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 200,
         header: {
           text: "응답일시",
           showTooltip: false,
@@ -159,10 +138,7 @@ function MessageListTable({ items }: Props) {
         name: "status",
         fieldName: "status",
         type: "data",
-        width: "50",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 50,
         header: {
           text: "상태",
           showTooltip: false,
@@ -172,10 +148,7 @@ function MessageListTable({ items }: Props) {
         name: "createdUserId",
         fieldName: "createdUserId",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "처리자",
           showTooltip: false,
@@ -185,10 +158,7 @@ function MessageListTable({ items }: Props) {
         name: "inqMode",
         fieldName: "inqMode",
         type: "data",
-        width: "50",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 50,
         header: {
           text: "조회모드",
           showTooltip: false,
@@ -198,10 +168,7 @@ function MessageListTable({ items }: Props) {
         name: "caller",
         fieldName: "caller",
         type: "data",
-        width: "200",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 200,
         header: {
           text: "호출정보",
           showTooltip: false,

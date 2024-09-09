@@ -1,38 +1,43 @@
-import useIsElectron from "../../hooks/useIsElectron";
+import { usePopupOpener } from "../../hooks/usePopupOpener";
 import Button from "./Button";
 
 type Props = {
+  popupId?: string;
   path: string;
   width: number;
   height: number;
   children: React.ReactNode;
+  params?: Record<string, string>;
+  onResult?: (data: any) => void;
+  onClose?: () => void;
 };
 
-function PopupButton({ path, width, height, children }: Props) {
-  const isElectron = useIsElectron();
-  const openNewWindow = () => {
-    let route = path;
-    if (window.location.href.includes("#")) {
-      route = `/#${path}`;
-    }
+function PopupButton({
+  popupId,
+  path,
+  width,
+  height,
+  params,
+  children,
+  onResult,
+  onClose,
+}: Props) {
+  const { openPopup } = usePopupOpener();
 
-    if (!isElectron) {
-      const left = window.screenX + (window.outerWidth - width) / 2;
-      const top = window.screenY + (window.outerHeight - height) / 2;
-      const windowFeatures = `width=${width},height=${height},left=${left},top=${top}`;
-      const popup = window.open(route, undefined, windowFeatures);
-      return popup;
-    }
-
-    window.electron?.ipcRenderer.sendMessage("open-new-window", {
-      route: route, // 새 창에서 열 경로
-      width: width, // 창의 넓이
-      height: height, // 창의 높이
+  const handleOpenPopup = () => {
+    openPopup({
+      popupId,
+      path,
+      width,
+      params,
+      height,
+      onResult,
+      onClose,
     });
   };
 
   return (
-    <Button className="btn-sm btn-primary" onClick={openNewWindow}>
+    <Button className="btn-sm btn-primary" onClick={handleOpenPopup}>
       {children}
     </Button>
   );

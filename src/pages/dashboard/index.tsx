@@ -1,25 +1,18 @@
+import { Icon } from "@iconify/react";
 import { NotificationService } from "../../api/services/notification/notificationService";
 import Button from "../../components/button/Button";
 import PopupButton from "../../components/button/PopupButton";
+import useNotification from "../../hooks/useNotification";
+import BalanceDelayRealChart from "./components/chart/BalanceDelayRealChart";
+import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
+import LoanAmountRealChart from "./components/chart/LoanAmountRealChart";
+import LoanPerformanceRealChart from "./components/chart/LoanPerformanceRealChart";
+import ProfitAndLossStatusRealChart from "./components/chart/ProfitAndLossStatusRealChart";
 import CalendarView from "./components/widget/CalendarView";
 import Profile from "./components/widget/profile";
 import RecentActivity from "./components/widget/recent-activity";
 import TaskLists from "./components/widget/task-list";
-import useNotification from "../../hooks/useNotification";
-import BalanceDelayChart from "./components/chart/BalanceDelayChart";
-import LoanAmountChart from "./components/chart/LoanAmountChart";
-import LoanPerformanceChart from "./components/chart/LoanPerformanceChart";
-import MonthlyBalanceChart from "./components/chart/MonthlyBalanceChart";
-import PerformanceStatusGroup from "./components/chart/PerformanceStatusGroup";
-import ProfitAndLossStatusChart from "./components/chart/ProfitAndLossStatusChart";
-import { Icon } from "@iconify/react";
-import ProfitAndLossStatusRealChart from "./components/ProfitAndLossStatusRealChart";
-import BalanceDelayRealChart from "./components/BalanceDelayRealChart";
-import { useState } from "react";
-import DatePicker from "react-datepicker";
-import ko from "date-fns/locale/ko";
-import LoanPerformanceRealChart from "./components/LoanPerformanceRealChart";
-import LoanAmountRealChart from "./components/LoanAmountRealChart";
+import MonthlyBalanceRealChart from "./components/chart/MonthlyBalanceRealChart";
 
 const Card = ({
   title,
@@ -48,40 +41,11 @@ const Card = ({
 
 function Dashboard() {
   const { show } = useNotification();
-  const [date, setDate] = useState<Date | null>(new Date());
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
-  const [endDate, setEndDate] = useState<Date | null>(new Date());
 
   return (
     <div className="flex gap-2 overflow-x-hidden">
       <div className="space-y-2 w-80">
         <Profile />
-        <Card title="react-datepicker 예시" className="flex flex-col gap-1">
-          <DatePicker
-            className="w-52"
-            locale={ko}
-            dateFormat="yyyy.MM.dd"
-            shouldCloseOnSelect
-            minDate={new Date()}
-            maxDate={new Date("2030-12-31")}
-            selected={date}
-            onChange={(date) => setDate(date)}
-          />
-          <DatePicker
-            className="w-52"
-            locale={ko}
-            dateFormat="yyyy.MM.dd"
-            selected={startDate}
-            onChange={(dates) => {
-              const [start, end] = dates;
-              setStartDate(start ?? null);
-              setEndDate(end);
-            }}
-            startDate={startDate ?? undefined}
-            endDate={endDate ?? undefined}
-            selectsRange
-          />
-        </Card>
         {/* TO-DO List */}
         <Card title="TO-DO List">
           <div className="pb-3">
@@ -102,38 +66,35 @@ function Dashboard() {
         </Card>
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="채널별 대출실적">
-            <LoanPerformanceChart />
             <LoanPerformanceRealChart />
           </Card>
           <Card title="기간별 대출금액 현황">
-            <LoanAmountChart />
             <LoanAmountRealChart />
           </Card>
         </div>
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="채널별 잔액/연체 분표도">
-            <BalanceDelayChart />
-          </Card>
-          <Card title="채널별 잔액/연체 분표도 (RealChart)">
             <BalanceDelayRealChart />
           </Card>
-        </div>
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <Card title="손익현황">
-            <ProfitAndLossStatusChart />
-          </Card>
-          <Card title="손익현황 (RealChart)">
             <ProfitAndLossStatusRealChart />
           </Card>
         </div>
         <Card title="여.수신월별잔액">
-          <MonthlyBalanceChart />
+          <MonthlyBalanceRealChart />
         </Card>
         <div className="flex items-start gap-2">
           <PopupButton
             width={1600}
             height={1000}
-            path={"/audit?inspNo=3384222342011"}
+            path={"/audit"}
+            params={{ inspNo: "3384222342011" }}
+            onClose={() => {
+              console.log("onClose");
+            }}
+            onResult={(data: any) => {
+              console.log("onResult", data);
+            }}
             children={<p>open popup</p>}
           />
           <PopupButton
@@ -141,6 +102,12 @@ function Dashboard() {
             height={700}
             path={"/address"}
             children={<p>address popup</p>}
+          />
+          <PopupButton
+            width={1000}
+            height={700}
+            path={"/samplePage"}
+            children={<p>sample popup</p>}
           />
           <Button
             className="btn-sm btn-primary"

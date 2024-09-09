@@ -36,10 +36,7 @@ function Table() {
         name: "jobCode",
         fieldName: "jobCode",
         type: "data",
-        width: "80",
-        styles: {
-          textAlignment: "center",
-        },
+        width: 80,
         header: {
           text: "직업코드",
           showTooltip: false,
@@ -53,10 +50,7 @@ function Table() {
         name: "jobName",
         fieldName: "jobName",
         type: "data",
-        width: "300",
-        styles: {
-          textAlignment: "left",
-        },
+        width: 300,
         header: {
           text: "직업명",
           showTooltip: false,
@@ -66,31 +60,22 @@ function Table() {
         name: "jobLevel1",
         fieldName: "jobLevel1",
         type: "data",
-        width: "100",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "직업등급1",
+        width: 100,
+        header: { text: "직업등급1" },
       },
       {
         name: "jobLevel2",
         fieldName: "jobLevel2",
         type: "data",
-        width: "100",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "직업등급2",
+        width: 100,
+        header: { text: "직업등급2" },
       },
       {
         name: "acctJobCode",
         fieldName: "acctJobCode",
         type: "data",
-        width: "100",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "계정계 직업코드",
+        width: 100,
+        header: { text: "계정계 직업코드" },
       },
     ]);
 

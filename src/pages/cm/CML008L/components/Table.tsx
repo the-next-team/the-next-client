@@ -41,46 +41,31 @@ function Table() {
         name: "prtId",
         fieldName: "prtId",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "출력자ID",
+        header: { text: "출력자ID" },
       },
       {
         name: "brCode",
         fieldName: "department",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "출력자 부서",
+        header: { text: "출력자 부서" },
       },
       {
         name: "prtUserNm",
         fieldName: "prtUserNm",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "출력자명",
+        header: { text: "출력자명" },
       },
       {
         name: "prtDtm",
         fieldName: "prtDtm",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "출력일시",
+        header: { text: "출력일시" },
       },
       {
         name: "prtNm",
         fieldName: "prtNm",
         type: "data",
-        styles: {
-          textAlignment: "center",
-        },
-        header: "출력물",
+        header: { text: "출력물" },
       },
     ]);
 

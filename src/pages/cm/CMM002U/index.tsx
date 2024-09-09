@@ -62,9 +62,7 @@ const columns = [
     fieldName: "a",
     type: "data",
     width: "100",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "시스템명",
       showTooltip: false,
@@ -79,9 +77,7 @@ const columns = [
     fieldName: "b",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: {
       text: "메뉴명",
       showTooltip: false,
@@ -92,9 +88,7 @@ const columns = [
     fieldName: "c",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "프로그램ID",
   },
   {
@@ -102,9 +96,7 @@ const columns = [
     fieldName: "d",
     type: "data",
     width: "200",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "프로그램명",
   },
   {
@@ -112,9 +104,7 @@ const columns = [
     fieldName: "e",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "보기순서",
   },
   {
@@ -122,9 +112,7 @@ const columns = [
     fieldName: "f",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "DB로그",
   },
   {
@@ -132,9 +120,7 @@ const columns = [
     fieldName: "g",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "사용",
   },
   {
@@ -142,9 +128,7 @@ const columns = [
     fieldName: "h",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "종류",
   },
   {
@@ -152,9 +136,7 @@ const columns = [
     fieldName: "i",
     type: "data",
     width: "220",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "도움말",
   },
   {
@@ -162,9 +144,7 @@ const columns = [
     fieldName: "j",
     type: "data",
     width: "120",
-    styles: {
-      textAlignment: "center",
-    },
+
     header: "그룹별화면설정",
   },
 ];
